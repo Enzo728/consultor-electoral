@@ -36,6 +36,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python analizador_ia.py
 
+      - name: Registrar histórico diario (momentum)
+        run: python tracker_historico.py
+
       - name: Auto-commit de data/
         run: |
           git config user.name "github-actions[bot]"

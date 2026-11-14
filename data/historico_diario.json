@@ -1,0 +1,1914 @@
+{
+  "actualizado": "2026-11-14T12:41:52",
+  "dias": {
+    "2026-11-14": {
+      "fecha": "2026-11-14",
+      "medias": {
+        "PP": 30.31,
+        "PSOE": 28.67,
+        "VOX": 18.22,
+        "FA": 6.75,
+        "ERC": 2.53,
+        "JUNTS": 1.31,
+        "EH Bildu": 1.41,
+        "PNV": 0.81,
+        "BNG": 0.95,
+        "CCa": 0.42,
+        "AA": 1.48,
+        "PODEMOS": 1.64,
+        "SALF": 1.91,
+        "C-FV": 1.14
+      },
+      "escaños": {
+        "PP": 116,
+        "SALF": 2,
+        "CCa": 1,
+        "FA": 25,
+        "PODEMOS": 2,
+        "JUNTS": 3,
+        "VOX": 70,
+        "EH Bildu": 3,
+        "BNG": 2,
+        "AA": 4,
+        "ERC": 7,
+        "C-FV": 3,
+        "PSOE": 110,
+        "PNV": 2
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 226,
+        "distancia_176": 50,
+        "texto_distancia": "+50 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 116,
+          "PSOE": 110
+        }
+      },
+      "origen": "live",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.47,
+          "delta_1d": null,
+          "delta_7d": 0.02,
+          "delta_30d": 0.51,
+          "momentum_delta": 0.02,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.98,
+          "delta_1d": null,
+          "delta_7d": 0.05,
+          "delta_30d": 0.05,
+          "momentum_delta": 0.05,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 0.9,
+          "delta_1d": null,
+          "delta_7d": -0.29,
+          "delta_30d": 0.22,
+          "momentum_delta": -0.29,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.42,
+          "delta_1d": null,
+          "delta_7d": 0.01,
+          "delta_30d": -0.03,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.45,
+          "delta_1d": null,
+          "delta_7d": 0.07,
+          "delta_30d": 0.06,
+          "momentum_delta": 0.07,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.53,
+          "delta_1d": null,
+          "delta_7d": 0.02,
+          "delta_30d": 0.25,
+          "momentum_delta": 0.02,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.93,
+          "delta_1d": null,
+          "delta_7d": 0.29,
+          "delta_30d": -0.49,
+          "momentum_delta": 0.29,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.3,
+          "delta_1d": null,
+          "delta_7d": -0.03,
+          "delta_30d": -0.07,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.8,
+          "delta_1d": null,
+          "delta_7d": -0.03,
+          "delta_30d": -0.13,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 1.58,
+          "delta_1d": null,
+          "delta_7d": -0.18,
+          "delta_30d": -1.4,
+          "momentum_delta": -0.18,
+          "estado": "Estancado ➡️"
+        },
+        "PP": {
+          "media_7d": 29.49,
+          "delta_1d": null,
+          "delta_7d": -1.36,
+          "delta_30d": -1.61,
+          "momentum_delta": -1.36,
+          "estado": "Caída libre ⚠️"
+        },
+        "PSOE": {
+          "media_7d": 30.26,
+          "delta_1d": null,
+          "delta_7d": 2.81,
+          "delta_30d": 2.01,
+          "momentum_delta": 2.81,
+          "estado": "Subiendo fuerte 🚀"
+        },
+        "SALF": {
+          "media_7d": 2.07,
+          "delta_1d": null,
+          "delta_7d": 0.23,
+          "delta_30d": 0.21,
+          "momentum_delta": 0.23,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 17.75,
+          "delta_1d": null,
+          "delta_7d": -0.95,
+          "delta_30d": -0.44,
+          "momentum_delta": -0.95,
+          "estado": "En retroceso 📉"
+        }
+      }
+    },
+    "2026-11-11": {
+      "fecha": "2026-11-11",
+      "medias": {
+        "PP": 30.46,
+        "PSOE": 28.22,
+        "VOX": 18.46,
+        "FA": 6.71,
+        "ERC": 2.5,
+        "JUNTS": 1.32,
+        "EH Bildu": 1.4,
+        "PNV": 0.83,
+        "BNG": 0.95,
+        "CCa": 0.41,
+        "AA": 1.43,
+        "PODEMOS": 1.76,
+        "SALF": 1.92,
+        "C-FV": 1.12,
+        "SUMAR": 6.98,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 70,
+        "PODEMOS": 2,
+        "PP": 117,
+        "PNV": 2,
+        "C-FV": 3,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 108,
+        "CCa": 1,
+        "AA": 3,
+        "EH Bildu": 3,
+        "JUNTS": 3
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 225,
+        "distancia_176": 49,
+        "texto_distancia": "+49 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 117,
+          "PSOE": 108
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.5,
+          "delta_1d": null,
+          "delta_7d": 0.22,
+          "delta_30d": 0.46,
+          "momentum_delta": 0.22,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.96,
+          "delta_1d": null,
+          "delta_7d": 0.05,
+          "delta_30d": 0.02,
+          "momentum_delta": 0.05,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.17,
+          "delta_1d": null,
+          "delta_7d": 0.14,
+          "delta_30d": null,
+          "momentum_delta": 0.14,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.41,
+          "delta_1d": null,
+          "delta_7d": 0.0,
+          "delta_30d": -0.01,
+          "momentum_delta": 0.0,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.42,
+          "delta_1d": null,
+          "delta_7d": 0.07,
+          "delta_30d": 0.03,
+          "momentum_delta": 0.07,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.55,
+          "delta_1d": null,
+          "delta_7d": 0.17,
+          "delta_30d": 0.3,
+          "momentum_delta": 0.17,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.82,
+          "delta_1d": null,
+          "delta_7d": 0.41,
+          "delta_30d": null,
+          "momentum_delta": 0.41,
+          "estado": "En ligero ascenso 📈"
+        },
+        "JUNTS": {
+          "media_7d": 1.29,
+          "delta_1d": null,
+          "delta_7d": -0.14,
+          "delta_30d": -0.11,
+          "momentum_delta": -0.14,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.81,
+          "delta_1d": null,
+          "delta_7d": -0.05,
+          "delta_30d": -0.15,
+          "momentum_delta": -0.05,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 1.58,
+          "delta_1d": null,
+          "delta_7d": -0.57,
+          "delta_30d": -1.44,
+          "momentum_delta": -0.57,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 30.08,
+          "delta_1d": null,
+          "delta_7d": -1.32,
+          "delta_30d": -1.7,
+          "momentum_delta": -1.32,
+          "estado": "Caída libre ⚠️"
+        },
+        "PSOE": {
+          "media_7d": 28.99,
+          "delta_1d": null,
+          "delta_7d": 2.74,
+          "delta_30d": 1.82,
+          "momentum_delta": 2.74,
+          "estado": "Subiendo fuerte 🚀"
+        },
+        "SALF": {
+          "media_7d": 1.91,
+          "delta_1d": null,
+          "delta_7d": -0.08,
+          "delta_30d": 0.21,
+          "momentum_delta": -0.08,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 18.1,
+          "delta_1d": null,
+          "delta_7d": -1.35,
+          "delta_30d": -0.33,
+          "momentum_delta": -1.35,
+          "estado": "Caída libre ⚠️"
+        }
+      }
+    },
+    "2026-11-08": {
+      "fecha": "2026-11-08",
+      "medias": {
+        "PP": 30.7,
+        "PSOE": 27.66,
+        "VOX": 18.64,
+        "FA": 6.71,
+        "ERC": 2.49,
+        "JUNTS": 1.32,
+        "EH Bildu": 1.37,
+        "PNV": 0.84,
+        "BNG": 0.93,
+        "CCa": 0.41,
+        "AA": 1.41,
+        "PODEMOS": 1.83,
+        "SALF": 1.86,
+        "C-FV": 1.18,
+        "SUMAR": 6.94,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 71,
+        "PODEMOS": 2,
+        "PP": 118,
+        "PNV": 2,
+        "C-FV": 3,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 106,
+        "CCa": 1,
+        "AA": 3,
+        "EH Bildu": 3,
+        "JUNTS": 3
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 224,
+        "distancia_176": 48,
+        "texto_distancia": "+48 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 118,
+          "PSOE": 106
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.47,
+          "delta_1d": -0.07,
+          "delta_7d": 0.21,
+          "delta_30d": 0.47,
+          "momentum_delta": 0.21,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.93,
+          "delta_1d": -0.09,
+          "delta_7d": 0.01,
+          "delta_30d": 0.01,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.23,
+          "delta_1d": null,
+          "delta_7d": 0.18,
+          "delta_30d": null,
+          "momentum_delta": 0.18,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.41,
+          "delta_1d": 0.01,
+          "delta_7d": 0.05,
+          "delta_30d": -0.03,
+          "momentum_delta": 0.05,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.38,
+          "delta_1d": 0.03,
+          "delta_7d": 0.04,
+          "delta_30d": 0.0,
+          "momentum_delta": 0.04,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.53,
+          "delta_1d": -0.08,
+          "delta_7d": 0.13,
+          "delta_30d": 0.21,
+          "momentum_delta": 0.13,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.76,
+          "delta_1d": 0.64,
+          "delta_7d": 0.21,
+          "delta_30d": null,
+          "momentum_delta": 0.21,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.29,
+          "delta_1d": 0.0,
+          "delta_7d": -0.12,
+          "delta_30d": -0.19,
+          "momentum_delta": -0.12,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.82,
+          "delta_1d": -0.04,
+          "delta_7d": -0.08,
+          "delta_30d": -0.14,
+          "momentum_delta": -0.08,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 1.68,
+          "delta_1d": 0.02,
+          "delta_7d": -0.46,
+          "delta_30d": -1.36,
+          "momentum_delta": -0.46,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 30.56,
+          "delta_1d": -1.82,
+          "delta_7d": -0.39,
+          "delta_30d": -1.54,
+          "momentum_delta": -0.39,
+          "estado": "En retroceso 📉"
+        },
+        "PSOE": {
+          "media_7d": 28.1,
+          "delta_1d": 3.83,
+          "delta_7d": 1.64,
+          "delta_30d": 1.27,
+          "momentum_delta": 1.64,
+          "estado": "Subiendo fuerte 🚀"
+        },
+        "SALF": {
+          "media_7d": 1.84,
+          "delta_1d": 0.44,
+          "delta_7d": -0.16,
+          "delta_30d": 0.15,
+          "momentum_delta": -0.16,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 18.36,
+          "delta_1d": -1.4,
+          "delta_7d": -1.14,
+          "delta_30d": -0.1,
+          "momentum_delta": -1.14,
+          "estado": "Caída libre ⚠️"
+        }
+      }
+    },
+    "2026-11-05": {
+      "fecha": "2026-11-05",
+      "medias": {
+        "PP": 31.1,
+        "PSOE": 27.11,
+        "VOX": 18.97,
+        "FA": 6.38,
+        "C-FV": 1.05,
+        "PODEMOS": 2.05,
+        "SALF": 1.93,
+        "ERC": 2.44,
+        "JUNTS": 1.38,
+        "EH Bildu": 1.37,
+        "PNV": 0.85,
+        "BNG": 0.91,
+        "CCa": 0.42,
+        "AA": 1.36,
+        "SUMAR": 6.91,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 72,
+        "PODEMOS": 2,
+        "PP": 119,
+        "PNV": 2,
+        "C-FV": 3,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 104,
+        "CCa": 1,
+        "AA": 3,
+        "EH Bildu": 3,
+        "JUNTS": 3
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 223,
+        "distancia_176": 47,
+        "texto_distancia": "+47 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 119,
+          "PSOE": 104
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.43,
+          "delta_1d": 0.48,
+          "delta_7d": 0.16,
+          "delta_30d": 0.44,
+          "momentum_delta": 0.16,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.91,
+          "delta_1d": -0.01,
+          "delta_7d": 0.0,
+          "delta_30d": -0.04,
+          "momentum_delta": 0.0,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.06,
+          "delta_1d": -0.1,
+          "delta_7d": 0.04,
+          "delta_30d": null,
+          "momentum_delta": 0.04,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.43,
+          "delta_1d": -0.01,
+          "delta_7d": 0.07,
+          "delta_30d": 0.01,
+          "momentum_delta": 0.07,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.39,
+          "delta_1d": 0.09,
+          "delta_7d": 0.05,
+          "delta_30d": 0.0,
+          "momentum_delta": 0.05,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.51,
+          "delta_1d": 0.46,
+          "delta_7d": 0.2,
+          "delta_30d": 0.36,
+          "momentum_delta": 0.2,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.38,
+          "delta_1d": -0.57,
+          "delta_7d": 0.02,
+          "delta_30d": null,
+          "momentum_delta": 0.02,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.36,
+          "delta_1d": -0.23,
+          "delta_7d": -0.09,
+          "delta_30d": 0.19,
+          "momentum_delta": -0.09,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.81,
+          "delta_1d": -0.03,
+          "delta_7d": -0.11,
+          "delta_30d": -0.17,
+          "momentum_delta": -0.11,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 1.85,
+          "delta_1d": -1.1,
+          "delta_7d": -0.33,
+          "delta_30d": -1.41,
+          "momentum_delta": -0.33,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 31.27,
+          "delta_1d": -2.09,
+          "delta_7d": 0.75,
+          "delta_30d": -1.4,
+          "momentum_delta": 0.75,
+          "estado": "En ligero ascenso 📈"
+        },
+        "PSOE": {
+          "media_7d": 27.22,
+          "delta_1d": 4.52,
+          "delta_7d": 0.09,
+          "delta_30d": 0.8,
+          "momentum_delta": 0.09,
+          "estado": "Estancado ➡️"
+        },
+        "SALF": {
+          "media_7d": 1.95,
+          "delta_1d": 0.35,
+          "delta_7d": 0.03,
+          "delta_30d": 0.13,
+          "momentum_delta": 0.03,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 18.71,
+          "delta_1d": -1.8,
+          "delta_7d": -0.82,
+          "delta_30d": 0.23,
+          "momentum_delta": -0.82,
+          "estado": "En retroceso 📉"
+        }
+      }
+    },
+    "2026-11-02": {
+      "fecha": "2026-11-02",
+      "medias": {
+        "PP": 31.32,
+        "PSOE": 26.48,
+        "VOX": 19.36,
+        "FA": 6.33,
+        "C-FV": 1.01,
+        "ERC": 2.39,
+        "JUNTS": 1.39,
+        "EH Bildu": 1.35,
+        "PNV": 0.9,
+        "BNG": 0.92,
+        "CCa": 0.4,
+        "AA": 1.25,
+        "PODEMOS": 2.2,
+        "SALF": 2.04,
+        "SUMAR": 6.91,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 74,
+        "PODEMOS": 2,
+        "PP": 120,
+        "PNV": 2,
+        "C-FV": 2,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 101,
+        "CCa": 1,
+        "AA": 3,
+        "EH Bildu": 3,
+        "JUNTS": 4
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 221,
+        "distancia_176": 45,
+        "texto_distancia": "+45 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 120,
+          "PSOE": 101
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.35,
+          "delta_1d": null,
+          "delta_7d": 0.24,
+          "delta_30d": 0.47,
+          "momentum_delta": 0.24,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.91,
+          "delta_1d": null,
+          "delta_7d": -0.01,
+          "delta_30d": -0.01,
+          "momentum_delta": -0.01,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.01,
+          "delta_1d": null,
+          "delta_7d": 0.0,
+          "delta_30d": null,
+          "momentum_delta": 0.0,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.41,
+          "delta_1d": null,
+          "delta_7d": 0.02,
+          "delta_30d": -0.04,
+          "momentum_delta": 0.02,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.37,
+          "delta_1d": null,
+          "delta_7d": 0.05,
+          "delta_30d": -0.02,
+          "momentum_delta": 0.05,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.45,
+          "delta_1d": null,
+          "delta_7d": 0.11,
+          "delta_30d": 0.27,
+          "momentum_delta": 0.11,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.26,
+          "delta_1d": null,
+          "delta_7d": -0.18,
+          "delta_30d": null,
+          "momentum_delta": -0.18,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.38,
+          "delta_1d": null,
+          "delta_7d": -0.03,
+          "delta_30d": 0.13,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.87,
+          "delta_1d": null,
+          "delta_7d": -0.05,
+          "delta_30d": -0.08,
+          "momentum_delta": -0.05,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 1.95,
+          "delta_1d": null,
+          "delta_7d": -0.33,
+          "delta_30d": -1.32,
+          "momentum_delta": -0.33,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 31.48,
+          "delta_1d": null,
+          "delta_7d": 0.64,
+          "delta_30d": -1.5,
+          "momentum_delta": 0.64,
+          "estado": "En ligero ascenso 📈"
+        },
+        "PSOE": {
+          "media_7d": 26.27,
+          "delta_1d": null,
+          "delta_7d": -0.54,
+          "delta_30d": 0.43,
+          "momentum_delta": -0.54,
+          "estado": "En retroceso 📉"
+        },
+        "SALF": {
+          "media_7d": 2.11,
+          "delta_1d": null,
+          "delta_7d": 0.07,
+          "delta_30d": 0.27,
+          "momentum_delta": 0.07,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 19.42,
+          "delta_1d": null,
+          "delta_7d": -0.02,
+          "delta_30d": 0.78,
+          "momentum_delta": -0.02,
+          "estado": "Estancado ➡️"
+        }
+      }
+    },
+    "2026-10-30": {
+      "fecha": "2026-10-30",
+      "medias": {
+        "PP": 30.99,
+        "PSOE": 26.85,
+        "VOX": 19.39,
+        "FA": 6.44,
+        "ERC": 2.27,
+        "JUNTS": 1.47,
+        "EH Bildu": 1.34,
+        "PNV": 0.92,
+        "BNG": 0.9,
+        "CCa": 0.38,
+        "AA": 1.2,
+        "PODEMOS": 2.38,
+        "SALF": 1.88,
+        "C-FV": 1.01,
+        "SUMAR": 6.91,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 74,
+        "PODEMOS": 3,
+        "PP": 118,
+        "PNV": 2,
+        "C-FV": 2,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 102,
+        "CCa": 1,
+        "AA": 3,
+        "EH Bildu": 3,
+        "JUNTS": 4
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 220,
+        "distancia_176": 44,
+        "texto_distancia": "+44 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 118,
+          "PSOE": 102
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.31,
+          "delta_1d": -0.37,
+          "delta_7d": 0.32,
+          "delta_30d": 0.26,
+          "momentum_delta": 0.32,
+          "estado": "En ligero ascenso 📈"
+        },
+        "BNG": {
+          "media_7d": 0.88,
+          "delta_1d": -0.05,
+          "delta_7d": -0.06,
+          "delta_30d": -0.01,
+          "momentum_delta": -0.06,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.05,
+          "delta_1d": null,
+          "delta_7d": 0.08,
+          "delta_30d": null,
+          "momentum_delta": 0.08,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.36,
+          "delta_1d": 0.1,
+          "delta_7d": -0.05,
+          "delta_30d": -0.09,
+          "momentum_delta": -0.05,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.36,
+          "delta_1d": 0.05,
+          "delta_7d": 0.08,
+          "delta_30d": -0.06,
+          "momentum_delta": 0.08,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.25,
+          "delta_1d": -0.27,
+          "delta_7d": -0.04,
+          "delta_30d": 0.29,
+          "momentum_delta": -0.04,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.29,
+          "delta_1d": 0.56,
+          "delta_7d": -0.6,
+          "delta_30d": null,
+          "momentum_delta": -0.6,
+          "estado": "En retroceso 📉"
+        },
+        "JUNTS": {
+          "media_7d": 1.58,
+          "delta_1d": 0.31,
+          "delta_7d": 0.37,
+          "delta_30d": 0.22,
+          "momentum_delta": 0.37,
+          "estado": "En ligero ascenso 📈"
+        },
+        "PNV": {
+          "media_7d": 0.9,
+          "delta_1d": 0.0,
+          "delta_7d": -0.06,
+          "delta_30d": -0.11,
+          "momentum_delta": -0.06,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 2.11,
+          "delta_1d": 0.3,
+          "delta_7d": -0.54,
+          "delta_30d": -0.88,
+          "momentum_delta": -0.54,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 30.74,
+          "delta_1d": 2.27,
+          "delta_7d": -0.32,
+          "delta_30d": -1.83,
+          "momentum_delta": -0.32,
+          "estado": "En retroceso 📉"
+        },
+        "PSOE": {
+          "media_7d": 27.02,
+          "delta_1d": -1.06,
+          "delta_7d": 0.4,
+          "delta_30d": 0.73,
+          "momentum_delta": 0.4,
+          "estado": "En ligero ascenso 📈"
+        },
+        "SALF": {
+          "media_7d": 1.98,
+          "delta_1d": null,
+          "delta_7d": 0.37,
+          "delta_30d": 0.01,
+          "momentum_delta": 0.37,
+          "estado": "En ligero ascenso 📈"
+        },
+        "VOX": {
+          "media_7d": 19.47,
+          "delta_1d": -0.23,
+          "delta_7d": -0.04,
+          "delta_30d": 1.04,
+          "momentum_delta": -0.04,
+          "estado": "Estancado ➡️"
+        }
+      }
+    },
+    "2026-10-27": {
+      "fecha": "2026-10-27",
+      "medias": {
+        "PP": 31.14,
+        "PSOE": 26.73,
+        "VOX": 19.29,
+        "FA": 6.44,
+        "PODEMOS": 2.5,
+        "SALF": 1.94,
+        "C-FV": 1.01,
+        "ERC": 2.3,
+        "JUNTS": 1.42,
+        "EH Bildu": 1.33,
+        "PNV": 0.93,
+        "BNG": 0.93,
+        "CCa": 0.39,
+        "AA": 1.08,
+        "SUMAR": 6.91,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 73,
+        "PODEMOS": 3,
+        "PP": 119,
+        "PNV": 2,
+        "C-FV": 2,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 102,
+        "CCa": 1,
+        "AA": 3,
+        "EH Bildu": 3,
+        "JUNTS": 4
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 221,
+        "distancia_176": 45,
+        "texto_distancia": "+45 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 119,
+          "PSOE": 102
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.14,
+          "delta_1d": null,
+          "delta_7d": 0.15,
+          "delta_30d": 0.14,
+          "momentum_delta": 0.15,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.91,
+          "delta_1d": null,
+          "delta_7d": -0.03,
+          "delta_30d": 0.02,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 0.98,
+          "delta_1d": null,
+          "delta_7d": -0.15,
+          "delta_30d": null,
+          "momentum_delta": -0.15,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.37,
+          "delta_1d": null,
+          "delta_7d": -0.06,
+          "delta_30d": -0.08,
+          "momentum_delta": -0.06,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.32,
+          "delta_1d": null,
+          "delta_7d": -0.02,
+          "delta_30d": -0.07,
+          "momentum_delta": -0.02,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.36,
+          "delta_1d": null,
+          "delta_7d": 0.1,
+          "delta_30d": 0.33,
+          "momentum_delta": 0.1,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.41,
+          "delta_1d": null,
+          "delta_7d": -0.15,
+          "delta_30d": null,
+          "momentum_delta": -0.15,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.48,
+          "delta_1d": null,
+          "delta_7d": 0.11,
+          "delta_30d": 0.16,
+          "momentum_delta": 0.11,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.9,
+          "delta_1d": null,
+          "delta_7d": -0.08,
+          "delta_30d": -0.1,
+          "momentum_delta": -0.08,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 2.28,
+          "delta_1d": null,
+          "delta_7d": -0.38,
+          "delta_30d": -0.96,
+          "momentum_delta": -0.38,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 30.82,
+          "delta_1d": null,
+          "delta_7d": -0.66,
+          "delta_30d": -2.01,
+          "momentum_delta": -0.66,
+          "estado": "En retroceso 📉"
+        },
+        "PSOE": {
+          "media_7d": 26.87,
+          "delta_1d": null,
+          "delta_7d": 0.37,
+          "delta_30d": 1.02,
+          "momentum_delta": 0.37,
+          "estado": "En ligero ascenso 📈"
+        },
+        "SALF": {
+          "media_7d": 2.16,
+          "delta_1d": null,
+          "delta_7d": 0.54,
+          "delta_30d": 0.1,
+          "momentum_delta": 0.54,
+          "estado": "En ligero ascenso 📈"
+        },
+        "VOX": {
+          "media_7d": 19.45,
+          "delta_1d": null,
+          "delta_7d": 0.39,
+          "delta_30d": 0.9,
+          "momentum_delta": 0.39,
+          "estado": "En ligero ascenso 📈"
+        }
+      }
+    },
+    "2026-10-24": {
+      "fecha": "2026-10-24",
+      "medias": {
+        "PP": 31.16,
+        "PSOE": 26.63,
+        "VOX": 19.21,
+        "FA": 6.44,
+        "C-FV": 1.06,
+        "ERC": 2.27,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.33,
+        "PNV": 0.97,
+        "BNG": 0.95,
+        "CCa": 0.39,
+        "AA": 1.02,
+        "PODEMOS": 2.61,
+        "SALF": 1.67,
+        "SUMAR": 6.91,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 73,
+        "PODEMOS": 3,
+        "PP": 119,
+        "PNV": 2,
+        "C-FV": 3,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 102,
+        "CCa": 1,
+        "AA": 3,
+        "EH Bildu": 3,
+        "JUNTS": 3
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 221,
+        "distancia_176": 45,
+        "texto_distancia": "+45 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 119,
+          "PSOE": 102
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 1.07,
+          "delta_1d": 0.1,
+          "delta_7d": 0.11,
+          "delta_30d": 0.11,
+          "momentum_delta": 0.11,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.97,
+          "delta_1d": 0.1,
+          "delta_7d": 0.04,
+          "delta_30d": 0.09,
+          "momentum_delta": 0.04,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.08,
+          "delta_1d": 0.4,
+          "delta_7d": 0.18,
+          "delta_30d": null,
+          "momentum_delta": 0.18,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.33,
+          "delta_1d": -0.1,
+          "delta_7d": -0.13,
+          "delta_30d": -0.05,
+          "momentum_delta": -0.13,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.33,
+          "delta_1d": 0.2,
+          "delta_7d": 0.01,
+          "delta_30d": -0.06,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.28,
+          "delta_1d": -0.3,
+          "delta_7d": 0.01,
+          "delta_30d": 0.29,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.19,
+          "delta_1d": -1.4,
+          "delta_7d": -1.71,
+          "delta_30d": null,
+          "momentum_delta": -1.71,
+          "estado": "Caída libre ⚠️"
+        },
+        "JUNTS": {
+          "media_7d": 1.24,
+          "delta_1d": 0.1,
+          "delta_7d": -0.14,
+          "delta_30d": -0.02,
+          "momentum_delta": -0.14,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.97,
+          "delta_1d": 0.1,
+          "delta_7d": -0.01,
+          "delta_30d": -0.09,
+          "momentum_delta": -0.01,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 2.26,
+          "delta_1d": -1.06,
+          "delta_7d": -0.63,
+          "delta_30d": -0.77,
+          "momentum_delta": -0.63,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 30.76,
+          "delta_1d": -0.44,
+          "delta_7d": -0.69,
+          "delta_30d": -1.93,
+          "momentum_delta": -0.69,
+          "estado": "En retroceso 📉"
+        },
+        "PSOE": {
+          "media_7d": 26.85,
+          "delta_1d": 0.07,
+          "delta_7d": 0.45,
+          "delta_30d": 0.76,
+          "momentum_delta": 0.45,
+          "estado": "En ligero ascenso 📈"
+        },
+        "SALF": {
+          "media_7d": 1.7,
+          "delta_1d": null,
+          "delta_7d": 0.07,
+          "delta_30d": -0.06,
+          "momentum_delta": 0.07,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 19.37,
+          "delta_1d": -0.79,
+          "delta_7d": 0.28,
+          "delta_30d": 0.85,
+          "momentum_delta": 0.28,
+          "estado": "Estancado ➡️"
+        }
+      }
+    },
+    "2026-10-21": {
+      "fecha": "2026-10-21",
+      "medias": {
+        "PP": 31.72,
+        "PSOE": 26.46,
+        "VOX": 18.98,
+        "FA": 6.56,
+        "ERC": 2.23,
+        "JUNTS": 1.33,
+        "EH Bildu": 1.34,
+        "PNV": 0.99,
+        "BNG": 0.94,
+        "CCa": 0.43,
+        "PODEMOS": 2.85,
+        "SALF": 1.66,
+        "C-FV": 1.13,
+        "AA": 0.98,
+        "SUMAR": 6.9,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 72,
+        "PODEMOS": 3,
+        "PP": 121,
+        "PNV": 2,
+        "C-FV": 3,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 101,
+        "CCa": 1,
+        "AA": 2,
+        "EH Bildu": 4,
+        "JUNTS": 3
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 222,
+        "distancia_176": 46,
+        "texto_distancia": "+46 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 121,
+          "PSOE": 101
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 0.97,
+          "delta_1d": null,
+          "delta_7d": -0.01,
+          "delta_30d": 0.07,
+          "momentum_delta": -0.01,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.96,
+          "delta_1d": null,
+          "delta_7d": 0.03,
+          "delta_30d": 0.05,
+          "momentum_delta": 0.03,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.13,
+          "delta_1d": null,
+          "delta_7d": null,
+          "delta_30d": null,
+          "momentum_delta": null,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.43,
+          "delta_1d": null,
+          "delta_7d": 0.02,
+          "delta_30d": 0.02,
+          "momentum_delta": 0.02,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.31,
+          "delta_1d": null,
+          "delta_7d": -0.06,
+          "delta_30d": -0.04,
+          "momentum_delta": -0.06,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.25,
+          "delta_1d": null,
+          "delta_7d": 0.02,
+          "delta_30d": 0.26,
+          "momentum_delta": 0.02,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.56,
+          "delta_1d": null,
+          "delta_7d": null,
+          "delta_30d": null,
+          "momentum_delta": null,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.2,
+          "delta_1d": null,
+          "delta_7d": -0.24,
+          "delta_30d": 0.09,
+          "momentum_delta": -0.24,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.99,
+          "delta_1d": null,
+          "delta_7d": 0.01,
+          "delta_30d": -0.06,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 2.24,
+          "delta_1d": null,
+          "delta_7d": -0.93,
+          "delta_30d": -0.46,
+          "momentum_delta": -0.93,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 30.95,
+          "delta_1d": null,
+          "delta_7d": -1.1,
+          "delta_30d": -0.64,
+          "momentum_delta": -1.1,
+          "estado": "Caída libre ⚠️"
+        },
+        "PSOE": {
+          "media_7d": 26.52,
+          "delta_1d": null,
+          "delta_7d": 0.06,
+          "delta_30d": 0.57,
+          "momentum_delta": 0.06,
+          "estado": "Estancado ➡️"
+        },
+        "SALF": {
+          "media_7d": 1.53,
+          "delta_1d": null,
+          "delta_7d": -0.16,
+          "delta_30d": -0.32,
+          "momentum_delta": -0.16,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 19.35,
+          "delta_1d": null,
+          "delta_7d": 0.51,
+          "delta_30d": 0.14,
+          "momentum_delta": 0.51,
+          "estado": "En ligero ascenso 📈"
+        }
+      }
+    },
+    "2026-10-18": {
+      "fecha": "2026-10-18",
+      "medias": {
+        "PP": 31.72,
+        "PSOE": 26.46,
+        "VOX": 18.98,
+        "FA": 6.56,
+        "ERC": 2.23,
+        "JUNTS": 1.33,
+        "EH Bildu": 1.34,
+        "PNV": 0.99,
+        "BNG": 0.94,
+        "CCa": 0.43,
+        "PODEMOS": 2.85,
+        "SALF": 1.66,
+        "C-FV": 1.13,
+        "AA": 0.98,
+        "SUMAR": 6.9,
+        "UPN": 0.19,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 72,
+        "PODEMOS": 3,
+        "PP": 121,
+        "PNV": 2,
+        "C-FV": 3,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 101,
+        "CCa": 1,
+        "AA": 2,
+        "EH Bildu": 4,
+        "JUNTS": 3
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 222,
+        "distancia_176": 46,
+        "texto_distancia": "+46 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 121,
+          "PSOE": 101
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 0.96,
+          "delta_1d": null,
+          "delta_7d": -0.04,
+          "delta_30d": 0.06,
+          "momentum_delta": -0.04,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.95,
+          "delta_1d": -0.1,
+          "delta_7d": 0.01,
+          "delta_30d": 0.05,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 1.13,
+          "delta_1d": null,
+          "delta_7d": null,
+          "delta_30d": null,
+          "momentum_delta": null,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.44,
+          "delta_1d": -0.3,
+          "delta_7d": 0.04,
+          "delta_30d": 0.01,
+          "momentum_delta": 0.04,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.31,
+          "delta_1d": 0.1,
+          "delta_7d": -0.07,
+          "delta_30d": -0.03,
+          "momentum_delta": -0.07,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.22,
+          "delta_1d": -0.1,
+          "delta_7d": -0.03,
+          "delta_30d": 0.23,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 6.56,
+          "delta_1d": -4.0,
+          "delta_7d": null,
+          "delta_30d": null,
+          "momentum_delta": null,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.24,
+          "delta_1d": 0.0,
+          "delta_7d": -0.2,
+          "delta_30d": 0.07,
+          "momentum_delta": -0.2,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.97,
+          "delta_1d": -0.1,
+          "delta_7d": -0.03,
+          "delta_30d": -0.03,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 2.31,
+          "delta_1d": 0.1,
+          "delta_7d": -0.87,
+          "delta_30d": -0.47,
+          "momentum_delta": -0.87,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 31.15,
+          "delta_1d": 3.3,
+          "delta_7d": -0.83,
+          "delta_30d": -0.72,
+          "momentum_delta": -0.83,
+          "estado": "En retroceso 📉"
+        },
+        "PSOE": {
+          "media_7d": 26.48,
+          "delta_1d": 0.0,
+          "delta_7d": -0.04,
+          "delta_30d": 0.46,
+          "momentum_delta": -0.04,
+          "estado": "Estancado ➡️"
+        },
+        "SALF": {
+          "media_7d": 1.63,
+          "delta_1d": 0.5,
+          "delta_7d": -0.03,
+          "delta_30d": -0.3,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "SUMAR": {
+          "media_7d": 5.8,
+          "delta_1d": null,
+          "delta_7d": -1.28,
+          "delta_30d": 0.54,
+          "momentum_delta": -1.28,
+          "estado": "Caída libre ⚠️"
+        },
+        "UPN": {
+          "media_7d": 0.2,
+          "delta_1d": null,
+          "delta_7d": 0.01,
+          "delta_30d": -0.01,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 19.28,
+          "delta_1d": -1.1,
+          "delta_7d": 0.45,
+          "delta_30d": 0.22,
+          "momentum_delta": 0.45,
+          "estado": "En ligero ascenso 📈"
+        }
+      }
+    },
+    "2026-10-15": {
+      "fecha": "2026-10-15",
+      "medias": {
+        "PP": 32.04,
+        "PSOE": 26.26,
+        "VOX": 18.89,
+        "FA": 7.2,
+        "C-FV": 0.9,
+        "ERC": 2.26,
+        "JUNTS": 1.38,
+        "EH Bildu": 1.34,
+        "PNV": 0.97,
+        "BNG": 0.9,
+        "CCa": 0.44,
+        "AA": 0.93,
+        "PODEMOS": 3.12,
+        "SUMAR": 6.9,
+        "UPN": 0.19,
+        "SALF": 1.72,
+        "AC": 1.0
+      },
+      "escaños": {
+        "FA": 26,
+        "AC": 2,
+        "VOX": 70,
+        "PODEMOS": 11,
+        "PP": 119,
+        "PNV": 2,
+        "C-FV": 2,
+        "BNG": 2,
+        "ERC": 6,
+        "SALF": 2,
+        "PSOE": 97,
+        "CCa": 1,
+        "AA": 2,
+        "EH Bildu": 4,
+        "JUNTS": 4
+      },
+      "total_escaños": 350,
+      "bloque_mayoritario": {
+        "bloque": "Gran Coalición (PP+PSOE)",
+        "miembros": [
+          "PP",
+          "PSOE"
+        ],
+        "total": 216,
+        "distancia_176": 40,
+        "texto_distancia": "+40 sobre la absoluta",
+        "estado": "Mayoría Absoluta",
+        "alcanza_absoluta": true,
+        "detalle": {
+          "PP": 119,
+          "PSOE": 97
+        }
+      },
+      "origen": "backfill",
+      "momentum": {
+        "AA": {
+          "media_7d": 0.93,
+          "delta_1d": null,
+          "delta_7d": -0.01,
+          "delta_30d": 0.01,
+          "momentum_delta": -0.01,
+          "estado": "Estancado ➡️"
+        },
+        "BNG": {
+          "media_7d": 0.88,
+          "delta_1d": null,
+          "delta_7d": -0.07,
+          "delta_30d": 0.01,
+          "momentum_delta": -0.07,
+          "estado": "Estancado ➡️"
+        },
+        "C-FV": {
+          "media_7d": 0.9,
+          "delta_1d": null,
+          "delta_7d": null,
+          "delta_30d": null,
+          "momentum_delta": null,
+          "estado": "Estancado ➡️"
+        },
+        "CCa": {
+          "media_7d": 0.44,
+          "delta_1d": null,
+          "delta_7d": 0.01,
+          "delta_30d": 0.02,
+          "momentum_delta": 0.01,
+          "estado": "Estancado ➡️"
+        },
+        "EH Bildu": {
+          "media_7d": 1.31,
+          "delta_1d": null,
+          "delta_7d": -0.05,
+          "delta_30d": -0.03,
+          "momentum_delta": -0.05,
+          "estado": "Estancado ➡️"
+        },
+        "ERC": {
+          "media_7d": 2.27,
+          "delta_1d": null,
+          "delta_7d": -0.01,
+          "delta_30d": 0.26,
+          "momentum_delta": -0.01,
+          "estado": "Estancado ➡️"
+        },
+        "FA": {
+          "media_7d": 7.2,
+          "delta_1d": null,
+          "delta_7d": null,
+          "delta_30d": null,
+          "momentum_delta": null,
+          "estado": "Estancado ➡️"
+        },
+        "JUNTS": {
+          "media_7d": 1.37,
+          "delta_1d": null,
+          "delta_7d": -0.04,
+          "delta_30d": 0.13,
+          "momentum_delta": -0.04,
+          "estado": "Estancado ➡️"
+        },
+        "PNV": {
+          "media_7d": 0.95,
+          "delta_1d": null,
+          "delta_7d": -0.03,
+          "delta_30d": -0.06,
+          "momentum_delta": -0.03,
+          "estado": "Estancado ➡️"
+        },
+        "PODEMOS": {
+          "media_7d": 2.91,
+          "delta_1d": null,
+          "delta_7d": -0.47,
+          "delta_30d": -0.19,
+          "momentum_delta": -0.47,
+          "estado": "En retroceso 📉"
+        },
+        "PP": {
+          "media_7d": 31.62,
+          "delta_1d": null,
+          "delta_7d": -0.87,
+          "delta_30d": -0.4,
+          "momentum_delta": -0.87,
+          "estado": "En retroceso 📉"
+        },
+        "PSOE": {
+          "media_7d": 26.14,
+          "delta_1d": null,
+          "delta_7d": -0.33,
+          "delta_30d": 0.27,
+          "momentum_delta": -0.33,
+          "estado": "En retroceso 📉"
+        },
+        "SALF": {
+          "media_7d": 1.78,
+          "delta_1d": null,
+          "delta_7d": 0.16,
+          "delta_30d": -0.25,
+          "momentum_delta": 0.16,
+          "estado": "Estancado ➡️"
+        },
+        "SUMAR": {
+          "media_7d": 6.34,
+          "delta_1d": null,
+          "delta_7d": -1.21,
+          "delta_30d": 0.54,
+          "momentum_delta": -1.21,
+          "estado": "Caída libre ⚠️"
+        },
+        "UPN": {
+          "media_7d": 0.18,
+          "delta_1d": null,
+          "delta_7d": -0.02,
+          "delta_30d": -0.01,
+          "momentum_delta": -0.02,
+          "estado": "Estancado ➡️"
+        },
+        "VOX": {
+          "media_7d": 19.07,
+          "delta_1d": null,
+          "delta_7d": 0.36,
+          "delta_30d": 0.13,
+          "momentum_delta": 0.36,
+          "estado": "En ligero ascenso 📈"
+        }
+      }
+    }
+  }
+}
