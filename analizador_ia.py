@@ -17,7 +17,7 @@ DATA_DIR = BASE_DIR / "data"
 ENCUESTAS_PATH = DATA_DIR / "encuestas_limpias.json"
 INFORME_PATH = DATA_DIR / "informe_ia.json"
 
-MODELO = "gemini-2.5-flash"
+MODELO = "gemini-3.5-flash"  # gemini-2.5-flash retirado para cuentas nuevas
 PARTIDOS_CLAVE = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
 
 
