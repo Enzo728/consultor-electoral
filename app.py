@@ -1,4 +1,4 @@
-"""Consultor Electoral España — interfaz Streamlit (PC/móvil)."""
+"""Consultor Electoral España — interfaz editorial estilo FiveThirtyEight / FT."""
 
 from __future__ import annotations
 
@@ -12,6 +12,8 @@ import pandas as pd
 import plotly.graph_objects as go
 import streamlit as st
 
+import pactometro as pm
+
 BASE_DIR = Path(__file__).resolve().parent
 ENCUESTAS_PATH = BASE_DIR / "data" / "encuestas_limpias.json"
 INFORME_PATH = BASE_DIR / "data" / "informe_ia.json"
@@ -20,35 +22,97 @@ PARTIDOS_KPI = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
 
 st.set_page_config(
     page_title="Consultor Electoral España",
-    page_icon="🗳️",
+    page_icon="🏛️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
+# ───────────────── CSS editorial ─────────────────
 st.markdown(
     """
     <style>
-      .block-container { padding-top: 1.2rem; padding-bottom: 2rem; }
+      :root {
+        --cobalto: #1E40AF;
+        --fondo: #0E1117;
+        --panel: #161B22;
+        --borde: #30363D;
+        --texto: #E6EDF3;
+        --suave: #8B949E;
+      }
+      html, body, [class*="css"] { font-family: "Inter", "Segoe UI", system-ui, sans-serif; }
+      .stApp {
+        background: linear-gradient(180deg, #0E1117 0%, #0E1117 100%);
+        color: var(--texto);
+      }
+      #MainMenu, footer, header[data-testid="stHeader"] { visibility: hidden; }
+      .block-container { padding-top: 1.4rem; padding-bottom: 3rem; max-width: 1280px; }
+
+      .hero {
+        background: linear-gradient(135deg, #0B1220 0%, #111827 55%, #1E3A5F 100%);
+        border: 1px solid var(--borde);
+        border-radius: 16px;
+        padding: 1.4rem 1.6rem 1.1rem;
+        margin-bottom: 1rem;
+      }
+      .hero h1 { margin: 0; font-size: 1.75rem; letter-spacing: -0.02em; color: #F8FAFC; }
+      .hero .kicker {
+        display: inline-block; font-size: 0.72rem; font-weight: 700;
+        letter-spacing: 0.14em; text-transform: uppercase;
+        color: #93C5FD; background: rgba(30,64,175,0.35);
+        border: 1px solid #1E40AF; border-radius: 999px;
+        padding: 0.2rem 0.7rem; margin-bottom: 0.55rem;
+      }
+      .hero .sub { color: var(--suave); font-size: 0.92rem; margin-top: 0.35rem; }
+
+      .verdict {
+        display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;
+      }
+      .verdict-card {
+        flex: 1 1 200px; background: rgba(14,17,23,0.75);
+        border: 1px solid var(--borde); border-radius: 12px;
+        padding: 0.75rem 0.9rem; min-width: 180px;
+      }
+      .verdict-card .label {
+        font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
+        color: var(--suave); margin-bottom: 0.25rem;
+      }
+      .verdict-card .value { font-size: 1.15rem; font-weight: 700; color: #F8FAFC; }
+      .verdict-card .meta { font-size: 0.8rem; color: #93C5FD; margin-top: 0.15rem; }
+      .verdict-card.ok { border-color: #16A34A; }
+      .verdict-card.warn { border-color: #D97706; }
+      .verdict-card.bad { border-color: #6B7280; }
+
+      .bar-wrap { margin-top: 0.9rem; }
+      .bar-labels {
+        display: flex; justify-content: space-between;
+        font-size: 0.75rem; color: var(--suave); margin-bottom: 0.3rem;
+      }
+      .bar-labels .maj { color: #FBBF24; font-weight: 700; }
+
       div[data-testid="stMetric"] {
-        background: #f8fafc; border: 1px solid #e2e8f0;
+        background: var(--panel); border: 1px solid var(--borde);
         border-radius: 12px; padding: 12px 14px;
       }
-      div[data-testid="stMetricDelta"] > div { font-size: 0.95rem !important; }
-      .kpi-title { font-size: 0.85rem; color: #64748b; margin-bottom: 2px; }
+      div[data-testid="stMetricValue"] { color: #F8FAFC; font-size: 1.55rem !important; }
+      div[data-testid="stMetricLabel"] { color: var(--suave); }
+      div[data-testid="stMetricDelta"] > div { font-size: 0.9rem !important; }
+
+      .section-title {
+        font-size: 1.05rem; font-weight: 700; color: #F8FAFC;
+        border-left: 4px solid var(--cobalto); padding-left: 0.6rem;
+        margin: 1.4rem 0 0.6rem;
+      }
+      .pact-row label { font-size: 0.88rem !important; }
+      .seat-pill {
+        display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px;
+        font-size: 0.78rem; font-weight: 700; margin-right: 0.35rem;
+      }
+
       @media (max-width: 768px) {
-        .block-container { padding-left: 0.8rem; padding-right: 0.8rem; }
-        h1 { font-size: 1.6rem !important; }
-        div[data-testid="stMetricValue"] { font-size: 1.4rem !important; }
-      }
-      .chat-bubble-user {
-        background: #1e4b8f; color: white; padding: 8px 12px;
-        border-radius: 12px 12px 2px 12px; margin: 4px 0 4px 15%;
-        max-width: 85%;
-      }
-      .chat-bubble-ia {
-        background: #f1f5f9; color: #0f172a; padding: 8px 12px;
-        border-radius: 12px 12px 12px 2px; margin: 4px 15% 4px 0;
-        max-width: 85%;
+        .block-container { padding-left: 0.75rem; padding-right: 0.75rem; }
+        .hero h1 { font-size: 1.3rem; }
+        div[data-testid="stMetricValue"] { font-size: 1.25rem !important; }
+        .verdict-card { flex: 1 1 100%; }
       }
     </style>
     """,
@@ -70,6 +134,11 @@ def cargar_informe() -> dict | None:
     return json.loads(INFORME_PATH.read_text(encoding="utf-8"))
 
 
+@st.cache_data(show_spinner=False, ttl=120)
+def cargar_simulacion() -> dict:
+    return pm.simular_desde_medias()
+
+
 def dataframe_evolucion(datos: dict) -> pd.DataFrame:
     ev = datos.get("evolucion", [])
     if not ev:
@@ -80,9 +149,8 @@ def dataframe_evolucion(datos: dict) -> pd.DataFrame:
 
 
 def suavizar(df: pd.DataFrame, partidos: list[str], span: int = 12) -> pd.DataFrame:
-    """Media móvil exponencial por partido (línea de tendencia)."""
     if df.empty:
-        return df
+        return pd.DataFrame()
     out = []
     for p in partidos:
         sub = df[df["partido"] == p][["fecha", "valor"]].dropna().sort_values("fecha")
@@ -101,8 +169,13 @@ def color_de(datos: dict, partido: str) -> str:
     return (datos.get("colores") or {}).get(partido, "#64748B")
 
 
+def color_partido_local(p: str) -> str:
+    if p in ("SUMAR", "FA"):
+        return pm.COLORES_HEMICICLO["FA"]
+    return pm.COLORES_HEMICICLO.get(p, pm.COLORES_HEMICICLO["OTROS"])
+
+
 def ejecutar_actualizacion() -> tuple[bool, str]:
-    """Ejecuta scraper.py y analizador_ia.py en vivo."""
     pasos = []
     for script in ("scraper.py", "analizador_ia.py"):
         ruta = BASE_DIR / script
@@ -123,27 +196,122 @@ def ejecutar_actualizacion() -> tuple[bool, str]:
         if proc.returncode != 0:
             detalle = (proc.stderr or proc.stdout or "").strip()[-800:]
             return False, f"Error en {script}:\n{detalle}"
-        pasos.append(f"✅ {script}")
-    return True, "\n".join(pasos)
+        pasos.append(f"OK {script}")
+    return True, " | ".join(pasos)
 
 
-# ─────────────────────────── Sidebar ───────────────────────────
+def construir_barra_escaños(escaños: dict[str, int]) -> str:
+    """Barra HTML horizontal de 350 escaños con marca en 176."""
+    orden = [p for p in pm.ORDEN_HEMICICLO if escaños.get(p)]
+    # Incluir no listados al final
+    for p in sorted(escaños, key=lambda x: -escaños[x]):
+        if p not in orden and escaños[p] > 0:
+            orden.append(p)
+    partes = []
+    for p in orden:
+        n = escaños[p]
+        color = color_partido_local(p)
+        pct = 100.0 * n / pm.TOTAL_ESCANOS
+        partes.append(
+            f'<div style="width:{pct:.3f}%;background:{color};height:34px;" '
+            f'title="{p}: {n} escaños"></div>'
+        )
+    maj_pct = 100.0 * pm.MAYORIA_ABSOLUTA / pm.TOTAL_ESCANOS
+    barra = (
+        '<div class="bar-wrap">'
+        '<div class="bar-labels"><span>0</span>'
+        f'<span class="maj">176 · Mayoría absoluta</span>'
+        f"<span>{pm.TOTAL_ESCANOS}</span></div>"
+        '<div style="position:relative;">'
+        '<div style="display:flex;width:100%;border-radius:8px;overflow:hidden;'
+        'border:1px solid #30363D;">'
+        + "".join(partes)
+        + "</div>"
+        f'<div style="position:absolute;top:-4px;bottom:-4px;left:{maj_pct:.3f}%;'
+        'width:0;border-left:2px dashed #FBBF24;pointer-events:none;"></div>'
+        "</div></div>"
+    )
+    return barra
+
+
+def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Figure:
+    """350 puntos en arco semicircular ordenados por espectro."""
+    orden = pm.escaños_para_hemiciclo(escaños)
+    coords = pm.posiciones_hemiciclo(len(orden), n_filas=7)
+    fig = go.Figure()
+    # Trazar por partido para leyenda/hover agrupado
+    by_party: dict[str, list[tuple[float, float, str]]] = {}
+    for (partido, color), (x, y) in zip(orden, coords):
+        by_party.setdefault(partido, []).append((x, y, color))
+
+    for partido in pm.ORDEN_HEMICICLO + sorted(
+        set(by_party) - set(pm.ORDEN_HEMICICLO)
+    ):
+        if partido not in by_party:
+            continue
+        pts = by_party[partido]
+        activo = partido in seleccion or (
+            partido == "FA" and ("FA" in seleccion or "SUMAR" in seleccion)
+        )
+        n = len(pts)
+        color = pts[0][2]
+        opacidad = 1.0 if activo else 0.22
+        fig.add_trace(
+            go.Scatter(
+                x=[p[0] for p in pts],
+                y=[p[1] for p in pts],
+                mode="markers",
+                name=partido,
+                marker=dict(
+                    color=color,
+                    size=9,
+                    opacity=opacidad,
+                    line=dict(color="#0E1117", width=0.6),
+                ),
+                customdata=[[partido, n] for _ in pts],
+                hovertemplate=f"<b>{partido}</b><br>{n} escaños<extra></extra>",
+                showlegend=True,
+            )
+        )
+
+    fig.update_layout(
+        height=420,
+        margin=dict(l=10, r=10, t=10, b=10),
+        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        xaxis=dict(
+            scaleanchor="y", scaleratio=1, visible=False,
+            range=[-1.15, 1.15],
+        ),
+        yaxis=dict(visible=False, range=[-0.12, 1.15]),
+        legend=dict(
+            orientation="h", yanchor="bottom", y=-0.08, xanchor="center", x=0.5,
+            font=dict(size=11, color="#E6EDF3"),
+        ),
+        hoverlabel=dict(bgcolor="#111827", font_size=12),
+        showlegend=True,
+    )
+    return fig
+
+
+# ───────────────── Sidebar ─────────────────
 with st.sidebar:
-    st.title("🗳️ Consultor Electoral")
-    st.caption("Encuestas generales España · datos Wikipedia + Gemini")
+    st.markdown("### 🏛️ Consultor Electoral")
+    st.caption("Análisis de encuestas · Congreso de los Diputados")
 
     if st.button("🔄 Actualizar datos ahora", type="primary", use_container_width=True):
         with st.status("Actualizando datos…", expanded=True) as status:
-            st.write("1/2 Extrayendo y filtrando encuestas (scraper)…")
+            st.write("1/2 Extrayendo e filtrando encuestas…")
             ok, msg = ejecutar_actualizacion()
             if ok:
-                st.write("2/2 Generando informe con Gemini…")
-                status.update(label="¡Datos actualizados!", state="complete")
+                st.write("2/2 Generando informe IA…")
+                status.update(label="Datos actualizados", state="complete")
                 st.success(msg)
                 cargar_encuestas.clear()
                 cargar_informe.clear()
+                cargar_simulacion.clear()
             else:
-                status.update(label="Error en la actualización", state="error")
+                status.update(label="Error", state="error")
                 st.error(msg)
 
     st.divider()
@@ -152,8 +320,8 @@ with st.sidebar:
         st.caption(f"Datos: {datos_side.get('actualizado', '—')}")
         f = datos_side.get("filtros", {})
         st.caption(
-            f"Incluidas: {f.get('total_incluidas', '?')} · "
-            f"Excluidas: {f.get('total_excluidas', '?')} (CIS/muestra)"
+            f"Incluidas {f.get('total_incluidas', '?')} · "
+            f"Excluidas {f.get('total_excluidas', '?')} (CIS / n<800)"
         )
     informe_side = cargar_informe()
     if informe_side:
@@ -161,212 +329,340 @@ with st.sidebar:
 
     st.divider()
     st.caption(
-        "Filtros anti-sesgo: sin CIS, muestra ≥ 800, "
-        "media ponderada exp(−λt)·√n."
+        "Metodología: media ponderada exp(−λt)·√n, "
+        "sin CIS, muestra ≥ 800 · escenario D'Hondt con pool regionalista."
     )
 
-# ─────────────────────────── Cabecera ───────────────────────────
-st.title("Consultor Electoral España")
-st.caption(
-    "Estimaciones de intención de voto · Congreso · "
-    f"actualizado {datetime.now().strftime('%d/%m/%Y %H:%M')}"
-)
 
+# ───────────────── Datos ─────────────────
 datos = cargar_encuestas()
 if datos is None:
     st.warning(
-        "Aún no hay datos. Pulsa **«Actualizar datos ahora»** en la barra lateral "
-        "o ejecuta `python scraper.py && python analizador_ia.py`."
+        "No hay datos. Pulsa **«Actualizar datos ahora»** en la barra lateral."
     )
     st.stop()
 
-# ─────────────────────────── KPIs ───────────────────────────
+sim = cargar_simulacion()
+escaños = sim["escaños"]
 act = datos.get("medias_actual_14d") or datos.get("medias") or {}
 ant = datos.get("medias_sem_anterior_14_28d") or {}
 
+# ───────────────── HERO: Pactómetro visual ─────────────────
+bloques = sim["bloques"]
+mejor = bloques[0] if bloques else None
+absolutos = [b for b in bloques if b["alcanza_absoluta"]]
+cercanos = [b for b in bloques if not b["alcanza_absoluta"] and b["total"] >= pm.MIN_SIMPLE_2A_VUELTA]
+
+if absolutos:
+    veredicto = absolutos[0]
+    v_class, v_meta = "ok", f"{veredicto['texto_distancia']}"
+elif cercanos:
+    veredicto = cercanos[0]
+    v_class, v_meta = "warn", f"2ª vuelta · {veredicto['texto_distancia']}"
+else:
+    veredicto = mejor
+    v_class, v_meta = "bad", "Sin bloque mayoritario claro"
+
+st.markdown(
+    f"""
+    <div class="hero">
+      <div class="kicker">Pactómetro · 350 escaños</div>
+      <h1>Consultor Electoral España</h1>
+      <div class="sub">
+        Estimación de escaños y mayorías · Congreso de los Diputados ·
+        actualizado {datetime.now().strftime('%d/%m/%Y %H:%M')} ·
+        fuente Wikipedia (sin CIS)
+      </div>
+      <div class="verdict">
+        <div class="verdict-card {v_class}">
+          <div class="label">Hoy, quién puede gobernar</div>
+          <div class="value">{veredicto['bloque'] if veredicto else '—'}</div>
+          <div class="meta">{veredicto['total'] if veredicto else 0} escaños · {v_meta}</div>
+        </div>
+        <div class="verdict-card">
+          <div class="label">Mayoría absoluta</div>
+          <div class="value">176 escaños</div>
+          <div class="meta">barrera de investidura directa</div>
+        </div>
+        <div class="verdict-card">
+          <div class="label">Mejor bloques por escaños</div>
+          <div class="value">{len(absolutos)} alcanzan 176</div>
+          <div class="meta">
+            {" · ".join(b['bloque'].split('(')[0].strip()[:22] + ' ' + str(b['total']) for b in bloques[:3])}
+          </div>
+        </div>
+      </div>
+      {construir_barra_escaños(escaños)}
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ───────────────── KPIs intención de voto ─────────────────
+st.markdown('<div class="section-title">Intención de voto (media 14 días)</div>', unsafe_allow_html=True)
 kpi_partidos = [p for p in PARTIDOS_KPI if p in act] or sorted(act, key=act.get, reverse=True)[:6]
 cols = st.columns(min(len(kpi_partidos), 7))
 for i, p in enumerate(kpi_partidos[:7]):
     with cols[i]:
-        delta = None
-        if p in ant:
-            delta = round(act[p] - ant[p], 2)
+        delta = round(act[p] - ant[p], 2) if p in ant else None
         st.metric(
             label=p,
             value=f"{act[p]:.1f}%",
-            delta=f"{delta:+.1f} pp vs sem. ant." if delta is not None else None,
+            delta=f"{delta:+.1f} pp sem." if delta is not None else None,
             delta_color="normal",
         )
 
-st.caption(
-    "Media actual: últimos 14 días · Referencia: días 14–28 · "
-    "ponderada por recencia y √muestra."
-)
+# ───────────────── Hemiciclo + Pactómetro interactivo ─────────────────
+st.markdown('<div class="section-title">Hemiciclo del Congreso · proyección de escaños</div>', unsafe_allow_html=True)
 
-# ─────────────────────────── Gráfico ───────────────────────────
-st.subheader("📈 Evolución temporal y tendencia")
+partidos_escaños = [p for p in pm.ORDEN_HEMICICLO if escaños.get(p)]
+for p in sorted(escaños, key=lambda x: -escaños[x]):
+    if p not in partidos_escaños and escaños[p] > 0:
+        partidos_escaños.append(p)
 
-df = dataframe_evolucion(datos)
-partidos_disp = sorted(
-    df["partido"].unique().tolist(),
-    key=lambda p: (p not in PARTIDOS_KPI, PARTIDOS_KPI.index(p) if p in PARTIDOS_KPI else 99, p),
-) if not df.empty else []
-
+default_sel = [p for p in ["PP", "PSOE", "VOX", "FA"] if p in partidos_escaños]
 seleccion = st.multiselect(
-    "Partidos",
-    options=partidos_disp,
-    default=[p for p in PARTIDOS_KPI if p in partidos_disp] or partidos_disp[:5],
+    "Resaltar partidos en el hemiciclo",
+    options=partidos_escaños,
+    default=default_sel,
+    label_visibility="collapsed",
 )
 
-if df.empty or not seleccion:
-    st.info("Sin series temporales para mostrar.")
-else:
-    df_sel = df[df["partido"].isin(seleccion)]
-    tend = suavizar(df_sel, seleccion)
+hemi_col, pacto_col = st.columns([1.35, 1], gap="medium")
+with hemi_col:
+    fig_h = construir_hemiciclo(escaños, seleccion)
+    st.plotly_chart(fig_h, use_container_width=True, theme=None)
 
-    fig = go.Figure()
-    for p in seleccion:
-        color = color_de(datos, p)
-        sub = df_sel[df_sel["partido"] == p]
-        fig.add_trace(
-            go.Scatter(
-                x=sub["fecha"],
-                y=sub["valor"],
-                mode="markers",
-                name=p,
-                marker=dict(color=color, size=6, opacity=0.35),
-                legendgroup=p,
-                showlegend=False,
-                hovertemplate=f"{p}: %{{y:.1f}}%<extra>{sub['encuestadora'].iloc[0] if len(sub) else ''}</extra>",
-            )
+with pacto_col:
+    st.markdown("**Pactómetro manual** — suma coaliciones en tiempo real")
+    if "pacto_sel" not in st.session_state:
+        st.session_state.pacto_sel = ["PP", "VOX"]
+
+    # Checkboxes en columnas compactas
+    ncol = 3
+    checkbox_cols = st.columns(ncol)
+    pacto_sel = []
+    for i, p in enumerate(partidos_escaños):
+        with checkbox_cols[i % ncol]:
+            etiqueta = f"{p} · {escaños[p]}"
+            if st.checkbox(etiqueta, key=f"pacto_{p}", value=p in st.session_state.pacto_sel):
+                pacto_sel.append(p)
+    st.session_state.pacto_sel = pacto_sel
+
+    total_pacto = sum(escaños.get(p, 0) for p in pacto_sel)
+    info_p = pm.estado_bloque(total_pacto)
+    pct = 100.0 * total_pacto / pm.TOTAL_ESCANOS
+    maj_pct = 100.0 * pm.MAYORIA_ABSOLUTA / pm.TOTAL_ESCANOS
+
+    st.markdown(
+        f"""
+        <div style="background:#161B22;border:1px solid #30363D;border-radius:12px;
+                    padding:0.9rem 1rem;margin-top:0.4rem;">
+          <div style="font-size:0.75rem;color:#8B949E;text-transform:uppercase;
+                      letter-spacing:0.08em;">Coalición seleccionada</div>
+          <div style="font-size:1.9rem;font-weight:800;color:#F8FAFC;">
+            {total_pacto}<span style="font-size:0.95rem;color:#8B949E;"> / 176</span>
+          </div>
+          <div style="font-size:0.9rem;font-weight:600;color:
+            {'#16A34A' if info_p['alcanza_absoluta'] else '#FBBF24' if info_p['total']>=pm.MIN_SIMPLE_2A_VUELTA else '#F87171'};">
+            {info_p['estado']} · {info_p['texto_distancia']}
+          </div>
+          <div style="background:#0E1117;border-radius:6px;height:14px;
+                      margin-top:0.6rem;position:relative;overflow:hidden;">
+            <div style="width:{pct:.2f}%;height:100%;
+                        background:{'#16A34A' if info_p['alcanza_absoluta'] else '#1E40AF'};">
+            </div>
+            <div style="position:absolute;top:0;bottom:0;left:{maj_pct:.2f}%;
+                        border-left:2px dashed #FBBF24;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.7rem;
+                      color:#8B949E;margin-top:0.3rem;">
+            <span>0</span><span>176</span><span>350</span>
+          </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Tabla de bloques
+    filas_bloques = [
+        {
+            "Bloque": b["bloque"],
+            "Escaños": b["total"],
+            "vs 176": b["texto_distancia"],
+            "Estado": b["estado"],
+        }
+        for b in bloques
+    ]
+    st.dataframe(
+        pd.DataFrame(filas_bloques),
+        use_container_width=True,
+        hide_index=True,
+        height=280,
+    )
+
+# ───────────────── Tabs ─────────────────
+st.markdown('<div class="section-title">Análisis</div>', unsafe_allow_html=True)
+tab_tend, tab_aud, tab_ia = st.tabs(
+    ["📈 Tendencia Temporal", "🔬 Auditoría Anti-Sesgo (Encuestadoras)", "💬 Consultor IA (Chat)"]
+)
+
+# ── Tab: Tendencia ──
+with tab_tend:
+    df = dataframe_evolucion(datos)
+    partidos_disp = (
+        sorted(
+            df["partido"].unique().tolist(),
+            key=lambda p: (
+                p not in PARTIDOS_KPI,
+                PARTIDOS_KPI.index(p) if p in PARTIDOS_KPI else 99,
+                p,
+            ),
         )
-        tsub = tend[tend["partido"] == p] if not tend.empty else pd.DataFrame()
-        if not tsub.empty:
+        if not df.empty
+        else []
+    )
+    seleccion_t = st.multiselect(
+        "Partidos",
+        options=partidos_disp,
+        default=[p for p in PARTIDOS_KPI if p in partidos_disp] or partidos_disp[:5],
+    )
+    if df.empty or not seleccion_t:
+        st.info("Sin series temporales.")
+    else:
+        df_sel = df[df["partido"].isin(seleccion_t)]
+        tend = suavizar(df_sel, seleccion_t)
+        fig = go.Figure()
+        for p in seleccion_t:
+            color = color_de(datos, p)
+            sub = df_sel[df_sel["partido"] == p]
             fig.add_trace(
                 go.Scatter(
-                    x=tsub["fecha"],
-                    y=tsub["tendencia"],
-                    mode="lines",
+                    x=sub["fecha"],
+                    y=sub["valor"],
+                    mode="markers",
                     name=p,
-                    line=dict(color=color, width=3),
+                    marker=dict(color=color, size=6, opacity=0.35),
                     legendgroup=p,
-                    hovertemplate=f"{p} tendencia: %{{y:.1f}}%<extra></extra>",
+                    showlegend=False,
+                    hovertemplate=f"{p}: %{{y:.1f}}%<extra></extra>",
                 )
             )
-
-    fig.update_layout(
-        height=480,
-        margin=dict(l=10, r=10, t=10, b=10),
-        yaxis_title="% intención de voto",
-        xaxis_title=None,
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
-        hovermode="x unified",
-        plot_bgcolor="white",
-        yaxis=dict(gridcolor="#e2e8f0"),
-    )
-    st.plotly_chart(fig, use_container_width=True)
-
-# ─────────────────────────── Informe IA ───────────────────────────
-st.subheader("🧠 Informe del Consultor IA")
-informe = cargar_informe()
-
-if informe is None:
-    st.info("Sin informe todavía. Ejecuta `python analizador_ia.py` o actualiza desde la barra lateral.")
-else:
-    resumen = informe.get("resumen_ejecutivo", "")
-    if resumen:
-        st.info(resumen)
-
-    tab1, tab2, tab3 = st.tabs(["⚡ Puntos de inflexión", "🔬 Auditoría de dispersión", "📄 Informe completo"])
-
-    with tab1:
-        infs = informe.get("puntos_inflexion") or []
-        if not infs:
-            st.caption("No se detectaron cambios bruscos de tendencia entre semanas.")
-        for it in infs:
-            mag = it.get("magnitud_pp")
-            titulo = f"{it.get('partido', '—')} · {it.get('semana_o_fecha', '')}"
-            if isinstance(mag, (int, float)):
-                titulo += f" · {mag:+.1f} pp"
-            with st.expander(titulo):
-                st.write(it.get("descripcion", ""))
-
-        pc = informe.get("progreso_campana") or {}
-        if pc:
-            st.markdown(f"**Progreso de campaña:** {pc.get('situacion', '')}")
-            bloques = pc.get("tendencia_bloques") or {}
-            if bloques:
-                bcols = st.columns(min(len(bloques), 3))
-                for i, (k, v) in enumerate(bloques.items()):
-                    with bcols[i % len(bcols)]:
-                        st.markdown(f"**{k.replace('_', ' ')}**")
-                        st.caption(v)
-            if pc.get("momento_clave"):
-                st.caption(f"⏱️ {pc['momento_clave']}")
-
-    with tab2:
-        aud = informe.get("auditoria_dispersion") or {}
-        mas = aud.get("encuestadora_mas_desviada")
-        if mas:
-            st.warning(f"Encuestadora con mayor desviación del consenso: **{mas}**")
-        he = aud.get("house_effects") or []
-        if he:
-            st.dataframe(pd.DataFrame(he), use_container_width=True, hide_index=True)
-        alertas = aud.get("alertas") or []
-        for a in alertas:
-            st.error(f"🚨 {a}")
-        if aud.get("nota_metodologica"):
-            st.caption(aud["nota_metodologica"])
-
-        # House effects precalculados por el scraper
-        he_scraper = datos.get("house_effects") or []
-        if he_scraper:
-            with st.expander("Desviaciones precalculadas (scraper, ventana 45 días)"):
-                filas = [
-                    {
-                        "Encuestadora": h["encuestadora"],
-                        "n": h["n_encuestas"],
-                        "Partido": h["desviacion_max"]["partido"],
-                        "Desv. (pp)": h["desviacion_max"]["pp"],
-                    }
-                    for h in he_scraper
-                ]
-                st.dataframe(pd.DataFrame(filas), use_container_width=True, hide_index=True)
-
-    with tab3:
-        md = informe.get("markdown")
-        if md:
-            st.markdown(md)
-        else:
-            st.json(informe)
-
-# ─────────────────────────── Chat IA ───────────────────────────
-st.subheader("💬 Pregúntale al Consultor")
-
-if "chat" not in st.session_state:
-    st.session_state.chat = []
-
-for msg in st.session_state.chat:
-    with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
-
-pregunta = st.chat_input("Ej.: ¿Quién lidera en las últimas dos semanas? ¿Qué casa se desvía más?")
-if pregunta:
-    st.session_state.chat.append({"role": "user", "content": pregunta})
-    with st.chat_message("user"):
-        st.markdown(pregunta)
-
-    with st.chat_message("assistant"):
-        with st.spinner("Pensando…"):
-            try:
-                from analizador_ia import cargar_encuestas as _load, preguntar as _preguntar
-
-                respuesta = _preguntar(
-                    pregunta,
-                    historial=st.session_state.chat[:-1],
-                    datos=_load(),
+            tsub = tend[tend["partido"] == p] if not tend.empty else pd.DataFrame()
+            if not tsub.empty:
+                fig.add_trace(
+                    go.Scatter(
+                        x=tsub["fecha"],
+                        y=tsub["tendencia"],
+                        mode="lines",
+                        name=p,
+                        line=dict(color=color, width=3),
+                        legendgroup=p,
+                        hovertemplate=f"{p} tendencia: %{{y:.1f}}%<extra></extra>",
+                    )
                 )
-            except Exception as exc:  # noqa: BLE001
-                respuesta = f"No se pudo consultar Gemini: {exc}"
-        st.markdown(respuesta)
-    st.session_state.chat.append({"role": "assistant", "content": respuesta})
+        fig.update_layout(
+            height=460,
+            margin=dict(l=10, r=10, t=10, b=10),
+            yaxis_title="% intención de voto",
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+            hovermode="x unified",
+            plot_bgcolor="rgba(0,0,0,0)",
+            paper_bgcolor="rgba(0,0,0,0)",
+            yaxis=dict(gridcolor="#21262D"),
+            font=dict(color="#E6EDF3"),
+        )
+        st.plotly_chart(fig, use_container_width=True, theme=None)
+
+# ── Tab: Auditoría ──
+with tab_aud:
+    he = datos.get("house_effects") or []
+    if he:
+        filas = [
+            {
+                "Encuestadora": h["encuestadora"],
+                "n": h["n_encuestas"],
+                "Partido": h["desviacion_max"]["partido"],
+                "Desv. (pp)": h["desviacion_max"]["pp"],
+            }
+            for h in he
+        ]
+        st.caption("Desviación máxima frente al consenso (ventana 45 días, sin CIS).")
+        st.dataframe(pd.DataFrame(filas), use_container_width=True, hide_index=True)
+    else:
+        st.info("Sin house effects calculados todavía.")
+
+    f = datos.get("filtros", {})
+    st.markdown("**Filtros de calidad aplicados**")
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Incluidas", f.get("total_incluidas", "—"))
+    c2.metric("CIS excluidas", f.get("excluidas_cis", "—"))
+    c3.metric("n < 800", f.get("excluidas_muestra", "—"))
+    c4.metric("Sin fecha / otra", (f.get("excluidas_fecha", 0) or 0) + (f.get("excluidas_otra", 0) or 0))
+
+    excl = datos.get("excluidas") or []
+    if excl:
+        with st.expander(f"Detalle de {len(excl)} encuestas excluidas"):
+            st.dataframe(pd.DataFrame(excl), use_container_width=True, hide_index=True, height=300)
+
+# ── Tab: Consultor IA ──
+with tab_ia:
+    informe = cargar_informe()
+    if informe is None:
+        st.info("Sin informe. Ejecuta `python analizador_ia.py` o actualiza desde la barra lateral.")
+    else:
+        resumen = informe.get("resumen_ejecutivo", "")
+        if resumen:
+            st.info(resumen)
+
+        sub1, sub2 = st.columns(2)
+        with sub1:
+            st.markdown("**Puntos de inflexión**")
+            for it in (informe.get("puntos_inflexion") or [])[:6]:
+                mag = it.get("magnitud_pp")
+                titulo = f"{it.get('partido', '—')} · {it.get('semana_o_fecha', '')}"
+                if isinstance(mag, (int, float)):
+                    titulo += f" · {mag:+.1f} pp"
+                with st.expander(titulo):
+                    st.write(it.get("descripcion", ""))
+        with sub2:
+            aud = informe.get("auditoria_dispersion") or {}
+            if aud.get("encuestadora_mas_desviada"):
+                st.warning(
+                    f"Mayor desviación del consenso: **{aud['encuestadora_mas_desviada']}**"
+                )
+            for a in (aud.get("alertas") or [])[:5]:
+                st.error(f"🚨 {a}")
+            if aud.get("nota_metodologica"):
+                st.caption(aud["nota_metodologica"])
+
+        with st.expander("📄 Informe completo (Markdown)"):
+            md = informe.get("markdown")
+            st.markdown(md if md else json.dumps(informe, ensure_ascii=False, indent=2))
+
+        st.markdown("---")
+        st.markdown("**Chat con el Consultor**")
+        if "chat" not in st.session_state:
+            st.session_state.chat = []
+        for msg in st.session_state.chat:
+            with st.chat_message(msg["role"]):
+                st.markdown(msg["content"])
+        pregunta = st.chat_input("Pregunta sobre encuestas, pactos o tendencias…")
+        if pregunta:
+            st.session_state.chat.append({"role": "user", "content": pregunta})
+            with st.chat_message("user"):
+                st.markdown(pregunta)
+            with st.chat_message("assistant"):
+                with st.spinner("Analizando…"):
+                    try:
+                        from analizador_ia import cargar_encuestas as _load, preguntar as _preguntar
+
+                        respuesta = _preguntar(
+                            pregunta,
+                            historial=st.session_state.chat[:-1],
+                            datos=_load(),
+                        )
+                    except Exception as exc:  # noqa: BLE001
+                        respuesta = f"No se pudo consultar Gemini: {exc}"
+                st.markdown(respuesta)
+            st.session_state.chat.append({"role": "assistant", "content": respuesta})
