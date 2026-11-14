@@ -1,0 +1,41 @@
+{
+  "actualizado": "2026-11-14T16:20:43",
+  "filtros": {
+    "excluir_cis": true,
+    "muestra_minima": 600,
+    "lambda_ponderacion": 0.09902
+  },
+  "medias": {
+    "cataluna": {},
+    "andalucia": {},
+    "paisvasco": {}
+  },
+  "encuestas": {
+    "cataluna": [],
+    "andalucia": [],
+    "paisvasco": []
+  },
+  "stats": {
+    "cataluna": {
+      "incluidas": 0,
+      "excluidas_cis": 0,
+      "excluidas_muestra": 0,
+      "excluidas_otra": 0,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Catalu%C3%B1a_de_2028"
+    },
+    "andalucia": {
+      "incluidas": 0,
+      "excluidas_cis": 0,
+      "excluidas_muestra": 0,
+      "excluidas_otra": 0,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Andaluc%C3%ADa_de_2026"
+    },
+    "paisvasco": {
+      "incluidas": 0,
+      "excluidas_cis": 0,
+      "excluidas_muestra": 0,
+      "excluidas_otra": 0,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_Vasco_de_2024"
+    }
+  }
+}

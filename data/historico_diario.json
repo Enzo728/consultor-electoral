@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-14T13:04:42",
+  "actualizado": "2026-11-14T16:19:08",
   "dias": {
     "2026-11-14": {
       "fecha": "2026-11-14",
@@ -20,20 +20,20 @@
         "C-FV": 1.14
       },
       "escaños": {
-        "ERC": 7,
-        "PNV": 2,
-        "PSOE": 110,
-        "PP": 116,
-        "CCa": 1,
-        "AA": 4,
-        "PODEMOS": 2,
-        "EH Bildu": 3,
-        "SALF": 2,
-        "JUNTS": 3,
-        "C-FV": 3,
         "VOX": 70,
+        "SALF": 2,
+        "C-FV": 3,
+        "PSOE": 110,
         "BNG": 2,
-        "FA": 25
+        "AA": 4,
+        "PNV": 2,
+        "EH Bildu": 3,
+        "PP": 116,
+        "FA": 25,
+        "PODEMOS": 2,
+        "JUNTS": 3,
+        "CCa": 1,
+        "ERC": 7
       },
       "total_escaños": 350,
       "bloque_mayoritario": {
@@ -53,6 +53,300 @@
         }
       },
       "origen": "live",
+      "senado": {
+        "escaños": {
+          "PP": 141,
+          "PSOE": 108,
+          "VOX": 5,
+          "FA": 1,
+          "ERC": 3,
+          "JUNTS": 2,
+          "EH Bildu": 2,
+          "PNV": 3,
+          "BNG": 1
+        },
+        "total": 266,
+        "bloque_mayoritario": {
+          "bloque": "Gran Coalición",
+          "miembros": [
+            "PP",
+            "PSOE"
+          ],
+          "total": 249,
+          "distancia": 115,
+          "texto_distancia": "+115",
+          "estado": "Mayoría Absoluta",
+          "alcanza_absoluta": true,
+          "detalle": {
+            "PP": 141,
+            "PSOE": 108
+          }
+        }
+      },
+      "autonomias": {
+        "madrid": {
+          "escaños": {
+            "PP": 52,
+            "PSOE": 46,
+            "VOX": 25,
+            "FA": 9
+          },
+          "total": 132,
+          "mayoria": 67,
+          "bloque_mayoritario": {
+            "bloque": "PP + PSOE",
+            "miembros": [
+              "PP",
+              "PSOE"
+            ],
+            "total": 98,
+            "distancia": 31,
+            "texto_distancia": "+31",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PP": 52,
+              "PSOE": 46
+            }
+          }
+        },
+        "cataluna": {
+          "escaños": {
+            "PSC": 46,
+            "JUNTS": 15,
+            "ERC": 14,
+            "PP": 36,
+            "VOX": 24
+          },
+          "total": 135,
+          "mayoria": 68,
+          "bloque_mayoritario": {
+            "bloque": "PSC + JUNTS",
+            "miembros": [
+              "PSC",
+              "JUNTS"
+            ],
+            "total": 61,
+            "distancia": -7,
+            "texto_distancia": "7 para la absoluta",
+            "estado": "Insuficiente",
+            "alcanza_absoluta": false,
+            "detalle": {
+              "PSC": 46,
+              "JUNTS": 15
+            }
+          }
+        },
+        "andalucia": {
+          "escaños": {
+            "PP": 46,
+            "PSOE": 36,
+            "VOX": 22,
+            "AA": 5
+          },
+          "total": 109,
+          "mayoria": 55,
+          "bloque_mayoritario": {
+            "bloque": "PP + PSOE",
+            "miembros": [
+              "PP",
+              "PSOE"
+            ],
+            "total": 82,
+            "distancia": 27,
+            "texto_distancia": "+27",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PP": 46,
+              "PSOE": 36
+            }
+          }
+        },
+        "cvalenciana": {
+          "escaños": {
+            "PP": 40,
+            "PSOE": 33,
+            "VOX": 20,
+            "FA": 6
+          },
+          "total": 99,
+          "mayoria": 50,
+          "bloque_mayoritario": {
+            "bloque": "PP + PSOE",
+            "miembros": [
+              "PP",
+              "PSOE"
+            ],
+            "total": 73,
+            "distancia": 23,
+            "texto_distancia": "+23",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PP": 40,
+              "PSOE": 33
+            }
+          }
+        },
+        "galicia": {
+          "escaños": {
+            "PP": 29,
+            "PSOE": 22,
+            "BNG": 7,
+            "VOX": 12,
+            "FA": 5
+          },
+          "total": 75,
+          "mayoria": 38,
+          "bloque_mayoritario": {
+            "bloque": "PP + PSOE",
+            "miembros": [
+              "PP",
+              "PSOE"
+            ],
+            "total": 51,
+            "distancia": 13,
+            "texto_distancia": "+13",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PP": 29,
+              "PSOE": 22
+            }
+          }
+        },
+        "paisvasco": {
+          "escaños": {
+            "PNV": 13,
+            "EH Bildu": 9,
+            "PSE": 23,
+            "PP": 19,
+            "VOX": 11
+          },
+          "total": 75,
+          "mayoria": 38,
+          "bloque_mayoritario": {
+            "bloque": "PNV + PSE",
+            "miembros": [
+              "PNV",
+              "PSE"
+            ],
+            "total": 36,
+            "distancia": -2,
+            "texto_distancia": "2 para la absoluta",
+            "estado": "Insuficiente",
+            "alcanza_absoluta": false,
+            "detalle": {
+              "PNV": 13,
+              "PSE": 23
+            }
+          }
+        },
+        "cyl": {
+          "escaños": {
+            "PP": 31,
+            "PSOE": 28,
+            "VOX": 17,
+            "FA": 6
+          },
+          "total": 82,
+          "mayoria": 42,
+          "bloque_mayoritario": {
+            "bloque": "PP + PSOE",
+            "miembros": [
+              "PP",
+              "PSOE"
+            ],
+            "total": 59,
+            "distancia": 17,
+            "texto_distancia": "+17",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PP": 31,
+              "PSOE": 28
+            }
+          }
+        },
+        "clm": {
+          "escaños": {
+            "PSOE": 13,
+            "PP": 12,
+            "VOX": 6,
+            "FA": 2
+          },
+          "total": 33,
+          "mayoria": 17,
+          "bloque_mayoritario": {
+            "bloque": "PSOE + PP",
+            "miembros": [
+              "PSOE",
+              "PP"
+            ],
+            "total": 25,
+            "distancia": 8,
+            "texto_distancia": "+8",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PSOE": 13,
+              "PP": 12
+            }
+          }
+        },
+        "aragon": {
+          "escaños": {
+            "PP": 29,
+            "PSOE": 23,
+            "VOX": 15
+          },
+          "total": 67,
+          "mayoria": 34,
+          "bloque_mayoritario": {
+            "bloque": "PP + PSOE",
+            "miembros": [
+              "PP",
+              "PSOE"
+            ],
+            "total": 52,
+            "distancia": 18,
+            "texto_distancia": "+18",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PP": 29,
+              "PSOE": 23
+            }
+          }
+        },
+        "extremadura": {
+          "escaños": {
+            "PP": 27,
+            "PSOE": 21,
+            "VOX": 13,
+            "FA": 4
+          },
+          "total": 65,
+          "mayoria": 33,
+          "bloque_mayoritario": {
+            "bloque": "PP + PSOE",
+            "miembros": [
+              "PP",
+              "PSOE"
+            ],
+            "total": 48,
+            "distancia": 15,
+            "texto_distancia": "+15",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
+            "detalle": {
+              "PP": 27,
+              "PSOE": 21
+            }
+          }
+        }
+      },
       "momentum": {
         "AA": {
           "media_7d": 1.47,

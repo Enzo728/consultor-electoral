@@ -18,6 +18,34 @@ URL_WIKI = (
 )
 DATA_DIR = Path(__file__).resolve().parent / "data"
 OUT_PATH = DATA_DIR / "encuestas_limpias.json"
+OUT_AUT_PATH = DATA_DIR / "encuestas_autonomicas.json"
+
+# Páginas de Wikipedia con tablas de encuestas autonómicas (títulos reales).
+# Se prueban en orden; se ignora lo que falle (404/429).
+PAGINAS_AUTONOMICAS: dict[str, list[str]] = {
+    "madrid": [
+        "Elecciones a la Asamblea de Madrid de 2027",
+        "Elecciones a la Asamblea de Madrid de 2023",
+    ],
+    "cataluna": ["Elecciones al Parlamento de Cataluña de 2028"],
+    "andalucia": ["Elecciones al Parlamento de Andalucía de 2026"],
+    "cvalenciana": [
+        "Elecciones a las Cortes Valencianas de 2027",
+        "Elecciones a las Cortes Valencianas de 2023",
+    ],
+    "galicia": [
+        "Elecciones al Parlamento de Galicia de 2025",
+        "Elecciones al Parlamento de Galicia de 2024",
+    ],
+    "paisvasco": ["Elecciones al Parlamento Vasco de 2024"],
+    "cyl": ["Elecciones a las Cortes de Castilla y León de 2026"],
+    "clm": [
+        "Elecciones a las Cortes de Castilla-La Mancha de 2027",
+        "Elecciones a las Cortes de Castilla-La Mancha de 2023",
+    ],
+    "aragon": ["Elecciones a las Cortes de Aragón de 2026"],
+    "extremadura": ["Elecciones a la Asamblea de Extremadura de 2025"],
+}
 
 MESES = {
     "ene": 1, "enero": 1, "jan": 1,
@@ -38,6 +66,7 @@ MESES = {
 EXCLUIR_ORGANISMOS = ("cis", "centro de investigaciones sociologicas", "centro de investigaciones sociológicas")
 
 MUESTRA_MINIMA = 800
+MUESTRA_MINIMA_AUT = 600
 # Vida media de la ponderación temporal: 7 días
 LAMBDA_DIAS = math.log(2) / 7.0
 
@@ -526,6 +555,115 @@ def house_effects(encuestas: list[dict], ref: date, dias: int = 45,
     return resultados
 
 
+def _url_wiki_titulo(titulo: str) -> str:
+    enc = requests.utils.quote(titulo.replace(" ", "_"), safe="")
+    return f"https://es.wikipedia.org/wiki/{enc}"
+
+
+def scrappear_autonomicas() -> dict:
+    """Descarga tablas de encuestas de las páginas autonómicas configuradas.
+
+    Devuelve:
+    {
+      "actualizado": iso,
+      "medias": {cid: {partido: media_ponderada_14d}},
+      "encuestas": {cid: [filas]},
+      "stats": {cid: {incluidas, excluidas, fuente}},
+    }
+    """
+    from datetime import date as _date
+
+    hoy = _date.today()
+    medias_out: dict[str, dict[str, float]] = {}
+    enc_out: dict[str, list[dict]] = {}
+    stats_out: dict[str, dict] = {}
+
+    for cid, titulos in PAGINAS_AUTONOMICAS.items():
+        html = None
+        fuente = None
+        for t in titulos:
+            try:
+                url = _url_wiki_titulo(t)
+                html = fetch_html(url)
+                fuente = url
+                break
+            except requests.RequestException:
+                continue
+        if not html:
+            stats_out[cid] = {"incluidas": 0, "excluidas": 0, "fuente": None, "error": "sin_pagina"}
+            continue
+        try:
+            crudas = extraer_encuestas(html)
+        except Exception as exc:  # noqa: BLE001
+            stats_out[cid] = {"incluidas": 0, "excluidas": 0, "fuente": fuente, "error": str(exc)[:120]}
+            continue
+
+        # Filtro autonómico: sin CIS, n≥600
+        incluidas: list[dict] = []
+        n_cis = n_muestra = n_otra = 0
+        for e in crudas:
+            nombre = e.get("fuente_nombre", "")
+            if es_cis(nombre) or es_cis(e.get("encuestadora", "")):
+                n_cis += 1
+                continue
+            m = e.get("muestra")
+            if m is None:
+                n_otra += 1
+                continue
+            if m < MUESTRA_MINIMA_AUT:
+                n_muestra += 1
+                continue
+            if not e.get("fecha_fin"):
+                n_otra += 1
+                continue
+            incluidas.append(e)
+
+        # Dedup
+        vistos = set()
+        unicas = []
+        for e in incluidas:
+            clave = (e["fuente_nombre"], e["trabajo_campo"], e["muestra"], e["fecha_fin"])
+            if clave in vistos:
+                continue
+            vistos.add(clave)
+            unicas.append(e)
+        incluidas = unicas
+
+        if incluidas:
+            meds = medias_ponderadas(incluidas, hoy, filtro_ventana=(0, 14))
+            if not meds:
+                meds = medias_ponderadas(incluidas, hoy)
+        else:
+            meds = {}
+
+        medias_out[cid] = meds
+        enc_out[cid] = incluidas
+        stats_out[cid] = {
+            "incluidas": len(incluidas),
+            "excluidas_cis": n_cis,
+            "excluidas_muestra": n_muestra,
+            "excluidas_otra": n_otra,
+            "fuente": fuente,
+        }
+        print(f"[scraper-aut] {cid}: {len(incluidas)} encuestas · {len(meds)} partidos")
+
+    payload = {
+        "actualizado": datetime.now().isoformat(timespec="seconds"),
+        "filtros": {
+            "excluir_cis": True,
+            "muestra_minima": MUESTRA_MINIMA_AUT,
+            "lambda_ponderacion": round(LAMBDA_DIAS, 5),
+        },
+        "medias": medias_out,
+        "encuestas": enc_out,
+        "stats": stats_out,
+    }
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    OUT_AUT_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"[scraper-aut] Guardado en {OUT_AUT_PATH}")
+    return payload
+
+
 def main() -> int:
     print(f"[scraper] Descargando {URL_WIKI} ...")
     html = fetch_html(URL_WIKI)
@@ -589,6 +727,13 @@ def main() -> int:
     print(f"[scraper] Guardado en {OUT_PATH}")
     top = sorted(medias_actual.items(), key=lambda x: -x[1])[:6]
     print(f"[scraper] Medias (14d): {top}")
+
+    # Autonómicas (mejor esfuerzo; no bloquea si fallan todas)
+    try:
+        scrappear_autonomicas()
+    except Exception as exc:  # noqa: BLE001
+        print(f"[scraper-aut] Aviso: {exc}", file=sys.stderr)
+
     return 0
 
 

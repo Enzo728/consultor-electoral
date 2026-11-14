@@ -13,12 +13,15 @@ import plotly.graph_objects as go
 import streamlit as st
 
 import pactometro as pm
+import senado as sen
+import autonomias as aut
 import tracker_historico as th
 
 BASE_DIR = Path(__file__).resolve().parent
 ENCUESTAS_PATH = BASE_DIR / "data" / "encuestas_limpias.json"
 INFORME_PATH = BASE_DIR / "data" / "informe_ia.json"
 HIST_PATH = BASE_DIR / "data" / "historico_diario.json"
+ENC_AUT_PATH = BASE_DIR / "data" / "encuestas_autonomicas.json"
 
 PARTIDOS_KPI = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
 
@@ -203,6 +206,26 @@ def cargar_simulacion() -> dict:
     return pm.simular_desde_medias()
 
 
+@st.cache_data(show_spinner=False, ttl=120)
+def cargar_senado() -> dict:
+    return sen.simular_desde_medias_senado()
+
+
+@st.cache_data(show_spinner=False, ttl=120)
+def cargar_autonomias() -> dict:
+    return aut.proyectar_todas()
+
+
+@st.cache_data(show_spinner=False, ttl=60)
+def cargar_medias_aut() -> dict:
+    if not ENC_AUT_PATH.exists():
+        return {}
+    try:
+        return json.loads(ENC_AUT_PATH.read_text(encoding="utf-8")).get("medias") or {}
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
 @st.cache_data(show_spinner=False, ttl=60)
 def cargar_historico_ui() -> dict:
     if not HIST_PATH.exists():
@@ -304,30 +327,49 @@ def ejecutar_actualizacion() -> tuple[bool, str]:
     return True, " | ".join(pasos)
 
 
-def barra_176(escaños: dict[str, int], bloque_total: int, bloque_nombre: str) -> str:
-    """Barra horizontal limpia hacia 176 + relleno por partido."""
-    orden = [p for p in pm.ORDEN_HEMICICLO if escaños.get(p)]
+# Constante global para hover oscuro en TODAS las figuras Plotly
+HOVER_OSCURO = dict(
+    bgcolor="#141A22",
+    font=dict(color="#E8EEF7", size=12),
+    bordercolor="#243041",
+)
+
+
+def barra_mayoria(
+    escaños: dict[str, int],
+    bloque_total: int,
+    bloque_nombre: str,
+    total_c: int,
+    mayoria: int,
+    color_map: dict[str, str] | None = None,
+    orden: list[str] | None = None,
+) -> str:
+    """Barra horizontal limpia hacia la mayoría + relleno por partido."""
+    if orden is None:
+        orden = [p for p in pm.ORDEN_HEMICICLO if escaños.get(p)]
     for p in sorted(escaños, key=lambda x: -escaños[x]):
         if p not in orden and escaños[p] > 0:
             orden.append(p)
     partes = []
     for p in orden:
-        n = escaños[p]
-        pct = 100.0 * n / pm.TOTAL_ESCANOS
-        color = color_partido_local(p)
+        n = escaños.get(p, 0)
+        if n <= 0:
+            continue
+        pct = 100.0 * n / total_c
+        color = (color_map or {}).get(p) or color_partido_local(p)
         partes.append(
             f'<div style="width:{pct:.3f}%;background:{color};height:22px;" '
             f'title="{p}: {n}"></div>'
         )
-    maj_pct = 100.0 * pm.MAYORIA_ABSOLUTA / pm.TOTAL_ESCANOS
-    fill = min(100.0, 100.0 * bloque_total / pm.TOTAL_ESCANOS)
-    bar_fill_pct = min(100.0, 100.0 * bloque_total / pm.MAYORIA_ABSOLUTA) if bloque_total else 0
+    maj_pct = 100.0 * mayoria / total_c
+    fill = min(100.0, 100.0 * bloque_total / total_c)
+    bar_fill_pct = min(100.0, 100.0 * bloque_total / mayoria) if bloque_total else 0
     return f"""
     <div class="maj-wrap">
       <div class="maj-labels">
         <span>0</span>
-        <span class="hit">176 mayorías</span>
-        <span>350</span>
+        <span class="hit">{mayoria} mayorías</span>
+        <span>{total_c}</span>
       </div>
       <div style="position:relative;">
         <div style="display:flex;width:100%;border-radius:6px;overflow:hidden;
@@ -344,16 +386,32 @@ def barra_176(escaños: dict[str, int], bloque_total: int, bloque_nombre: str) -
         <div style="display:flex;justify-content:space-between;font-size:0.7rem;
                     color:#8B9BB0;margin-top:0.2rem;">
           <span style="color:#E8EEF7;font-weight:700;">{bloque_nombre}</span>
-          <span style="color:#FBBF24;font-weight:700;">{bloque_total} / 176</span>
+          <span style="color:#FBBF24;font-weight:700;">{bloque_total} / {mayoria}</span>
         </div>
       </div>
     </div>
     """
 
 
-def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Figure:
-    """350 escaños · 180°=izquierda (Podemos…) → 0°=derecha (…VOX/SALF)."""
-    orden = pm.escaños_para_hemiciclo(escaños)
+def construir_hemiciclo(
+    escaños: dict[str, int],
+    seleccion: list[str],
+    mayoria: int = pm.MAYORIA_ABSOLUTA,
+    orden_he: list[str] | None = None,
+    color_map: dict[str, str] | None = None,
+) -> go.Figure:
+    """Arco semicircular. 180°=izquierda → 0°=derecha."""
+    if orden_he is None:
+        orden_he = pm.ORDEN_HEMICICLO
+    cmap = color_map or pm.COLORES_HEMICICLO
+
+    # Detectar módulo por la mayoría / orden pasado
+    if orden_he is pm.ORDEN_HEMICICLO:
+        orden = pm.escaños_para_hemiciclo(escaños)
+    elif mayoria == sen.MAYORIA_SENADO:
+        orden = sen.escaños_para_hemiciclo_senado(escaños)
+    else:
+        orden = aut.escaños_para_hemiciclo(escaños)
     coords = pm.posiciones_hemiciclo(len(orden), n_filas=7)
     fig = go.Figure()
 
@@ -361,9 +419,8 @@ def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Fi
     for (partido, color), (x, y) in zip(orden, coords):
         by_party.setdefault(partido, []).append((x, y, color))
 
-    # Orden visual L→R: PODEMOS → FA/Sumar → PSOE → regionales → PP → VOX → SALF
-    resto_ord = sorted(set(by_party) - set(pm.ORDEN_HEMICICLO))
-    for partido in pm.ORDEN_HEMICICLO + resto_ord:
+    resto_ord = sorted(set(by_party) - set(orden_he))
+    for partido in list(orden_he) + resto_ord:
         if partido not in by_party:
             continue
         pts = by_party[partido]
@@ -389,7 +446,6 @@ def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Fi
             )
         )
 
-    # Centro del arco: 2 líneas limpias
     if seleccion:
         total_sel = sum(escaños.get(p, 0) for p in seleccion)
         nombre_corto = "+".join(seleccion[:3]) + ("…" if len(seleccion) > 3 else "")
@@ -403,7 +459,7 @@ def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Fi
         y=0.28,
         text=(
             f"<b>{nombre_corto} · {total_sel}</b><br>"
-            f"<span style='font-size:12px;color:#FBBF24'>Mayoría: 176</span>"
+            f"<span style='font-size:12px;color:#FBBF24'>Mayoría: {mayoria}</span>"
         ),
         showarrow=False,
         font=dict(size=15, color="#F8FAFC"),
@@ -428,7 +484,7 @@ def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Fi
             font=dict(size=11, color="#E8EEF7"),
             bgcolor="rgba(0,0,0,0)",
         ),
-        hoverlabel=dict(bgcolor="#141A22", font_size=12),
+        hoverlabel=HOVER_OSCURO,
         showlegend=True,
     )
     return fig
@@ -446,6 +502,9 @@ if datos is None:
     st.stop()
 
 sim = cargar_simulacion()
+sim_sen = cargar_senado()
+sim_aut = cargar_autonomias()
+medias_aut_ui = cargar_medias_aut()
 hist = cargar_historico_ui()
 dias_hist = sorted((hist.get("dias") or {}).keys())
 
@@ -511,10 +570,92 @@ else:
     escaños_vis = snap_sel.get("escaños") or sim["escaños"]
     origen_vis = snap_sel.get("origen", "backfill")
 
-bloques = pm.simular_bloques(escaños_vis)
-mejor = bloques[0] if bloques else None
-absolutos = [b for b in bloques if b["alcanza_absoluta"]]
-veredicto = absolutos[0] if absolutos else mejor
+# ═══════════════════════ SELECTOR DE CÁMARAS ═══════════════════════
+camara = st.segmented_control(
+    "Cámara",
+    options=["Congreso", "Senado", "Autonomías"],
+    default="Congreso",
+    label_visibility="collapsed",
+    width="stretch",
+    help="Congreso 350 · Senado 266 · Autonomías (10 CCAA)",
+)
+if not camara:
+    camara = "Congreso"
+
+# ── Estado por cámara ──
+if camara == "Congreso":
+    TOTAL_C = pm.TOTAL_ESCANOS
+    MAY_C = pm.MAYORIA_ABSOLUTA
+    if es_hoy:
+        escaños_cam = sim["escaños"]
+        bloques_cam = pm.simular_bloques(escaños_cam)
+    else:
+        snap_sel = (hist.get("dias") or {}).get(fecha_sel) or {}
+        escaños_cam = snap_sel.get("escaños") or sim["escaños"]
+        bloques_cam = pm.simular_bloques(escaños_cam)
+    absolutos = [b for b in bloques_cam if b["alcanza_absoluta"]]
+    veredicto = absolutos[0] if absolutos else (bloques_cam[0] if bloques_cam else None)
+    orden_he = pm.ORDEN_HEMICICLO
+    color_map = pm.COLORES_HEMICICLO
+    etiqueta_cam = "Congreso 350"
+    etiqueta_may = f"{MAY_C} mayorías"
+
+elif camara == "Senado":
+    TOTAL_C = sen.TOTAL_SENADO
+    MAY_C = sen.MAYORIA_SENADO
+    if es_hoy:
+        escaños_cam = sim_sen["escaños"]
+        bloques_cam = sen.simular_bloques_senado(escaños_cam)
+    else:
+        snap_sel = (hist.get("dias") or {}).get(fecha_sel) or {}
+        sen_snap = (snap_sel.get("senado") or {}) if snap_sel else {}
+        escaños_cam = sen_snap.get("escaños") or sim_sen["escaños"]
+        bloques_cam = sen.simular_bloques_senado(escaños_cam)
+    absolutos = [b for b in bloques_cam if b["alcanza_absoluta"]]
+    veredicto = absolutos[0] if absolutos else (bloques_cam[0] if bloques_cam else None)
+    orden_he = sen.ORDEN
+    color_map = sen.COLORES
+    etiqueta_cam = "Senado 266"
+    etiqueta_may = f"{MAY_C} mayorías"
+
+else:  # Autonomías
+    cc_names = aut.listar_comunidades()
+    if "ccaa_sel" not in st.session_state or st.session_state.get("_cc_init") != cc_names:
+        st.session_state.ccaa_sel = cc_names[0]
+        st.session_state._cc_init = cc_names
+    ccaa = st.selectbox(
+        "Comunidad",
+        options=cc_names,
+        index=cc_names.index(st.session_state.ccaa_sel) if st.session_state.ccaa_sel in cc_names else 0,
+        key="ccaa_sel",
+        label_visibility="collapsed",
+        width="stretch",
+    )
+    res_cc = sim_aut.get(ccaa) or aut.proyectar_comunidad(ccaa, act_live, medias_aut_ui.get(aut.AUTONOMIAS[ccaa]["id"]))
+    TOTAL_C = res_cc["total"]
+    MAY_C = res_cc["mayoria_absoluta"]
+    if es_hoy:
+        escaños_cam = res_cc["escaños"]
+        bloques_cam = res_cc["bloques"]
+    else:
+        snap_sel = (hist.get("dias") or {}).get(fecha_sel) or {}
+        aut_snap = ((snap_sel.get("autonomias") or {}).get(res_cc["id"])) if snap_sel else None
+        if aut_snap and aut_snap.get("escaños"):
+            escaños_cam = aut_snap["escaños"]
+            bloques_cam = aut.simular_bloques(escaños_cam, MAY_C, aut.AUTONOMIAS[ccaa]["pactos"])
+        else:
+            escaños_cam = res_cc["escaños"]
+            bloques_cam = res_cc["bloques"]
+    absolutos = [b for b in bloques_cam if b["alcanza_absoluta"]]
+    veredicto = absolutos[0] if absolutos else (bloques_cam[0] if bloques_cam else None)
+    orden_he = aut.ORDEN_BASE
+    color_map = aut.COLORES
+    etiqueta_cam = f"{ccaa} · {res_cc['parlamento']}"
+    etiqueta_may = f"{MAY_C} mayorías"
+
+escaños_vis = escaños_cam
+bloques = bloques_cam
+mejor = veredicto
 
 # ═══════════════════════ ARRIBA: barra + hemiciclo ═══════════════════════
 nombre_bloque = (veredicto or {}).get("bloque", "—")
@@ -524,16 +665,22 @@ st.markdown(
     f"""
     <div class="top">
       <h1>Consultor Electoral España</h1>
-      <div class="meta">{fecha_label} · {origen_vis} · Congreso 350</div>
+      <div class="meta">{fecha_label} · {origen_vis} · {etiqueta_cam}</div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-st.markdown(barra_176(escaños_vis, total_bloque, nombre_bloque), unsafe_allow_html=True)
+st.markdown(
+    barra_mayoria(
+        escaños_vis, total_bloque, nombre_bloque,
+        TOTAL_C, MAY_C, color_map=color_map, orden=orden_he,
+    ),
+    unsafe_allow_html=True,
+)
 
 # Selector hemiciclo compacto
-partidos_escaños = [p for p in pm.ORDEN_HEMICICLO if escaños_vis.get(p)]
+partidos_escaños = [p for p in orden_he if escaños_vis.get(p)]
 for p in sorted(escaños_vis, key=lambda x: -escaños_vis[x]):
     if p not in partidos_escaños and escaños_vis[p] > 0:
         partidos_escaños.append(p)
@@ -548,7 +695,10 @@ seleccion = st.multiselect(
 )
 
 st.plotly_chart(
-    construir_hemiciclo(escaños_vis, seleccion),
+    construir_hemiciclo(
+        escaños_vis, seleccion,
+        mayoria=MAY_C, orden_he=orden_he, color_map=color_map,
+    ),
     width="stretch",
     theme=None,
     config={"displayModeBar": False, "responsive": True},
@@ -577,22 +727,25 @@ for i, p in enumerate(partidos_escaños):
 st.session_state.pacto_sel = pacto_sel
 
 total_pacto = sum(escaños_vis.get(p, 0) for p in pacto_sel)
-info_p = pm.estado_bloque(total_pacto)
+if camara == "Congreso":
+    info_p = pm.estado_bloque(total_pacto)
+else:
+    info_p = sen.estado_senado(total_pacto) if camara == "Senado" else aut.estado_bloque(total_pacto, MAY_C)
 color_estado = (
     "#22C55E"
     if info_p["alcanza_absoluta"]
     else "#FBBF24"
-    if info_p["total"] >= pm.MIN_SIMPLE_2A_VUELTA
+    if camara == "Congreso" and info_p["total"] >= pm.MIN_SIMPLE_2A_VUELTA
     else "#EF4444"
 )
-pct_maj = min(100.0, 100.0 * total_pacto / pm.MAYORIA_ABSOLUTA)
+pct_maj = min(100.0, 100.0 * total_pacto / MAY_C)
 
 st.markdown(
     f"""
     <div class="coal">
       <div style="font-size:0.7rem;color:#8B9BB0;text-transform:uppercase;
                   letter-spacing:0.08em;">Coalición</div>
-      <div class="n">{total_pacto}<span> / 176</span></div>
+      <div class="n">{total_pacto}<span> / {MAY_C}</span></div>
       <div class="st" style="color:{color_estado};">
         {info_p['estado']} · {info_p['texto_distancia']}
       </div>
@@ -614,7 +767,7 @@ filas_bloques = [
     {
         "Bloque": b["bloque"],
         "Escaños": b["total"],
-        "vs 176": b["texto_distancia"],
+        f"vs {MAY_C}": b["texto_distancia"],
         "Estado": "✅" if b["alcanza_absoluta"] else "—" ,
     }
     for b in bloques
@@ -716,6 +869,7 @@ if filas_gan:
         ),
         yaxis=dict(tickfont=dict(color="#E8EEF7", size=12)),
         font=dict(color="#E8EEF7"),
+        hoverlabel=HOVER_OSCURO,
         showlegend=False,
     )
     st.plotly_chart(
@@ -817,6 +971,7 @@ with tab_tend:
             paper_bgcolor="rgba(0,0,0,0)",
             yaxis=dict(gridcolor="#1E293B"),
             font=dict(color="#E8EEF7"),
+            hoverlabel=HOVER_OSCURO,
         )
         st.plotly_chart(
             fig,

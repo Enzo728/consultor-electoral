@@ -14,12 +14,15 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import pactometro as pm
+import senado as sen
+import autonomias as aut
 from scraper import medias_ponderadas
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 HIST_PATH = DATA_DIR / "historico_diario.json"
 ENCUESTAS_PATH = DATA_DIR / "encuestas_limpias.json"
+ENC_AUT_PATH = DATA_DIR / "encuestas_autonomicas.json"
 
 PARTIDOS_MOMENTUM = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
 
@@ -54,12 +57,31 @@ def guardar_historico(hist: dict) -> Path:
 # ───────────────── snapshots ─────────────────
 
 def construir_snapshot(medias: dict, fecha: date, origen: str = "live") -> dict:
-    """Instantánea: medias + escaños + mejor bloque para una fecha."""
+    """Instantánea: medias + escaños + mejor bloque para Congreso/Senado/Autonomías."""
     proy = pm.proyectar_escaños(medias)
     bloques = pm.simular_bloques(proy["escaños"])
     absolutos = [b for b in bloques if b["alcanza_absoluta"]]
     mayoritario = absolutos[0] if absolutos else (bloques[0] if bloques else None)
-    return {
+
+    # Senado (mismas medias nacionales)
+    try:
+        sen_res = sen.proyectar_senado(medias)
+    except Exception:
+        sen_res = None
+
+    # Autonomías (medias locales si existen)
+    aut_medias: dict[str, dict[str, float]] = {}
+    if ENC_AUT_PATH.exists():
+        try:
+            aut_medias = json.loads(ENC_AUT_PATH.read_text(encoding="utf-8")).get("medias") or {}
+        except (json.JSONDecodeError, OSError):
+            aut_medias = {}
+    try:
+        aut_res = aut.proyectar_todas(medias, aut_medias)
+    except Exception:
+        aut_res = {}
+
+    snap = {
         "fecha": fecha.isoformat(),
         "medias": {k: round(float(v), 2) for k, v in medias.items() if v is not None},
         "escaños": proy["escaños"],
@@ -67,6 +89,23 @@ def construir_snapshot(medias: dict, fecha: date, origen: str = "live") -> dict:
         "bloque_mayoritario": mayoritario,
         "origen": origen,
     }
+    if sen_res:
+        snap["senado"] = {
+            "escaños": sen_res["escaños"],
+            "total": sen_res["total"],
+            "bloque_mayoritario": sen_res.get("bloque_mayoritario"),
+        }
+    if aut_res:
+        snap["autonomias"] = {
+            cid: {
+                "escaños": r["escaños"],
+                "total": r["total"],
+                "mayoria": r["mayoria_absoluta"],
+                "bloque_mayoritario": r.get("bloque_mayoritario"),
+            }
+            for cid, r in ((v["id"], v) for v in aut_res.values())
+        }
+    return snap
 
 
 def registrar_hoy(encuestas: list[dict] | None = None) -> dict:
