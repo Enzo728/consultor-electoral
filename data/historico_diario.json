@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-14T16:28:31",
+  "actualizado": "2026-11-14T16:32:57",
   "dias": {
     "2026-11-14": {
       "fecha": "2026-11-14",
@@ -20,20 +20,20 @@
         "C-FV": 1.14
       },
       "escaños": {
-        "VOX": 70,
-        "ERC": 7,
+        "FA": 25,
+        "C-FV": 3,
+        "EH Bildu": 3,
+        "PNV": 2,
+        "JUNTS": 3,
+        "AA": 4,
+        "SALF": 2,
         "PSOE": 110,
         "PODEMOS": 2,
         "CCa": 1,
-        "SALF": 2,
-        "BNG": 2,
-        "C-FV": 3,
-        "JUNTS": 3,
-        "PNV": 2,
-        "EH Bildu": 3,
         "PP": 116,
-        "FA": 25,
-        "AA": 4
+        "VOX": 70,
+        "ERC": 7,
+        "BNG": 2
       },
       "total_escaños": 350,
       "bloque_mayoritario": {
@@ -112,37 +112,38 @@
         },
         "cataluna": {
           "escaños": {
-            "PSC": 46,
-            "JUNTS": 15,
-            "ERC": 14,
-            "PP": 36,
-            "VOX": 24
+            "PSC": 47,
+            "JUNTS": 25,
+            "ERC": 28,
+            "PP": 17,
+            "VOX": 18
           },
           "total": 135,
           "mayoria": 68,
           "bloque_mayoritario": {
-            "bloque": "PSC + JUNTS",
+            "bloque": "PSC + ERC",
             "miembros": [
               "PSC",
-              "JUNTS"
+              "ERC"
             ],
-            "total": 61,
-            "distancia": -7,
-            "texto_distancia": "7 para la absoluta",
-            "estado": "Insuficiente",
-            "alcanza_absoluta": false,
+            "total": 75,
+            "distancia": 7,
+            "texto_distancia": "+7",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
             "detalle": {
-              "PSC": 46,
-              "JUNTS": 15
+              "PSC": 47,
+              "ERC": 28
             }
           }
         },
         "andalucia": {
           "escaños": {
-            "PP": 46,
-            "PSOE": 36,
-            "VOX": 22,
-            "AA": 5
+            "PP": 50,
+            "PSOE": 26,
+            "VOX": 16,
+            "POR A": 9,
+            "AA": 8
           },
           "total": 109,
           "mayoria": 55,
@@ -152,14 +153,14 @@
               "PP",
               "PSOE"
             ],
-            "total": 82,
-            "distancia": 27,
-            "texto_distancia": "+27",
+            "total": 76,
+            "distancia": 21,
+            "texto_distancia": "+21",
             "estado": "Mayoría Absoluta",
             "alcanza_absoluta": true,
             "detalle": {
-              "PP": 46,
-              "PSOE": 36
+              "PP": 50,
+              "PSOE": 26
             }
           }
         },
@@ -218,11 +219,12 @@
         },
         "paisvasco": {
           "escaños": {
-            "PNV": 13,
-            "EH Bildu": 9,
-            "PSE": 23,
-            "PP": 19,
-            "VOX": 11
+            "PNV": 30,
+            "EH Bildu": 16,
+            "PSE": 16,
+            "PP": 3,
+            "VOX": 4,
+            "PODEMOS": 6
           },
           "total": 75,
           "mayoria": 38,
@@ -232,14 +234,14 @@
               "PNV",
               "PSE"
             ],
-            "total": 36,
-            "distancia": -2,
-            "texto_distancia": "2 para la absoluta",
-            "estado": "Insuficiente",
-            "alcanza_absoluta": false,
+            "total": 46,
+            "distancia": 8,
+            "texto_distancia": "+8",
+            "estado": "Mayoría Absoluta",
+            "alcanza_absoluta": true,
             "detalle": {
-              "PNV": 13,
-              "PSE": 23
+              "PNV": 30,
+              "PSE": 16
             }
           }
         },

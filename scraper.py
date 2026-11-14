@@ -152,6 +152,7 @@ def norm_partido(nombre: str) -> str:
         "hal dugu": "Ahal Dugu",
         "ahal dugu": "Ahal Dugu",
         "elkarrekin": "PODEMOS",
+        "elkarrekin podemos": "PODEMOS",
         "smr": "OTROS",
         "otros": "OTROS",
         "ns/nr": None,
@@ -162,6 +163,47 @@ def norm_partido(nombre: str) -> str:
         "part.": None,
         "participación": None,
         "participacion": None,
+        # Nombres largos / siglas en catalán, vasco, etc.
+        "partido de los socialistas de cataluña": "PSC",
+        "psc": "PSC",
+        "junts per catalunya": "JUNTS",
+        "jxcat": "JUNTS",
+        "esquerra republicana de catalunya": "ERC",
+        "partido popular de cataluña": "PP",
+        "ppc": "PP",
+        "comuns sumar": "FA",
+        "comuns": "FA",
+        "candidatura de unidad popular": "OTROS",
+        "aliança catalana": "OTROS",
+        "alliança catalana": "OTROS",
+        "alianza catalana": "OTROS",
+        "podem catalunya": "PODEMOS",
+        "se acabó la fiesta": "SALF",
+        "se acabo la fiesta": "SALF",
+        "partido nacionalista vasco": "PNV",
+        "euskal herria bildu": "EH Bildu",
+        "partido socialista de euskadi-euskadiko ezkerra": "PSE",
+        "pse-ee": "PSE",
+        "sumar euskadi": "FA",
+        "partido popular del país vasco": "PP",
+        "partido popular del pais vasco": "PP",
+        "vox (partido político)": "VOX",
+        "vox (partido politico)": "VOX",
+        "ciudadanos (españa)": "Cs",
+        "ciudadanos (espana)": "Cs",
+        "juanma moreno": "PP",
+        "maría jesús montero": "PSOE",
+        "maria jesus montero": "PSOE",
+        "manuel gavira": "VOX",
+        "inmaculada nieto": "POR A",
+        "antonio mälllo": "POR A",
+        "antonio mello": "POR A",
+        "josé ignacio garcía sánchez": "AA",
+        "jose ignacio garcia sanchez": "AA",
+        "adrián yacar lópez": "SALF",
+        "adrian yacar lopez": "SALF",
+        "por andalucía": "POR A",
+        "por andalucia": "POR A",
     }
     key = n.lower().strip()
     if key in equivalencias:
@@ -247,12 +289,16 @@ def parse_fecha_campo(txt: str, anio_defecto: int) -> tuple[date | None, date | 
     """Parsea rangos de trabajo de campo en español.
 
     Acepciones: '26 Oct–9 Nov', '4–6 Nov', '1–6 Sep', '8-22 Oct',
-    '2–4 Nov 2026', '25 Oct', '1 Sep–8 Nov', '30 Dic–2 Ene' (cambio de año).
+    '2–4 Nov 2026', '25 Oct', '1 Sep–8 Nov', '30 Dic–2 Ene' (cambio de año),
+    '21 de abril de 2024', '1-9 Sep 2026', '29 Abr-6 May 2026'.
     """
     if not txt:
         return None, None
     t = re.sub(r"\s+", " ", txt.strip())
     t = t.replace("–", "-").replace("—", "-").replace("−", "-")
+    # Quitar 'de' en fechas largas: '21 de abril de 2024' → '21 abril 2024'
+    t = re.sub(r"\bde\b", " ", t, flags=re.IGNORECASE)
+    t = re.sub(r"\s+", " ", t).strip()
 
     # Rango día-mes a día-mes: '26 Oct - 9 Nov [2026]'
     pat_rango = re.match(
@@ -297,7 +343,7 @@ def parse_fecha_campo(txt: str, anio_defecto: int) -> tuple[date | None, date | 
                 return None, None
             return f1, f2
 
-    # Fecha única: '25 Oct' o '25 Oct 2026'
+    # Fecha única: '25 Oct' o '25 Oct 2026' o '21 abril 2024'
     pat_unica = re.match(
         r"^(\d{1,2})\s+([A-Za-záéíóúÁÉÍÓÚ]+)\s*(\d{4})?$",
         t,
@@ -312,6 +358,15 @@ def parse_fecha_campo(txt: str, anio_defecto: int) -> tuple[date | None, date | 
                 return f, f
             except ValueError:
                 return None, None
+
+    # Fecha ISO: '2024-04-21'
+    pat_iso = re.match(r"^(\d{4})-(\d{2})-(\d{2})$", t)
+    if pat_iso:
+        try:
+            f = date(int(pat_iso.group(1)), int(pat_iso.group(2)), int(pat_iso.group(3)))
+            return f, f
+        except ValueError:
+            return None, None
 
     return None, None
 
@@ -730,7 +785,19 @@ def scrappear_autonomicas() -> dict:
         if incluidas:
             meds = medias_ponderadas(incluidas, hoy, filtro_ventana=(0, 14))
             if not meds:
+                meds = medias_ponderadas(incluidas, hoy, filtro_ventana=(0, 90))
+            if not meds:
                 meds = medias_ponderadas(incluidas, hoy)
+            # Limpiar claves de candidatos / NS-NR / metadatos
+            meds = {
+                k: v for k, v in meds.items()
+                if k and k.upper() not in (
+                    "NS/NR", "NS/NR", "OTROS", "DIFERENCIA", "VENTAJA", "DIF.", "DIF",
+                    "PART.", "PARTICIPACIÓN", "VOTO",
+                )
+                and not k.startswith("%")
+                and len(k) <= 30
+            }
         else:
             meds = {}
 
