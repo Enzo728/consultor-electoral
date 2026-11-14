@@ -1,8 +1,13 @@
 """Motor de Gobiernos Autonómicos — 10 CCAA con D'Hondt y pactos.
 
-Cada comunidad define: total de escaños, mayoría absoluta, barrera legal y
-partidos relevantes (incluye fuerzas regionales). Proyección con Ley D'Hondt
-simplificada sobre medias ponderadas (sin CIS).
+Totales oficiales verificados en Wikipedia (nov 2026):
+  Madrid 135/68 · Andalucía 109/55 · C. Valenciana 99/50 · Cataluña 135/68
+  Galicia 75/38 · País Vasco 75/38 · Castilla y León 82/42 (Segovia +1 en 2026)
+  CLM 33/17 · Aragón 67/34 · Extremadura 65/33
+
+CLM usa D'Hondt PROVINCIAL real con umbral 3% por provincia
+(Albacete 7, C.Real 7, Cuenca 5, Guadalajara 5, Toledo 9).
+Sin encuestas recientes → "Sin encuestas recientes fiables" (NUNCA inventado).
 """
 
 from __future__ import annotations
@@ -62,27 +67,23 @@ ORDEN_BASE = [
 
 # ───────────────── Configuración de CCAA ─────────────────
 # umbral: barrera electoral legal (%)
-# Wikipedia: páginas con tablas de encuestas cuando existen (se scrapea en scraper.py)
+# SIN pesos_base: solo datos scrapeados de Wikipedia con fecha real.
 
 AUTONOMIAS: dict[str, dict] = {
     "Madrid": {
         "id": "madrid",
         "parlamento": "Asamblea de Madrid",
-        "escaños": 132,
-        "mayoria": 67,
+        "escaños": 135,
+        "mayoria": 68,
         "umbral": 5.0,
         "partidos": ["PP", "PSOE", "VOX", "PODEMOS", "FA", "SALF", "Cs", "Más Madrid", "MC"],
-        "wiki": [
-            "Elecciones a la Asamblea de Madrid de 2027",
-            "Elecciones a la Asamblea de Madrid de 2023",
-        ],
+        "wiki": ["Elecciones a la Asamblea de Madrid de 2023"],
         "pactos": [
             ["PP", "VOX"],
             ["PSOE", "PODEMOS", "FA"],
             ["PP", "PSOE"],
             ["PSOE", "Más Madrid"],
         ],
-        "pesos_base": {"PP": 34, "PSOE": 27, "VOX": 12, "PODEMOS": 6, "FA": 5, "Más Madrid": 5, "SALF": 3, "MC": 2, "Cs": 2},
     },
     "Cataluña": {
         "id": "cataluna",
@@ -98,7 +99,6 @@ AUTONOMIAS: dict[str, dict] = {
             ["PP", "VOX"],
             ["PSC", "ERC", "Comuns"],
         ],
-        "pesos_base": {"PSC": 28, "JUNTS": 22, "ERC": 18, "PP": 10, "VOX": 9, "Comuns": 7, "PODEMOS": 3, "SALF": 3},
     },
     "Andalucía": {
         "id": "andalucia",
@@ -114,7 +114,6 @@ AUTONOMIAS: dict[str, dict] = {
             ["PSOE", "AA", "PODEMOS"],
             ["PP", "PSOE"],
         ],
-        "pesos_base": {"PP": 40, "PSOE": 23, "VOX": 14, "POR A": 7, "AA": 7, "PODEMOS": 3, "SALF": 3},
     },
     "Comunidad Valenciana": {
         "id": "cvalenciana",
@@ -123,17 +122,13 @@ AUTONOMIAS: dict[str, dict] = {
         "mayoria": 50,
         "umbral": 5.0,
         "partidos": ["PP", "PSOE", "VOX", "Compromís", "PODEMOS", "FA", "SALF", "Cs"],
-        "wiki": [
-            "Elecciones a las Cortes Valencianas de 2027",
-            "Elecciones a las Cortes Valencianas de 2023",
-        ],
+        "wiki": ["Elecciones a las Cortes Valencianas de 2023"],
         "pactos": [
             ["PP", "VOX"],
             ["PSOE", "Compromís"],
             ["PSOE", "Compromís", "PODEMOS"],
             ["PP", "PSOE"],
         ],
-        "pesos_base": {"PP": 36, "PSOE": 24, "VOX": 15, "Compromís": 9, "PODEMOS": 5, "FA": 4, "SALF": 4, "Cs": 2},
     },
     "Galicia": {
         "id": "galicia",
@@ -142,17 +137,13 @@ AUTONOMIAS: dict[str, dict] = {
         "mayoria": 38,
         "umbral": 3.0,
         "partidos": ["PP", "PSOE", "BNG", "VOX", "PODEMOS", "FA", "SALF"],
-        "wiki": [
-            "Elecciones al Parlamento de Galicia de 2025",
-            "Elecciones al Parlamento de Galicia de 2024",
-        ],
+        "wiki": ["Elecciones al Parlamento de Galicia de 2024"],
         "pactos": [
             ["PP", "VOX"],
             ["PSOE", "BNG"],
             ["BNG", "PSOE", "PODEMOS"],
             ["PP", "PSOE"],
         ],
-        "pesos_base": {"PP": 40, "PSOE": 24, "BNG": 22, "VOX": 8, "PODEMOS": 3, "SALF": 3},
     },
     "País Vasco": {
         "id": "paisvasco",
@@ -168,7 +159,6 @@ AUTONOMIAS: dict[str, dict] = {
             ["PP", "VOX"],
             ["PSE", "PODEMOS", "Ahal Dugu"],
         ],
-        "pesos_base": {"PNV": 34, "EH Bildu": 24, "PSE": 22, "PP": 7, "VOX": 5, "PODEMOS": 4, "Ahal Dugu": 3, "SALF": 2},
     },
     "Castilla y León": {
         "id": "cyl",
@@ -184,25 +174,28 @@ AUTONOMIAS: dict[str, dict] = {
             ["PSOE", "PODEMOS", "FA"],
             ["PP", "PSOE"],
         ],
-        "pesos_base": {"PP": 35, "PSOE": 30, "VOX": 18, "UPL": 5, "Soria Ya": 2, "PCAL": 2, "PODEMOS": 3, "SALF": 3},
     },
     "Castilla-La Mancha": {
         "id": "clm",
         "parlamento": "Cortes de Castilla-La Mancha",
         "escaños": 33,
         "mayoria": 17,
-        "umbral": 5.0,
+        "umbral": 3.0,
         "partidos": ["PSOE", "PP", "VOX", "PODEMOS", "FA", "SALF", "Cs"],
-        "wiki": [
-            "Elecciones a las Cortes de Castilla-La Mancha de 2027",
-            "Elecciones a las Cortes de Castilla-La Mancha de 2023",
-        ],
+        "wiki": ["Elecciones a las Cortes de Castilla-La Mancha de 2023"],
         "pactos": [
             ["PP", "VOX"],
             ["PSOE", "PODEMOS", "FA"],
             ["PSOE", "PP"],
         ],
-        "pesos_base": {"PSOE": 40, "PP": 34, "VOX": 14, "PODEMOS": 5, "FA": 3, "SALF": 3, "Cs": 2},
+        # D'Hondt PROVINCIAL (Ley Electoral CLM): umbral 3% por provincia
+        "provincial": {
+            "Albacete": 7,
+            "Ciudad Real": 7,
+            "Cuenca": 5,
+            "Guadalajara": 5,
+            "Toledo": 9,
+        },
     },
     "Aragón": {
         "id": "aragon",
@@ -218,7 +211,6 @@ AUTONOMIAS: dict[str, dict] = {
             ["PSOE", "Aragón Existe"],
             ["PP", "PSOE"],
         ],
-        "pesos_base": {"PP": 36, "PSOE": 24, "VOX": 17, "CHA": 8, "Aragón Existe": 4, "PAR": 3, "PA-AV": 3, "PODEMOS": 3, "FA": 2, "SALF": 2},
     },
     "Extremadura": {
         "id": "extremadura",
@@ -234,11 +226,12 @@ AUTONOMIAS: dict[str, dict] = {
             ["PSOE", "JxE"],
             ["PP", "PSOE"],
         ],
-        "pesos_base": {"PP": 42, "PSOE": 26, "VOX": 16, "UpE": 8, "JxE": 3, "PODEMOS": 3, "SALF": 2},
     },
 }
 
-# Comprobación de totales (se ejecuta en tests / __main__)
+SIN_ENCUESTAS = "Sin encuestas recientes fiables"
+
+
 def validar_config() -> None:
     for nombre, cfg in AUTONOMIAS.items():
         total = cfg["escaños"]
@@ -247,36 +240,62 @@ def validar_config() -> None:
         assert total > 0
         assert cfg["umbral"] in (3.0, 5.0), f"{nombre}: umbral {cfg['umbral']}"
         assert len(cfg["partidos"]) >= 3
+        prov = cfg.get("provincial")
+        if prov:
+            s = sum(prov.values())
+            assert s == total, f"{nombre}: provincias {s} ≠ {total}"
 
 
 def _dhondt(pesos: dict[str, float], escaños: int, umbral_pct: float) -> dict[str, int]:
-    """D'Hondt con barrera: partidos bajo umbral reciben peso residual pequeño."""
+    """D'Hondt con barrera: partidos bajo umbral no reciben escaños."""
     if escaños <= 0 or not pesos:
         return {p: 0 for p in pesos}
-    ajustado = {
-        p: (w if w >= umbral_pct else w * 0.15)
-        for p, w in pesos.items()
-        if w is not None and w > 0
+    activos = {
+        p: w for p, w in pesos.items()
+        if w is not None and w > 0 and w >= umbral_pct
     }
-    if not ajustado:
-        ajustado = dict(pesos)
-    activos = {p: w for p, w in ajustado.items() if w > 0}
+    if not activos:
+        # si todos bajo umbral, reparte igual entre los >0 (mejor que no repartir)
+        activos = {p: w for p, w in pesos.items() if w is not None and w > 0}
+    if not activos:
+        return {p: 0 for p in pesos}
     asignados = {p: 0 for p in activos}
     for _ in range(escaños):
         mejor = max(activos, key=lambda p: activos[p] / (asignados[p] + 1))
         asignados[mejor] += 1
     out = {p: 0 for p in pesos}
     out.update(asignados)
-    # Ajuste exacto si algún residual no repartió
     fallos = escaños - sum(out.values())
     if fallos > 0:
-        extra = {p: w for p, w in pesos.items() if w > 0}
+        extra = {p: w for p, w in activos.items()}
         for _ in range(fallos):
             if not extra:
                 break
             mejor = max(extra, key=lambda p: extra[p])
             out[mejor] = out.get(mejor, 0) + 1
     return out
+
+
+def _dhondt_provincial(
+    votos: dict[str, float],
+    provincias: dict[str, int],
+    umbral_pct: float,
+) -> dict[str, int]:
+    """D'Hondt por provincia con umbral 3% en cada una (CLM)."""
+    total = {p: 0 for p in votos}
+    for _prov, escaños in provincias.items():
+        reparto = _dhondt(votos, escaños, umbral_pct)
+        for p, n in reparto.items():
+            total[p] = total.get(p, 0) + n
+    # Ajuste exacto al total de la CCAA
+    s = sum(total.values())
+    objetivo_total = sum(provincias.values())
+    if s != objetivo_total:
+        diff = objetivo_total - s
+        if total:
+            key = max(total, key=total.get)
+            total[key] = total.get(key, 0) + diff
+    return {p: n for p, n in total.items() if n > 0}
 
 
 def estado_bloque(total: int, mayoria: int) -> dict:
@@ -316,13 +335,11 @@ def proyectar_comunidad(
     nombre: str,
     medias_nacionales: dict[str, float] | None = None,
     medias_locales: dict[str, float] | None = None,
+    stats_locales: dict | None = None,
 ) -> dict:
-    """Proyecta el parlamento de una CCAA.
+    """Proyecta el parlamento de una CCAA SOLO con datos reales.
 
-    Prioridad de medias:
-    1) medias_locales (encuestas autonómicas scrapeadas)
-    2) medias_nacionales filtradas a los partidos de la comunidad + pesos_base
-    3) pesos_base por defecto
+    Si no hay encuestas locales recientes → estado SIN_ENCUESTAS (sin escaños inventados).
     """
     if nombre not in AUTONOMIAS:
         raise KeyError(f"Comunidad desconocida: {nombre}")
@@ -331,48 +348,76 @@ def proyectar_comunidad(
     mayoria = cfg["mayoria"]
     total = cfg["escaños"]
     partidos = cfg["partidos"]
+    cid = cfg["id"]
 
-    votos: dict[str, float] = {}
+    # ¿Hay medias locales recientes?
+    locales = None
     if medias_locales:
-        for p in partidos:
-            if p in medias_locales and medias_locales[p]:
-                votos[p] = float(medias_locales[p])
-        # alias PSC ← PSOE si la encuesta trae PSC
-        if "PSC" in partidos and "PSC" not in votos and medias_nacionales:
-            if "PSOE" in medias_nacionales:
-                votos.setdefault("PSC", float(medias_nacionales["PSOE"]))
-        if "PSE" in partidos and "PSE" not in votos and medias_nacionales:
-            if "PSOE" in medias_nacionales:
-                votos.setdefault("PSE", float(medias_nacionales["PSOE"]))
+        locales = {p: float(v) for p, v in medias_locales.items()
+                   if p in partidos and v and v > 0}
+        if len(locales) < 3:
+            locales = None
 
-    if len(votos) < 3 and medias_nacionales:
-        for p in partidos:
-            if p in votos:
-                continue
-            src = p
-            if p in ("PSC", "PSE") and "PSOE" in medias_nacionales:
-                src = "PSOE"
-            if p in ("Ahal Dugu",) and "PODEMOS" in medias_nacionales:
-                src = "PODEMOS"
-            if src in medias_nacionales and medias_nacionales[src]:
-                # mezcla 60% nacional + 40% base local
-                base = cfg["pesos_base"].get(p, 5.0)
-                votos[p] = 0.6 * float(medias_nacionales[src]) + 0.4 * base
+    if stats_locales is not None and not stats_locales.get("reciente", bool(locales)):
+        locales = None
 
-    if len(votos) < 3:
-        votos = {p: float(v) for p, v in cfg["pesos_base"].items() if p in partidos or True}
+    if not locales:
+        # SIN encuestas recientes → NUNCA inventar
+        return {
+            "comunidad": nombre,
+            "id": cid,
+            "parlamento": cfg["parlamento"],
+            "escaños": {},
+            "total": total,
+            "mayoria_absoluta": mayoria,
+            "umbral": umbral,
+            "partidos": partidos,
+            "medias_usadas": {},
+            "bloques": [],
+            "mejor_bloque": None,
+            "bloque_mayoritario": None,
+            "fuente_medias": "sin_datos",
+            "aviso": SIN_ENCUESTAS,
+            "ultima_encuesta": (stats_locales or {}).get("ultima_encuesta"),
+        }
 
-    # Solo partidos de la comunidad
+    votos = dict(locales)
+    # alias PSC ← PSOE / PSE ← PSOE si hace falta (solo con datos locales ya presentes)
+    if "PSC" in partidos and "PSC" not in votos and "PSOE" in votos:
+        votos["PSC"] = votos["PSOE"]
+    if "PSE" in partidos and "PSE" not in votos and "PSOE" in votos:
+        votos["PSE"] = votos["PSOE"]
+
     votos = {p: v for p, v in votos.items() if p in partidos and v and v > 0}
     if not votos:
-        votos = {p: float(v) for p, v in cfg["pesos_base"].items() if p in partidos}
+        return {
+            "comunidad": nombre,
+            "id": cid,
+            "parlamento": cfg["parlamento"],
+            "escaños": {},
+            "total": total,
+            "mayoria_absoluta": mayoria,
+            "umbral": umbral,
+            "partidos": partidos,
+            "medias_usadas": {},
+            "bloques": [],
+            "mejor_bloque": None,
+            "bloque_mayoritario": None,
+            "fuente_medias": "sin_datos",
+            "aviso": SIN_ENCUESTAS,
+            "ultima_encuesta": (stats_locales or {}).get("ultima_encuesta"),
+        }
 
-    escaños = _dhondt(votos, total, umbral)
-    # Ajuste exacto
+    prov = cfg.get("provincial")
+    if prov:
+        escaños = _dhondt_provincial(votos, prov, umbral)
+    else:
+        escaños = _dhondt(votos, total, umbral)
+
     s = sum(escaños.values())
-    if s != total:
+    if s != total and escaños:
         diff = total - s
-        objetivo = max(escaños, key=escaños.get) if escaños else partidos[0]
+        objetivo = max(escaños, key=escaños.get)
         escaños[objetivo] = escaños.get(objetivo, 0) + diff
         if escaños[objetivo] < 0:
             escaños[objetivo] = 0
@@ -386,7 +431,7 @@ def proyectar_comunidad(
 
     return {
         "comunidad": nombre,
-        "id": cfg["id"],
+        "id": cid,
         "parlamento": cfg["parlamento"],
         "escaños": escaños,
         "total": total,
@@ -397,7 +442,9 @@ def proyectar_comunidad(
         "bloques": bloques,
         "mejor_bloque": mejor,
         "bloque_mayoritario": mejor,
-        "fuente_medias": "locales" if medias_locales else ("mixto" if medias_nacionales else "base"),
+        "fuente_medias": "locales",
+        "aviso": None,
+        "ultima_encuesta": (stats_locales or {}).get("ultima_encuesta"),
     }
 
 
@@ -421,6 +468,17 @@ def cargar_medias_autonomicas() -> dict[str, dict[str, float]]:
     return datos.get("medias") or {}
 
 
+def cargar_stats_autonomicas() -> dict[str, dict]:
+    ruta = Path(__file__).resolve().parent / "data" / "encuestas_autonomicas.json"
+    if not ruta.exists():
+        return {}
+    try:
+        datos = json.loads(ruta.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return datos.get("stats") or {}
+
+
 def listar_comunidades() -> list[str]:
     return list(AUTONOMIAS.keys())
 
@@ -428,16 +486,20 @@ def listar_comunidades() -> list[str]:
 def proyectar_todas(
     medias_nacionales: dict[str, float] | None = None,
     medias_autonomicas: dict[str, dict[str, float]] | None = None,
+    stats_autonomicas: dict[str, dict] | None = None,
 ) -> dict[str, dict]:
     if medias_nacionales is None:
         medias_nacionales = cargar_medias_nacionales()
     if medias_autonomicas is None:
         medias_autonomicas = cargar_medias_autonomicas()
+    if stats_autonomicas is None:
+        stats_autonomicas = cargar_stats_autonomicas()
     out = {}
     for nombre in AUTONOMIAS:
         cid = AUTONOMIAS[nombre]["id"]
         locales = medias_autonomicas.get(cid) or medias_autonomicas.get(nombre)
-        out[nombre] = proyectar_comunidad(nombre, medias_nacionales, locales)
+        stats = stats_autonomicas.get(cid)
+        out[nombre] = proyectar_comunidad(nombre, medias_nacionales, locales, stats)
     return out
 
 
@@ -482,9 +544,15 @@ if __name__ == "__main__":
     validar_config()
     print(f"CCAA configuradas: {len(AUTONOMIAS)}")
     for nombre, cfg in AUTONOMIAS.items():
-        print(f"  {nombre}: {cfg['escaños']} esc · mayoría {cfg['mayoria']} · umbral {cfg['umbral']}%")
+        prov = ""
+        if cfg.get("provincial"):
+            prov = " | prov: " + ", ".join(f"{k} {v}" for k, v in cfg["provincial"].items())
+        print(f"  {nombre}: {cfg['escaños']} esc · mayoría {cfg['mayoria']} · umbral {cfg['umbral']}%{prov}")
     todas = proyectar_todas()
     for nombre, res in todas.items():
+        if res.get("aviso"):
+            print(f"[AVISO] {nombre}: {res['aviso']} (última: {res.get('ultima_encuesta') or '—'})")
+            continue
         s = sum(res["escaños"].values())
         ok = "OK" if s == res["total"] else "FAIL"
         print(f"[{ok}] {nombre}: {s}/{res['total']} | mejor={res['mejor_bloque']['bloque'] if res['mejor_bloque'] else '—'}")

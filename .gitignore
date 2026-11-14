@@ -12,3 +12,4 @@ env/
 Thumbs.db
 .ipynb_checkpoints/
 *.log
+*.lnk

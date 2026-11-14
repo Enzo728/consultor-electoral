@@ -1,18 +1,18 @@
 {
-  "actualizado": "2026-11-14T12:44:00",
+  "actualizado": "2026-11-14T17:24:51",
   "fuente": "https://es.wikipedia.org/wiki/Encuestas_de_opini%C3%B3n_para_las_elecciones_generales_de_Espa%C3%B1a_de_2026",
   "filtros": {
     "excluir_cis": true,
     "muestra_minima": 800,
     "lambda_ponderacion": 0.09902,
     "notas": "Media ponderada = exp(-lambda*dias) * sqrt(muestra). Se excluyen CIS y muestras < 800.",
-    "total": 356,
-    "excluidas_cis": 48,
+    "total": 384,
+    "excluidas_cis": 49,
     "excluidas_muestra": 0,
-    "excluidas_fecha": 3,
-    "excluidas_otra": 22,
-    "total_excluidas": 73,
-    "total_incluidas": 281
+    "excluidas_fecha": 0,
+    "excluidas_otra": 19,
+    "total_excluidas": 68,
+    "total_incluidas": 314
   },
   "partidos": [
     "PP",
@@ -6433,6 +6433,31 @@
       "encuestadora": "ElectoPanel",
       "comisionista": "Electomanía",
       "fuente_nombre": "ElectoPanel/Electomanía",
+      "trabajo_campo": "5–10 de abril",
+      "fecha_inicio": "2025-04-05",
+      "fecha_fin": "2025-04-10",
+      "muestra": 2401,
+      "muestra_raw": "2,401",
+      "votos": {
+        "PP": 33.8,
+        "PSOE": 29.5,
+        "VOX": 13.7,
+        "SUMAR": 5.9,
+        "ERC": 1.6,
+        "JUNTS": 1.9,
+        "EH Bildu": 1.3,
+        "PNV": 1.3,
+        "BNG": 0.7,
+        "CCa": 0.4,
+        "UPN": 0.2,
+        "PODEMOS": 5.2,
+        "SALF": 2.1
+      }
+    },
+    {
+      "encuestadora": "ElectoPanel",
+      "comisionista": "Electomanía",
+      "fuente_nombre": "ElectoPanel/Electomanía",
       "trabajo_campo": "30 Mar–4 Abr",
       "fecha_inicio": "2025-03-30",
       "fecha_fin": "2025-04-04",
@@ -7353,6 +7378,806 @@
         "PODEMOS": 4.5,
         "SALF": 2.6
       }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "5–7 Dic 2025",
+      "fecha_inicio": "2025-12-05",
+      "fecha_fin": "2025-12-07",
+      "muestra": 1100,
+      "muestra_raw": "1,100",
+      "votos": {
+        "PP": 20.1,
+        "PSOE": 20.5,
+        "VOX": 16.0,
+        "SUMAR": 6.1,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 3.7,
+        "SALF": 2.1
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "27 Nov–1 Dic 2025",
+      "fecha_inicio": "2025-11-27",
+      "fecha_fin": "2025-12-01",
+      "muestra": 2500,
+      "muestra_raw": "2,500",
+      "votos": {
+        "PP": 18.9,
+        "PSOE": 22.7,
+        "VOX": 18.7,
+        "SUMAR": 4.9,
+        "ERC": 1.8,
+        "JUNTS": 1.7,
+        "EH Bildu": 0.9,
+        "PNV": 1.0,
+        "BNG": 0.8,
+        "CCa": 0.3,
+        "UPN": 0.1,
+        "PODEMOS": 3.1,
+        "SALF": 2.8
+      }
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "Henneo",
+      "fuente_nombre": "DYM/Henneo",
+      "trabajo_campo": "12–14 Nov 2025",
+      "fecha_inicio": "2025-11-12",
+      "fecha_fin": "2025-11-14",
+      "muestra": 1000,
+      "muestra_raw": "1,000",
+      "votos": {
+        "PP": 20.8,
+        "PSOE": 22.6,
+        "VOX": 14.0,
+        "SUMAR": 4.8,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 1.2,
+        "SALF": 1.4
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "6–8 Nov 2025",
+      "fecha_inicio": "2025-11-06",
+      "fecha_fin": "2025-11-08",
+      "muestra": 1100,
+      "muestra_raw": "1,100",
+      "votos": {
+        "PP": 21.5,
+        "PSOE": 20.5,
+        "VOX": 15.3,
+        "SUMAR": 6.5,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 3.7,
+        "SALF": 2.1
+      }
+    },
+    {
+      "encuestadora": "Opina 360",
+      "comisionista": "Telecinco",
+      "fuente_nombre": "Opina 360/Telecinco",
+      "trabajo_campo": "31 Oct–4 Nov 2025",
+      "fecha_inicio": "2025-10-31",
+      "fecha_fin": "2025-11-04",
+      "muestra": 1202,
+      "muestra_raw": "1,202",
+      "votos": {
+        "PP": 21.2,
+        "PSOE": 23.1,
+        "VOX": 15.2,
+        "SUMAR": 6.0,
+        "ERC": 1.3,
+        "JUNTS": 1.1,
+        "EH Bildu": 0.5,
+        "PNV": 0.6,
+        "BNG": 0.5,
+        "CCa": 0.1,
+        "UPN": null,
+        "PODEMOS": 2.6,
+        "SALF": 1.5
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "24–26 Oct 2025",
+      "fecha_inicio": "2025-10-24",
+      "fecha_fin": "2025-10-26",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 17.6,
+        "PSOE": 21.9,
+        "VOX": 17.8,
+        "SUMAR": 5.6,
+        "ERC": 2.0,
+        "JUNTS": 1.6,
+        "EH Bildu": 1.1,
+        "PNV": 1.0,
+        "BNG": 1.1,
+        "CCa": 0.3,
+        "UPN": 0.2,
+        "PODEMOS": 2.9,
+        "SALF": 2.2
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "6–10 Oct 2025",
+      "fecha_inicio": "2025-10-06",
+      "fecha_fin": "2025-10-10",
+      "muestra": 900,
+      "muestra_raw": "900",
+      "votos": {
+        "PP": 19.9,
+        "PSOE": 19.2,
+        "VOX": 15.0,
+        "SUMAR": 6.2,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 4.1,
+        "SALF": 2.4
+      }
+    },
+    {
+      "encuestadora": "GESOP",
+      "comisionista": "Prensa Ibérica",
+      "fuente_nombre": "GESOP/Prensa Ibérica",
+      "trabajo_campo": "3–9 Oct 2025",
+      "fecha_inicio": "2025-10-03",
+      "fecha_fin": "2025-10-09",
+      "muestra": 1000,
+      "muestra_raw": "1,000",
+      "votos": {
+        "PP": 15.6,
+        "PSOE": 22.8,
+        "VOX": 13.4,
+        "SUMAR": 5.7,
+        "ERC": 1.9,
+        "JUNTS": 0.8,
+        "EH Bildu": 1.4,
+        "PNV": 0.5,
+        "BNG": 0.5,
+        "CCa": 0.2,
+        "UPN": null,
+        "PODEMOS": 3.0,
+        "SALF": 1.2
+      }
+    },
+    {
+      "encuestadora": "Opina 360",
+      "comisionista": "Antena 3",
+      "fuente_nombre": "Opina 360/Antena 3",
+      "trabajo_campo": "25–30 Sep 2025",
+      "fecha_inicio": "2025-09-25",
+      "fecha_fin": "2025-09-30",
+      "muestra": 1203,
+      "muestra_raw": "1,203",
+      "votos": {
+        "PP": 18.5,
+        "PSOE": 24.3,
+        "VOX": 16.7,
+        "SUMAR": 5.0,
+        "ERC": 1.9,
+        "JUNTS": 0.8,
+        "EH Bildu": 1.1,
+        "PNV": 0.7,
+        "BNG": 0.9,
+        "CCa": 0.2,
+        "UPN": null,
+        "PODEMOS": 3.6,
+        "SALF": 1.2
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "26–28 Sep 2025",
+      "fecha_inicio": "2025-09-26",
+      "fecha_fin": "2025-09-28",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 17.9,
+        "PSOE": 23.0,
+        "VOX": 17.1,
+        "SUMAR": 5.4,
+        "ERC": 1.8,
+        "JUNTS": 1.6,
+        "EH Bildu": 1.2,
+        "PNV": 0.8,
+        "BNG": 1.2,
+        "CCa": 0.4,
+        "UPN": 0.1,
+        "PODEMOS": 2.4,
+        "SALF": 1.5
+      }
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "Henneo",
+      "fuente_nombre": "DYM/Henneo",
+      "trabajo_campo": "10–15 Sep 2025",
+      "fecha_inicio": "2025-09-10",
+      "fecha_fin": "2025-09-15",
+      "muestra": 1016,
+      "muestra_raw": "1,016",
+      "votos": {
+        "PP": 22.5,
+        "PSOE": 24.1,
+        "VOX": 12.9,
+        "SUMAR": 3.7,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 1.5,
+        "SALF": 1.3
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "29 Ago–1 Sep 2025",
+      "fecha_inicio": "2025-08-29",
+      "fecha_fin": "2025-09-01",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 16.7,
+        "PSOE": 20.7,
+        "VOX": 17.6,
+        "SUMAR": 5.6,
+        "ERC": 1.6,
+        "JUNTS": 1.7,
+        "EH Bildu": 1.0,
+        "PNV": 0.8,
+        "BNG": 0.9,
+        "CCa": 0.4,
+        "UPN": 0.1,
+        "PODEMOS": 3.2,
+        "SALF": 1.6
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "26–29 Ago 2025",
+      "fecha_inicio": "2025-08-26",
+      "fecha_fin": "2025-08-29",
+      "muestra": 1100,
+      "muestra_raw": "1,100",
+      "votos": {
+        "PP": 21.4,
+        "PSOE": 14.0,
+        "VOX": 11.8,
+        "SUMAR": 6.1,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 3.3,
+        "SALF": 2.4
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "21–24 Jul 2025",
+      "fecha_inicio": "2025-07-21",
+      "fecha_fin": "2025-07-24",
+      "muestra": 1100,
+      "muestra_raw": "1,100",
+      "votos": {
+        "PP": 22.8,
+        "PSOE": 13.4,
+        "VOX": 12.3,
+        "SUMAR": 5.0,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 3.1,
+        "SALF": 2.9
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "27–30 Jun 2025",
+      "fecha_inicio": "2025-06-27",
+      "fecha_fin": "2025-06-30",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 21.6,
+        "PSOE": 21.1,
+        "VOX": 15.8,
+        "SUMAR": 5.1,
+        "ERC": 1.3,
+        "JUNTS": 1.4,
+        "EH Bildu": 1.0,
+        "PNV": 0.9,
+        "BNG": 0.8,
+        "CCa": 0.4,
+        "UPN": 0.1,
+        "PODEMOS": 3.4,
+        "SALF": 2.8
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "18–21 Jun 2025",
+      "fecha_inicio": "2025-06-18",
+      "fecha_fin": "2025-06-21",
+      "muestra": 1150,
+      "muestra_raw": "1,150",
+      "votos": {
+        "PP": 23.1,
+        "PSOE": 22.0,
+        "VOX": 12.9,
+        "SUMAR": 6.4,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 3.8,
+        "SALF": null
+      }
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "Henneo",
+      "fuente_nombre": "DYM/Henneo",
+      "trabajo_campo": "17 Jun 2025",
+      "fecha_inicio": "2025-06-17",
+      "fecha_fin": "2025-06-17",
+      "muestra": 1042,
+      "muestra_raw": "1,042",
+      "votos": {
+        "PP": 24.0,
+        "PSOE": 20.1,
+        "VOX": 11.1,
+        "SUMAR": 4.8,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 1.4,
+        "SALF": 1.3
+      }
+    },
+    {
+      "encuestadora": "GESOP",
+      "comisionista": "Prensa Ibérica",
+      "fuente_nombre": "GESOP/Prensa Ibérica",
+      "trabajo_campo": "10–12 Jun 2025",
+      "fecha_inicio": "2025-06-10",
+      "fecha_fin": "2025-06-12",
+      "muestra": 1002,
+      "muestra_raw": "1,002",
+      "votos": {
+        "PP": 18.0,
+        "PSOE": 22.0,
+        "VOX": 10.9,
+        "SUMAR": 5.4,
+        "ERC": 1.4,
+        "JUNTS": 0.8,
+        "EH Bildu": 1.1,
+        "PNV": 0.9,
+        "BNG": 0.4,
+        "CCa": 0.2,
+        "UPN": null,
+        "PODEMOS": 2.7,
+        "SALF": 1.5
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "23-26 de mayo de 2025",
+      "fecha_inicio": "2025-05-23",
+      "fecha_fin": "2025-05-26",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 20.1,
+        "PSOE": 23.1,
+        "VOX": 15.6,
+        "SUMAR": 4.5,
+        "ERC": 1.6,
+        "JUNTS": 1.5,
+        "EH Bildu": 1.1,
+        "PNV": 1.1,
+        "BNG": 0.7,
+        "CCa": 0.4,
+        "UPN": 0.2,
+        "PODEMOS": 3.3,
+        "SALF": 1.9
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "19-22 de mayo de 2025",
+      "fecha_inicio": "2025-05-19",
+      "fecha_fin": "2025-05-22",
+      "muestra": 1812,
+      "muestra_raw": "1,812",
+      "votos": {
+        "PP": 23.6,
+        "PSOE": 21.8,
+        "VOX": 11.7,
+        "SUMAR": 5.3,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 3.9,
+        "SALF": null
+      }
+    },
+    {
+      "encuestadora": "Ipsos",
+      "comisionista": "La Vanguardia",
+      "fuente_nombre": "Ipsos/La Vanguardia",
+      "trabajo_campo": "15-21 de mayo de 2025",
+      "fecha_inicio": "2025-05-15",
+      "fecha_fin": "2025-05-21",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 20.3,
+        "PSOE": 22.9,
+        "VOX": 10.0,
+        "SUMAR": 5.4,
+        "ERC": 1.2,
+        "JUNTS": 1.0,
+        "EH Bildu": 0.5,
+        "PNV": 0.8,
+        "BNG": 0.6,
+        "CCa": 0.2,
+        "UPN": 0.0,
+        "PODEMOS": 2.5,
+        "SALF": 1.2
+      }
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "Henneo",
+      "fuente_nombre": "DYM/Henneo",
+      "trabajo_campo": "14-19 de mayo de 2025",
+      "fecha_inicio": "2025-05-14",
+      "fecha_fin": "2025-05-19",
+      "muestra": 1057,
+      "muestra_raw": "1,057",
+      "votos": {
+        "PP": 27.9,
+        "PSOE": 22.6,
+        "VOX": 9.4,
+        "SUMAR": 3.2,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 1.7,
+        "SALF": 1.4
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "24–27 Abr 2025",
+      "fecha_inicio": "2025-04-24",
+      "fecha_fin": "2025-04-27",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 21.7,
+        "PSOE": 23.0,
+        "VOX": 13.3,
+        "SUMAR": 4.2,
+        "ERC": 1.8,
+        "JUNTS": 1.5,
+        "EH Bildu": 0.5,
+        "PNV": 1.1,
+        "BNG": 0.7,
+        "CCa": 0.5,
+        "UPN": 0.1,
+        "PODEMOS": 2.8,
+        "SALF": 2.3
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "21–25 Abr 2025",
+      "fecha_inicio": "2025-04-21",
+      "fecha_fin": "2025-04-25",
+      "muestra": 1000,
+      "muestra_raw": "1,000",
+      "votos": {
+        "PP": 22.3,
+        "PSOE": 21.4,
+        "VOX": 11.2,
+        "SUMAR": 5.0,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 4.2,
+        "SALF": null
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "28–31 Mar 2025",
+      "fecha_inicio": "2025-03-28",
+      "fecha_fin": "2025-03-31",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 20.0,
+        "PSOE": 22.7,
+        "VOX": 14.6,
+        "SUMAR": 4.2,
+        "ERC": 1.5,
+        "JUNTS": 1.9,
+        "EH Bildu": 1.1,
+        "PNV": 0.9,
+        "BNG": 1.0,
+        "CCa": 0.3,
+        "UPN": 0.2,
+        "PODEMOS": 3.6,
+        "SALF": 3.1
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "19–21 Mar 2025",
+      "fecha_inicio": "2025-03-19",
+      "fecha_fin": "2025-03-21",
+      "muestra": 1903,
+      "muestra_raw": "1,903",
+      "votos": {
+        "PP": 21.6,
+        "PSOE": 22.6,
+        "VOX": 10.5,
+        "SUMAR": 5.5,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 3.3,
+        "SALF": 3.1
+      }
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "Henneo",
+      "fuente_nombre": "DYM/Henneo",
+      "trabajo_campo": "12–16 Mar 2025",
+      "fecha_inicio": "2025-03-12",
+      "fecha_fin": "2025-03-16",
+      "muestra": 1001,
+      "muestra_raw": "1,001",
+      "votos": {
+        "PP": 23.7,
+        "PSOE": 23.4,
+        "VOX": 8.2,
+        "SUMAR": 3.2,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 1.5,
+        "SALF": 1.8
+      }
+    },
+    {
+      "encuestadora": "GESOP",
+      "comisionista": "Prensa Ibérica",
+      "fuente_nombre": "GESOP/Prensa Ibérica",
+      "trabajo_campo": "3–6 Mar 2025",
+      "fecha_inicio": "2025-03-03",
+      "fecha_fin": "2025-03-06",
+      "muestra": 1000,
+      "muestra_raw": "1,000",
+      "votos": {
+        "PP": 19.6,
+        "PSOE": 20.1,
+        "VOX": 10.3,
+        "SUMAR": 6.0,
+        "ERC": 1.3,
+        "JUNTS": 1.4,
+        "EH Bildu": 1.2,
+        "PNV": 0.9,
+        "BNG": 0.5,
+        "CCa": 0.4,
+        "UPN": 0.1,
+        "PODEMOS": 3.3,
+        "SALF": 1.7
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "21–24 Feb 2025",
+      "fecha_inicio": "2025-02-21",
+      "fecha_fin": "2025-02-24",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 19.4,
+        "PSOE": 22.8,
+        "VOX": 14.6,
+        "SUMAR": 4.6,
+        "ERC": 1.6,
+        "JUNTS": 1.6,
+        "EH Bildu": 1.3,
+        "PNV": 0.8,
+        "BNG": 0.8,
+        "CCa": 0.3,
+        "UPN": 0.2,
+        "PODEMOS": 3.6,
+        "SALF": 2.1
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "comisionista": "El Español",
+      "fuente_nombre": "SocioMétrica/El Español",
+      "trabajo_campo": "12–14 Feb 2025",
+      "fecha_inicio": "2025-02-12",
+      "fecha_fin": "2025-02-14",
+      "muestra": 1812,
+      "muestra_raw": "1,812",
+      "votos": {
+        "PP": 18.5,
+        "PSOE": 20.9,
+        "VOX": 11.7,
+        "SUMAR": 6.4,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 5.0,
+        "SALF": null
+      }
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "24–27 Ene 2025",
+      "fecha_inicio": "2025-01-24",
+      "fecha_fin": "2025-01-27",
+      "muestra": 2000,
+      "muestra_raw": "2,000",
+      "votos": {
+        "PP": 20.9,
+        "PSOE": 21.5,
+        "VOX": 14.8,
+        "SUMAR": 5.2,
+        "ERC": 1.2,
+        "JUNTS": 1.9,
+        "EH Bildu": 1.0,
+        "PNV": 0.9,
+        "BNG": 0.6,
+        "CCa": 0.4,
+        "UPN": 0.3,
+        "PODEMOS": 3.6,
+        "SALF": 2.6
+      }
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "Henneo",
+      "fuente_nombre": "DYM/Henneo",
+      "trabajo_campo": "16–20 Ene 2025",
+      "fecha_inicio": "2025-01-16",
+      "fecha_fin": "2025-01-20",
+      "muestra": 1014,
+      "muestra_raw": "1,014",
+      "votos": {
+        "PP": 24.7,
+        "PSOE": 24.2,
+        "VOX": 8.6,
+        "SUMAR": 3.6,
+        "ERC": null,
+        "JUNTS": null,
+        "EH Bildu": null,
+        "PNV": null,
+        "BNG": null,
+        "CCa": null,
+        "UPN": null,
+        "PODEMOS": 2.4,
+        "SALF": 1.0
+      }
     }
   ],
   "excluidas": [
@@ -7369,12 +8194,6 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "28.3 119",
-      "trabajo_campo": "28.6 116",
-      "muestra": 17566,
-      "motivo": "sin_fecha"
-    },
-    {
       "encuestadora": "InvyMark/laSexta",
       "trabajo_campo": "5–8 Oct",
       "muestra": null,
@@ -7384,18 +8203,6 @@
       "encuestadora": "CIS (Target Point)",
       "trabajo_campo": "1–4 Sep",
       "muestra": 4042,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS (Ateneo del Dato)",
-      "trabajo_campo": "?",
-      "muestra": 295127,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 255,
       "motivo": "cis"
     },
     {
@@ -7411,34 +8218,10 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS (Target Point)",
-      "trabajo_campo": "?",
-      "muestra": 323141,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS (Ateneo del Dato)",
-      "trabajo_campo": "?",
-      "muestra": 305135,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 251,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "CIS (Demócrata)",
       "trabajo_campo": "22–30 Jun",
       "muestra": 6019,
       "motivo": "cis"
-    },
-    {
-      "encuestadora": "67",
-      "trabajo_campo": "32.5 133",
-      "muestra": 300120,
-      "motivo": "sin_fecha"
     },
     {
       "encuestadora": "InvyMark/laSexta",
@@ -7453,27 +8236,9 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 271,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "CIS (Target Point)",
       "trabajo_campo": "4–18 May",
       "muestra": 4016,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS (Ateneo del Dato)",
-      "trabajo_campo": "?",
-      "muestra": 307129,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 249,
       "motivo": "cis"
     },
     {
@@ -7489,39 +8254,9 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS (Logoslab)",
-      "trabajo_campo": "?",
-      "muestra": 301127,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 236,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "CIS (Target Point)",
       "trabajo_campo": "2–6 Mar",
       "muestra": 4016,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS (Ateneo del Dato)",
-      "trabajo_campo": "?",
-      "muestra": 291125,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS (Logoslab)",
-      "trabajo_campo": "?",
-      "muestra": 288123,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 233,
       "motivo": "cis"
     },
     {
@@ -7537,18 +8272,6 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS (Target Point)",
-      "trabajo_campo": "?",
-      "muestra": 291,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 229,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "KeyData/Público",
       "trabajo_campo": "22 Ene",
       "muestra": null,
@@ -7561,12 +8284,6 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 230,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "InvyMark/laSexta",
       "trabajo_campo": "15 Dic",
       "muestra": null,
@@ -7576,12 +8293,6 @@
       "encuestadora": "CIS (Logoslab)",
       "trabajo_campo": "1–5 Dic",
       "muestra": 4017,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 224,
       "motivo": "cis"
     },
     {
@@ -7603,12 +8314,6 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 224,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "KeyData/Público",
       "trabajo_campo": "19 Oct",
       "muestra": null,
@@ -7621,34 +8326,10 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 198,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "InvyMark/laSexta",
       "trabajo_campo": "15–19 Sep",
       "muestra": null,
       "motivo": "muestra_desconocida"
-    },
-    {
-      "encuestadora": "Celeste-Tel",
-      "trabajo_campo": "-",
-      "muestra": null,
-      "motivo": "muestra_desconocida"
-    },
-    {
-      "encuestadora": "DYM/Henneo",
-      "trabajo_campo": "—",
-      "muestra": null,
-      "motivo": "muestra_desconocida"
-    },
-    {
-      "encuestadora": "«VOX gana terreno al PP» . CIS . 11 de septiembre de 2025. </ref>",
-      "trabajo_campo": "Sep",
-      "muestra": null,
-      "motivo": "cis"
     },
     {
       "encuestadora": "CIS",
@@ -7687,12 +8368,6 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 273,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "KeyData/Público",
       "trabajo_campo": "22 May",
       "muestra": null,
@@ -7705,27 +8380,9 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 293,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "ElectoPanel/Electomanía",
-      "trabajo_campo": "5–10 de abril",
-      "muestra": 2401,
-      "motivo": "sin_fecha"
-    },
-    {
       "encuestadora": "CIS (Logoslab)",
       "trabajo_campo": "1–8 Abr",
       "muestra": 4009,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 261,
       "motivo": "cis"
     },
     {
@@ -7759,40 +8416,178 @@
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS (SocioMétrica)",
-      "trabajo_campo": "?",
-      "muestra": 335141,
-      "motivo": "cis"
-    },
-    {
-      "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 281,
-      "motivo": "cis"
-    },
-    {
       "encuestadora": "CIS (Logoslab)",
       "trabajo_campo": "2–9 Ene",
       "muestra": 4024,
       "motivo": "cis"
     },
     {
-      "encuestadora": "CIS (SocioMétrica)",
-      "trabajo_campo": "?",
-      "muestra": 335143,
+      "encuestadora": "CIS",
+      "trabajo_campo": "1–5 Dic 2025",
+      "muestra": 4017,
       "motivo": "cis"
     },
     {
       "encuestadora": "CIS",
-      "trabajo_campo": "?",
-      "muestra": 297,
+      "trabajo_campo": "3–12 Nov 2025",
+      "muestra": 4028,
       "motivo": "cis"
     },
     {
-      "encuestadora": "Elecciones generales de 2023",
-      "trabajo_campo": "23 Jul",
-      "muestra": null,
-      "motivo": "muestra_desconocida"
+      "encuestadora": "CIS",
+      "trabajo_campo": "3–11 Nov 2025",
+      "muestra": 2052,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "29–31 Oct 2025",
+      "muestra": 2642,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "1–7 Oct 2025",
+      "muestra": 4029,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "12–17 Sep 2025",
+      "muestra": 3016,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "8–12 Sep 2025",
+      "muestra": 3004,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "1–6 Sep 2025",
+      "muestra": 4122,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "28–31 Jul 2025",
+      "muestra": 2896,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "21–24 Jul 2025",
+      "muestra": 2433,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "7–16 Jul 2025",
+      "muestra": 4004,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "1–7 Jul 2025",
+      "muestra": 4018,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "25–30 Jun 2025",
+      "muestra": 2427,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "19–25 Jun 2025",
+      "muestra": 3015,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "12–19 Jun 2025",
+      "muestra": 4004,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "8 May–12 Jun 2025",
+      "muestra": 15017,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "2–7 Jun 2025",
+      "muestra": 4013,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "5-8 de mayo de 2025",
+      "muestra": 4018,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "29–30 Abr 2025",
+      "muestra": 1752,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "8–15 Abr 2025",
+      "muestra": 4010,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "1–8 Abr 2025",
+      "muestra": 4009,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "7–31 Mar 2025",
+      "muestra": 16537,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "28 Feb–7 Mar 2025",
+      "muestra": 4018,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "21 Feb–3 Mar 2025",
+      "muestra": 4012,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "31 Ene–6 Feb 2025",
+      "muestra": 4042,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "22–30 Ene 2025",
+      "muestra": 3856,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "10–16 Ene 2025",
+      "muestra": 5006,
+      "motivo": "cis"
+    },
+    {
+      "encuestadora": "CIS",
+      "trabajo_campo": "2–9 Ene 2025",
+      "muestra": 4024,
+      "motivo": "cis"
     }
   ],
   "medias": {
@@ -8281,6 +9076,13 @@
     },
     {
       "fecha": "2025-01-20",
+      "partido": "PODEMOS",
+      "valor": 2.4,
+      "muestra": 1014,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-01-20",
       "partido": "PP",
       "valor": 34.8,
       "muestra": 1014,
@@ -8288,8 +9090,29 @@
     },
     {
       "fecha": "2025-01-20",
+      "partido": "PP",
+      "valor": 24.7,
+      "muestra": 1014,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-01-20",
       "partido": "PSOE",
       "valor": 28.8,
+      "muestra": 1014,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-01-20",
+      "partido": "PSOE",
+      "valor": 24.2,
+      "muestra": 1014,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-01-20",
+      "partido": "SALF",
+      "valor": 1.0,
       "muestra": 1014,
       "encuestadora": "DYM/Henneo"
     },
@@ -8309,8 +9132,22 @@
     },
     {
       "fecha": "2025-01-20",
+      "partido": "SUMAR",
+      "valor": 3.6,
+      "muestra": 1014,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-01-20",
       "partido": "VOX",
       "valor": 12.9,
+      "muestra": 1014,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-01-20",
+      "partido": "VOX",
+      "valor": 8.6,
       "muestra": 1014,
       "encuestadora": "DYM/Henneo"
     },
@@ -8533,8 +9370,57 @@
     },
     {
       "fecha": "2025-01-27",
+      "partido": "BNG",
+      "valor": 0.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "EH Bildu",
+      "valor": 1.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "ERC",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "JUNTS",
+      "valor": 1.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
       "partido": "PODEMOS",
       "valor": 3.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "PODEMOS",
+      "valor": 3.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -8547,8 +9433,22 @@
     },
     {
       "fecha": "2025-01-27",
+      "partido": "PP",
+      "valor": 20.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
       "partido": "PSOE",
       "valor": 28.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "PSOE",
+      "valor": 21.5,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -8561,6 +9461,13 @@
     },
     {
       "fecha": "2025-01-27",
+      "partido": "SALF",
+      "valor": 2.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
       "partido": "SUMAR",
       "valor": 5.9,
       "muestra": 2000,
@@ -8568,8 +9475,29 @@
     },
     {
       "fecha": "2025-01-27",
+      "partido": "SUMAR",
+      "valor": 5.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "UPN",
+      "valor": 0.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
       "partido": "VOX",
       "valor": 14.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-01-27",
+      "partido": "VOX",
+      "valor": 14.8,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -9163,6 +10091,13 @@
     },
     {
       "fecha": "2025-02-14",
+      "partido": "PODEMOS",
+      "valor": 5.0,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-02-14",
       "partido": "PP",
       "valor": 33.8,
       "muestra": 1812,
@@ -9170,8 +10105,22 @@
     },
     {
       "fecha": "2025-02-14",
+      "partido": "PP",
+      "valor": 18.5,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-02-14",
       "partido": "PSOE",
       "valor": 27.8,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-02-14",
+      "partido": "PSOE",
+      "valor": 20.9,
       "muestra": 1812,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -9191,6 +10140,13 @@
     },
     {
       "fecha": "2025-02-14",
+      "partido": "SUMAR",
+      "valor": 6.4,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-02-14",
       "partido": "UPN",
       "valor": 0.1,
       "muestra": 1812,
@@ -9200,6 +10156,13 @@
       "fecha": "2025-02-14",
       "partido": "VOX",
       "valor": 14.3,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-02-14",
+      "partido": "VOX",
+      "valor": 11.7,
       "muestra": 1812,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -9429,6 +10392,55 @@
     },
     {
       "fecha": "2025-02-24",
+      "partido": "BNG",
+      "valor": 0.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "CCa",
+      "valor": 0.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "EH Bildu",
+      "valor": 1.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "ERC",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "JUNTS",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "PODEMOS",
+      "valor": 3.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
       "partido": "PODEMOS",
       "valor": 3.6,
       "muestra": 2000,
@@ -9443,8 +10455,22 @@
     },
     {
       "fecha": "2025-02-24",
+      "partido": "PP",
+      "valor": 19.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
       "partido": "PSOE",
       "valor": 29.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "PSOE",
+      "valor": 22.8,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -9457,6 +10483,13 @@
     },
     {
       "fecha": "2025-02-24",
+      "partido": "SALF",
+      "valor": 2.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
       "partido": "SUMAR",
       "valor": 5.9,
       "muestra": 2000,
@@ -9464,8 +10497,29 @@
     },
     {
       "fecha": "2025-02-24",
+      "partido": "SUMAR",
+      "valor": 4.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "UPN",
+      "valor": 0.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
       "partido": "VOX",
       "valor": 14.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-02-24",
+      "partido": "VOX",
+      "valor": 14.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -9653,6 +10707,27 @@
     },
     {
       "fecha": "2025-03-06",
+      "partido": "BNG",
+      "valor": 0.5,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "EH Bildu",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
       "partido": "ERC",
       "valor": 1.8,
       "muestra": 1000,
@@ -9660,8 +10735,36 @@
     },
     {
       "fecha": "2025-03-06",
+      "partido": "ERC",
+      "valor": 1.3,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
       "partido": "JUNTS",
       "valor": 1.4,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "JUNTS",
+      "valor": 1.4,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "PODEMOS",
+      "valor": 3.3,
       "muestra": 1000,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -9681,8 +10784,22 @@
     },
     {
       "fecha": "2025-03-06",
+      "partido": "PP",
+      "valor": 19.6,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
       "partido": "PSOE",
       "valor": 27.0,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "PSOE",
+      "valor": 20.1,
       "muestra": 1000,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -9695,6 +10812,13 @@
     },
     {
       "fecha": "2025-03-06",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
       "partido": "SUMAR",
       "valor": 7.5,
       "muestra": 1000,
@@ -9702,8 +10826,29 @@
     },
     {
       "fecha": "2025-03-06",
+      "partido": "SUMAR",
+      "valor": 6.0,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "UPN",
+      "valor": 0.1,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
       "partido": "VOX",
       "valor": 14.6,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-03-06",
+      "partido": "VOX",
+      "valor": 10.3,
       "muestra": 1000,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -10073,8 +11218,22 @@
     },
     {
       "fecha": "2025-03-16",
+      "partido": "PODEMOS",
+      "valor": 1.5,
+      "muestra": 1001,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-03-16",
       "partido": "PP",
       "valor": 35.4,
+      "muestra": 1001,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-03-16",
+      "partido": "PP",
+      "valor": 23.7,
       "muestra": 1001,
       "encuestadora": "DYM/Henneo"
     },
@@ -10087,6 +11246,20 @@
     },
     {
       "fecha": "2025-03-16",
+      "partido": "PSOE",
+      "valor": 23.4,
+      "muestra": 1001,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-03-16",
+      "partido": "SALF",
+      "valor": 1.8,
+      "muestra": 1001,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-03-16",
       "partido": "SUMAR",
       "valor": 6.3,
       "muestra": 1001,
@@ -10094,8 +11267,22 @@
     },
     {
       "fecha": "2025-03-16",
+      "partido": "SUMAR",
+      "valor": 3.2,
+      "muestra": 1001,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-03-16",
       "partido": "VOX",
       "valor": 12.0,
+      "muestra": 1001,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-03-16",
+      "partido": "VOX",
+      "valor": 8.2,
       "muestra": 1001,
       "encuestadora": "DYM/Henneo"
     },
@@ -10206,6 +11393,13 @@
     },
     {
       "fecha": "2025-03-21",
+      "partido": "PODEMOS",
+      "valor": 3.3,
+      "muestra": 1903,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-03-21",
       "partido": "PP",
       "valor": 34.0,
       "muestra": 1903,
@@ -10224,6 +11418,13 @@
       "valor": 34.4,
       "muestra": 1100,
       "encuestadora": "Celeste-Tel/Onda Cero"
+    },
+    {
+      "fecha": "2025-03-21",
+      "partido": "PP",
+      "valor": 21.6,
+      "muestra": 1903,
+      "encuestadora": "SocioMétrica/El Español"
     },
     {
       "fecha": "2025-03-21",
@@ -10248,6 +11449,13 @@
     },
     {
       "fecha": "2025-03-21",
+      "partido": "PSOE",
+      "valor": 22.6,
+      "muestra": 1903,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-03-21",
       "partido": "SALF",
       "valor": 2.2,
       "muestra": 1903,
@@ -10269,6 +11477,13 @@
     },
     {
       "fecha": "2025-03-21",
+      "partido": "SALF",
+      "valor": 3.1,
+      "muestra": 1903,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-03-21",
       "partido": "SUMAR",
       "valor": 6.5,
       "muestra": 1903,
@@ -10287,6 +11502,13 @@
       "valor": 6.3,
       "muestra": 1100,
       "encuestadora": "Celeste-Tel/Onda Cero"
+    },
+    {
+      "fecha": "2025-03-21",
+      "partido": "SUMAR",
+      "valor": 5.5,
+      "muestra": 1903,
+      "encuestadora": "SocioMétrica/El Español"
     },
     {
       "fecha": "2025-03-21",
@@ -10322,6 +11544,13 @@
       "valor": 14.0,
       "muestra": 1100,
       "encuestadora": "Celeste-Tel/Onda Cero"
+    },
+    {
+      "fecha": "2025-03-21",
+      "partido": "VOX",
+      "valor": 10.5,
+      "muestra": 1903,
+      "encuestadora": "SocioMétrica/El Español"
     },
     {
       "fecha": "2025-03-22",
@@ -10549,8 +11778,57 @@
     },
     {
       "fecha": "2025-03-31",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "CCa",
+      "valor": 0.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "EH Bildu",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "ERC",
+      "valor": 1.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "JUNTS",
+      "valor": 1.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
       "partido": "PODEMOS",
       "valor": 3.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "PODEMOS",
+      "valor": 3.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -10563,8 +11841,22 @@
     },
     {
       "fecha": "2025-03-31",
+      "partido": "PP",
+      "valor": 20.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
       "partido": "PSOE",
       "valor": 29.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "PSOE",
+      "valor": 22.7,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -10577,6 +11869,13 @@
     },
     {
       "fecha": "2025-03-31",
+      "partido": "SALF",
+      "valor": 3.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
       "partido": "SUMAR",
       "valor": 5.1,
       "muestra": 2000,
@@ -10584,8 +11883,29 @@
     },
     {
       "fecha": "2025-03-31",
+      "partido": "SUMAR",
+      "valor": 4.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "UPN",
+      "valor": 0.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
       "partido": "VOX",
       "valor": 14.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-03-31",
+      "partido": "VOX",
+      "valor": 14.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -10678,6 +11998,97 @@
       "partido": "VOX",
       "valor": 13.5,
       "muestra": 1817,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "BNG",
+      "valor": 0.7,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "EH Bildu",
+      "valor": 1.3,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "ERC",
+      "valor": 1.6,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "JUNTS",
+      "valor": 1.9,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "PNV",
+      "valor": 1.3,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "PODEMOS",
+      "valor": 5.2,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "PP",
+      "valor": 33.8,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "PSOE",
+      "valor": 29.5,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "SALF",
+      "valor": 2.1,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "SUMAR",
+      "valor": 5.9,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "UPN",
+      "valor": 0.2,
+      "muestra": 2401,
+      "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-04-10",
+      "partido": "VOX",
+      "valor": 13.7,
+      "muestra": 2401,
       "encuestadora": "ElectoPanel/Electomanía"
     },
     {
@@ -11137,6 +12548,13 @@
     },
     {
       "fecha": "2025-04-25",
+      "partido": "PODEMOS",
+      "valor": 4.2,
+      "muestra": 1000,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-04-25",
       "partido": "PP",
       "valor": 33.5,
       "muestra": 1016,
@@ -11158,6 +12576,13 @@
     },
     {
       "fecha": "2025-04-25",
+      "partido": "PP",
+      "valor": 22.3,
+      "muestra": 1000,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-04-25",
       "partido": "PSOE",
       "valor": 28.1,
       "muestra": 1016,
@@ -11176,6 +12601,13 @@
       "valor": 29.4,
       "muestra": 1206,
       "encuestadora": "EM-Analytics/Electomanía"
+    },
+    {
+      "fecha": "2025-04-25",
+      "partido": "PSOE",
+      "valor": 21.4,
+      "muestra": 1000,
+      "encuestadora": "SocioMétrica/El Español"
     },
     {
       "fecha": "2025-04-25",
@@ -11221,6 +12653,13 @@
     },
     {
       "fecha": "2025-04-25",
+      "partido": "SUMAR",
+      "valor": 5.0,
+      "muestra": 1000,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-04-25",
       "partido": "UPN",
       "valor": 0.2,
       "muestra": 1000,
@@ -11255,9 +12694,65 @@
       "encuestadora": "EM-Analytics/Electomanía"
     },
     {
+      "fecha": "2025-04-25",
+      "partido": "VOX",
+      "valor": 11.2,
+      "muestra": 1000,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "BNG",
+      "valor": 0.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "CCa",
+      "valor": 0.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "EH Bildu",
+      "valor": 0.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "ERC",
+      "valor": 1.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "JUNTS",
+      "valor": 1.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "PNV",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
       "fecha": "2025-04-27",
       "partido": "PODEMOS",
       "valor": 3.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "PODEMOS",
+      "valor": 2.8,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -11270,8 +12765,22 @@
     },
     {
       "fecha": "2025-04-27",
+      "partido": "PP",
+      "valor": 21.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
       "partido": "PSOE",
       "valor": 29.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "PSOE",
+      "valor": 23.0,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -11284,6 +12793,13 @@
     },
     {
       "fecha": "2025-04-27",
+      "partido": "SALF",
+      "valor": 2.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
       "partido": "SUMAR",
       "valor": 5.4,
       "muestra": 2000,
@@ -11291,8 +12807,29 @@
     },
     {
       "fecha": "2025-04-27",
+      "partido": "SUMAR",
+      "valor": 4.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "UPN",
+      "valor": 0.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
       "partido": "VOX",
       "valor": 13.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-04-27",
+      "partido": "VOX",
+      "valor": 13.3,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -11669,8 +13206,22 @@
     },
     {
       "fecha": "2025-05-19",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 1057,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-05-19",
       "partido": "PP",
       "valor": 35.9,
+      "muestra": 1057,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-05-19",
+      "partido": "PP",
+      "valor": 27.9,
       "muestra": 1057,
       "encuestadora": "DYM/Henneo"
     },
@@ -11683,8 +13234,22 @@
     },
     {
       "fecha": "2025-05-19",
+      "partido": "PSOE",
+      "valor": 22.6,
+      "muestra": 1057,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-05-19",
       "partido": "SALF",
       "valor": 0.7,
+      "muestra": 1057,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-05-19",
+      "partido": "SALF",
+      "valor": 1.4,
       "muestra": 1057,
       "encuestadora": "DYM/Henneo"
     },
@@ -11697,8 +13262,22 @@
     },
     {
       "fecha": "2025-05-19",
+      "partido": "SUMAR",
+      "valor": 3.2,
+      "muestra": 1057,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-05-19",
       "partido": "VOX",
       "valor": 12.3,
+      "muestra": 1057,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-05-19",
+      "partido": "VOX",
+      "valor": 9.4,
       "muestra": 1057,
       "encuestadora": "DYM/Henneo"
     },
@@ -11711,8 +13290,22 @@
     },
     {
       "fecha": "2025-05-21",
+      "partido": "BNG",
+      "valor": 0.6,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
       "partido": "CCa",
       "valor": 0.4,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
+      "partido": "CCa",
+      "valor": 0.2,
       "muestra": 2000,
       "encuestadora": "Ipsos/La Vanguardia"
     },
@@ -11725,8 +13318,22 @@
     },
     {
       "fecha": "2025-05-21",
+      "partido": "EH Bildu",
+      "valor": 0.5,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
       "partido": "ERC",
       "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
+      "partido": "ERC",
+      "valor": 1.2,
       "muestra": 2000,
       "encuestadora": "Ipsos/La Vanguardia"
     },
@@ -11739,8 +13346,22 @@
     },
     {
       "fecha": "2025-05-21",
+      "partido": "JUNTS",
+      "valor": 1.0,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
       "partido": "PNV",
       "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
+      "partido": "PNV",
+      "valor": 0.8,
       "muestra": 2000,
       "encuestadora": "Ipsos/La Vanguardia"
     },
@@ -11753,8 +13374,22 @@
     },
     {
       "fecha": "2025-05-21",
+      "partido": "PODEMOS",
+      "valor": 2.5,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
       "partido": "PP",
       "valor": 34.4,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
+      "partido": "PP",
+      "valor": 20.3,
       "muestra": 2000,
       "encuestadora": "Ipsos/La Vanguardia"
     },
@@ -11767,8 +13402,22 @@
     },
     {
       "fecha": "2025-05-21",
+      "partido": "PSOE",
+      "valor": 22.9,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
       "partido": "SALF",
       "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
+      "partido": "SALF",
+      "valor": 1.2,
       "muestra": 2000,
       "encuestadora": "Ipsos/La Vanguardia"
     },
@@ -11781,6 +13430,13 @@
     },
     {
       "fecha": "2025-05-21",
+      "partido": "SUMAR",
+      "valor": 5.4,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
       "partido": "UPN",
       "valor": 0.1,
       "muestra": 2000,
@@ -11788,8 +13444,22 @@
     },
     {
       "fecha": "2025-05-21",
+      "partido": "UPN",
+      "valor": 0.0,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
       "partido": "VOX",
       "valor": 14.1,
+      "muestra": 2000,
+      "encuestadora": "Ipsos/La Vanguardia"
+    },
+    {
+      "fecha": "2025-05-21",
+      "partido": "VOX",
+      "valor": 10.0,
       "muestra": 2000,
       "encuestadora": "Ipsos/La Vanguardia"
     },
@@ -11844,6 +13514,13 @@
     },
     {
       "fecha": "2025-05-22",
+      "partido": "PODEMOS",
+      "valor": 3.9,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-05-22",
       "partido": "PP",
       "valor": 34.9,
       "muestra": 1812,
@@ -11851,8 +13528,22 @@
     },
     {
       "fecha": "2025-05-22",
+      "partido": "PP",
+      "valor": 23.6,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-05-22",
       "partido": "PSOE",
       "valor": 29.0,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-05-22",
+      "partido": "PSOE",
+      "valor": 21.8,
       "muestra": 1812,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -11872,6 +13563,13 @@
     },
     {
       "fecha": "2025-05-22",
+      "partido": "SUMAR",
+      "valor": 5.3,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-05-22",
       "partido": "UPN",
       "valor": 0.2,
       "muestra": 1812,
@@ -11881,6 +13579,13 @@
       "fecha": "2025-05-22",
       "partido": "VOX",
       "valor": 13.5,
+      "muestra": 1812,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-05-22",
+      "partido": "VOX",
+      "valor": 11.7,
       "muestra": 1812,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -12103,8 +13808,57 @@
     },
     {
       "fecha": "2025-05-26",
+      "partido": "BNG",
+      "valor": 0.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "EH Bildu",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "ERC",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "JUNTS",
+      "valor": 1.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "PNV",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
       "partido": "PODEMOS",
       "valor": 3.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "PODEMOS",
+      "valor": 3.3,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -12117,8 +13871,22 @@
     },
     {
       "fecha": "2025-05-26",
+      "partido": "PP",
+      "valor": 20.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
       "partido": "PSOE",
       "valor": 29.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "PSOE",
+      "valor": 23.1,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -12131,6 +13899,13 @@
     },
     {
       "fecha": "2025-05-26",
+      "partido": "SALF",
+      "valor": 1.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
       "partido": "SUMAR",
       "valor": 5.4,
       "muestra": 2000,
@@ -12138,8 +13913,29 @@
     },
     {
       "fecha": "2025-05-26",
+      "partido": "SUMAR",
+      "valor": 4.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "UPN",
+      "valor": 0.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
       "partido": "VOX",
       "valor": 13.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-05-26",
+      "partido": "VOX",
+      "valor": 15.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -12502,8 +14298,36 @@
     },
     {
       "fecha": "2025-06-12",
+      "partido": "BNG",
+      "valor": 0.4,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
+      "partido": "CCa",
+      "valor": 0.2,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
+      "partido": "EH Bildu",
+      "valor": 1.1,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
       "partido": "ERC",
       "valor": 1.7,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
+      "partido": "ERC",
+      "valor": 1.4,
       "muestra": 1002,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -12516,8 +14340,29 @@
     },
     {
       "fecha": "2025-06-12",
+      "partido": "JUNTS",
+      "valor": 0.8,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
       "partido": "PODEMOS",
       "valor": 3.8,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
+      "partido": "PODEMOS",
+      "valor": 2.7,
       "muestra": 1002,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -12530,8 +14375,22 @@
     },
     {
       "fecha": "2025-06-12",
+      "partido": "PP",
+      "valor": 18.0,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
       "partido": "PSOE",
       "valor": 27.0,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
+      "partido": "PSOE",
+      "valor": 22.0,
       "muestra": 1002,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -12544,6 +14403,13 @@
     },
     {
       "fecha": "2025-06-12",
+      "partido": "SALF",
+      "valor": 1.5,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
       "partido": "SUMAR",
       "valor": 7.5,
       "muestra": 1002,
@@ -12551,8 +14417,22 @@
     },
     {
       "fecha": "2025-06-12",
+      "partido": "SUMAR",
+      "valor": 5.4,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
       "partido": "VOX",
       "valor": 16.0,
+      "muestra": 1002,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-06-12",
+      "partido": "VOX",
+      "valor": 10.9,
       "muestra": 1002,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -12656,8 +14536,22 @@
     },
     {
       "fecha": "2025-06-17",
+      "partido": "PODEMOS",
+      "valor": 1.4,
+      "muestra": 1042,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-06-17",
       "partido": "PP",
       "valor": 36.0,
+      "muestra": 1042,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-06-17",
+      "partido": "PP",
+      "valor": 24.0,
       "muestra": 1042,
       "encuestadora": "DYM/Henneo"
     },
@@ -12670,8 +14564,22 @@
     },
     {
       "fecha": "2025-06-17",
+      "partido": "PSOE",
+      "valor": 20.1,
+      "muestra": 1042,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-06-17",
       "partido": "SALF",
       "valor": 0.6,
+      "muestra": 1042,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-06-17",
+      "partido": "SALF",
+      "valor": 1.3,
       "muestra": 1042,
       "encuestadora": "DYM/Henneo"
     },
@@ -12684,8 +14592,22 @@
     },
     {
       "fecha": "2025-06-17",
+      "partido": "SUMAR",
+      "valor": 4.8,
+      "muestra": 1042,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-06-17",
       "partido": "VOX",
       "valor": 13.6,
+      "muestra": 1042,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-06-17",
+      "partido": "VOX",
+      "valor": 11.1,
       "muestra": 1042,
       "encuestadora": "DYM/Henneo"
     },
@@ -12922,6 +14844,13 @@
     },
     {
       "fecha": "2025-06-21",
+      "partido": "PODEMOS",
+      "valor": 3.8,
+      "muestra": 1150,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-06-21",
       "partido": "PP",
       "valor": 35.7,
       "muestra": 1000,
@@ -12936,6 +14865,13 @@
     },
     {
       "fecha": "2025-06-21",
+      "partido": "PP",
+      "valor": 23.1,
+      "muestra": 1150,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-06-21",
       "partido": "PSOE",
       "valor": 25.5,
       "muestra": 1000,
@@ -12945,6 +14881,13 @@
       "fecha": "2025-06-21",
       "partido": "PSOE",
       "valor": 26.7,
+      "muestra": 1150,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-06-21",
+      "partido": "PSOE",
+      "valor": 22.0,
       "muestra": 1150,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -12966,6 +14909,13 @@
       "fecha": "2025-06-21",
       "partido": "SUMAR",
       "valor": 6.2,
+      "muestra": 1150,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-06-21",
+      "partido": "SUMAR",
+      "valor": 6.4,
       "muestra": 1150,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -12994,6 +14944,13 @@
       "fecha": "2025-06-21",
       "partido": "VOX",
       "valor": 14.0,
+      "muestra": 1150,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-06-21",
+      "partido": "VOX",
+      "valor": 12.9,
       "muestra": 1150,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -13181,8 +15138,57 @@
     },
     {
       "fecha": "2025-06-30",
+      "partido": "BNG",
+      "valor": 0.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "EH Bildu",
+      "valor": 1.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "ERC",
+      "valor": 1.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "JUNTS",
+      "valor": 1.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
       "partido": "PODEMOS",
       "valor": 3.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "PODEMOS",
+      "valor": 3.4,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -13195,8 +15201,22 @@
     },
     {
       "fecha": "2025-06-30",
+      "partido": "PP",
+      "valor": 21.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
       "partido": "PSOE",
       "valor": 27.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "PSOE",
+      "valor": 21.1,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -13209,6 +15229,13 @@
     },
     {
       "fecha": "2025-06-30",
+      "partido": "SALF",
+      "valor": 2.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
       "partido": "SUMAR",
       "valor": 6.2,
       "muestra": 2000,
@@ -13216,8 +15243,29 @@
     },
     {
       "fecha": "2025-06-30",
+      "partido": "SUMAR",
+      "valor": 5.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "UPN",
+      "valor": 0.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
       "partido": "VOX",
       "valor": 15.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-06-30",
+      "partido": "VOX",
+      "valor": 15.8,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -13811,8 +15859,22 @@
     },
     {
       "fecha": "2025-07-24",
+      "partido": "PODEMOS",
+      "valor": 3.1,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-07-24",
       "partido": "PP",
       "valor": 35.5,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-07-24",
+      "partido": "PP",
+      "valor": 22.8,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -13825,6 +15887,13 @@
     },
     {
       "fecha": "2025-07-24",
+      "partido": "PSOE",
+      "valor": 13.4,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-07-24",
       "partido": "SALF",
       "valor": 1.7,
       "muestra": 1100,
@@ -13832,8 +15901,22 @@
     },
     {
       "fecha": "2025-07-24",
+      "partido": "SALF",
+      "valor": 2.9,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-07-24",
       "partido": "SUMAR",
       "valor": 6.3,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-07-24",
+      "partido": "SUMAR",
+      "valor": 5.0,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -13848,6 +15931,13 @@
       "fecha": "2025-07-24",
       "partido": "VOX",
       "valor": 16.0,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-07-24",
+      "partido": "VOX",
+      "valor": 12.3,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -14588,6 +16678,13 @@
     },
     {
       "fecha": "2025-08-29",
+      "partido": "PODEMOS",
+      "valor": 3.3,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-08-29",
       "partido": "PP",
       "valor": 34.5,
       "muestra": 1100,
@@ -14599,6 +16696,13 @@
       "valor": 30.2,
       "muestra": 1003,
       "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-08-29",
+      "partido": "PP",
+      "valor": 21.4,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
     },
     {
       "fecha": "2025-08-29",
@@ -14616,6 +16720,13 @@
     },
     {
       "fecha": "2025-08-29",
+      "partido": "PSOE",
+      "valor": 14.0,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-08-29",
       "partido": "SALF",
       "valor": 1.7,
       "muestra": 1100,
@@ -14630,6 +16741,13 @@
     },
     {
       "fecha": "2025-08-29",
+      "partido": "SALF",
+      "valor": 2.4,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-08-29",
       "partido": "SUMAR",
       "valor": 6.9,
       "muestra": 1100,
@@ -14641,6 +16759,13 @@
       "valor": 6.6,
       "muestra": 1003,
       "encuestadora": "ElectoPanel/Electomanía"
+    },
+    {
+      "fecha": "2025-08-29",
+      "partido": "SUMAR",
+      "valor": 6.1,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
     },
     {
       "fecha": "2025-08-29",
@@ -14671,9 +16796,65 @@
       "encuestadora": "ElectoPanel/Electomanía"
     },
     {
+      "fecha": "2025-08-29",
+      "partido": "VOX",
+      "valor": 11.8,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "BNG",
+      "valor": 0.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "EH Bildu",
+      "valor": 1.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "ERC",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "JUNTS",
+      "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
       "fecha": "2025-09-01",
       "partido": "PODEMOS",
       "valor": 3.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "PODEMOS",
+      "valor": 3.2,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -14686,8 +16867,29 @@
     },
     {
       "fecha": "2025-09-01",
+      "partido": "PP",
+      "valor": 16.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
       "partido": "PSOE",
       "valor": 27.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "PSOE",
+      "valor": 20.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "SALF",
+      "valor": 1.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -14707,8 +16909,29 @@
     },
     {
       "fecha": "2025-09-01",
+      "partido": "SUMAR",
+      "valor": 5.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "UPN",
+      "valor": 0.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
       "partido": "VOX",
       "valor": 17.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-01",
+      "partido": "VOX",
+      "valor": 17.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -15147,6 +17370,48 @@
       "encuestadora": "ElectoPanel/Electomanía"
     },
     {
+      "fecha": "2025-09-15",
+      "partido": "PODEMOS",
+      "valor": 1.5,
+      "muestra": 1016,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-09-15",
+      "partido": "PP",
+      "valor": 22.5,
+      "muestra": 1016,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-09-15",
+      "partido": "PSOE",
+      "valor": 24.1,
+      "muestra": 1016,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-09-15",
+      "partido": "SALF",
+      "valor": 1.3,
+      "muestra": 1016,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-09-15",
+      "partido": "SUMAR",
+      "valor": 3.7,
+      "muestra": 1016,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-09-15",
+      "partido": "VOX",
+      "valor": 12.9,
+      "muestra": 1016,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
       "fecha": "2025-09-19",
       "partido": "BNG",
       "valor": 0.9,
@@ -15330,8 +17595,57 @@
     },
     {
       "fecha": "2025-09-28",
+      "partido": "BNG",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "EH Bildu",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "ERC",
+      "valor": 1.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "JUNTS",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
       "partido": "PODEMOS",
       "valor": 2.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "PODEMOS",
+      "valor": 2.4,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -15344,6 +17658,13 @@
     },
     {
       "fecha": "2025-09-28",
+      "partido": "PP",
+      "valor": 17.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
       "partido": "PSOE",
       "valor": 29.4,
       "muestra": 2000,
@@ -15351,8 +17672,22 @@
     },
     {
       "fecha": "2025-09-28",
+      "partido": "PSOE",
+      "valor": 23.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
       "partido": "SALF",
       "valor": 1.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "SALF",
+      "valor": 1.5,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -15365,8 +17700,29 @@
     },
     {
       "fecha": "2025-09-28",
+      "partido": "SUMAR",
+      "valor": 5.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "UPN",
+      "valor": 0.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
       "partido": "VOX",
       "valor": 16.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-09-28",
+      "partido": "VOX",
+      "valor": 17.1,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -15379,8 +17735,29 @@
     },
     {
       "fecha": "2025-09-30",
+      "partido": "BNG",
+      "valor": 0.9,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
+      "partido": "CCa",
+      "valor": 0.2,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
       "partido": "EH Bildu",
       "valor": 1.5,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
+      "partido": "EH Bildu",
+      "valor": 1.1,
       "muestra": 1203,
       "encuestadora": "Opina 360/Antena 3"
     },
@@ -15393,8 +17770,22 @@
     },
     {
       "fecha": "2025-09-30",
+      "partido": "ERC",
+      "valor": 1.9,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
       "partido": "JUNTS",
       "valor": 1.3,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
+      "partido": "JUNTS",
+      "valor": 0.8,
       "muestra": 1203,
       "encuestadora": "Opina 360/Antena 3"
     },
@@ -15407,8 +17798,22 @@
     },
     {
       "fecha": "2025-09-30",
+      "partido": "PNV",
+      "valor": 0.7,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
       "partido": "PODEMOS",
       "valor": 3.8,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
+      "partido": "PODEMOS",
+      "valor": 3.6,
       "muestra": 1203,
       "encuestadora": "Opina 360/Antena 3"
     },
@@ -15421,8 +17826,22 @@
     },
     {
       "fecha": "2025-09-30",
+      "partido": "PP",
+      "valor": 18.5,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
       "partido": "PSOE",
       "valor": 30.4,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
+      "partido": "PSOE",
+      "valor": 24.3,
       "muestra": 1203,
       "encuestadora": "Opina 360/Antena 3"
     },
@@ -15435,8 +17854,22 @@
     },
     {
       "fecha": "2025-09-30",
+      "partido": "SALF",
+      "valor": 1.2,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
       "partido": "SUMAR",
       "valor": 5.1,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
+      "partido": "SUMAR",
+      "valor": 5.0,
       "muestra": 1203,
       "encuestadora": "Opina 360/Antena 3"
     },
@@ -15451,6 +17884,13 @@
       "fecha": "2025-09-30",
       "partido": "VOX",
       "valor": 20.6,
+      "muestra": 1203,
+      "encuestadora": "Opina 360/Antena 3"
+    },
+    {
+      "fecha": "2025-09-30",
+      "partido": "VOX",
+      "valor": 16.7,
       "muestra": 1203,
       "encuestadora": "Opina 360/Antena 3"
     },
@@ -15722,8 +18162,36 @@
     },
     {
       "fecha": "2025-10-09",
+      "partido": "BNG",
+      "valor": 0.5,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
+      "partido": "CCa",
+      "valor": 0.2,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
       "partido": "ERC",
       "valor": 2.0,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
+      "partido": "ERC",
+      "valor": 1.9,
       "muestra": 1000,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -15736,8 +18204,29 @@
     },
     {
       "fecha": "2025-10-09",
+      "partido": "JUNTS",
+      "valor": 0.8,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
+      "partido": "PNV",
+      "valor": 0.5,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
       "partido": "PODEMOS",
       "valor": 3.7,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
+      "partido": "PODEMOS",
+      "valor": 3.0,
       "muestra": 1000,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -15750,8 +18239,22 @@
     },
     {
       "fecha": "2025-10-09",
+      "partido": "PP",
+      "valor": 15.6,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
       "partido": "PSOE",
       "valor": 27.8,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
+      "partido": "PSOE",
+      "valor": 22.8,
       "muestra": 1000,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -15764,6 +18267,13 @@
     },
     {
       "fecha": "2025-10-09",
+      "partido": "SALF",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
       "partido": "SUMAR",
       "valor": 8.0,
       "muestra": 1000,
@@ -15771,8 +18281,22 @@
     },
     {
       "fecha": "2025-10-09",
+      "partido": "SUMAR",
+      "valor": 5.7,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
       "partido": "VOX",
       "valor": 18.4,
+      "muestra": 1000,
+      "encuestadora": "GESOP/Prensa Ibérica"
+    },
+    {
+      "fecha": "2025-10-09",
+      "partido": "VOX",
+      "valor": 13.4,
       "muestra": 1000,
       "encuestadora": "GESOP/Prensa Ibérica"
     },
@@ -15827,8 +18351,22 @@
     },
     {
       "fecha": "2025-10-10",
+      "partido": "PODEMOS",
+      "valor": 4.1,
+      "muestra": 900,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-10-10",
       "partido": "PP",
       "valor": 34.0,
+      "muestra": 900,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-10-10",
+      "partido": "PP",
+      "valor": 19.9,
       "muestra": 900,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -15841,8 +18379,29 @@
     },
     {
       "fecha": "2025-10-10",
+      "partido": "PSOE",
+      "valor": 19.2,
+      "muestra": 900,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-10-10",
       "partido": "SALF",
       "valor": 1.6,
+      "muestra": 900,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-10-10",
+      "partido": "SALF",
+      "valor": 2.4,
+      "muestra": 900,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-10-10",
+      "partido": "SUMAR",
+      "valor": 6.2,
       "muestra": 900,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -15864,6 +18423,13 @@
       "fecha": "2025-10-10",
       "partido": "VOX",
       "valor": 16.6,
+      "muestra": 900,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-10-10",
+      "partido": "VOX",
+      "valor": 15.0,
       "muestra": 900,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -16051,8 +18617,57 @@
     },
     {
       "fecha": "2025-10-26",
+      "partido": "BNG",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "CCa",
+      "valor": 0.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "EH Bildu",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "ERC",
+      "valor": 2.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "JUNTS",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "PNV",
+      "valor": 1.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
       "partido": "PODEMOS",
       "valor": 3.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "PODEMOS",
+      "valor": 2.9,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -16065,8 +18680,22 @@
     },
     {
       "fecha": "2025-10-26",
+      "partido": "PP",
+      "valor": 17.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
       "partido": "PSOE",
       "valor": 28.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "PSOE",
+      "valor": 21.9,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -16079,6 +18708,13 @@
     },
     {
       "fecha": "2025-10-26",
+      "partido": "SALF",
+      "valor": 2.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
       "partido": "SUMAR",
       "valor": 6.8,
       "muestra": 2000,
@@ -16086,8 +18722,29 @@
     },
     {
       "fecha": "2025-10-26",
+      "partido": "SUMAR",
+      "valor": 5.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "UPN",
+      "valor": 0.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
       "partido": "VOX",
       "valor": 17.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-10-26",
+      "partido": "VOX",
+      "valor": 17.8,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa"
     },
@@ -16198,6 +18855,13 @@
     },
     {
       "fecha": "2025-11-04",
+      "partido": "BNG",
+      "valor": 0.5,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
+    },
+    {
+      "fecha": "2025-11-04",
       "partido": "CCa",
       "valor": 0.3,
       "muestra": 1202,
@@ -16209,6 +18873,13 @@
       "valor": 0.6,
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli"
+    },
+    {
+      "fecha": "2025-11-04",
+      "partido": "CCa",
+      "valor": 0.1,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
     },
     {
       "fecha": "2025-11-04",
@@ -16226,6 +18897,13 @@
     },
     {
       "fecha": "2025-11-04",
+      "partido": "EH Bildu",
+      "valor": 0.5,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
+    },
+    {
+      "fecha": "2025-11-04",
       "partido": "ERC",
       "valor": 1.9,
       "muestra": 1202,
@@ -16237,6 +18915,13 @@
       "valor": 1.7,
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli"
+    },
+    {
+      "fecha": "2025-11-04",
+      "partido": "ERC",
+      "valor": 1.3,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
     },
     {
       "fecha": "2025-11-04",
@@ -16254,6 +18939,13 @@
     },
     {
       "fecha": "2025-11-04",
+      "partido": "JUNTS",
+      "valor": 1.1,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
+    },
+    {
+      "fecha": "2025-11-04",
       "partido": "PNV",
       "valor": 1.0,
       "muestra": 1202,
@@ -16265,6 +18957,13 @@
       "valor": 0.9,
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli"
+    },
+    {
+      "fecha": "2025-11-04",
+      "partido": "PNV",
+      "valor": 0.6,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
     },
     {
       "fecha": "2025-11-04",
@@ -16282,6 +18981,13 @@
     },
     {
       "fecha": "2025-11-04",
+      "partido": "PODEMOS",
+      "valor": 2.6,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
+    },
+    {
+      "fecha": "2025-11-04",
       "partido": "PP",
       "valor": 28.2,
       "muestra": 1202,
@@ -16293,6 +18999,13 @@
       "valor": 33.6,
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli"
+    },
+    {
+      "fecha": "2025-11-04",
+      "partido": "PP",
+      "valor": 21.2,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
     },
     {
       "fecha": "2025-11-04",
@@ -16310,6 +19023,13 @@
     },
     {
       "fecha": "2025-11-04",
+      "partido": "PSOE",
+      "valor": 23.1,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
+    },
+    {
+      "fecha": "2025-11-04",
       "partido": "SALF",
       "valor": 1.6,
       "muestra": 1202,
@@ -16321,6 +19041,13 @@
       "valor": 1.6,
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli"
+    },
+    {
+      "fecha": "2025-11-04",
+      "partido": "SALF",
+      "valor": 1.5,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
     },
     {
       "fecha": "2025-11-04",
@@ -16335,6 +19062,13 @@
       "valor": 6.2,
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli"
+    },
+    {
+      "fecha": "2025-11-04",
+      "partido": "SUMAR",
+      "valor": 6.0,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
     },
     {
       "fecha": "2025-11-04",
@@ -16356,6 +19090,13 @@
       "valor": 18.6,
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli"
+    },
+    {
+      "fecha": "2025-11-04",
+      "partido": "VOX",
+      "valor": 15.2,
+      "muestra": 1202,
+      "encuestadora": "Opina 360/Telecinco"
     },
     {
       "fecha": "2025-11-06",
@@ -16660,8 +19401,22 @@
     },
     {
       "fecha": "2025-11-08",
+      "partido": "PODEMOS",
+      "valor": 3.7,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-11-08",
       "partido": "PP",
       "valor": 33.7,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-11-08",
+      "partido": "PP",
+      "valor": 21.5,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -16674,6 +19429,13 @@
     },
     {
       "fecha": "2025-11-08",
+      "partido": "PSOE",
+      "valor": 20.5,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-11-08",
       "partido": "SALF",
       "valor": 1.7,
       "muestra": 1100,
@@ -16681,8 +19443,22 @@
     },
     {
       "fecha": "2025-11-08",
+      "partido": "SALF",
+      "valor": 2.1,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-11-08",
       "partido": "SUMAR",
       "valor": 6.6,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-11-08",
+      "partido": "SUMAR",
+      "valor": 6.5,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -16697,6 +19473,13 @@
       "fecha": "2025-11-08",
       "partido": "VOX",
       "valor": 16.9,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-11-08",
+      "partido": "VOX",
+      "valor": 15.3,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -16807,6 +19590,13 @@
     },
     {
       "fecha": "2025-11-14",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-11-14",
       "partido": "PP",
       "valor": 33.4,
       "muestra": 1000,
@@ -16825,6 +19615,13 @@
       "valor": 31.6,
       "muestra": 1002,
       "encuestadora": "EM-Analytics/Electomanía"
+    },
+    {
+      "fecha": "2025-11-14",
+      "partido": "PP",
+      "valor": 20.8,
+      "muestra": 1000,
+      "encuestadora": "DYM/Henneo"
     },
     {
       "fecha": "2025-11-14",
@@ -16849,6 +19646,13 @@
     },
     {
       "fecha": "2025-11-14",
+      "partido": "PSOE",
+      "valor": 22.6,
+      "muestra": 1000,
+      "encuestadora": "DYM/Henneo"
+    },
+    {
+      "fecha": "2025-11-14",
       "partido": "SALF",
       "valor": 1.9,
       "muestra": 1000,
@@ -16860,6 +19664,13 @@
       "valor": 1.4,
       "muestra": 1002,
       "encuestadora": "EM-Analytics/Electomanía"
+    },
+    {
+      "fecha": "2025-11-14",
+      "partido": "SALF",
+      "valor": 1.4,
+      "muestra": 1000,
+      "encuestadora": "DYM/Henneo"
     },
     {
       "fecha": "2025-11-14",
@@ -16881,6 +19692,13 @@
       "valor": 5.4,
       "muestra": 1002,
       "encuestadora": "EM-Analytics/Electomanía"
+    },
+    {
+      "fecha": "2025-11-14",
+      "partido": "SUMAR",
+      "valor": 4.8,
+      "muestra": 1000,
+      "encuestadora": "DYM/Henneo"
     },
     {
       "fecha": "2025-11-14",
@@ -16916,6 +19734,13 @@
       "valor": 18.9,
       "muestra": 1002,
       "encuestadora": "EM-Analytics/Electomanía"
+    },
+    {
+      "fecha": "2025-11-14",
+      "partido": "VOX",
+      "valor": 14.0,
+      "muestra": 1000,
+      "encuestadora": "DYM/Henneo"
     },
     {
       "fecha": "2025-11-19",
@@ -17143,8 +19968,57 @@
     },
     {
       "fecha": "2025-12-01",
+      "partido": "BNG",
+      "valor": 0.8,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "CCa",
+      "valor": 0.3,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "EH Bildu",
+      "valor": 0.9,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "ERC",
+      "valor": 1.8,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "JUNTS",
+      "valor": 1.7,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "PNV",
+      "valor": 1.0,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
       "partido": "PODEMOS",
       "valor": 3.7,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "PODEMOS",
+      "valor": 3.1,
       "muestra": 2500,
       "encuestadora": "40dB/Prisa"
     },
@@ -17157,8 +20031,22 @@
     },
     {
       "fecha": "2025-12-01",
+      "partido": "PP",
+      "valor": 18.9,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
       "partido": "PSOE",
       "valor": 27.8,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "PSOE",
+      "valor": 22.7,
       "muestra": 2500,
       "encuestadora": "40dB/Prisa"
     },
@@ -17171,6 +20059,13 @@
     },
     {
       "fecha": "2025-12-01",
+      "partido": "SALF",
+      "valor": 2.8,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
       "partido": "SUMAR",
       "valor": 5.7,
       "muestra": 2500,
@@ -17178,8 +20073,29 @@
     },
     {
       "fecha": "2025-12-01",
+      "partido": "SUMAR",
+      "valor": 4.9,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "UPN",
+      "valor": 0.1,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
       "partido": "VOX",
       "valor": 17.4,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa"
+    },
+    {
+      "fecha": "2025-12-01",
+      "partido": "VOX",
+      "valor": 18.7,
       "muestra": 2500,
       "encuestadora": "40dB/Prisa"
     },
@@ -17416,8 +20332,22 @@
     },
     {
       "fecha": "2025-12-07",
+      "partido": "PODEMOS",
+      "valor": 3.7,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-12-07",
       "partido": "PP",
       "valor": 33.4,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-12-07",
+      "partido": "PP",
+      "valor": 20.1,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -17430,6 +20360,13 @@
     },
     {
       "fecha": "2025-12-07",
+      "partido": "PSOE",
+      "valor": 20.5,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-12-07",
       "partido": "SALF",
       "valor": 2.3,
       "muestra": 1100,
@@ -17437,8 +20374,22 @@
     },
     {
       "fecha": "2025-12-07",
+      "partido": "SALF",
+      "valor": 2.1,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-12-07",
       "partido": "SUMAR",
       "valor": 7.5,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-12-07",
+      "partido": "SUMAR",
+      "valor": 6.1,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },
@@ -17453,6 +20404,13 @@
       "fecha": "2025-12-07",
       "partido": "VOX",
       "valor": 17.4,
+      "muestra": 1100,
+      "encuestadora": "SocioMétrica/El Español"
+    },
+    {
+      "fecha": "2025-12-07",
+      "partido": "VOX",
+      "valor": 16.0,
       "muestra": 1100,
       "encuestadora": "SocioMétrica/El Español"
     },

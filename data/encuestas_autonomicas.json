@@ -1,11 +1,13 @@
 {
-  "actualizado": "2026-11-14T16:33:42",
+  "actualizado": "2026-11-14T17:25:04",
   "filtros": {
     "excluir_cis": true,
     "muestra_minima": 600,
-    "lambda_ponderacion": 0.09902
+    "lambda_ponderacion": 0.09902,
+    "meses_vida": 6
   },
   "medias": {
+    "madrid": {},
     "cataluna": {
       "PSC": 25.7,
       "JUNTS": 13.8,
@@ -14,26 +16,23 @@
       "VOX": 9.8,
       "FA": 5.9
     },
-    "andalucia": {
-      "PP": 43.5,
-      "PSOE": 22.27,
-      "VOX": 13.91,
-      "AA": 7.08,
-      "SALF": 2.39,
-      "Cs": 0.2,
-      "PODEMOS": 1.9
+    "andalucia": {},
+    "cvalenciana": {},
+    "galicia": {},
+    "paisvasco": {},
+    "cyl": {
+      "PP": 37.8,
+      "PSOE": 29.6,
+      "VOX": 14.4,
+      "PODEMOS": 6.9,
+      "UPL": 5.0
     },
-    "paisvasco": {
-      "PNV": 61.19,
-      "PSE": 34.29,
-      "PODEMOS": 13.32,
-      "FA": 2.35,
-      "VOX": 8.44,
-      "Cs": 1.97,
-      "PP": 7.17
-    }
+    "clm": {},
+    "aragon": {},
+    "extremadura": {}
   },
   "encuestas": {
+    "madrid": [],
     "cataluna": [
       {
         "encuestadora": "Sigma Dos",
@@ -345,7 +344,7 @@
           "PP": 10.6,
           "VOX": 7.5,
           "FA": 6.6,
-          "OTROS": 5.0,
+          "OTROS": 5.7,
           "PODEMOS": null,
           "SALF": null
         }
@@ -1718,6 +1717,8 @@
         }
       }
     ],
+    "cvalenciana": [],
+    "galicia": [],
     "paisvasco": [
       {
         "encuestadora": "Data10",
@@ -1734,7 +1735,7 @@
           "PSE": 34.4,
           "PODEMOS": 13.1,
           "FA": 2.2,
-          "PP": null,
+          "PP": 3.1,
           "VOX": 8.4,
           "Cs": 2.3,
           "Elkarrekin-Sumar": null
@@ -1755,7 +1756,7 @@
           "PSE": 34.1,
           "PODEMOS": 12.9,
           "FA": 2.8,
-          "PP": null,
+          "PP": 2.9,
           "VOX": 9.1,
           "Cs": 2.0,
           "Elkarrekin-Sumar": null
@@ -1776,7 +1777,7 @@
           "PSE": 34.8,
           "PODEMOS": 13.5,
           "FA": 2.3,
-          "PP": null,
+          "PP": 3.4,
           "VOX": 8.1,
           "Cs": 2.0,
           "Elkarrekin-Sumar": null
@@ -1797,7 +1798,7 @@
           "PSE": 36.0,
           "PODEMOS": 13.7,
           "FA": 1.8,
-          "PP": null,
+          "PP": 2.6,
           "VOX": 9.6,
           "Cs": null,
           "Elkarrekin-Sumar": null
@@ -1818,7 +1819,7 @@
           "PSE": 34.1,
           "PODEMOS": 13.6,
           "FA": 2.0,
-          "PP": null,
+          "PP": 3.3,
           "VOX": 8.5,
           "Cs": 2.4,
           "Elkarrekin-Sumar": null
@@ -1860,7 +1861,7 @@
           "PSE": 34.2,
           "PODEMOS": 12.6,
           "FA": 2.2,
-          "PP": null,
+          "PP": 2.9,
           "VOX": 7.5,
           "Cs": 2.2,
           "Elkarrekin-Sumar": null
@@ -1881,7 +1882,7 @@
           "PSE": 35.4,
           "PODEMOS": 13.4,
           "FA": 2.3,
-          "PP": null,
+          "PP": 2.2,
           "VOX": 8.2,
           "Cs": 1.9,
           "Elkarrekin-Sumar": null
@@ -1902,7 +1903,7 @@
           "PSE": 33.9,
           "PODEMOS": 13.3,
           "FA": 2.0,
-          "PP": null,
+          "PP": 3.5,
           "VOX": 8.3,
           "Cs": 1.7,
           "Elkarrekin-Sumar": null
@@ -1923,7 +1924,7 @@
           "PSE": 34.9,
           "PODEMOS": 14.0,
           "FA": 2.4,
-          "PP": null,
+          "PP": 3.8,
           "VOX": 7.7,
           "Cs": 1.5,
           "Elkarrekin-Sumar": null
@@ -1944,7 +1945,7 @@
           "PSE": 34.4,
           "PODEMOS": 12.8,
           "FA": 3.0,
-          "PP": null,
+          "PP": 3.6,
           "VOX": 7.8,
           "Cs": 2.0,
           "Elkarrekin-Sumar": null
@@ -1965,7 +1966,7 @@
           "PSE": 34.2,
           "PODEMOS": 14.2,
           "FA": 2.4,
-          "PP": null,
+          "PP": 0.0,
           "VOX": 7.8,
           "Cs": 0.0,
           "Elkarrekin-Sumar": null
@@ -1986,7 +1987,7 @@
           "PSE": 33.6,
           "PODEMOS": 13.2,
           "FA": 2.7,
-          "PP": null,
+          "PP": 3.2,
           "VOX": 8.7,
           "Cs": 2.2,
           "Elkarrekin-Sumar": null
@@ -2007,7 +2008,7 @@
           "PSE": 33.0,
           "PODEMOS": 13.0,
           "FA": null,
-          "PP": null,
+          "PP": 3.0,
           "VOX": 8.6,
           "Cs": 1.7,
           "Elkarrekin-Sumar": null
@@ -2028,7 +2029,7 @@
           "PSE": 32.6,
           "PODEMOS": 13.4,
           "FA": 2.0,
-          "PP": null,
+          "PP": 3.6,
           "VOX": 9.8,
           "Cs": 2.1,
           "Elkarrekin-Sumar": null
@@ -2049,7 +2050,7 @@
           "PSE": 34.0,
           "PODEMOS": 13.9,
           "FA": 3.0,
-          "PP": null,
+          "PP": 3.1,
           "VOX": 8.5,
           "Cs": 2.2,
           "Elkarrekin-Sumar": null
@@ -2070,7 +2071,7 @@
           "PSE": 33.9,
           "PODEMOS": 12.4,
           "FA": 2.6,
-          "PP": null,
+          "PP": 3.2,
           "VOX": 8.6,
           "Cs": 2.3,
           "Elkarrekin-Sumar": null
@@ -2091,7 +2092,7 @@
           "PSE": 32.9,
           "PODEMOS": 14.7,
           "FA": 2.9,
-          "PP": null,
+          "PP": 3.2,
           "VOX": 10.0,
           "Cs": 1.8,
           "Elkarrekin-Sumar": null
@@ -2112,7 +2113,7 @@
           "PSE": 33.7,
           "PODEMOS": 13.1,
           "FA": 2.4,
-          "PP": null,
+          "PP": 2.8,
           "VOX": 7.5,
           "Cs": 1.9,
           "Elkarrekin-Sumar": null
@@ -2133,7 +2134,7 @@
           "PSE": 33.7,
           "PODEMOS": 13.8,
           "FA": 2.8,
-          "PP": null,
+          "PP": 3.0,
           "VOX": 8.1,
           "Cs": 2.1,
           "Elkarrekin-Sumar": null
@@ -2154,7 +2155,7 @@
           "PSE": 32.7,
           "PODEMOS": 14.2,
           "FA": 3.7,
-          "PP": null,
+          "PP": 2.9,
           "VOX": 8.3,
           "Cs": 1.4,
           "Elkarrekin-Sumar": null
@@ -2175,7 +2176,7 @@
           "PSE": 34.2,
           "PODEMOS": 11.5,
           "FA": 2.4,
-          "PP": null,
+          "PP": 4.0,
           "VOX": 9.0,
           "Cs": 2.5,
           "Elkarrekin-Sumar": null
@@ -2196,7 +2197,7 @@
           "PSE": 31.5,
           "PODEMOS": 14.6,
           "FA": 2.1,
-          "PP": null,
+          "PP": 5.1,
           "VOX": 8.9,
           "Cs": 2.6,
           "Elkarrekin-Sumar": null
@@ -2217,7 +2218,7 @@
           "PSE": 32.4,
           "PODEMOS": 14.2,
           "FA": 3.0,
-          "PP": null,
+          "PP": 2.7,
           "VOX": 7.7,
           "Cs": 2.5,
           "Elkarrekin-Sumar": null
@@ -2238,7 +2239,7 @@
           "PSE": 33.0,
           "PODEMOS": 15.0,
           "FA": 0.0,
-          "PP": null,
+          "PP": 3.0,
           "VOX": 7.2,
           "Cs": 1.6,
           "Elkarrekin-Sumar": null
@@ -2301,7 +2302,7 @@
           "PSE": 31.9,
           "PODEMOS": 14.2,
           "FA": 1.4,
-          "PP": null,
+          "PP": 6.3,
           "VOX": 9.6,
           "Cs": 2.5,
           "Elkarrekin-Sumar": null
@@ -2412,29 +2413,2004 @@
           "Elkarrekin-Sumar": null
         }
       }
+    ],
+    "cyl": [
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "13–14 Mar 2026",
+        "fecha_inicio": "2026-03-13",
+        "fecha_fin": "2026-03-14",
+        "muestra": 1000,
+        "muestra_raw": "1,000",
+        "votos": {
+          "PP": 31.5,
+          "PSOE": 28.2,
+          "VOX": 20.5,
+          "PODEMOS": null,
+          "OTROS": 3.8,
+          "Cs": null,
+          "UPL": 5.5,
+          "Soria Ya": 1.2,
+          "SALF": 2.4
+        }
+      },
+      {
+        "encuestadora": "Celeste-Tel",
+        "comisionista": "Onda Cero",
+        "fuente_nombre": "Celeste-Tel/Onda Cero",
+        "trabajo_campo": "9 Mar 2026",
+        "fecha_inicio": "2026-03-09",
+        "fecha_fin": "2026-03-09",
+        "muestra": 1100,
+        "muestra_raw": "1,100",
+        "votos": {
+          "PP": 34.1,
+          "PSOE": 27.9,
+          "VOX": 19.4,
+          "PODEMOS": null,
+          "OTROS": 4.4,
+          "Cs": 0.7,
+          "UPL": 5.3,
+          "Soria Ya": 1.0,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Data10",
+        "comisionista": "Okdiario",
+        "fuente_nombre": "Data10/Okdiario",
+        "trabajo_campo": "8–9 Mar 2026",
+        "fecha_inicio": "2026-03-08",
+        "fecha_fin": "2026-03-09",
+        "muestra": 1500,
+        "muestra_raw": "1,500",
+        "votos": {
+          "PP": 33.4,
+          "PSOE": 28.5,
+          "VOX": 20.0,
+          "PODEMOS": null,
+          "OTROS": 4.2,
+          "Cs": null,
+          "UPL": 5.4,
+          "Soria Ya": 1.1,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "8–9 Mar 2026",
+        "fecha_inicio": "2026-03-08",
+        "fecha_fin": "2026-03-09",
+        "muestra": 1500,
+        "muestra_raw": "1,500",
+        "votos": {
+          "PP": 32.0,
+          "PSOE": 28.4,
+          "VOX": 20.4,
+          "PODEMOS": null,
+          "OTROS": 4.1,
+          "Cs": null,
+          "UPL": 4.8,
+          "Soria Ya": 1.1,
+          "SALF": 2.5
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "15 Feb–8 Mar 2026",
+        "fecha_inicio": "2026-02-15",
+        "fecha_fin": "2026-03-08",
+        "muestra": 1508,
+        "muestra_raw": "1,508",
+        "votos": {
+          "PP": 32.5,
+          "PSOE": 29.6,
+          "VOX": 20.6,
+          "PODEMOS": null,
+          "OTROS": 4.1,
+          "Cs": null,
+          "UPL": 5.0,
+          "Soria Ya": 0.9,
+          "SALF": 2.1
+        }
+      },
+      {
+        "encuestadora": "Target Point",
+        "comisionista": "El Debate",
+        "fuente_nombre": "Target Point/El Debate",
+        "trabajo_campo": "4–7 Mar 2026",
+        "fecha_inicio": "2026-03-04",
+        "fecha_fin": "2026-03-07",
+        "muestra": 1129,
+        "muestra_raw": "1,129",
+        "votos": {
+          "PP": 29.2,
+          "PSOE": 28.7,
+          "VOX": 21.3,
+          "PODEMOS": null,
+          "OTROS": 6.1,
+          "Cs": null,
+          "UPL": 5.6,
+          "Soria Ya": 1.5,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "NC Report",
+        "comisionista": "La Razón",
+        "fuente_nombre": "NC Report/La Razón",
+        "trabajo_campo": "27 Feb–6 Mar 2026",
+        "fecha_inicio": "2026-02-27",
+        "fecha_fin": "2026-03-06",
+        "muestra": 1000,
+        "muestra_raw": "1,000",
+        "votos": {
+          "PP": 34.5,
+          "PSOE": 28.3,
+          "VOX": 19.1,
+          "PODEMOS": null,
+          "OTROS": 4.3,
+          "Cs": null,
+          "UPL": 5.0,
+          "Soria Ya": 1.1,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "23 Feb–6 Mar 2026",
+        "fecha_inicio": "2026-02-23",
+        "fecha_fin": "2026-03-06",
+        "muestra": 2360,
+        "muestra_raw": "2,360",
+        "votos": {
+          "PP": 35.8,
+          "PSOE": 29.8,
+          "VOX": 19.8,
+          "PODEMOS": null,
+          "OTROS": 3.8,
+          "Cs": null,
+          "UPL": 4.6,
+          "Soria Ya": 0.9,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Hamalgama Métrica",
+        "comisionista": "Vozpópuli",
+        "fuente_nombre": "Hamalgama Métrica/Vozpópuli",
+        "trabajo_campo": "2–5 Mar 2026",
+        "fecha_inicio": "2026-03-02",
+        "fecha_fin": "2026-03-05",
+        "muestra": 1000,
+        "muestra_raw": "1,000",
+        "votos": {
+          "PP": 33.2,
+          "PSOE": 28.1,
+          "VOX": 20.6,
+          "PODEMOS": null,
+          "OTROS": 4.1,
+          "Cs": 0.6,
+          "UPL": 5.1,
+          "Soria Ya": 0.9,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "GAD3",
+        "comisionista": "ABC",
+        "fuente_nombre": "GAD3/ABC",
+        "trabajo_campo": "2–4 Mar 2026",
+        "fecha_inicio": "2026-03-02",
+        "fecha_fin": "2026-03-04",
+        "muestra": 1002,
+        "muestra_raw": "1,002",
+        "votos": {
+          "PP": 34.8,
+          "PSOE": 28.6,
+          "VOX": 19.5,
+          "PODEMOS": null,
+          "OTROS": 10.4,
+          "Cs": null,
+          "UPL": 5.4,
+          "Soria Ya": 1.1,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "40dB",
+        "comisionista": "Prisa",
+        "fuente_nombre": "40dB/Prisa",
+        "trabajo_campo": "27 Feb–4 Mar 2026",
+        "fecha_inicio": "2026-02-27",
+        "fecha_fin": "2026-03-04",
+        "muestra": 1200,
+        "muestra_raw": "1,200",
+        "votos": {
+          "PP": 31.1,
+          "PSOE": 28.4,
+          "VOX": 20.8,
+          "PODEMOS": null,
+          "OTROS": 3.6,
+          "Cs": null,
+          "UPL": 5.7,
+          "Soria Ya": 1.4,
+          "SALF": 2.3
+        }
+      },
+      {
+        "encuestadora": "GESOP",
+        "comisionista": "Prensa Ibérica",
+        "fuente_nombre": "GESOP/Prensa Ibérica",
+        "trabajo_campo": "3 Mar 2026",
+        "fecha_inicio": "2026-03-03",
+        "fecha_fin": "2026-03-03",
+        "muestra": 802,
+        "muestra_raw": "802",
+        "votos": {
+          "PP": 29.6,
+          "PSOE": 27.5,
+          "VOX": 20.0,
+          "PODEMOS": null,
+          "OTROS": 9.8,
+          "Cs": null,
+          "UPL": 4.5,
+          "Soria Ya": 1.0,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "15 Feb–1 Mar 2026",
+        "fecha_inicio": "2026-02-15",
+        "fecha_fin": "2026-03-01",
+        "muestra": 1191,
+        "muestra_raw": "1,191",
+        "votos": {
+          "PP": 33.3,
+          "PSOE": 29.2,
+          "VOX": 19.8,
+          "PODEMOS": null,
+          "OTROS": 4.5,
+          "Cs": null,
+          "UPL": 4.8,
+          "Soria Ya": 0.9,
+          "SALF": 2.2
+        }
+      },
+      {
+        "encuestadora": "NC Report",
+        "comisionista": "La Razón",
+        "fuente_nombre": "NC Report/La Razón",
+        "trabajo_campo": "23–27 Feb 2026",
+        "fecha_inicio": "2026-02-23",
+        "fecha_fin": "2026-02-27",
+        "muestra": 1000,
+        "muestra_raw": "1,000",
+        "votos": {
+          "PP": 35.6,
+          "PSOE": 27.6,
+          "VOX": 17.9,
+          "PODEMOS": null,
+          "OTROS": 5.5,
+          "Cs": null,
+          "UPL": 4.9,
+          "Soria Ya": 1.4,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "7-22 Feb 2026",
+        "fecha_inicio": "2026-02-07",
+        "fecha_fin": "2026-02-22",
+        "muestra": 1382,
+        "muestra_raw": "1.382",
+        "votos": {
+          "PP": 33.9,
+          "PSOE": 27.9,
+          "VOX": 20.0,
+          "PODEMOS": null,
+          "OTROS": 4.5,
+          "Cs": null,
+          "UPL": 4.9,
+          "Soria Ya": 0.9,
+          "SALF": 2.1
+        }
+      },
+      {
+        "encuestadora": "El Español",
+        "comisionista": "Sociométrica",
+        "fuente_nombre": "El Español/Sociométrica",
+        "trabajo_campo": "12–14 Feb 2026",
+        "fecha_inicio": "2026-02-12",
+        "fecha_fin": "2026-02-14",
+        "muestra": 1500,
+        "muestra_raw": "1,500",
+        "votos": {
+          "PP": 31.6,
+          "PSOE": 27.3,
+          "VOX": 20.8,
+          "PODEMOS": null,
+          "OTROS": 4.2,
+          "Cs": null,
+          "UPL": 6.3,
+          "Soria Ya": 0.9,
+          "SALF": 2.0
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "9-10 Feb 2026",
+        "fecha_inicio": "2026-02-09",
+        "fecha_fin": "2026-02-10",
+        "muestra": 1954,
+        "muestra_raw": "1.954",
+        "votos": {
+          "PP": 35.8,
+          "PSOE": 29.8,
+          "VOX": 16.8,
+          "PODEMOS": null,
+          "OTROS": 4.5,
+          "Cs": null,
+          "UPL": 4.8,
+          "Soria Ya": 1.2,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "1-15 Feb 2026",
+        "fecha_inicio": "2026-02-01",
+        "fecha_fin": "2026-02-15",
+        "muestra": 1244,
+        "muestra_raw": "1.244",
+        "votos": {
+          "PP": 33.4,
+          "PSOE": 27.9,
+          "VOX": 20.1,
+          "PODEMOS": null,
+          "OTROS": 4.0,
+          "Cs": null,
+          "UPL": 4.8,
+          "Soria Ya": 0.9,
+          "SALF": 2.0
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "15 Jan–8 Feb 2026",
+        "fecha_inicio": "2026-01-15",
+        "fecha_fin": "2026-02-08",
+        "muestra": 1228,
+        "muestra_raw": "1.228",
+        "votos": {
+          "PP": 38.2,
+          "PSOE": 29.4,
+          "VOX": 18.5,
+          "PODEMOS": null,
+          "OTROS": 4.0,
+          "Cs": null,
+          "UPL": 4.5,
+          "Soria Ya": 1.0,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SyM Consulting",
+        "comisionista": "La Nueva Crónica",
+        "fuente_nombre": "SyM Consulting/La Nueva Crónica",
+        "trabajo_campo": "25 Nov–1 Dic 2025",
+        "fecha_inicio": "2026-11-25",
+        "fecha_fin": "2026-12-01",
+        "muestra": 7510,
+        "muestra_raw": "7,510",
+        "votos": {
+          "PP": 32.1,
+          "PSOE": 28.1,
+          "VOX": 20.5,
+          "PODEMOS": 4.1,
+          "OTROS": 4.5,
+          "Cs": 3.3,
+          "UPL": 4.3,
+          "Soria Ya": 1.7,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "6–9 Oct 2025",
+        "fecha_inicio": "2025-10-06",
+        "fecha_fin": "2025-10-09",
+        "muestra": 1200,
+        "muestra_raw": "1,200",
+        "votos": {
+          "PP": 36.7,
+          "PSOE": 31.4,
+          "VOX": 17.1,
+          "PODEMOS": 4.3,
+          "OTROS": 5.4,
+          "Cs": null,
+          "UPL": 3.9,
+          "Soria Ya": 1.0,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "NC Report",
+        "comisionista": "La Razón",
+        "fuente_nombre": "NC Report/La Razón",
+        "trabajo_campo": "26 Sep–9 Oct 2025",
+        "fecha_inicio": "2026-09-26",
+        "fecha_fin": "2026-10-09",
+        "muestra": 1000,
+        "muestra_raw": "1,000",
+        "votos": {
+          "PP": 37.8,
+          "PSOE": 29.6,
+          "VOX": 14.4,
+          "PODEMOS": 6.9,
+          "OTROS": 4.3,
+          "Cs": null,
+          "UPL": 5.0,
+          "Soria Ya": 1.1,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "ElectoPanel",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "ElectoPanel/Electomanía",
+        "trabajo_campo": "28 Jun–28 Jul 2025",
+        "fecha_inicio": "2026-06-28",
+        "fecha_fin": "2026-07-28",
+        "muestra": 1375,
+        "muestra_raw": "1,375",
+        "votos": {
+          "PP": 43.4,
+          "PSOE": 33.9,
+          "VOX": 10.4,
+          "PODEMOS": null,
+          "OTROS": 3.0,
+          "Cs": 0.6,
+          "UPL": 2.7,
+          "Soria Ya": 0.9,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "RTVCyL",
+        "fuente_nombre": "Sigma Dos/RTVCyL",
+        "trabajo_campo": "27 May–7 Jun 2025",
+        "fecha_inicio": "2026-05-27",
+        "fecha_fin": "2026-06-07",
+        "muestra": 2700,
+        "muestra_raw": "2,700",
+        "votos": {
+          "PP": 36.7,
+          "PSOE": 30.1,
+          "VOX": 13.2,
+          "PODEMOS": 7.9,
+          "OTROS": 5.5,
+          "Cs": null,
+          "UPL": 4.9,
+          "Soria Ya": 0.9,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "9–25 Abr 2025",
+        "fecha_inicio": "2025-04-09",
+        "fecha_fin": "2025-04-25",
+        "muestra": 1223,
+        "muestra_raw": "1,223",
+        "votos": {
+          "PP": 36.8,
+          "PSOE": 29.2,
+          "VOX": 13.2,
+          "PODEMOS": 7.1,
+          "OTROS": 7.6,
+          "Cs": 0.3,
+          "UPL": 3.7,
+          "Soria Ya": 1.0,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "NC Report",
+        "comisionista": "La Razón",
+        "fuente_nombre": "NC Report/La Razón",
+        "trabajo_campo": "15–18 Jul 2024",
+        "fecha_inicio": "2024-07-15",
+        "fecha_fin": "2024-07-18",
+        "muestra": 1000,
+        "muestra_raw": "1,000",
+        "votos": {
+          "PP": 42.1,
+          "PSOE": 29.3,
+          "VOX": 12.7,
+          "PODEMOS": null,
+          "OTROS": 4.9,
+          "Cs": 0.5,
+          "UPL": 4.6,
+          "Soria Ya": 1.4,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Data10",
+        "comisionista": "OKDiario",
+        "fuente_nombre": "Data10/OKDiario",
+        "trabajo_campo": "15–17 Jul 2024",
+        "fecha_inicio": "2024-07-15",
+        "fecha_fin": "2024-07-17",
+        "muestra": 1500,
+        "muestra_raw": "1,500",
+        "votos": {
+          "PP": 42.3,
+          "PSOE": 30.8,
+          "VOX": 9.3,
+          "PODEMOS": 3.2,
+          "OTROS": 6.3,
+          "Cs": 1.2,
+          "UPL": 4.4,
+          "Soria Ya": 1.2,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "ElectoPanel",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "ElectoPanel/Electomanía",
+        "trabajo_campo": "26 Ago–26 Sep 2023",
+        "fecha_inicio": "2026-08-26",
+        "fecha_fin": "2024-09-26",
+        "muestra": 1375,
+        "muestra_raw": "1,375",
+        "votos": {
+          "PP": 40.4,
+          "PSOE": 36.1,
+          "VOX": 8.6,
+          "PODEMOS": 6.7,
+          "OTROS": 1.2,
+          "Cs": 4.8,
+          "UPL": 2.7,
+          "Soria Ya": 1.1,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "ElectoPanel",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "ElectoPanel/Electomanía",
+        "trabajo_campo": "14 Dic–17 Ene 2023",
+        "fecha_inicio": "2026-12-14",
+        "fecha_fin": "2024-01-17",
+        "muestra": 741,
+        "muestra_raw": "741",
+        "votos": {
+          "PP": 35.1,
+          "PSOE": 31.8,
+          "VOX": 12.0,
+          "PODEMOS": 5.5,
+          "OTROS": 3.7,
+          "Cs": 5.8,
+          "UPL": 3.6,
+          "Soria Ya": 1.2,
+          "SALF": null
+        }
+      }
+    ],
+    "clm": [],
+    "aragon": [
+      {
+        "encuestadora": "GAD3",
+        "comisionista": "RTVE–Aragón TV",
+        "fuente_nombre": "GAD3/RTVE–Aragón TV",
+        "trabajo_campo": "8 Feb 2026",
+        "fecha_inicio": "2026-02-08",
+        "fecha_fin": "2026-02-08",
+        "muestra": 4123,
+        "muestra_raw": "4123",
+        "votos": {
+          "PP": 35.2,
+          "PSOE": 22.7,
+          "VOX": 17.6,
+          "CHA": 8.7,
+          "CE": 4.1,
+          "PA-AV": null,
+          "OTROS": 4.2,
+          "PAR": null,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Data10",
+        "comisionista": "Okdiario",
+        "fuente_nombre": "Data10/Okdiario",
+        "trabajo_campo": "1–2 Feb 2026",
+        "fecha_inicio": "2026-02-01",
+        "fecha_fin": "2026-02-02",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 37.9,
+          "PSOE": 23.1,
+          "VOX": 17.6,
+          "CHA": 7.4,
+          "CE": 3.5,
+          "PA-AV": null,
+          "OTROS": 3.9,
+          "PAR": null,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "30 Ene–1 Feb 2026",
+        "fecha_inicio": "2023-01-30",
+        "fecha_fin": "2026-02-01",
+        "muestra": 1000,
+        "muestra_raw": "1000",
+        "votos": {
+          "PP": 35.7,
+          "PSOE": 23.3,
+          "VOX": 17.5,
+          "CHA": 7.3,
+          "CE": 4.0,
+          "PA-AV": 1.7,
+          "OTROS": 3.3,
+          "PAR": 2.4,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 2.4
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "1 Ene–1 Feb 2026",
+        "fecha_inicio": "2023-01-01",
+        "fecha_fin": "2026-02-01",
+        "muestra": 1598,
+        "muestra_raw": "1598",
+        "votos": {
+          "PP": 37.7,
+          "PSOE": 23.9,
+          "VOX": 17.9,
+          "CHA": 7.2,
+          "CE": 3.1,
+          "PA-AV": 2.2,
+          "OTROS": 3.8,
+          "PAR": 1.5,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 1.8
+        }
+      },
+      {
+        "encuestadora": "Target Point",
+        "comisionista": "El Debate",
+        "fuente_nombre": "Target Point/El Debate",
+        "trabajo_campo": "28–31 Ene 2026",
+        "fecha_inicio": "2026-01-28",
+        "fecha_fin": "2026-01-31",
+        "muestra": 1005,
+        "muestra_raw": "1005",
+        "votos": {
+          "PP": 36.9,
+          "PSOE": 21.9,
+          "VOX": 17.2,
+          "CHA": 7.3,
+          "CE": 3.5,
+          "PA-AV": 2.1,
+          "OTROS": 4.5,
+          "PAR": 1.9,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 2.7
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "26–30 Ene 2026",
+        "fecha_inicio": "2026-01-26",
+        "fecha_fin": "2026-01-30",
+        "muestra": 1346,
+        "muestra_raw": "1346",
+        "votos": {
+          "PP": 37.8,
+          "PSOE": 24.6,
+          "VOX": 17.2,
+          "CHA": 7.3,
+          "CE": 3.3,
+          "PA-AV": 1.5,
+          "OTROS": 4.3,
+          "PAR": 1.4,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 0.8
+        }
+      },
+      {
+        "encuestadora": "A+M",
+        "comisionista": "Heraldo de Aragón",
+        "fuente_nombre": "A+M/Heraldo de Aragón",
+        "trabajo_campo": "26–29 Ene 2026",
+        "fecha_inicio": "2026-01-26",
+        "fecha_fin": "2026-01-29",
+        "muestra": 2000,
+        "muestra_raw": "2000",
+        "votos": {
+          "PP": 37.2,
+          "PSOE": 24.2,
+          "VOX": 16.6,
+          "CHA": 6.7,
+          "CE": 2.7,
+          "PA-AV": 2.2,
+          "OTROS": 4.3,
+          "PAR": 1.4,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 2.3
+        }
+      },
+      {
+        "encuestadora": "GAD3",
+        "comisionista": "ABC",
+        "fuente_nombre": "GAD3/ABC",
+        "trabajo_campo": "22–29 Ene 2026",
+        "fecha_inicio": "2026-01-22",
+        "fecha_fin": "2026-01-29",
+        "muestra": 1001,
+        "muestra_raw": "1001",
+        "votos": {
+          "PP": 36.4,
+          "PSOE": 22.6,
+          "VOX": 16.5,
+          "CHA": 8.3,
+          "CE": 4.3,
+          "PA-AV": 2.1,
+          "OTROS": 3.6,
+          "PAR": 1.2,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "40dB",
+        "comisionista": "Prisa",
+        "fuente_nombre": "40dB/Prisa",
+        "trabajo_campo": "26–28 Ene 2026",
+        "fecha_inicio": "2026-01-26",
+        "fecha_fin": "2026-01-28",
+        "muestra": 1000,
+        "muestra_raw": "1000",
+        "votos": {
+          "PP": 37.6,
+          "PSOE": 23.0,
+          "VOX": 17.0,
+          "CHA": 6.7,
+          "CE": 3.8,
+          "PA-AV": 2.2,
+          "OTROS": 4.5,
+          "PAR": 1.2,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "GESOP",
+        "comisionista": "El Periódico de Aragón",
+        "fuente_nombre": "GESOP/El Periódico de Aragón",
+        "trabajo_campo": "15–28 Ene 2026",
+        "fecha_inicio": "2026-01-15",
+        "fecha_fin": "2026-01-28",
+        "muestra": 800,
+        "muestra_raw": "800",
+        "votos": {
+          "PP": 37.0,
+          "PSOE": 24.0,
+          "VOX": 16.0,
+          "CHA": 7.0,
+          "CE": 4.5,
+          "PA-AV": 2.5,
+          "OTROS": 4.2,
+          "PAR": 1.2,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 1.2
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "15 Dic–24 Ene 2026",
+        "fecha_inicio": "2023-12-15",
+        "fecha_fin": "2026-01-24",
+        "muestra": 1642,
+        "muestra_raw": "1642",
+        "votos": {
+          "PP": 39.5,
+          "PSOE": 24.8,
+          "VOX": 17.6,
+          "CHA": 5.9,
+          "CE": 3.5,
+          "PA-AV": 2.2,
+          "OTROS": 3.6,
+          "PAR": 1.5,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Celeste-Tel",
+        "comisionista": "Onda Cero",
+        "fuente_nombre": "Celeste-Tel/Onda Cero",
+        "trabajo_campo": "20–23 Ene 2026",
+        "fecha_inicio": "2026-01-20",
+        "fecha_fin": "2026-01-23",
+        "muestra": 1100,
+        "muestra_raw": "1100",
+        "votos": {
+          "PP": 37.9,
+          "PSOE": 23.6,
+          "VOX": 16.9,
+          "CHA": 7.5,
+          "CE": 3.5,
+          "PA-AV": 2.4,
+          "OTROS": 4.5,
+          "PAR": 1.8,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "40dB",
+        "comisionista": "Prisa",
+        "fuente_nombre": "40dB/Prisa",
+        "trabajo_campo": "16–20 Ene 2026",
+        "fecha_inicio": "2026-01-16",
+        "fecha_fin": "2026-01-20",
+        "muestra": 1000,
+        "muestra_raw": "1000",
+        "votos": {
+          "PP": 37.4,
+          "PSOE": 25.0,
+          "VOX": 17.9,
+          "CHA": 5.7,
+          "CE": 3.9,
+          "PA-AV": 2.0,
+          "OTROS": 3.8,
+          "PAR": 1.3,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "GAD3",
+        "comisionista": "Hoy Aragón",
+        "fuente_nombre": "GAD3/Hoy Aragón",
+        "trabajo_campo": "12–20 Ene 2026",
+        "fecha_inicio": "2026-01-12",
+        "fecha_fin": "2026-01-20",
+        "muestra": 1207,
+        "muestra_raw": "1207",
+        "votos": {
+          "PP": 37.0,
+          "PSOE": 24.7,
+          "VOX": 15.1,
+          "CHA": 6.7,
+          "CE": 4.4,
+          "PA-AV": 2.0,
+          "OTROS": 4.2,
+          "PAR": null,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "A+M",
+        "comisionista": "Heraldo de Aragón",
+        "fuente_nombre": "A+M/Heraldo de Aragón",
+        "trabajo_campo": "15–18 Ene 2026",
+        "fecha_inicio": "2026-01-15",
+        "fecha_fin": "2026-01-18",
+        "muestra": 2000,
+        "muestra_raw": "2000",
+        "votos": {
+          "PP": 38.6,
+          "PSOE": 24.8,
+          "VOX": 14.7,
+          "CHA": 5.7,
+          "CE": 3.4,
+          "PA-AV": 2.5,
+          "OTROS": 3.3,
+          "PAR": 1.5,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 3.2
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "15 Dic–17 Ene 2026",
+        "fecha_inicio": "2023-12-15",
+        "fecha_fin": "2026-01-17",
+        "muestra": 1012,
+        "muestra_raw": "1012",
+        "votos": {
+          "PP": 39.8,
+          "PSOE": 24.6,
+          "VOX": 18.2,
+          "CHA": 5.5,
+          "CE": 3.5,
+          "PA-AV": 2.2,
+          "OTROS": 3.1,
+          "PAR": 1.7,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "14–16 Ene 2026",
+        "fecha_inicio": "2026-01-14",
+        "fecha_fin": "2026-01-16",
+        "muestra": 1000,
+        "muestra_raw": "1000",
+        "votos": {
+          "PP": 36.7,
+          "PSOE": 25.0,
+          "VOX": 16.3,
+          "CHA": 6.0,
+          "CE": 3.3,
+          "PA-AV": 2.7,
+          "OTROS": 3.4,
+          "PAR": 2.0,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 1.6
+        }
+      },
+      {
+        "encuestadora": "NC Report",
+        "comisionista": "La Razón",
+        "fuente_nombre": "NC Report/La Razón",
+        "trabajo_campo": "8–16 Ene 2026",
+        "fecha_inicio": "2026-01-08",
+        "fecha_fin": "2026-01-16",
+        "muestra": 1000,
+        "muestra_raw": "1000",
+        "votos": {
+          "PP": 39.9,
+          "PSOE": 23.1,
+          "VOX": 17.6,
+          "CHA": 5.6,
+          "CE": 3.6,
+          "PA-AV": 3.2,
+          "OTROS": 3.5,
+          "PAR": null,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "8–15 Ene 2026",
+        "fecha_inicio": "2026-01-08",
+        "fecha_fin": "2026-01-15",
+        "muestra": 1716,
+        "muestra_raw": "1716",
+        "votos": {
+          "PP": 38.1,
+          "PSOE": 25.8,
+          "VOX": 15.8,
+          "CHA": 7.5,
+          "CE": 2.5,
+          "PA-AV": 2.2,
+          "OTROS": 4.5,
+          "PAR": 1.5,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": 0.8
+        }
+      },
+      {
+        "encuestadora": "Hamalgama Métrica",
+        "comisionista": "Vozpópuli",
+        "fuente_nombre": "Hamalgama Métrica/Vozpópuli",
+        "trabajo_campo": "9–14 Ene 2026",
+        "fecha_inicio": "2026-01-09",
+        "fecha_fin": "2026-01-14",
+        "muestra": 1000,
+        "muestra_raw": "1000",
+        "votos": {
+          "PP": 39.4,
+          "PSOE": 23.4,
+          "VOX": 17.8,
+          "CHA": 5.7,
+          "CE": 3.8,
+          "PA-AV": 3.0,
+          "OTROS": 3.7,
+          "PAR": 1.5,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "11 Dic–11 Ene 2026",
+        "fecha_inicio": "2023-12-11",
+        "fecha_fin": "2026-01-11",
+        "muestra": 864,
+        "muestra_raw": "864",
+        "votos": {
+          "PP": 40.3,
+          "PSOE": 24.8,
+          "VOX": 17.3,
+          "CHA": 5.7,
+          "CE": 3.7,
+          "PA-AV": 2.7,
+          "OTROS": 3.6,
+          "PAR": 1.7,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "1 Dic–3 Ene 2026",
+        "fecha_inicio": "2023-12-01",
+        "fecha_fin": "2026-01-03",
+        "muestra": 1228,
+        "muestra_raw": "1228",
+        "votos": {
+          "PP": 39.9,
+          "PSOE": 25.8,
+          "VOX": 17.1,
+          "CHA": 5.3,
+          "CE": 3.7,
+          "PA-AV": 2.9,
+          "OTROS": 3.6,
+          "PAR": 1.5,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SyM Consulting",
+        "comisionista": "",
+        "fuente_nombre": "SyM Consulting",
+        "trabajo_campo": "20–24 Dic 2025",
+        "fecha_inicio": "2025-12-20",
+        "fecha_fin": "2025-12-24",
+        "muestra": 2200,
+        "muestra_raw": "2200",
+        "votos": {
+          "PP": 39.5,
+          "PSOE": 24.5,
+          "VOX": 17.8,
+          "CHA": 4.9,
+          "CE": 4.3,
+          "PA-AV": 3.1,
+          "OTROS": 2.2,
+          "PAR": 1.7,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "A+M",
+        "comisionista": "Heraldo de Aragón",
+        "fuente_nombre": "A+M/Heraldo de Aragón",
+        "trabajo_campo": "15–18 Dic 2025",
+        "fecha_inicio": "2025-12-15",
+        "fecha_fin": "2025-12-18",
+        "muestra": 1800,
+        "muestra_raw": "1800",
+        "votos": {
+          "PP": 39.2,
+          "PSOE": 25.8,
+          "VOX": 15.5,
+          "CHA": 5.8,
+          "CE": 3.9,
+          "PA-AV": null,
+          "OTROS": null,
+          "PAR": 1.5,
+          "PODEMOS": 6.1,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "1–13 Dic 2025",
+        "fecha_inicio": "2025-12-01",
+        "fecha_fin": "2025-12-13",
+        "muestra": 804,
+        "muestra_raw": "804",
+        "votos": {
+          "PP": 43.2,
+          "PSOE": 28.9,
+          "VOX": 12.6,
+          "CHA": 4.6,
+          "CE": 2.9,
+          "PA-AV": 2.0,
+          "OTROS": 3.7,
+          "PAR": 1.5,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "24–28 Nov 2025",
+        "fecha_inicio": "2025-11-24",
+        "fecha_fin": "2025-11-28",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 38.2,
+          "PSOE": 23.9,
+          "VOX": 16.9,
+          "CHA": 4.7,
+          "CE": 4.3,
+          "PA-AV": 3.5,
+          "OTROS": 3.8,
+          "PAR": 0.9,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "PP",
+        "fuente_nombre": "Sigma Dos/PP",
+        "trabajo_campo": "15–30 Jun 2025",
+        "fecha_inicio": "2025-06-15",
+        "fecha_fin": "2025-06-30",
+        "muestra": 1300,
+        "muestra_raw": "1300",
+        "votos": {
+          "PP": 40.6,
+          "PSOE": 24.1,
+          "VOX": 12.1,
+          "CHA": 6.5,
+          "CE": 2.6,
+          "PA-AV": 2.8,
+          "OTROS": 5.3,
+          "PAR": 1.7,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "14–25 Abr 2025",
+        "fecha_inicio": "2025-04-14",
+        "fecha_fin": "2025-04-25",
+        "muestra": 1039,
+        "muestra_raw": "1039",
+        "votos": {
+          "PP": 37.3,
+          "PSOE": 25.8,
+          "VOX": 12.6,
+          "CHA": 6.4,
+          "CE": 3.3,
+          "PA-AV": 2.8,
+          "OTROS": 4.3,
+          "PAR": 1.9,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "7–11 Abr 2025",
+        "fecha_inicio": "2025-04-07",
+        "fecha_fin": "2025-04-11",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 37.9,
+          "PSOE": 26.2,
+          "VOX": 13.5,
+          "CHA": 3.9,
+          "CE": 4.9,
+          "PA-AV": 3.0,
+          "OTROS": 4.2,
+          "PAR": 1.1,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "A+M",
+        "comisionista": "Heraldo de Aragón",
+        "fuente_nombre": "A+M/Heraldo de Aragón",
+        "trabajo_campo": "2–10 Abr 2025",
+        "fecha_inicio": "2025-04-02",
+        "fecha_fin": "2025-04-10",
+        "muestra": 2400,
+        "muestra_raw": "2400",
+        "votos": {
+          "PP": 43.6,
+          "PSOE": 31.1,
+          "VOX": 10.1,
+          "CHA": 5.2,
+          "CE": 2.4,
+          "PA-AV": 1.7,
+          "OTROS": 2.4,
+          "PAR": 1.0,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "1–6 Oct 2024",
+        "fecha_inicio": "2024-10-01",
+        "fecha_fin": "2024-10-06",
+        "muestra": 1500,
+        "muestra_raw": "1500",
+        "votos": {
+          "PP": 39.9,
+          "PSOE": 29.7,
+          "VOX": 9.0,
+          "CHA": 4.0,
+          "CE": 4.2,
+          "PA-AV": 2.0,
+          "OTROS": 2.5,
+          "PAR": 1.4,
+          "PODEMOS": null,
+          "SUMAR": 2.7,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "NC Report",
+        "comisionista": "La Razón",
+        "fuente_nombre": "NC Report/La Razón",
+        "trabajo_campo": "15–18 Jul 2024",
+        "fecha_inicio": "2024-07-15",
+        "fecha_fin": "2024-07-18",
+        "muestra": 1000,
+        "muestra_raw": "1000",
+        "votos": {
+          "PP": 40.8,
+          "PSOE": 30.4,
+          "VOX": 8.9,
+          "CHA": 5.2,
+          "CE": 3.9,
+          "PA-AV": 2.6,
+          "OTROS": 3.6,
+          "PAR": 1.4,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "A+M",
+        "comisionista": "Heraldo de Aragón",
+        "fuente_nombre": "A+M/Heraldo de Aragón",
+        "trabajo_campo": "12–15 Jul 2024",
+        "fecha_inicio": "2024-07-12",
+        "fecha_fin": "2024-07-15",
+        "muestra": 1600,
+        "muestra_raw": "1600",
+        "votos": {
+          "PP": 40.6,
+          "PSOE": 35.1,
+          "VOX": 9.8,
+          "CHA": 5.5,
+          "CE": 2.7,
+          "PA-AV": 0.9,
+          "OTROS": 1.1,
+          "PAR": 2.4,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "Data10",
+        "comisionista": "Okdiario",
+        "fuente_nombre": "Data10/Okdiario",
+        "trabajo_campo": "12–13 Jul 2024",
+        "fecha_inicio": "2024-07-12",
+        "fecha_fin": "2024-07-13",
+        "muestra": 1500,
+        "muestra_raw": "1500",
+        "votos": {
+          "PP": 37.4,
+          "PSOE": 31.6,
+          "VOX": 10.1,
+          "CHA": 4.1,
+          "CE": 4.1,
+          "PA-AV": null,
+          "OTROS": null,
+          "PAR": null,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      },
+      {
+        "encuestadora": "A+M",
+        "comisionista": "Heraldo de Aragón",
+        "fuente_nombre": "A+M/Heraldo de Aragón",
+        "trabajo_campo": "10–16 Abr 2024",
+        "fecha_inicio": "2024-04-10",
+        "fecha_fin": "2024-04-16",
+        "muestra": 2400,
+        "muestra_raw": "2400",
+        "votos": {
+          "PP": 40.2,
+          "PSOE": 30.7,
+          "VOX": 12.0,
+          "CHA": 5.4,
+          "CE": 2.7,
+          "PA-AV": 1.7,
+          "OTROS": 1.6,
+          "PAR": 1.0,
+          "PODEMOS": null,
+          "SUMAR": null,
+          "SALF": null
+        }
+      }
+    ],
+    "extremadura": [
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "15 Dic 2025",
+        "fecha_inicio": "2025-12-15",
+        "fecha_fin": "2025-12-15",
+        "muestra": 1000,
+        "muestra_raw": "1 000",
+        "votos": {
+          "PSOE": 28.5,
+          "PP": 43.9,
+          "VOX": 12.9,
+          "UpE": 7.9,
+          "JxE": 3.2,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "Data10",
+        "comisionista": "OK Diario",
+        "fuente_nombre": "Data10/OK Diario",
+        "trabajo_campo": "12–15 Dic 2025",
+        "fecha_inicio": "2025-12-12",
+        "fecha_fin": "2025-12-15",
+        "muestra": 1500,
+        "muestra_raw": "1 500",
+        "votos": {
+          "PSOE": 27.5,
+          "PP": 44.7,
+          "VOX": 13.5,
+          "UpE": 9.5,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "Target Point",
+        "comisionista": "El Debate",
+        "fuente_nombre": "Target Point/El Debate",
+        "trabajo_campo": "11–14 Dic 2025",
+        "fecha_inicio": "2025-12-11",
+        "fecha_fin": "2025-12-14",
+        "muestra": 1002,
+        "muestra_raw": "1 002",
+        "votos": {
+          "PSOE": 26.9,
+          "PP": 43.7,
+          "VOX": 14.0,
+          "UpE": 10.2,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "1–14 Dic 2025",
+        "fecha_inicio": "2025-12-01",
+        "fecha_fin": "2025-12-14",
+        "muestra": 1540,
+        "muestra_raw": "1 540",
+        "votos": {
+          "PSOE": 30.9,
+          "PP": 42.8,
+          "VOX": 13.9,
+          "UpE": 7.8,
+          "JxE": 2.9,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "24 Nov–12 Dic 2025",
+        "fecha_inicio": "2023-11-24",
+        "fecha_fin": "2025-12-12",
+        "muestra": 1824,
+        "muestra_raw": "1 824",
+        "votos": {
+          "PSOE": 28.7,
+          "PP": 41.9,
+          "VOX": 15.7,
+          "UpE": 9.3,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "Celeste-Tel",
+        "comisionista": "Onda Cero",
+        "fuente_nombre": "Celeste-Tel/Onda Cero",
+        "trabajo_campo": "4–11 Dic 2025",
+        "fecha_inicio": "2025-12-04",
+        "fecha_fin": "2025-12-11",
+        "muestra": 1000,
+        "muestra_raw": "1 000",
+        "votos": {
+          "PSOE": 32.2,
+          "PP": 42.9,
+          "VOX": 12.8,
+          "UpE": 8.7,
+          "JxE": 1.5,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "40dB",
+        "comisionista": "El País",
+        "fuente_nombre": "40dB/El País",
+        "trabajo_campo": "5–11 Dic 2025",
+        "fecha_inicio": "2025-12-05",
+        "fecha_fin": "2025-12-11",
+        "muestra": 800,
+        "muestra_raw": "800",
+        "votos": {
+          "PSOE": 31.2,
+          "PP": 41.1,
+          "VOX": 14.1,
+          "UpE": 8.3,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "GAD3",
+        "comisionista": "ABC",
+        "fuente_nombre": "GAD3/ABC",
+        "trabajo_campo": "3–11 Dic 2025",
+        "fecha_inicio": "2025-12-03",
+        "fecha_fin": "2025-12-11",
+        "muestra": 1084,
+        "muestra_raw": "1 084",
+        "votos": {
+          "PSOE": 27.1,
+          "PP": 43.0,
+          "VOX": 12.7,
+          "UpE": 10.0,
+          "JxE": 3.0,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "GESOP",
+        "comisionista": "Prensa Ibérica",
+        "fuente_nombre": "GESOP/Prensa Ibérica",
+        "trabajo_campo": "2–11 Dic 2025",
+        "fecha_inicio": "2025-12-02",
+        "fecha_fin": "2025-12-11",
+        "muestra": 801,
+        "muestra_raw": "801",
+        "votos": {
+          "PSOE": 28.0,
+          "PP": 37.3,
+          "VOX": 17.2,
+          "UpE": 9.4,
+          "JxE": 3.0,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "DYM",
+        "comisionista": "20 Minutos",
+        "fuente_nombre": "DYM/20 Minutos",
+        "trabajo_campo": "4–10 Dic 2025",
+        "fecha_inicio": "2025-12-04",
+        "fecha_fin": "2025-12-10",
+        "muestra": 706,
+        "muestra_raw": "706",
+        "votos": {
+          "PSOE": 31.8,
+          "PP": 42.9,
+          "VOX": 12.3,
+          "UpE": 8.0,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "1–7 Dic 2025",
+        "fecha_inicio": "2025-12-01",
+        "fecha_fin": "2025-12-07",
+        "muestra": 850,
+        "muestra_raw": "850",
+        "votos": {
+          "PSOE": 33.8,
+          "PP": 41.8,
+          "VOX": 13.6,
+          "UpE": 6.8,
+          "JxE": 1.5,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "4–6 Dic 2025",
+        "fecha_inicio": "2025-12-04",
+        "fecha_fin": "2025-12-06",
+        "muestra": 1100,
+        "muestra_raw": "1 100",
+        "votos": {
+          "PSOE": 29.4,
+          "PP": 43.0,
+          "VOX": 12.3,
+          "UpE": 7.9,
+          "JxE": 3.9,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "30 Oct–30 Nov 2025",
+        "fecha_inicio": "2023-10-30",
+        "fecha_fin": "2025-11-30",
+        "muestra": 1728,
+        "muestra_raw": "1 728",
+        "votos": {
+          "PSOE": 34.0,
+          "PP": 42.1,
+          "VOX": 12.8,
+          "UpE": 6.3,
+          "JxE": 1.7,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "21–27 Nov 2025",
+        "fecha_inicio": "2025-11-21",
+        "fecha_fin": "2025-11-27",
+        "muestra": 1091,
+        "muestra_raw": "1 091",
+        "votos": {
+          "PSOE": 32.5,
+          "PP": 42.4,
+          "VOX": 13.0,
+          "UpE": 7.9,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "30 Oct–23 Nov 2025",
+        "fecha_inicio": "2023-10-30",
+        "fecha_fin": "2025-11-23",
+        "muestra": 1317,
+        "muestra_raw": "1 317",
+        "votos": {
+          "PSOE": 35.0,
+          "PP": 41.8,
+          "VOX": 12.0,
+          "UpE": 6.2,
+          "JxE": 1.6,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "30 Oct–15 Nov 2025",
+        "fecha_inicio": "2023-10-30",
+        "fecha_fin": "2025-11-15",
+        "muestra": 755,
+        "muestra_raw": "755",
+        "votos": {
+          "PSOE": 35.0,
+          "PP": 41.2,
+          "VOX": 11.8,
+          "UpE": 6.5,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "comisionista": "El Mundo",
+        "fuente_nombre": "Sigma Dos/El Mundo",
+        "trabajo_campo": "27–30 Oct 2025",
+        "fecha_inicio": "2025-10-27",
+        "fecha_fin": "2025-10-30",
+        "muestra": 873,
+        "muestra_raw": "873",
+        "votos": {
+          "PSOE": 35.6,
+          "PP": 41.7,
+          "VOX": 11.4,
+          "UpE": 6.2,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "27–29 Oct 2025",
+        "fecha_inicio": "2025-10-27",
+        "fecha_fin": "2025-10-29",
+        "muestra": 802,
+        "muestra_raw": "802",
+        "votos": {
+          "PSOE": 35.2,
+          "PP": 41.6,
+          "VOX": 12.2,
+          "UpE": 6.0,
+          "JxE": null,
+          "Cs": 0.2,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "29 Sep–25 Oct 2025",
+        "fecha_inicio": "2023-09-29",
+        "fecha_fin": "2025-10-25",
+        "muestra": 1295,
+        "muestra_raw": "1 295",
+        "votos": {
+          "PSOE": 37.9,
+          "PP": 41.0,
+          "VOX": 12.7,
+          "UpE": 1.4,
+          "JxE": null,
+          "Cs": 0.3,
+          "SUMAR": 4.5
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "29 de abril–27 de mayo de 2025",
+        "fecha_inicio": "2023-04-29",
+        "fecha_fin": "2025-05-27",
+        "muestra": 1295,
+        "muestra_raw": "1 295",
+        "votos": {
+          "PSOE": 40.2,
+          "PP": 42.1,
+          "VOX": 10.2,
+          "UpE": 2.0,
+          "JxE": null,
+          "Cs": 0.3,
+          "SUMAR": 3.2
+        }
+      },
+      {
+        "encuestadora": "El Mundo",
+        "comisionista": "Sigma Dos",
+        "fuente_nombre": "El Mundo/Sigma Dos",
+        "trabajo_campo": "9–22 de mayo de 2025",
+        "fecha_inicio": "2025-05-09",
+        "fecha_fin": "2025-05-22",
+        "muestra": 1028,
+        "muestra_raw": "1 028",
+        "votos": {
+          "PSOE": 36.7,
+          "PP": 41.8,
+          "VOX": 9.3,
+          "UpE": 6.6,
+          "JxE": 3.1,
+          "Cs": null,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "NC Report",
+        "comisionista": "La Razón",
+        "fuente_nombre": "NC Report/La Razón",
+        "trabajo_campo": "18–23 Jul 2024",
+        "fecha_inicio": "2024-07-18",
+        "fecha_fin": "2024-07-23",
+        "muestra": 1000,
+        "muestra_raw": "1 000",
+        "votos": {
+          "PSOE": 39.4,
+          "PP": 43.5,
+          "VOX": 6.8,
+          "UpE": 2.4,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": 2.9
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "25 Nov–23 Dic 2023",
+        "fecha_inicio": "2023-11-25",
+        "fecha_fin": "2023-12-23",
+        "muestra": 1295,
+        "muestra_raw": "1 295",
+        "votos": {
+          "PSOE": 42.5,
+          "PP": 36.7,
+          "VOX": 9.0,
+          "UpE": 0.9,
+          "JxE": 2.0,
+          "Cs": 1.0,
+          "SUMAR": 5.0
+        }
+      },
+      {
+        "encuestadora": "EM-Analytics",
+        "comisionista": "Electomanía",
+        "fuente_nombre": "EM-Analytics/Electomanía",
+        "trabajo_campo": "28 May–22 Jun 2023",
+        "fecha_inicio": "2023-05-28",
+        "fecha_fin": "2023-06-22",
+        "muestra": 1000,
+        "muestra_raw": "1 000",
+        "votos": {
+          "PSOE": 42.2,
+          "PP": 37.0,
+          "VOX": 8.5,
+          "UpE": 5.2,
+          "JxE": 2.7,
+          "Cs": 0.9,
+          "SUMAR": null
+        }
+      },
+      {
+        "encuestadora": "Data10",
+        "comisionista": "OKDiario",
+        "fuente_nombre": "Data10/OKDiario",
+        "trabajo_campo": "21 Jun 2023",
+        "fecha_inicio": "2023-06-21",
+        "fecha_fin": "2023-06-21",
+        "muestra": 1500,
+        "muestra_raw": "1 500",
+        "votos": {
+          "PSOE": 42.9,
+          "PP": 41.1,
+          "VOX": 6.6,
+          "UpE": 4.6,
+          "JxE": null,
+          "Cs": null,
+          "SUMAR": null
+        }
+      }
     ]
   },
   "stats": {
+    "madrid": {
+      "incluidas": 0,
+      "excluidas_cis": 0,
+      "excluidas_muestra": 0,
+      "excluidas_otra": 5,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_la_Asamblea_de_Madrid_de_2023",
+      "ultima_encuesta": "2023-04-16",
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
+    },
     "cataluna": {
       "incluidas": 20,
       "excluidas_cis": 0,
       "excluidas_muestra": 1,
       "excluidas_otra": 0,
-      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Catalu%C3%B1a_de_2028"
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Catalu%C3%B1a_de_2028",
+      "ultima_encuesta": "2026-11-11",
+      "reciente": true,
+      "aviso": null
     },
     "andalucia": {
       "incluidas": 60,
       "excluidas_cis": 3,
       "excluidas_muestra": 1,
       "excluidas_otra": 3,
-      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Andaluc%C3%ADa_de_2026"
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Andaluc%C3%ADa_de_2026",
+      "ultima_encuesta": "2026-05-16",
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
+    },
+    "cvalenciana": {
+      "incluidas": 0,
+      "excluidas_cis": 0,
+      "excluidas_muestra": 0,
+      "excluidas_otra": 0,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_las_Cortes_Valencianas_de_2023",
+      "ultima_encuesta": null,
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
+    },
+    "galicia": {
+      "incluidas": 0,
+      "excluidas_cis": 0,
+      "excluidas_muestra": 0,
+      "excluidas_otra": 0,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Galicia_de_2024",
+      "ultima_encuesta": null,
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
     },
     "paisvasco": {
       "incluidas": 33,
       "excluidas_cis": 2,
       "excluidas_muestra": 0,
       "excluidas_otra": 14,
-      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_Vasco_de_2024"
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_Vasco_de_2024",
+      "ultima_encuesta": "2024-04-21",
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
+    },
+    "cyl": {
+      "incluidas": 29,
+      "excluidas_cis": 1,
+      "excluidas_muestra": 1,
+      "excluidas_otra": 4,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_las_Cortes_de_Castilla_y_Le%C3%B3n_de_2026",
+      "ultima_encuesta": "2026-12-01",
+      "reciente": true,
+      "aviso": null
+    },
+    "clm": {
+      "incluidas": 0,
+      "excluidas_cis": 1,
+      "excluidas_muestra": 0,
+      "excluidas_otra": 12,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_las_Cortes_de_Castilla-La_Mancha_de_2023",
+      "ultima_encuesta": "2023-05-20",
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
+    },
+    "aragon": {
+      "incluidas": 35,
+      "excluidas_cis": 3,
+      "excluidas_muestra": 1,
+      "excluidas_otra": 0,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_las_Cortes_de_Arag%C3%B3n_de_2026",
+      "ultima_encuesta": "2026-02-08",
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
+    },
+    "extremadura": {
+      "incluidas": 25,
+      "excluidas_cis": 3,
+      "excluidas_muestra": 1,
+      "excluidas_otra": 5,
+      "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_la_Asamblea_de_Extremadura_de_2025",
+      "ultima_encuesta": "2025-12-21",
+      "reciente": false,
+      "aviso": "Sin encuestas recientes fiables"
     }
   }
 }

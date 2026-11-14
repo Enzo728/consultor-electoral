@@ -187,36 +187,36 @@ st.markdown(
 )
 
 
-@st.cache_data(show_spinner=False, ttl=60)
+@st.cache_data(show_spinner=False, ttl=3600)
 def cargar_encuestas() -> dict | None:
     if not ENCUESTAS_PATH.exists():
         return None
     return json.loads(ENCUESTAS_PATH.read_text(encoding="utf-8"))
 
 
-@st.cache_data(show_spinner=False, ttl=60)
+@st.cache_data(show_spinner=False, ttl=3600)
 def cargar_informe() -> dict | None:
     if not INFORME_PATH.exists():
         return None
     return json.loads(INFORME_PATH.read_text(encoding="utf-8"))
 
 
-@st.cache_data(show_spinner=False, ttl=120)
+@st.cache_data(show_spinner=False, ttl=3600)
 def cargar_simulacion() -> dict:
     return pm.simular_desde_medias()
 
 
-@st.cache_data(show_spinner=False, ttl=120)
+@st.cache_data(show_spinner=False, ttl=3600)
 def cargar_senado() -> dict:
     return sen.simular_desde_medias_senado()
 
 
-@st.cache_data(show_spinner=False, ttl=120)
+@st.cache_data(show_spinner=False, ttl=3600)
 def cargar_autonomias() -> dict:
     return aut.proyectar_todas()
 
 
-@st.cache_data(show_spinner=False, ttl=60)
+@st.cache_data(show_spinner=False, ttl=3600)
 def cargar_medias_aut() -> dict:
     if not ENC_AUT_PATH.exists():
         return {}
@@ -226,7 +226,17 @@ def cargar_medias_aut() -> dict:
         return {}
 
 
-@st.cache_data(show_spinner=False, ttl=60)
+@st.cache_data(show_spinner=False, ttl=3600)
+def cargar_stats_aut() -> dict:
+    if not ENC_AUT_PATH.exists():
+        return {}
+    try:
+        return json.loads(ENC_AUT_PATH.read_text(encoding="utf-8")).get("stats") or {}
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+@st.cache_data(show_spinner=False, ttl=3600)
 def cargar_historico_ui() -> dict:
     if not HIST_PATH.exists():
         return {"actualizado": None, "dias": {}}
@@ -234,6 +244,28 @@ def cargar_historico_ui() -> dict:
         return json.loads(HIST_PATH.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         return {"actualizado": None, "dias": {}}
+
+
+def _edad_horas(iso: str | None) -> float | None:
+    if not iso:
+        return None
+    try:
+        dt = datetime.fromisoformat(iso)
+        return (datetime.now() - dt).total_seconds() / 3600.0
+    except (ValueError, TypeError):
+        return None
+
+
+def necesita_actualizar() -> bool:
+    """True si los datos tienen >1h o faltan."""
+    if not ENCUESTAS_PATH.exists():
+        return True
+    try:
+        datos = json.loads(ENCUESTAS_PATH.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return True
+    edad = _edad_horas(datos.get("actualizado"))
+    return edad is None or edad > 1.0
 
 
 def dataframe_evolucion(datos: dict) -> pd.DataFrame:
@@ -490,7 +522,18 @@ def construir_hemiciclo(
     return fig
 
 
-# ═══════════════════════ DATOS ═══════════════════════
+# ═══════════════════════ DATOS + AUTO-ACTUALIZACIÓN ═══════════════════════
+# Si los datos tienen >1h o faltan → refrescar automáticamente al abrir.
+if necesita_actualizar():
+    with st.status("Actualizando datos…", expanded=False) as _st_act:
+        _ok, _msg = ejecutar_actualizacion()
+        if _ok:
+            st.cache_data.clear()
+            _st_act.update(label="Datos actualizados", state="complete")
+        else:
+            _st_act.update(label="Aviso: sin red o error parcial", state="running")
+            st.caption(_msg)
+
 datos = cargar_encuestas()
 if datos is None:
     st.warning("Sin datos. Actualiza desde el menú lateral ▸.")
@@ -505,6 +548,7 @@ sim = cargar_simulacion()
 sim_sen = cargar_senado()
 sim_aut = cargar_autonomias()
 medias_aut_ui = cargar_medias_aut()
+stats_aut_ui = cargar_stats_aut()
 hist = cargar_historico_ui()
 dias_hist = sorted((hist.get("dias") or {}).keys())
 
@@ -538,6 +582,18 @@ with st.sidebar:
         st.rerun()
 
     f = datos.get("filtros", {}) or {}
+    act_iso = datos.get("actualizado", "—")
+    edad_h = _edad_horas(act_iso if act_iso != "—" else None)
+    if edad_h is not None:
+        if edad_h < 1:
+            act_txt = f"Actualizado: hace {int(edad_h * 60)} min"
+        elif edad_h < 24:
+            act_txt = f"Actualizado: hace {int(edad_h)} h"
+        else:
+            act_txt = f"Actualizado: {act_iso[:16].replace('T', ' ')}"
+    else:
+        act_txt = f"Actualizado: {act_iso}"
+    st.caption(act_txt)
     st.caption(f"Fuente: Wikipedia · {datos.get('actualizado', '—')}")
     st.caption(
         f"Incluidas {f.get('total_incluidas', '?')} · "
@@ -583,6 +639,8 @@ if not camara:
     camara = "Congreso"
 
 # ── Estado por cámara ──
+aviso_cc: str | None = None
+res_cc: dict | None = None
 if camara == "Congreso":
     TOTAL_C = pm.TOTAL_ESCANOS
     MAY_C = pm.MAYORIA_ABSOLUTA
@@ -631,12 +689,22 @@ else:  # Autonomías
         label_visibility="collapsed",
         width="stretch",
     )
-    res_cc = sim_aut.get(ccaa) or aut.proyectar_comunidad(ccaa, act_live, medias_aut_ui.get(aut.AUTONOMIAS[ccaa]["id"]))
+    _cid = aut.AUTONOMIAS[ccaa]["id"]
+    res_cc = sim_aut.get(ccaa) or aut.proyectar_comunidad(
+        ccaa, act_live,
+        medias_aut_ui.get(_cid),
+        stats_aut_ui.get(_cid),
+    )
     TOTAL_C = res_cc["total"]
     MAY_C = res_cc["mayoria_absoluta"]
-    if es_hoy:
+    if res_cc.get("aviso"):
+        escaños_cam = {}
+        bloques_cam = []
+        aviso_cc = res_cc["aviso"]
+    elif es_hoy:
         escaños_cam = res_cc["escaños"]
         bloques_cam = res_cc["bloques"]
+        aviso_cc = None
     else:
         snap_sel = (hist.get("dias") or {}).get(fecha_sel) or {}
         aut_snap = ((snap_sel.get("autonomias") or {}).get(res_cc["id"])) if snap_sel else None
@@ -646,6 +714,7 @@ else:  # Autonomías
         else:
             escaños_cam = res_cc["escaños"]
             bloques_cam = res_cc["bloques"]
+        aviso_cc = None
     absolutos = [b for b in bloques_cam if b["alcanza_absoluta"]]
     veredicto = absolutos[0] if absolutos else (bloques_cam[0] if bloques_cam else None)
     orden_he = aut.ORDEN_BASE
@@ -656,128 +725,147 @@ else:  # Autonomías
 escaños_vis = escaños_cam
 bloques = bloques_cam
 mejor = veredicto
+partidos_escaños: list[str] = []
+sin_datos_cc = camara == "Autonomías" and not escaños_vis
 
 # ═══════════════════════ ARRIBA: barra + hemiciclo ═══════════════════════
-nombre_bloque = (veredicto or {}).get("bloque", "—")
-total_bloque = (veredicto or {}).get("total", 0)
-
-st.markdown(
-    f"""
-    <div class="top">
-      <h1>Consultor Electoral España</h1>
-      <div class="meta">{fecha_label} · {origen_vis} · {etiqueta_cam}</div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-st.markdown(
-    barra_mayoria(
-        escaños_vis, total_bloque, nombre_bloque,
-        TOTAL_C, MAY_C, color_map=color_map, orden=orden_he,
-    ),
-    unsafe_allow_html=True,
-)
-
-# Selector hemiciclo compacto
-partidos_escaños = [p for p in orden_he if escaños_vis.get(p)]
-for p in sorted(escaños_vis, key=lambda x: -escaños_vis[x]):
-    if p not in partidos_escaños and escaños_vis[p] > 0:
-        partidos_escaños.append(p)
-
-seleccion = st.multiselect(
-    "Resaltar",
-    options=partidos_escaños,
-    default=[p for p in ["PP", "PSOE", "VOX", "FA"] if p in partidos_escaños],
-    label_visibility="collapsed",
-    width="stretch",
-    help="Partidos resaltados en el hemiciclo",
-)
-
-st.plotly_chart(
-    construir_hemiciclo(
-        escaños_vis, seleccion,
-        mayoria=MAY_C, orden_he=orden_he, color_map=color_map,
-    ),
-    width="stretch",
-    theme=None,
-    config={"displayModeBar": False, "responsive": True},
-)
-
-# ═══════════════════════ MEDIO: pactómetro ═══════════════════════
-st.markdown('<div class="sec">Pactómetro</div>', unsafe_allow_html=True)
-
-if "pacto_sel" not in st.session_state:
-    st.session_state.pacto_sel = [p for p in ["PP", "VOX"] if p in partidos_escaños]
-
-# Checkboxes compactos en 1 fila responsive (máx 3 visibles por línea en móvil vía CSS grid)
-ncol = min(3, max(1, len(partidos_escaños)))
-pacto_cols = st.columns(ncol, gap="small")
-pacto_sel: list[str] = []
-for i, p in enumerate(partidos_escaños):
-    with pacto_cols[i % ncol]:
-        etiqueta = f"{p} ({escaños_vis[p]})"
-        if st.checkbox(
-            etiqueta,
-            key=f"pacto_{p}",
-            value=p in st.session_state.pacto_sel,
-            label_visibility="visible",
-        ):
-            pacto_sel.append(p)
-st.session_state.pacto_sel = pacto_sel
-
-total_pacto = sum(escaños_vis.get(p, 0) for p in pacto_sel)
-if camara == "Congreso":
-    info_p = pm.estado_bloque(total_pacto)
+if sin_datos_cc:
+    st.markdown(
+        f"""
+        <div class="top">
+          <h1>Consultor Electoral España</h1>
+          <div class="meta">{fecha_label} · {origen_vis} · {etiqueta_cam} · {act_txt}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.info(aviso_cc or aut.SIN_ENCUESTAS)
+    ult = (res_cc or {}).get("ultima_encuesta")
+    if ult:
+        st.caption(f"Última encuesta en Wikipedia: {ult}")
+    st.caption(f"Escaños oficiales: {TOTAL_C} · Mayoría absoluta: {MAY_C}")
 else:
-    info_p = sen.estado_senado(total_pacto) if camara == "Senado" else aut.estado_bloque(total_pacto, MAY_C)
-color_estado = (
-    "#22C55E"
-    if info_p["alcanza_absoluta"]
-    else "#FBBF24"
-    if camara == "Congreso" and info_p["total"] >= pm.MIN_SIMPLE_2A_VUELTA
-    else "#EF4444"
-)
-pct_maj = min(100.0, 100.0 * total_pacto / MAY_C)
+    nombre_bloque = (veredicto or {}).get("bloque", "—")
+    total_bloque = (veredicto or {}).get("total", 0)
 
-st.markdown(
-    f"""
-    <div class="coal">
-      <div style="font-size:0.7rem;color:#8B9BB0;text-transform:uppercase;
-                  letter-spacing:0.08em;">Coalición</div>
-      <div class="n">{total_pacto}<span> / {MAY_C}</span></div>
-      <div class="st" style="color:{color_estado};">
-        {info_p['estado']} · {info_p['texto_distancia']}
-      </div>
-      <div style="background:#0B0F14;border-radius:99px;height:10px;
-                  margin-top:0.55rem;position:relative;overflow:hidden;
-                  border:1px solid #243041;">
-        <div style="width:{pct_maj:.2f}%;height:100%;
-                    background:{color_estado};"></div>
-        <div style="position:absolute;top:0;bottom:0;left:100%;
-                    border-left:2px dashed #FBBF24;"></div>
-      </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+    st.markdown(
+        f"""
+        <div class="top">
+          <h1>Consultor Electoral España</h1>
+          <div class="meta">{fecha_label} · {origen_vis} · {etiqueta_cam} · {act_txt}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-# Tabla compacta de bloques
-filas_bloques = [
-    {
-        "Bloque": b["bloque"],
-        "Escaños": b["total"],
-        f"vs {MAY_C}": b["texto_distancia"],
-        "Estado": "✅" if b["alcanza_absoluta"] else "—" ,
-    }
-    for b in bloques
-]
-st.dataframe(
-    pd.DataFrame(filas_bloques),
-    width="stretch",
-    hide_index=True,
-    height=min(320, 36 * len(filas_bloques) + 40),
-)
+    st.markdown(
+        barra_mayoria(
+            escaños_vis, total_bloque, nombre_bloque,
+            TOTAL_C, MAY_C, color_map=color_map, orden=orden_he,
+        ),
+        unsafe_allow_html=True,
+    )
+
+    # Selector hemiciclo compacto
+    partidos_escaños = [p for p in orden_he if escaños_vis.get(p)]
+    for p in sorted(escaños_vis, key=lambda x: -escaños_vis[x]):
+        if p not in partidos_escaños and escaños_vis[p] > 0:
+            partidos_escaños.append(p)
+
+    seleccion = st.multiselect(
+        "Resaltar",
+        options=partidos_escaños,
+        default=[p for p in ["PP", "PSOE", "VOX", "FA"] if p in partidos_escaños],
+        label_visibility="collapsed",
+        width="stretch",
+        help="Partidos resaltados en el hemiciclo",
+    )
+
+    st.plotly_chart(
+        construir_hemiciclo(
+            escaños_vis, seleccion,
+            mayoria=MAY_C, orden_he=orden_he, color_map=color_map,
+        ),
+        width="stretch",
+        theme=None,
+        config={"displayModeBar": False, "responsive": True},
+    )
+
+if not sin_datos_cc:
+    # ═══════════════════════ MEDIO: pactómetro ═══════════════════════
+    st.markdown('<div class="sec">Pactómetro</div>', unsafe_allow_html=True)
+
+    if "pacto_sel" not in st.session_state:
+        st.session_state.pacto_sel = [p for p in ["PP", "VOX"] if p in partidos_escaños]
+
+    # Checkboxes compactos en 1 fila responsive (máx 3 visibles por línea en móvil vía CSS grid)
+    ncol = min(3, max(1, len(partidos_escaños)))
+    pacto_cols = st.columns(ncol, gap="small")
+    pacto_sel: list[str] = []
+    for i, p in enumerate(partidos_escaños):
+        with pacto_cols[i % ncol]:
+            etiqueta = f"{p} ({escaños_vis[p]})"
+            if st.checkbox(
+                etiqueta,
+                key=f"pacto_{p}",
+                value=p in st.session_state.pacto_sel,
+                label_visibility="visible",
+            ):
+                pacto_sel.append(p)
+    st.session_state.pacto_sel = pacto_sel
+
+    total_pacto = sum(escaños_vis.get(p, 0) for p in pacto_sel)
+    if camara == "Congreso":
+        info_p = pm.estado_bloque(total_pacto)
+    else:
+        info_p = sen.estado_senado(total_pacto) if camara == "Senado" else aut.estado_bloque(total_pacto, MAY_C)
+    color_estado = (
+        "#22C55E"
+        if info_p["alcanza_absoluta"]
+        else "#FBBF24"
+        if camara == "Congreso" and info_p["total"] >= pm.MIN_SIMPLE_2A_VUELTA
+        else "#EF4444"
+    )
+    pct_maj = min(100.0, 100.0 * total_pacto / MAY_C)
+
+    st.markdown(
+        f"""
+        <div class="coal">
+          <div style="font-size:0.7rem;color:#8B9BB0;text-transform:uppercase;
+                      letter-spacing:0.08em;">Coalición</div>
+          <div class="n">{total_pacto}<span> / {MAY_C}</span></div>
+          <div class="st" style="color:{color_estado};">
+            {info_p['estado']} · {info_p['texto_distancia']}
+          </div>
+          <div style="background:#0B0F14;border-radius:99px;height:10px;
+                      margin-top:0.55rem;position:relative;overflow:hidden;
+                      border:1px solid #243041;">
+            <div style="width:{pct_maj:.2f}%;height:100%;
+                        background:{color_estado};"></div>
+            <div style="position:absolute;top:0;bottom:0;left:100%;
+                        border-left:2px dashed #FBBF24;"></div>
+          </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Tabla compacta de bloques
+    filas_bloques = [
+        {
+            "Bloque": b["bloque"],
+            "Escaños": b["total"],
+            f"vs {MAY_C}": b["texto_distancia"],
+            "Estado": "✅" if b["alcanza_absoluta"] else "—" ,
+        }
+        for b in bloques
+    ]
+    st.dataframe(
+        pd.DataFrame(filas_bloques),
+        width="stretch",
+        hide_index=True,
+        height=min(320, 36 * len(filas_bloques) + 40),
+    )
 
 # ═══════════════════════ Tarjetas partidos (máx 3 col) ═══════════════════════
 st.markdown(f'<div class="sec">Partidos · {fecha_label}</div>', unsafe_allow_html=True)

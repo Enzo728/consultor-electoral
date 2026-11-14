@@ -20,32 +20,24 @@ DATA_DIR = Path(__file__).resolve().parent / "data"
 OUT_PATH = DATA_DIR / "encuestas_limpias.json"
 OUT_AUT_PATH = DATA_DIR / "encuestas_autonomicas.json"
 
-# Páginas de Wikipedia con tablas de encuestas autonómicas (títulos reales).
-# Se prueban en orden; se ignora lo que falle (404/429).
+# Páginas de Wikipedia CON tablas de encuestas verificadas (HTTP 200 + 'ncuestadora').
+# Títulos reales; se prueban en orden; se ignora lo que falle (404/429).
+# Madrid 2027 / Valencia 2027 / Galicia 2025 / CLM 2027 → 404 en Wikipedia.
 PAGINAS_AUTONOMICAS: dict[str, list[str]] = {
-    "madrid": [
-        "Elecciones a la Asamblea de Madrid de 2027",
-        "Elecciones a la Asamblea de Madrid de 2023",
-    ],
+    "madrid": ["Elecciones a la Asamblea de Madrid de 2023"],
     "cataluna": ["Elecciones al Parlamento de Cataluña de 2028"],
     "andalucia": ["Elecciones al Parlamento de Andalucía de 2026"],
-    "cvalenciana": [
-        "Elecciones a las Cortes Valencianas de 2027",
-        "Elecciones a las Cortes Valencianas de 2023",
-    ],
-    "galicia": [
-        "Elecciones al Parlamento de Galicia de 2025",
-        "Elecciones al Parlamento de Galicia de 2024",
-    ],
+    "cvalenciana": ["Elecciones a las Cortes Valencianas de 2023"],
+    "galicia": ["Elecciones al Parlamento de Galicia de 2024"],
     "paisvasco": ["Elecciones al Parlamento Vasco de 2024"],
     "cyl": ["Elecciones a las Cortes de Castilla y León de 2026"],
-    "clm": [
-        "Elecciones a las Cortes de Castilla-La Mancha de 2027",
-        "Elecciones a las Cortes de Castilla-La Mancha de 2023",
-    ],
+    "clm": ["Elecciones a las Cortes de Castilla-La Mancha de 2023"],
     "aragon": ["Elecciones a las Cortes de Aragón de 2026"],
     "extremadura": ["Elecciones a la Asamblea de Extremadura de 2025"],
 }
+
+# Si una CCAA no tiene encuestas en la ventana, se muestra este aviso (nunca datos inventados)
+SIN_ENCUESTAS = "Sin encuestas recientes fiables"
 
 MESES = {
     "ene": 1, "enero": 1, "jan": 1,
@@ -204,6 +196,27 @@ def norm_partido(nombre: str) -> str:
         "adrian yacar lopez": "SALF",
         "por andalucía": "POR A",
         "por andalucia": "POR A",
+        # Castilla y León / regionales
+        "up": "PODEMOS",
+        "unidas podemos": "PODEMOS",
+        "iu-smr": "OTROS",
+        "iu smr": "OTROS",
+        "soria ya!": "Soria Ya",
+        "soria ya": "Soria Ya",
+        "syа": "Soria Ya",
+        "sya": "Soria Ya",
+        "xav": "OTROS",
+        "pcyl": "OTROS",
+        "pp-cyl": "PP",
+        "partido popular de castilla y león": "PP",
+        "ucl": "PP",
+        "psoe-cyl": "PSOE",
+        "partido socialista de castilla y león": "PSOE",
+        "pxc": "PP",
+        "por ávila": "OTROS",
+        "avila punto cero": "OTROS",
+        "c's": "Cs",
+        "ciudadanos - partido de la ciudadanía": "Cs",
     }
     key = n.lower().strip()
     if key in equivalencias:
@@ -374,9 +387,10 @@ def parse_fecha_campo(txt: str, anio_defecto: int) -> tuple[date | None, date | 
 def header_partidos(table) -> list[str] | None:
     """Devuelve lista de nombres de partido (columnas de votos).
 
-    Compatible con dos formatos:
+    Compatible con formatos:
     - Generales: Encuestadora | Trabajo de campo | Muestra | % Voto | partidos… | Ventaja
-    - Autonómicas: Encuestadora | Fecha | Muestra | partidos… | Diferencia/Ventaja
+    - Autonómicas clásicas: Encuestadora | Fecha | Muestra | partidos… | Diferencia
+    - Autonómicas logo (Madrid/CLM): Encuestadora | Fecha | Tamaño | Participación | logos… | Dis.
     """
     row = table.find("tr")
     if not row:
@@ -390,35 +404,39 @@ def header_partidos(table) -> list[str] | None:
     if "encuestadora" not in joined and "encuestadora/medio" not in joined:
         return None
 
-    # Columnas de metadatos (las 3 primeras típicamente)
-    # Buscar inicio de partidos: tras Muestra/Fecha
+    # Columnas de metadatos (las primeras típicamente)
+    # Buscar inicio de partidos: tras Muestra/Fecha/Tamaño/Participación
     inicio = None
     for i, t in enumerate(texts):
         tl = t.lower()
-        if tl in ("muestra", "n", "sample") or "muestra" in tl:
+        if (
+            tl in ("muestra", "n", "sample", "tamaño", "tamano", "participación", "participacion")
+            or "muestra" in tl
+            or "tamaño" in tl
+        ):
             inicio = i + 1
             break
     if inicio is None:
-        # fallback: tras la 3ª columna
+        # fallback: tras la 3ª columna (Enc | Fecha | Muestra)
         inicio = 3
 
     # Fin: columna de ventaja/diferencia
     fin = len(texts)
     for i in range(inicio, len(texts)):
         tl = texts[i].lower()
-        if tl in ("ventaja", "vent.", "diferencia", "dif.", "dif", "mayoría", "mayoria"):
+        if tl in ("ventaja", "vent.", "diferencia", "dif.", "dif", "mayoría", "mayoria",
+                  "dis.", "dis", "disp."):
             fin = i
             break
 
     partidos: list[str] = []
     for th, txt in zip(ths[inicio:fin], texts[inicio:fin]):
-        # saltar % Voto si aparece intercalado
-        if txt.startswith("%") or txt in ("Voto", "% Voto", "Part.", "Participación", ""):
-            # intentar nombre desde img/a
+        # saltar metadatos residuales
+        if txt.startswith("%") or txt in ("Voto", "% Voto", "Part.", "Participación",
+                                          "Tamaño", "Muestra", ""):
             nombre = _nombre_partido_th(th, txt)
             if nombre and nombre not in ("", "???") and not nombre.startswith("%"):
-                # solo si parece partido (no metadato)
-                if nombre.lower() not in ("part.", "participación", "voto"):
+                if nombre.lower() not in ("part.", "participación", "voto", "tamaño", "muestra"):
                     partidos.append(nombre)
             continue
         nombre = _nombre_partido_th(th, txt)
@@ -432,13 +450,61 @@ def header_partidos(table) -> list[str] | None:
         return None
     # Debe haber al menos un partido conocido o varios nombres plausibles
     conocidos = {"PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF", "ERC", "JUNTS",
-                 "PNV", "BNG", "CCa", "AA", "UPN", "PSC", "PSE", "EAJ-PNV", "EH Bildu"}
+                 "PNV", "BNG", "CCa", "AA", "UPN", "PSC", "PSE", "EAJ-PNV", "EH Bildu",
+                 "Más Madrid", "Cs", "Compromís", "POR A", "CHA", "PAR", "UPL"}
     if not (norms & conocidos) and len(partidos) < 3:
         return None
     # Rechazar si solo hay metadatos residual
-    if all(p.lower() in ("diferencia", "ventaja", "dif.", "dif", "otros", "ns/nr") for p in partidos):
+    if all(p.lower() in ("diferencia", "ventaja", "dif.", "dif", "otros", "ns/nr",
+                         "participación", "dis.", "dis") for p in partidos):
         return None
     return partidos
+
+
+def _partido_desde_fichero(href: str) -> str | None:
+    """Extrae partido del nombre de fichero de un logo Wikipedia.
+
+    Ej: 'Archivo:Logo_PP_Comunidad_de_Madrid_2022.svg' → 'PP'
+        'Archivo:Más_Madrid_-_Verdes_...' → 'Más Madrid'
+        'Archivo:PSOE-M_logo_2021.svg' → 'PSOE'
+    """
+    if not href:
+        return None
+    base = href.rsplit("/", 1)[-1]
+    base = base.rsplit(".", 1)[0]
+    base = base.replace("_", " ").replace("-", " ")
+    base = re.sub(r"\s+", " ", base).strip()
+    low = base.lower()
+    patrones = [
+        (r"\bps\b|\bpsoe\b|\bpsoe[- ]m\b|\bpsoe castilla", "PSOE"),
+        (r"\bpp\b|logo pp|pp castilla|pp comunidad", "PP"),
+        (r"\bvox\b", "VOX"),
+        (r"unidas podemos|podemos", "PODEMOS"),
+        (r"m[áa]s madrid", "Más Madrid"),
+        (r"ciudadanos|\bcs\b", "Cs"),
+        (r"sumar|comuns", "SUMAR"),
+        (r"vox", "VOX"),
+        (r"bng", "BNG"),
+        (r"pnv|eaj", "PNV"),
+        (r"eh bildu|bildu", "EH Bildu"),
+        (r"erc|esquerra", "ERC"),
+        (r"junts", "JUNTS"),
+        (r"comprom[íi]s|front valenci", "Compromís"),
+        (r"adela?nte andaluc", "AA"),
+        (r"por andaluc", "POR A"),
+        (r"upn", "UPN"),
+        (r"par\b", "PAR"),
+        (r"\bcha\b", "CHA"),
+        (r"salf|se acab", "SALF"),
+        (r"\bcs\b|ciudadanos", "Cs"),
+        (r"podemos", "PODEMOS"),
+        (r"psoe", "PSOE"),
+        (r"\bpp\b", "PP"),
+    ]
+    for pat, nombre in patrones:
+        if re.search(pat, low):
+            return nombre
+    return None
 
 
 def _nombre_partido_th(th, txt: str) -> str:
@@ -449,10 +515,16 @@ def _nombre_partido_th(th, txt: str) -> str:
             if v and v.lower() not in {"", "none"}:
                 return v
     a = th.find("a")
-    if a and a.get("title"):
-        title = a["title"].strip()
-        if title and "wiki" not in title.lower():
-            return title
+    if a:
+        if a.get("title"):
+            title = a["title"].strip()
+            if title and "wiki" not in title.lower() and "Archivo" not in title and "File" not in title:
+                return title
+        # logo sin texto: extraer del href del fichero
+        href = a.get("href") or ""
+        nombre = _partido_desde_fichero(href)
+        if nombre:
+            return nombre
     # data-mw caption
     span = th.find("span", attrs={"typeof": "mw:File"})
     if span and span.get("data-mw"):
@@ -473,6 +545,24 @@ def parse_tabla(table, anio_defecto: int) -> list[dict]:
     partidos = header_partidos(table)
     if not partidos:
         return []
+
+    # Detectar layout de cabecera para offset de columnas de voto
+    # Madrid/CLM: Enc | Fecha | Tamaño | Participación | partidos | Dis.
+    # General:    Enc | Fecha | Muestra | %Voto | partidos | Ventaja
+    # Autonómico: Enc | Fecha | Muestra | partidos | Diferencia
+    hdr_row = table.find("tr")
+    hdr_texts = [clean_text(x) for x in hdr_row.find_all(["th", "td"])] if hdr_row else []
+    hdr_join = " ".join(h.lower() for h in hdr_texts)
+    tiene_participacion = "participación" in hdr_join or "participacion" in hdr_join
+    tiene_pct = any(h.startswith("%") or h in ("Voto", "% Voto") for h in hdr_texts)
+
+    if tiene_pct:
+        offset_base = 4  # enc, fecha, muestra, %voto
+    elif tiene_participacion:
+        offset_base = 4  # enc, fecha, tamaño, participación
+    else:
+        offset_base = 3  # enc, fecha, muestra
+
     filas: list[dict] = []
     for tr in table.find_all("tr")[1:]:
         celdas = tr.find_all(["td", "th"])
@@ -492,22 +582,9 @@ def parse_tabla(table, anio_defecto: int) -> list[dict]:
         fecha_raw = clean_text(celdas[1]) if len(celdas) > 1 else ""
         muestra_raw = clean_text(celdas[2]) if len(celdas) > 2 else ""
 
-        # Detectar si hay columna '% Voto' (formato general) o no (autonómico)
-        # General: [enc, fecha, muestra, %voto, ...partidos]
-        # Autonómico: [enc, fecha, muestra, ...partidos]
-        tiene_pct_voto = False
-        if len(celdas) > 3:
-            c3 = clean_text(celdas[3])
-            if c3.startswith("%") or c3 in ("Voto", "% Voto"):
-                tiene_pct_voto = True
-            # también si la 4ª celda parece no-numérica y partidos empiezan en 4
-            # (autonómico: PP/PSOE en celdas[3])
-            elif c3 and not re.match(r"^[\d.,?\-–—\s%/]*$", c3) and not c3.startswith("?"):
-                # podría ser nombre de partido → autonómico
-                if norm_partido(c3) and len(c3) <= 30:
-                    tiene_pct_voto = False
-
-        votos_celdas = celdas[4:] if tiene_pct_voto else celdas[3:]
+        # offset_base ya detectado del header (no re-detectar por celdas:
+        # en el formato clásico celdas[3] ES el primer voto numérico)
+        votos_celdas = celdas[offset_base:]
 
         votos: dict[str, float | None] = {}
         cursor = 0
@@ -518,7 +595,13 @@ def parse_tabla(table, anio_defecto: int) -> list[dict]:
                 if cursor < len(partidos):
                     nombre_p = norm_partido(partidos[cursor])
                     # Solo la primera columna del colspan recibe el valor
-                    votos[nombre_p] = valor if k == 0 else None
+                    if k == 0:
+                        # Si la clave ya existe (doble mapeo), conservar el mayor
+                        prev = votos.get(nombre_p)
+                        if prev is None or (valor is not None and valor > prev):
+                            votos[nombre_p] = valor
+                    else:
+                        votos.setdefault(nombre_p, None)
                 cursor += 1
             if cursor >= len(partidos):
                 break
@@ -713,15 +796,23 @@ def _url_wiki_titulo(titulo: str) -> str:
     return f"https://es.wikipedia.org/wiki/{enc}"
 
 
+MESES_VIDA = 6  # meses de vida útil de una encuesta autonómica (sin CIS)
+
+
+def _ultima_fecha(encuestas: list[dict]) -> str | None:
+    fechas = [e["fecha_fin"] for e in encuestas if e.get("fecha_fin")]
+    return max(fechas) if fechas else None
+
+
 def scrappear_autonomicas() -> dict:
     """Descarga tablas de encuestas de las páginas autonómicas configuradas.
 
     Devuelve:
     {
       "actualizado": iso,
-      "medias": {cid: {partido: media_ponderada_14d}},
+      "medias": {cid: {partido: media_ponderada}},
       "encuestas": {cid: [filas]},
-      "stats": {cid: {incluidas, excluidas, fuente}},
+      "stats": {cid: {incluidas, excluidas, fuente, ultima_encuesta, reciente}},
     }
     """
     from datetime import date as _date
@@ -743,17 +834,29 @@ def scrappear_autonomicas() -> dict:
             except requests.RequestException:
                 continue
         if not html:
-            stats_out[cid] = {"incluidas": 0, "excluidas": 0, "fuente": None, "error": "sin_pagina"}
+            stats_out[cid] = {
+                "incluidas": 0, "excluidas": 0, "fuente": None,
+                "error": "sin_pagina", "ultima_encuesta": None, "reciente": False,
+            }
+            medias_out[cid] = {}
+            enc_out[cid] = []
             continue
         try:
             crudas = extraer_encuestas(html)
         except Exception as exc:  # noqa: BLE001
-            stats_out[cid] = {"incluidas": 0, "excluidas": 0, "fuente": fuente, "error": str(exc)[:120]}
+            stats_out[cid] = {
+                "incluidas": 0, "excluidas": 0, "fuente": fuente,
+                "error": str(exc)[:120], "ultima_encuesta": None, "reciente": False,
+            }
+            medias_out[cid] = {}
+            enc_out[cid] = []
             continue
 
         # Filtro autonómico: sin CIS, n≥600
         incluidas: list[dict] = []
         n_cis = n_muestra = n_otra = 0
+        # Todas las filas con fecha válida (para ultima_encuesta aunque fallen filtros)
+        con_fecha: list[dict] = [e for e in crudas if e.get("fecha_fin")]
         for e in crudas:
             nombre = e.get("fuente_nombre", "")
             if es_cis(nombre) or es_cis(e.get("encuestadora", "")):
@@ -782,7 +885,18 @@ def scrappear_autonomicas() -> dict:
             unicas.append(e)
         incluidas = unicas
 
-        if incluidas:
+        # Última encuesta: de TODAS las filas con fecha (crudas, pre-filtro)
+        ultima = _ultima_fecha(con_fecha)
+        reciente = False
+        if ultima:
+            try:
+                edad_dias = (hoy - date.fromisoformat(ultima)).days
+                reciente = edad_dias <= MESES_VIDA * 30
+            except ValueError:
+                reciente = False
+
+        # Solo calculamos medias si hay encuestas filtradas Y son recientes
+        if incluidas and reciente:
             meds = medias_ponderadas(incluidas, hoy, filtro_ventana=(0, 14))
             if not meds:
                 meds = medias_ponderadas(incluidas, hoy, filtro_ventana=(0, 90))
@@ -801,6 +915,7 @@ def scrappear_autonomicas() -> dict:
                 and " " not in k.strip()
             }
         else:
+            # Sin encuestas recientes fiables → NUNCA inventar datos
             meds = {}
 
         medias_out[cid] = meds
@@ -811,8 +926,12 @@ def scrappear_autonomicas() -> dict:
             "excluidas_muestra": n_muestra,
             "excluidas_otra": n_otra,
             "fuente": fuente,
+            "ultima_encuesta": ultima,
+            "reciente": reciente,
+            "aviso": None if reciente else SIN_ENCUESTAS,
         }
-        print(f"[scraper-aut] {cid}: {len(incluidas)} encuestas · {len(meds)} partidos")
+        print(f"[scraper-aut] {cid}: {len(incluidas)} encuestas · {len(meds)} partidos"
+              + ("" if reciente else f" · {SIN_ENCUESTAS}"))
 
     payload = {
         "actualizado": datetime.now().isoformat(timespec="seconds"),
@@ -820,6 +939,7 @@ def scrappear_autonomicas() -> dict:
             "excluir_cis": True,
             "muestra_minima": MUESTRA_MINIMA_AUT,
             "lambda_ponderacion": round(LAMBDA_DIAS, 5),
+            "meses_vida": MESES_VIDA,
         },
         "medias": medias_out,
         "encuestas": enc_out,
