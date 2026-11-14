@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-14T12:41:52",
+  "actualizado": "2026-11-14T13:04:42",
   "dias": {
     "2026-11-14": {
       "fecha": "2026-11-14",
@@ -20,20 +20,20 @@
         "C-FV": 1.14
       },
       "escaños": {
-        "PP": 116,
-        "SALF": 2,
-        "CCa": 1,
-        "FA": 25,
-        "PODEMOS": 2,
-        "JUNTS": 3,
-        "VOX": 70,
-        "EH Bildu": 3,
-        "BNG": 2,
-        "AA": 4,
         "ERC": 7,
-        "C-FV": 3,
+        "PNV": 2,
         "PSOE": 110,
-        "PNV": 2
+        "PP": 116,
+        "CCa": 1,
+        "AA": 4,
+        "PODEMOS": 2,
+        "EH Bildu": 3,
+        "SALF": 2,
+        "JUNTS": 3,
+        "C-FV": 3,
+        "VOX": 70,
+        "BNG": 2,
+        "FA": 25
       },
       "total_escaños": 350,
       "bloque_mayoritario": {
