@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-14T16:32:46",
+  "actualizado": "2026-11-14T16:33:42",
   "filtros": {
     "excluir_cis": true,
     "muestra_minima": 600,
@@ -18,16 +18,13 @@
       "PP": 43.5,
       "PSOE": 22.27,
       "VOX": 13.91,
-      "POR A": 7.78,
       "AA": 7.08,
       "SALF": 2.39,
       "Cs": 0.2,
-      "PODEMOS": 1.9,
-      "Antonio Maíllo": 9.52
+      "PODEMOS": 1.9
     },
     "paisvasco": {
       "PNV": 61.19,
-      "EH Bildu": 34.67,
       "PSE": 34.29,
       "PODEMOS": 13.32,
       "FA": 2.35,

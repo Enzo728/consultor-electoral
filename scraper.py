@@ -797,6 +797,8 @@ def scrappear_autonomicas() -> dict:
                 )
                 and not k.startswith("%")
                 and len(k) <= 30
+                # nombres de candidatos con dos palabras o más → no son partido
+                and " " not in k.strip()
             }
         else:
             meds = {}

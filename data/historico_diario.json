@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-14T16:32:57",
+  "actualizado": "2026-11-14T16:33:56",
   "dias": {
     "2026-11-14": {
       "fecha": "2026-11-14",
@@ -20,20 +20,20 @@
         "C-FV": 1.14
       },
       "escaños": {
-        "FA": 25,
-        "C-FV": 3,
+        "PODEMOS": 2,
+        "PP": 116,
+        "SALF": 2,
+        "BNG": 2,
         "EH Bildu": 3,
+        "CCa": 1,
+        "AA": 4,
+        "FA": 25,
         "PNV": 2,
         "JUNTS": 3,
-        "AA": 4,
-        "SALF": 2,
+        "C-FV": 3,
         "PSOE": 110,
-        "PODEMOS": 2,
-        "CCa": 1,
-        "PP": 116,
         "VOX": 70,
-        "ERC": 7,
-        "BNG": 2
+        "ERC": 7
       },
       "total_escaños": 350,
       "bloque_mayoritario": {
@@ -139,11 +139,10 @@
         },
         "andalucia": {
           "escaños": {
-            "PP": 50,
-            "PSOE": 26,
-            "VOX": 16,
-            "POR A": 9,
-            "AA": 8
+            "PP": 55,
+            "PSOE": 28,
+            "VOX": 17,
+            "AA": 9
           },
           "total": 109,
           "mayoria": 55,
@@ -153,14 +152,14 @@
               "PP",
               "PSOE"
             ],
-            "total": 76,
-            "distancia": 21,
-            "texto_distancia": "+21",
+            "total": 83,
+            "distancia": 28,
+            "texto_distancia": "+28",
             "estado": "Mayoría Absoluta",
             "alcanza_absoluta": true,
             "detalle": {
-              "PP": 50,
-              "PSOE": 26
+              "PP": 55,
+              "PSOE": 28
             }
           }
         },
@@ -219,12 +218,11 @@
         },
         "paisvasco": {
           "escaños": {
-            "PNV": 30,
-            "EH Bildu": 16,
-            "PSE": 16,
-            "PP": 3,
-            "VOX": 4,
-            "PODEMOS": 6
+            "PNV": 37,
+            "PSE": 21,
+            "PP": 4,
+            "VOX": 5,
+            "PODEMOS": 8
           },
           "total": 75,
           "mayoria": 38,
@@ -234,14 +232,14 @@
               "PNV",
               "PSE"
             ],
-            "total": 46,
-            "distancia": 8,
-            "texto_distancia": "+8",
+            "total": 58,
+            "distancia": 20,
+            "texto_distancia": "+20",
             "estado": "Mayoría Absoluta",
             "alcanza_absoluta": true,
             "detalle": {
-              "PNV": 30,
-              "PSE": 16
+              "PNV": 37,
+              "PSE": 21
             }
           }
         },
