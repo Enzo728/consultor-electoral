@@ -1,4 +1,4 @@
-"""Consultor Electoral España — interfaz editorial estilo FiveThirtyEight / FT."""
+"""Consultor Electoral España — UI minimalista responsive (desktop + móvil)."""
 
 from __future__ import annotations
 
@@ -22,99 +22,161 @@ HIST_PATH = BASE_DIR / "data" / "historico_diario.json"
 
 PARTIDOS_KPI = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
 
+# Mapa de momentum → etiqueta ultra-corta (máx. 2 palabras)
+ESTADO_CORTO = {
+    "Subiendo fuerte 🚀": "Sube",
+    "Subiendo 📈": "Sube",
+    "Estancado ➡️": "Estable",
+    "En retroceso 📉": "Baja",
+    "Caída libre ⚠️": "Baja",
+}
+
 st.set_page_config(
-    page_title="Consultor Electoral España",
+    page_title="Consultor Electoral",
     page_icon="🏛️",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
-# ───────────────── CSS editorial ─────────────────
+# ───────────────── CSS minimalista + responsive ─────────────────
 st.markdown(
     """
     <style>
       :root {
-        --cobalto: #1E40AF;
-        --fondo: #0E1117;
-        --panel: #161B22;
-        --borde: #30363D;
-        --texto: #E6EDF3;
-        --suave: #8B949E;
+        --bg: #0B0F14;
+        --panel: #141A22;
+        --borde: #243041;
+        --texto: #E8EEF7;
+        --suave: #8B9BB0;
+        --azul: #3B82F6;
+        --verde: #22C55E;
+        --rojo: #EF4444;
+        --oro: #FBBF24;
       }
-      html, body, [class*="css"] { font-family: "Inter", "Segoe UI", system-ui, sans-serif; }
-      .stApp {
-        background: linear-gradient(180deg, #0E1117 0%, #0E1117 100%);
-        color: var(--texto);
+      html, body, [class*="css"] {
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        overflow-wrap: break-word;
       }
-      #MainMenu, footer, header[data-testid="stHeader"] { visibility: hidden; }
-      .block-container { padding-top: 1.4rem; padding-bottom: 3rem; max-width: 1280px; }
+      .stApp { background: var(--bg); color: var(--texto); }
+      #MainMenu, footer, header[data-testid="stHeader"],
+      header[data-testid="stToolbar"] { visibility: hidden; }
+      .block-container {
+        padding-top: 1.1rem;
+        padding-bottom: 2.5rem;
+        max-width: 1200px;
+      }
 
-      .hero {
-        background: linear-gradient(135deg, #0B1220 0%, #111827 55%, #1E3A5F 100%);
-        border: 1px solid var(--borde);
-        border-radius: 16px;
-        padding: 1.4rem 1.6rem 1.1rem;
-        margin-bottom: 1rem;
+      /* Cabecera */
+      .top {
+        display: flex; flex-wrap: wrap; align-items: baseline;
+        justify-content: space-between; gap: 0.4rem;
+        margin-bottom: 0.35rem;
       }
-      .hero h1 { margin: 0; font-size: 1.75rem; letter-spacing: -0.02em; color: #F8FAFC; }
-      .hero .kicker {
-        display: inline-block; font-size: 0.72rem; font-weight: 700;
-        letter-spacing: 0.14em; text-transform: uppercase;
-        color: #93C5FD; background: rgba(30,64,175,0.35);
-        border: 1px solid #1E40AF; border-radius: 999px;
-        padding: 0.2rem 0.7rem; margin-bottom: 0.55rem;
+      .top h1 {
+        margin: 0; font-size: 1.45rem; font-weight: 800;
+        letter-spacing: -0.02em; color: #F8FAFC;
       }
-      .hero .sub { color: var(--suave); font-size: 0.92rem; margin-top: 0.35rem; }
+      .top .meta { font-size: 0.78rem; color: var(--suave); }
 
-      .verdict {
-        display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;
-      }
-      .verdict-card {
-        flex: 1 1 200px; background: rgba(14,17,23,0.75);
-        border: 1px solid var(--borde); border-radius: 12px;
-        padding: 0.75rem 0.9rem; min-width: 180px;
-      }
-      .verdict-card .label {
-        font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em;
-        color: var(--suave); margin-bottom: 0.25rem;
-      }
-      .verdict-card .value { font-size: 1.15rem; font-weight: 700; color: #F8FAFC; }
-      .verdict-card .meta { font-size: 0.8rem; color: #93C5FD; margin-top: 0.15rem; }
-      .verdict-card.ok { border-color: #16A34A; }
-      .verdict-card.warn { border-color: #D97706; }
-      .verdict-card.bad { border-color: #6B7280; }
-
-      .bar-wrap { margin-top: 0.9rem; }
-      .bar-labels {
+      /* Barra 176 */
+      .maj-wrap { margin: 0.4rem 0 0.2rem; }
+      .maj-labels {
         display: flex; justify-content: space-between;
-        font-size: 0.75rem; color: var(--suave); margin-bottom: 0.3rem;
+        font-size: 0.72rem; color: var(--suave); margin-bottom: 0.25rem;
       }
-      .bar-labels .maj { color: #FBBF24; font-weight: 700; }
+      .maj-labels .hit { color: var(--oro); font-weight: 700; }
 
+      /* Tarjetas KPI (st.metric) */
       div[data-testid="stMetric"] {
+        background: var(--panel);
+        border: 1px solid var(--borde);
+        border-radius: 12px;
+        padding: 12px;
+        min-height: auto;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      div[data-testid="stMetricLabel"] {
+        color: var(--suave) !important;
+        font-size: 0.78rem !important;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
+      div[data-testid="stMetricValue"] {
+        color: #F8FAFC !important;
+        font-size: 1.55rem !important;
+        font-weight: 800 !important;
+      }
+      div[data-testid="stMetricDelta"] > div {
+        font-size: 0.85rem !important;
+        white-space: nowrap;
+      }
+
+      /* Secciones */
+      .sec {
+        font-size: 0.95rem; font-weight: 700; color: #F8FAFC;
+        border-left: 3px solid var(--azul);
+        padding-left: 0.5rem;
+        margin: 1.1rem 0 0.45rem;
+      }
+
+      /* Pactómetro checkboxes compactos */
+      .pact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+        gap: 0.35rem;
+        margin-bottom: 0.5rem;
+      }
+      .pact-chip {
+        display: flex; align-items: center; justify-content: center;
+        gap: 0.3rem; padding: 0.4rem 0.35rem;
         background: var(--panel); border: 1px solid var(--borde);
-        border-radius: 12px; padding: 12px 14px;
-      }
-      div[data-testid="stMetricValue"] { color: #F8FAFC; font-size: 1.55rem !important; }
-      div[data-testid="stMetricLabel"] { color: var(--suave); }
-      div[data-testid="stMetricDelta"] > div { font-size: 0.9rem !important; }
-
-      .section-title {
-        font-size: 1.05rem; font-weight: 700; color: #F8FAFC;
-        border-left: 4px solid var(--cobalto); padding-left: 0.6rem;
-        margin: 1.4rem 0 0.6rem;
-      }
-      .pact-row label { font-size: 0.88rem !important; }
-      .seat-pill {
-        display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px;
-        font-size: 0.78rem; font-weight: 700; margin-right: 0.35rem;
+        border-radius: 999px; font-size: 0.8rem; font-weight: 700;
+        color: var(--texto); cursor: pointer; user-select: none;
+        text-align: center; min-height: auto; overflow-wrap: anywhere;
       }
 
+      /* Info compacta coalición */
+      .coal {
+        background: var(--panel); border: 1px solid var(--borde);
+        border-radius: 12px; padding: 12px; margin-top: 0.4rem;
+        overflow-wrap: break-word; min-height: auto;
+      }
+      .coal .n { font-size: 1.7rem; font-weight: 800; color: #F8FAFC; }
+      .coal .n span { font-size: 0.85rem; color: var(--suave); font-weight: 600; }
+      .coal .st { font-size: 0.85rem; font-weight: 700; margin-top: 0.15rem; }
+
+      /* Chips de fecha / filtros */
+      .stRadio > div { gap: 0.4rem; }
+      .stRadio label { font-size: 0.85rem !important; }
+
+      /* Select slider más compacto */
+      [data-baseweb="select"] { font-size: 0.9rem; }
+
+      /* Tabs limpios */
+      [data-testid="stTabs"] [data-baseweb="tab"] {
+        font-size: 0.88rem; font-weight: 600; padding-left: 0.7rem; padding-right: 0.7rem;
+      }
+
+      /* Expander sin párrafos largos en principal */
+      .stExpander summary { font-size: 0.9rem !important; }
+
+      /* Tablas */
+      [data-testid="stDataFrame"] {
+        border-radius: 10px; overflow: hidden;
+      }
+
+      /* Móvil */
       @media (max-width: 768px) {
-        .block-container { padding-left: 0.75rem; padding-right: 0.75rem; }
-        .hero h1 { font-size: 1.3rem; }
+        .block-container { padding-left: 0.65rem; padding-right: 0.65rem; }
+        .top h1 { font-size: 1.15rem; }
         div[data-testid="stMetricValue"] { font-size: 1.25rem !important; }
-        .verdict-card { flex: 1 1 100%; }
+        div[data-testid="stMetric"] { padding: 10px; }
+        .sec { margin-top: 0.85rem; }
+        .coal .n { font-size: 1.4rem; }
+      }
+      @media (max-width: 480px) {
+        div[data-testid="stMetricLabel"] { font-size: 0.7rem !important; }
+        div[data-testid="stMetricValue"] { font-size: 1.15rem !important; }
       }
     </style>
     """,
@@ -187,6 +249,28 @@ def color_partido_local(p: str) -> str:
     return pm.COLORES_HEMICICLO.get(p, pm.COLORES_HEMICICLO["OTROS"])
 
 
+def estado_corto(mom: dict) -> str:
+    bruto = str(mom.get("estado") or "Estancado ➡️")
+    if bruto in ESTADO_CORTO:
+        return ESTADO_CORTO[bruto]
+    d7 = mom.get("delta_7d")
+    if d7 is None:
+        return "Estable"
+    if d7 >= 0.3:
+        return "Sube"
+    if d7 <= -0.3:
+        return "Baja"
+    return "Estable"
+
+
+def flecha(estado: str) -> str:
+    if estado == "Sube":
+        return "▲"
+    if estado == "Baja":
+        return "▼"
+    return "•"
+
+
 def ejecutar_actualizacion() -> tuple[bool, str]:
     pasos = []
     for script in ("scraper.py", "analizador_ia.py", "tracker_historico.py"):
@@ -195,7 +279,6 @@ def ejecutar_actualizacion() -> tuple[bool, str]:
             if script == "tracker_historico.py":
                 continue
             return False, f"No se encuentra {script}"
-        # analizador_ia requiere red/API; si falla, seguimos con tracker
         try:
             proc = subprocess.run(
                 [sys.executable, str(ruta)],
@@ -208,69 +291,79 @@ def ejecutar_actualizacion() -> tuple[bool, str]:
             )
         except subprocess.TimeoutExpired:
             if script == "analizador_ia.py":
-                pasos.append("AVISO analizador_ia timeout")
+                pasos.append("AVISO IA timeout")
                 continue
-            return False, f"Timeout ejecutando {script}"
+            return False, f"Timeout {script}"
         if proc.returncode != 0:
             detalle = (proc.stderr or proc.stdout or "").strip()[-800:]
-            if script == "analizador_ia.py":
-                pasos.append("AVISO analizador_ia fallo (API)")
+            if script in ("analizador_ia.py", "tracker_historico.py"):
+                pasos.append(f"AVISO {script} fallo")
                 continue
-            if script == "tracker_historico.py":
-                pasos.append("AVISO tracker fallo")
-                continue
-            return False, f"Error en {script}:\n{detalle}"
+            return False, f"Error {script}:\n{detalle}"
         pasos.append(f"OK {script}")
     return True, " | ".join(pasos)
 
 
-def construir_barra_escaños(escaños: dict[str, int]) -> str:
-    """Barra HTML horizontal de 350 escaños con marca en 176."""
+def barra_176(escaños: dict[str, int], bloque_total: int, bloque_nombre: str) -> str:
+    """Barra horizontal limpia hacia 176 + relleno por partido."""
     orden = [p for p in pm.ORDEN_HEMICICLO if escaños.get(p)]
-    # Incluir no listados al final
     for p in sorted(escaños, key=lambda x: -escaños[x]):
         if p not in orden and escaños[p] > 0:
             orden.append(p)
     partes = []
     for p in orden:
         n = escaños[p]
-        color = color_partido_local(p)
         pct = 100.0 * n / pm.TOTAL_ESCANOS
+        color = color_partido_local(p)
         partes.append(
-            f'<div style="width:{pct:.3f}%;background:{color};height:34px;" '
-            f'title="{p}: {n} escaños"></div>'
+            f'<div style="width:{pct:.3f}%;background:{color};height:22px;" '
+            f'title="{p}: {n}"></div>'
         )
     maj_pct = 100.0 * pm.MAYORIA_ABSOLUTA / pm.TOTAL_ESCANOS
-    barra = (
-        '<div class="bar-wrap">'
-        '<div class="bar-labels"><span>0</span>'
-        f'<span class="maj">176 · Mayoría absoluta</span>'
-        f"<span>{pm.TOTAL_ESCANOS}</span></div>"
-        '<div style="position:relative;">'
-        '<div style="display:flex;width:100%;border-radius:8px;overflow:hidden;'
-        'border:1px solid #30363D;">'
-        + "".join(partes)
-        + "</div>"
-        f'<div style="position:absolute;top:-4px;bottom:-4px;left:{maj_pct:.3f}%;'
-        'width:0;border-left:2px dashed #FBBF24;pointer-events:none;"></div>'
-        "</div></div>"
-    )
-    return barra
+    fill = min(100.0, 100.0 * bloque_total / pm.TOTAL_ESCANOS)
+    bar_fill_pct = min(100.0, 100.0 * bloque_total / pm.MAYORIA_ABSOLUTA) if bloque_total else 0
+    return f"""
+    <div class="maj-wrap">
+      <div class="maj-labels">
+        <span>0</span>
+        <span class="hit">176 mayorías</span>
+        <span>350</span>
+      </div>
+      <div style="position:relative;">
+        <div style="display:flex;width:100%;border-radius:6px;overflow:hidden;
+                    border:1px solid #243041;">
+          {''.join(partes)}
+        </div>
+        <div style="position:absolute;top:-3px;bottom:-3px;left:{maj_pct:.3f}%;
+                    width:0;border-left:2px dashed #FBBF24;pointer-events:none;"></div>
+        <div style="margin-top:0.35rem;height:8px;border-radius:99px;
+                    background:#0B0F14;border:1px solid #243041;overflow:hidden;">
+          <div style="width:{bar_fill_pct:.2f}%;height:100%;
+                      background:linear-gradient(90deg,#3B82F6,#22C55E);"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.7rem;
+                    color:#8B9BB0;margin-top:0.2rem;">
+          <span style="color:#E8EEF7;font-weight:700;">{bloque_nombre}</span>
+          <span style="color:#FBBF24;font-weight:700;">{bloque_total} / 176</span>
+        </div>
+      </div>
+    </div>
+    """
 
 
 def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Figure:
-    """350 puntos en arco semicircular ordenados por espectro."""
+    """350 escaños · 180°=izquierda (Podemos…) → 0°=derecha (…VOX/SALF)."""
     orden = pm.escaños_para_hemiciclo(escaños)
     coords = pm.posiciones_hemiciclo(len(orden), n_filas=7)
     fig = go.Figure()
-    # Trazar por partido para leyenda/hover agrupado
+
     by_party: dict[str, list[tuple[float, float, str]]] = {}
     for (partido, color), (x, y) in zip(orden, coords):
         by_party.setdefault(partido, []).append((x, y, color))
 
-    for partido in pm.ORDEN_HEMICICLO + sorted(
-        set(by_party) - set(pm.ORDEN_HEMICICLO)
-    ):
+    # Orden visual L→R: PODEMOS → FA/Sumar → PSOE → regionales → PP → VOX → SALF
+    resto_ord = sorted(set(by_party) - set(pm.ORDEN_HEMICICLO))
+    for partido in pm.ORDEN_HEMICICLO + resto_ord:
         if partido not in by_party:
             continue
         pts = by_party[partido]
@@ -279,7 +372,6 @@ def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Fi
         )
         n = len(pts)
         color = pts[0][2]
-        opacidad = 1.0 if activo else 0.22
         fig.add_trace(
             go.Scatter(
                 x=[p[0] for p in pts],
@@ -288,90 +380,75 @@ def construir_hemiciclo(escaños: dict[str, int], seleccion: list[str]) -> go.Fi
                 name=partido,
                 marker=dict(
                     color=color,
-                    size=9,
-                    opacity=opacidad,
-                    line=dict(color="#0E1117", width=0.6),
+                    size=8,
+                    opacity=1.0 if activo else 0.18,
+                    line=dict(color="#0B0F14", width=0.5),
                 ),
-                customdata=[[partido, n] for _ in pts],
                 hovertemplate=f"<b>{partido}</b><br>{n} escaños<extra></extra>",
                 showlegend=True,
             )
         )
 
+    # Centro del arco: 2 líneas limpias
+    if seleccion:
+        total_sel = sum(escaños.get(p, 0) for p in seleccion)
+        nombre_corto = "+".join(seleccion[:3]) + ("…" if len(seleccion) > 3 else "")
+    else:
+        top = max(escaños, key=escaños.get) if escaños else "—"
+        total_sel = escaños.get(top, 0)
+        nombre_corto = top
+
+    fig.add_annotation(
+        x=0,
+        y=0.28,
+        text=(
+            f"<b>{nombre_corto} · {total_sel}</b><br>"
+            f"<span style='font-size:12px;color:#FBBF24'>Mayoría: 176</span>"
+        ),
+        showarrow=False,
+        font=dict(size=15, color="#F8FAFC"),
+        align="center",
+    )
+
     fig.update_layout(
-        height=420,
-        margin=dict(l=10, r=10, t=10, b=10),
+        autosize=True,
+        height=400,
+        margin=dict(l=10, r=10, t=30, b=10),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
         xaxis=dict(
             scaleanchor="y", scaleratio=1, visible=False,
-            range=[-1.15, 1.15],
+            range=[-1.12, 1.12],
         ),
-        yaxis=dict(visible=False, range=[-0.12, 1.15]),
+        yaxis=dict(visible=False, range=[-0.1, 1.12]),
         legend=dict(
-            orientation="h", yanchor="bottom", y=-0.08, xanchor="center", x=0.5,
-            font=dict(size=11, color="#E6EDF3"),
+            orientation="h",
+            yanchor="bottom", y=-0.06,
+            xanchor="center", x=0.5,
+            font=dict(size=11, color="#E8EEF7"),
+            bgcolor="rgba(0,0,0,0)",
         ),
-        hoverlabel=dict(bgcolor="#111827", font_size=12),
+        hoverlabel=dict(bgcolor="#141A22", font_size=12),
         showlegend=True,
     )
     return fig
 
 
-# ───────────────── Sidebar ─────────────────
-with st.sidebar:
-    st.markdown("### 🏛️ Consultor Electoral")
-    st.caption("Análisis de encuestas · Congreso de los Diputados")
-
-    if st.button("🔄 Actualizar datos ahora", type="primary", use_container_width=True):
-        with st.status("Actualizando datos…", expanded=True) as status:
-            st.write("1/3 Extrayendo e filtrando encuestas + informe IA…")
-            ok, msg = ejecutar_actualizacion()
-            if ok:
-                st.write("3/3 Registrando histórico y momentum…")
-                status.update(label="Datos actualizados", state="complete")
-                st.success(msg)
-                cargar_encuestas.clear()
-                cargar_informe.clear()
-                cargar_simulacion.clear()
-                cargar_historico_ui.clear()
-            else:
-                status.update(label="Error", state="error")
-                st.error(msg)
-
-    st.divider()
-    datos_side = cargar_encuestas()
-    if datos_side:
-        st.caption(f"Datos: {datos_side.get('actualizado', '—')}")
-        f = datos_side.get("filtros", {})
-        st.caption(
-            f"Incluidas {f.get('total_incluidas', '?')} · "
-            f"Excluidas {f.get('total_excluidas', '?')} (CIS / n<800)"
-        )
-    informe_side = cargar_informe()
-    if informe_side:
-        st.caption(f"Informe IA: {informe_side.get('generado_en', '—')}")
-
-    st.divider()
-    st.caption(
-        "Metodología: media ponderada exp(−λt)·√n, "
-        "sin CIS, muestra ≥ 800 · escenario D'Hondt con pool regionalista."
-    )
-
-
-# ───────────────── Datos ─────────────────
+# ═══════════════════════ DATOS ═══════════════════════
 datos = cargar_encuestas()
 if datos is None:
-    st.warning(
-        "No hay datos. Pulsa **«Actualizar datos ahora»** en la barra lateral."
-    )
+    st.warning("Sin datos. Actualiza desde el menú lateral ▸.")
+    if st.button("🔄 Actualizar", type="primary"):
+        st.cache_data.clear()
+        ok, msg = ejecutar_actualizacion()
+        st.success(msg if ok else msg)
+        st.rerun()
     st.stop()
 
 sim = cargar_simulacion()
 hist = cargar_historico_ui()
 dias_hist = sorted((hist.get("dias") or {}).keys())
 
-# Asegurar histórico mínimo (backfill en frío la primera vez)
 if len(dias_hist) < 7:
     try:
         th.registrar_hoy()
@@ -387,22 +464,43 @@ momentum = {}
 if dias_hist:
     momentum = (hist["dias"].get(dias_hist[-1]) or {}).get("momentum") or {}
 
-# ───────────────── Máquina del tiempo ─────────────────
-st.markdown(
-    '<div class="section-title">Máquina del tiempo · histórico diario</div>',
-    unsafe_allow_html=True,
-)
+# ═══════════════════════ SIDEBAR (colapsada) ═══════════════════════
+with st.sidebar:
+    st.markdown("### ⚙️ Datos")
+    if st.button("🔄 Actualizar", type="primary", use_container_width=True):
+        with st.status("Actualizando…", expanded=False) as status:
+            ok, msg = ejecutar_actualizacion()
+            if ok:
+                status.update(label="OK", state="complete")
+                st.cache_data.clear()
+            else:
+                status.update(label="Error", state="error")
+                st.error(msg)
+        st.rerun()
+
+    f = datos.get("filtros", {}) or {}
+    st.caption(f"Fuente: Wikipedia · {datos.get('actualizado', '—')}")
+    st.caption(
+        f"Incluidas {f.get('total_incluidas', '?')} · "
+        f"excluidas {f.get('total_excluidas', '?')}"
+    )
+    info = cargar_informe()
+    if info:
+        st.caption(f"IA: {info.get('generado_en', '—')}")
+    st.caption("Media ponderada · sin CIS · n≥800 · D'Hondt 350")
+
+# ═══════════════════════ MÁQUINA DEL TIEMPO ═══════════════════════
 opciones_fecha = list(dias_hist) + ["Hoy"]
-default_idx = len(opciones_fecha) - 1
 fecha_sel = st.select_slider(
-    "Fecha del escenario",
+    "📅",
     options=opciones_fecha,
-    value=opciones_fecha[default_idx],
+    value=opciones_fecha[-1],
     label_visibility="collapsed",
+    help="Máquina del tiempo: histórico diario",
 )
 es_hoy = fecha_sel == "Hoy"
+fecha_label = "Hoy" if es_hoy else fecha_sel
 
-# Snapshots para la fecha seleccionada
 if es_hoy:
     medias_vis = act_live
     escaños_vis = sim["escaños"]
@@ -413,298 +511,247 @@ else:
     escaños_vis = snap_sel.get("escaños") or sim["escaños"]
     origen_vis = snap_sel.get("origen", "backfill")
 
-# Bloques recalculados sobre los escaños visibles
 bloques = pm.simular_bloques(escaños_vis)
 mejor = bloques[0] if bloques else None
 absolutos = [b for b in bloques if b["alcanza_absoluta"]]
-cercanos = [
-    b for b in bloques
-    if not b["alcanza_absoluta"] and b["total"] >= pm.MIN_SIMPLE_2A_VUELTA
-]
+veredicto = absolutos[0] if absolutos else mejor
 
-if absolutos:
-    veredicto = absolutos[0]
-    v_class, v_meta = "ok", f"{veredicto['texto_distancia']}"
-elif cercanos:
-    veredicto = cercanos[0]
-    v_class, v_meta = "warn", f"2ª vuelta · {veredicto['texto_distancia']}"
-else:
-    veredicto = mejor
-    v_class, v_meta = "bad", "Sin bloque mayoritario claro"
+# ═══════════════════════ ARRIBA: barra + hemiciclo ═══════════════════════
+nombre_bloque = (veredicto or {}).get("bloque", "—")
+total_bloque = (veredicto or {}).get("total", 0)
 
-# Escaños de la semana anterior para las tarjetas
-esc_semana = th.variacion_escaños(hist, dias=7) if dias_hist else {}
-fecha_label = "Hoy" if es_hoy else fecha_sel
-
-# ───────────────── HERO: Pactómetro visual ─────────────────
 st.markdown(
     f"""
-    <div class="hero">
-      <div class="kicker">Pactómetro · 350 escaños · {fecha_label}</div>
+    <div class="top">
       <h1>Consultor Electoral España</h1>
-      <div class="sub">
-        Escenario <strong>{fecha_label}</strong> ({origen_vis}) · Congreso de los Diputados ·
-        datos actualizados {datetime.now().strftime('%d/%m/%Y %H:%M')} ·
-        fuente Wikipedia (sin CIS)
-      </div>
-      <div class="verdict">
-        <div class="verdict-card {v_class}">
-          <div class="label">Quién puede gobernar</div>
-          <div class="value">{veredicto['bloque'] if veredicto else '—'}</div>
-          <div class="meta">{veredicto['total'] if veredicto else 0} escaños · {v_meta}</div>
-        </div>
-        <div class="verdict-card">
-          <div class="label">Mayoría absoluta</div>
-          <div class="value">176 escaños</div>
-          <div class="meta">barrera de investidura directa</div>
-        </div>
-        <div class="verdict-card">
-          <div class="label">Bloques que alcanzan 176</div>
-          <div class="value">{len(absolutos)} de {len(bloques)}</div>
-          <div class="meta">
-            {" · ".join(b['bloque'].split('(')[0].strip()[:20] + ' ' + str(b['total']) for b in bloques[:3])}
-          </div>
-        </div>
-      </div>
-      {construir_barra_escaños(escaños_vis)}
+      <div class="meta">{fecha_label} · {origen_vis} · Congreso 350</div>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
-# ───────────────── Tarjetas de tendencia (estilo mercado) ─────────────────
+st.markdown(barra_176(escaños_vis, total_bloque, nombre_bloque), unsafe_allow_html=True)
+
+# Selector hemiciclo compacto
+partidos_escaños = [p for p in pm.ORDEN_HEMICICLO if escaños_vis.get(p)]
+for p in sorted(escaños_vis, key=lambda x: -escaños_vis[x]):
+    if p not in partidos_escaños and escaños_vis[p] > 0:
+        partidos_escaños.append(p)
+
+seleccion = st.multiselect(
+    "Resaltar",
+    options=partidos_escaños,
+    default=[p for p in ["PP", "PSOE", "VOX", "FA"] if p in partidos_escaños],
+    label_visibility="collapsed",
+    width="stretch",
+    help="Partidos resaltados en el hemiciclo",
+)
+
+st.plotly_chart(
+    construir_hemiciclo(escaños_vis, seleccion),
+    width="stretch",
+    theme=None,
+    config={"displayModeBar": False, "responsive": True},
+)
+
+# ═══════════════════════ MEDIO: pactómetro ═══════════════════════
+st.markdown('<div class="sec">Pactómetro</div>', unsafe_allow_html=True)
+
+if "pacto_sel" not in st.session_state:
+    st.session_state.pacto_sel = [p for p in ["PP", "VOX"] if p in partidos_escaños]
+
+# Checkboxes compactos en 1 fila responsive (máx 3 visibles por línea en móvil vía CSS grid)
+ncol = min(3, max(1, len(partidos_escaños)))
+pacto_cols = st.columns(ncol, gap="small")
+pacto_sel: list[str] = []
+for i, p in enumerate(partidos_escaños):
+    with pacto_cols[i % ncol]:
+        etiqueta = f"{p} ({escaños_vis[p]})"
+        if st.checkbox(
+            etiqueta,
+            key=f"pacto_{p}",
+            value=p in st.session_state.pacto_sel,
+            label_visibility="visible",
+        ):
+            pacto_sel.append(p)
+st.session_state.pacto_sel = pacto_sel
+
+total_pacto = sum(escaños_vis.get(p, 0) for p in pacto_sel)
+info_p = pm.estado_bloque(total_pacto)
+color_estado = (
+    "#22C55E"
+    if info_p["alcanza_absoluta"]
+    else "#FBBF24"
+    if info_p["total"] >= pm.MIN_SIMPLE_2A_VUELTA
+    else "#EF4444"
+)
+pct_maj = min(100.0, 100.0 * total_pacto / pm.MAYORIA_ABSOLUTA)
+
 st.markdown(
-    '<div class="section-title">Impulso electoral · tarjetas de tendencia</div>',
+    f"""
+    <div class="coal">
+      <div style="font-size:0.7rem;color:#8B9BB0;text-transform:uppercase;
+                  letter-spacing:0.08em;">Coalición</div>
+      <div class="n">{total_pacto}<span> / 176</span></div>
+      <div class="st" style="color:{color_estado};">
+        {info_p['estado']} · {info_p['texto_distancia']}
+      </div>
+      <div style="background:#0B0F14;border-radius:99px;height:10px;
+                  margin-top:0.55rem;position:relative;overflow:hidden;
+                  border:1px solid #243041;">
+        <div style="width:{pct_maj:.2f}%;height:100%;
+                    background:{color_estado};"></div>
+        <div style="position:absolute;top:0;bottom:0;left:100%;
+                    border-left:2px dashed #FBBF24;"></div>
+      </div>
+    </div>
+    """,
     unsafe_allow_html=True,
 )
 
-def _fmt_delta(v) -> str:
-    if v is None:
-        return "—"
-    return f"{v:+.1f}"
+# Tabla compacta de bloques
+filas_bloques = [
+    {
+        "Bloque": b["bloque"],
+        "Escaños": b["total"],
+        "vs 176": b["texto_distancia"],
+        "Estado": "✅" if b["alcanza_absoluta"] else "—" ,
+    }
+    for b in bloques
+]
+st.dataframe(
+    pd.DataFrame(filas_bloques),
+    width="stretch",
+    hide_index=True,
+    height=min(320, 36 * len(filas_bloques) + 40),
+)
 
+# ═══════════════════════ Tarjetas partidos (máx 3 col) ═══════════════════════
+st.markdown(f'<div class="sec">Partidos · {fecha_label}</div>', unsafe_allow_html=True)
 
 kpi_partidos = [p for p in PARTIDOS_KPI if p in medias_vis] or sorted(
-    medias_vis, key=medias_vis.get, reverse=True
-)[:7]
+    medias_vis, key=lambda p: medias_vis.get(p) or 0, reverse=True
+)[:6]
+kpi_partidos = kpi_partidos[:6]  # 2 filas × 3
 
-n_cards = min(len(kpi_partidos), 7)
-card_cols = st.columns(n_cards)
-for i, p in enumerate(kpi_partidos[:n_cards]):
-    valor = medias_vis.get(p)
-    esc = escaños_vis.get(p, 0)
-    d_esc = esc_semana.get(p, 0) if not es_hoy else esc_semana.get(p, 0)
-    mom = momentum.get(p) or {}
-    d7 = mom.get("delta_7d")
-    estado = mom.get("estado", "Estancado ➡️")
-    # color por impulso
-    if d7 is None:
-        color_mom = "#8B949E"
-    elif d7 >= 0.3:
-        color_mom = "#16A34A"
-    elif d7 <= -0.3:
-        color_mom = "#F87171"
-    else:
-        color_mom = "#FBBF24"
-    esc_color = "#16A34A" if d_esc > 0 else "#F87171" if d_esc < 0 else "#8B949E"
-    pp_color = "#16A34A" if (d7 or 0) > 0 else "#F87171" if (d7 or 0) < 0 else "#E6EDF3"
+esc_semana = th.variacion_escaños(hist, dias=7) if dias_hist else {}
 
-    with card_cols[i]:
-        st.markdown(
-            f"""
-            <div style="background:#161B22;border:1px solid #30363D;border-radius:12px;
-                        padding:0.75rem 0.85rem;height:100%;">
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <span style="font-weight:800;color:#F8FAFC;font-size:1rem;">{p}</span>
-                <span style="font-size:0.72rem;color:{color_mom};font-weight:600;">{estado}</span>
-              </div>
-              <div style="font-size:1.65rem;font-weight:800;color:#F8FAFC;margin-top:0.25rem;">
-                {valor if valor is not None else 0:.1f}%
-              </div>
-              <div style="font-size:0.82rem;color:#8B949E;">
-                <strong style="color:#E6EDF3;">{esc}</strong> escaños
-                <span style="color:{esc_color};font-weight:700;"> ({d_esc:+d} sem.)</span>
-              </div>
-              <div style="font-size:0.78rem;color:{pp_color};margin-top:0.15rem;">
-                7d: {_fmt_delta(d7)} pp
-              </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
+# chunk en grupos de 3 → nunca más de 3 columnas por fila
+for start in range(0, len(kpi_partidos), 3):
+    chunk = kpi_partidos[start : start + 3]
+    cols = st.columns(len(chunk), gap="medium")
+    for i, p in enumerate(chunk):
+        valor = medias_vis.get(p) or 0.0
+        esc = escaños_vis.get(p, 0)
+        mom = momentum.get(p) or {}
+        d7 = mom.get("delta_7d")
+        estado = estado_corto(mom)
+        d_esc = esc_semana.get(p, 0)
+        delta_label = f"{flecha(estado)} {estado}"
+        delta_color = (
+            "normal" if (d7 or 0) > 0.05
+            else "inverse" if (d7 or 0) < -0.05
+            else "off"
         )
+        esc_delta = f"{d_esc:+d} esc." if d_esc else "—"
+        with cols[i]:
+            st.metric(
+                label=p,
+                value=f"{valor:.1f}% · {esc}",
+                delta=f"{delta_label} · {esc_delta}",
+                delta_color=delta_color,
+                border=True,
+                label_visibility="visible",
+            )
 
-st.caption(
-    "Momentum = media 7 días vs 14 días previas · escaños vs snapshot hace 7 días · "
-    f"escenario: {fecha_label}."
-)
+# ═══════════════════════ ABAJO: ganadores/perdedores ═══════════════════════
+st.markdown('<div class="sec">Subidas y bajadas</div>', unsafe_allow_html=True)
 
-# ───────────────── Ganadores y perdedores ─────────────────
-st.markdown(
-    '<div class="section-title">Ganadores y perdedores</div>',
-    unsafe_allow_html=True,
-)
-periodo = st.radio(
-    "Periodo",
-    options=[7, 30],
-    format_func=lambda d: f"Últimos {d} días",
-    horizontal=True,
-    label_visibility="collapsed",
-)
+c_per, c_gap, c_ai = st.columns([1, 1, 2], gap="small")
+with c_per:
+    periodo = st.radio(
+        "Periodo",
+        options=[7, 30],
+        format_func=lambda d: f"{d}d",
+        horizontal=True,
+        index=0,
+        label_visibility="collapsed",
+    )
+
 filas_gan = th.ganadores_perdedores(hist, periodo=periodo) if dias_hist else []
 if filas_gan:
-    df_gan = pd.DataFrame(filas_gan)
-    df_gan = df_gan.sort_values("delta_pp")
+    df_gan = pd.DataFrame(filas_gan).sort_values("delta_pp")
     fig_gan = go.Figure()
-    colores = ["#DC2626" if v < 0 else "#16A34A" if v > 0 else "#64748B"
-               for v in df_gan["delta_pp"]]
+    colores = [
+        "#EF4444" if v < 0 else "#22C55E" if v > 0 else "#64748B"
+        for v in df_gan["delta_pp"]
+    ]
+    textos = [
+        f"{'▲' if v > 0 else '▼' if v < 0 else '•'} {v:+.1f}"
+        for v in df_gan["delta_pp"]
+    ]
     fig_gan.add_trace(
         go.Bar(
             y=df_gan["partido"],
             x=df_gan["delta_pp"],
             orientation="h",
             marker_color=colores,
-            text=[f"{v:+.1f} pp" for v in df_gan["delta_pp"]],
+            text=textos,
             textposition="outside",
-            hovertemplate=(
-                "%{y}<br>Δ %{x:.2f} pp<br>Δ escaños: "
-                + df_gan["delta_escaños"].astype(str).tolist().__repr__()
-                + "<extra></extra>"
-            ),
+            customdata=df_gan[["delta_escaños"]].values,
+            hovertemplate="%{y}<br>Δ %{x:.2f} pp<br>Δ esc %{customdata[0]}<extra></extra>",
         )
-    )
-    # Corregir hover con customdata en vez de la lista hardcodeada
-    fig_gan.data[0].customdata = df_gan[["delta_escaños"]].values
-    fig_gan.data[0].hovertemplate = (
-        "%{y}<br>Δ %{x:.2f} pp<br>Δ escaños: %{customdata[0]}<extra></extra>"
     )
     fig_gan.update_layout(
-        height=max(280, 36 * len(df_gan)),
-        margin=dict(l=10, r=40, t=10, b=10),
+        autosize=True,
+        height=max(260, 34 * len(df_gan)),
+        margin=dict(l=10, r=50, t=20, b=10),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        xaxis=dict(gridcolor="#21262D", zeroline=True, zerolinecolor="#30363D",
-                   title=f"Δ pp · {periodo} días"),
-        yaxis=dict(tickfont=dict(color="#E6EDF3", size=13)),
-        font=dict(color="#E6EDF3"),
+        xaxis=dict(
+            gridcolor="#1E293B",
+            zeroline=True,
+            zerolinecolor="#334155",
+            title=dict(text=f"Δ pp · {periodo}d", font=dict(color="#8B9BB0", size=11)),
+        ),
+        yaxis=dict(tickfont=dict(color="#E8EEF7", size=12)),
+        font=dict(color="#E8EEF7"),
         showlegend=False,
     )
-    st.plotly_chart(fig_gan, use_container_width=True, theme=None)
-else:
-    st.info("Sin histórico suficiente para comparar periodos.")
-
-# ───────────────── KPIs intención de voto (complemento) ─────────────────
-st.markdown(
-    f'<div class="section-title">Intención de voto · media 14 días · {fecha_label}</div>',
-    unsafe_allow_html=True,
-)
-cols = st.columns(min(len(kpi_partidos), 7))
-for i, p in enumerate(kpi_partidos[:7]):
-    with cols[i]:
-        delta = round(medias_vis[p] - ant[p], 2) if p in ant and p in medias_vis else None
-        st.metric(
-            label=p,
-            value=f"{medias_vis.get(p, 0):.1f}%",
-            delta=f"{delta:+.1f} pp sem." if delta is not None else None,
-            delta_color="normal",
-        )
-
-# ───────────────── Hemiciclo + Pactómetro interactivo ─────────────────
-st.markdown(
-    f'<div class="section-title">Hemiciclo del Congreso · {fecha_label}</div>',
-    unsafe_allow_html=True,
-)
-
-partidos_escaños = [p for p in pm.ORDEN_HEMICICLO if escaños_vis.get(p)]
-for p in sorted(escaños_vis, key=lambda x: -escaños_vis[x]):
-    if p not in partidos_escaños and escaños_vis[p] > 0:
-        partidos_escaños.append(p)
-
-default_sel = [p for p in ["PP", "PSOE", "VOX", "FA"] if p in partidos_escaños]
-seleccion = st.multiselect(
-    "Resaltar partidos en el hemiciclo",
-    options=partidos_escaños,
-    default=default_sel,
-    label_visibility="collapsed",
-)
-
-hemi_col, pacto_col = st.columns([1.35, 1], gap="medium")
-with hemi_col:
-    fig_h = construir_hemiciclo(escaños_vis, seleccion)
-    st.plotly_chart(fig_h, use_container_width=True, theme=None)
-
-with pacto_col:
-    st.markdown("**Pactómetro manual** — suma coaliciones en tiempo real")
-    if "pacto_sel" not in st.session_state:
-        st.session_state.pacto_sel = ["PP", "VOX"]
-
-    ncol = 3
-    checkbox_cols = st.columns(ncol)
-    pacto_sel = []
-    for i, p in enumerate(partidos_escaños):
-        with checkbox_cols[i % ncol]:
-            etiqueta = f"{p} · {escaños_vis[p]}"
-            if st.checkbox(etiqueta, key=f"pacto_{p}", value=p in st.session_state.pacto_sel):
-                pacto_sel.append(p)
-    st.session_state.pacto_sel = pacto_sel
-
-    total_pacto = sum(escaños_vis.get(p, 0) for p in pacto_sel)
-    info_p = pm.estado_bloque(total_pacto)
-    pct = 100.0 * total_pacto / pm.TOTAL_ESCANOS
-    maj_pct = 100.0 * pm.MAYORIA_ABSOLUTA / pm.TOTAL_ESCANOS
-
-    st.markdown(
-        f"""
-        <div style="background:#161B22;border:1px solid #30363D;border-radius:12px;
-                    padding:0.9rem 1rem;margin-top:0.4rem;">
-          <div style="font-size:0.75rem;color:#8B949E;text-transform:uppercase;
-                      letter-spacing:0.08em;">Coalición seleccionada</div>
-          <div style="font-size:1.9rem;font-weight:800;color:#F8FAFC;">
-            {total_pacto}<span style="font-size:0.95rem;color:#8B949E;"> / 176</span>
-          </div>
-          <div style="font-size:0.9rem;font-weight:600;color:
-            {'#16A34A' if info_p['alcanza_absoluta'] else '#FBBF24' if info_p['total']>=pm.MIN_SIMPLE_2A_VUELTA else '#F87171'};">
-            {info_p['estado']} · {info_p['texto_distancia']}
-          </div>
-          <div style="background:#0E1117;border-radius:6px;height:14px;
-                      margin-top:0.6rem;position:relative;overflow:hidden;">
-            <div style="width:{pct:.2f}%;height:100%;
-                        background:{'#16A34A' if info_p['alcanza_absoluta'] else '#1E40AF'};">
-            </div>
-            <div style="position:absolute;top:0;bottom:0;left:{maj_pct:.2f}%;
-                        border-left:2px dashed #FBBF24;"></div>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:0.7rem;
-                      color:#8B949E;margin-top:0.3rem;">
-            <span>0</span><span>176</span><span>350</span>
-          </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    filas_bloques = [
-        {
-            "Bloque": b["bloque"],
-            "Escaños": b["total"],
-            "vs 176": b["texto_distancia"],
-            "Estado": b["estado"],
-        }
-        for b in bloques
-    ]
-    st.dataframe(
-        pd.DataFrame(filas_bloques),
+    st.plotly_chart(
+        fig_gan,
         width="stretch",
-        hide_index=True,
-        height=280,
+        theme=None,
+        config={"displayModeBar": False, "responsive": True},
     )
+else:
+    st.info("Sin histórico suficiente.")
 
-# ───────────────── Tabs ─────────────────
-st.markdown('<div class="section-title">Análisis</div>', unsafe_allow_html=True)
+# Expander IA — no ocupa la pantalla principal
+with st.expander("💬 Ver resumen breve de la IA"):
+    informe = cargar_informe()
+    if informe is None:
+        st.caption("Sin informe. Actualiza datos o ejecuta analizador_ia.py.")
+    else:
+        resumen = informe.get("resumen_ejecutivo") or ""
+        if resumen:
+            st.write(resumen)
+        for it in (informe.get("puntos_inflexion") or [])[:4]:
+            mag = it.get("magnitud_pp")
+            titulo = f"{it.get('partido', '—')} · {it.get('semana_o_fecha', '')}"
+            if isinstance(mag, (int, float)):
+                titulo += f" · {mag:+.1f} pp"
+            with st.expander(titulo):
+                st.write(it.get("descripcion", ""))
+        with st.expander("Informe completo"):
+            md = informe.get("markdown")
+            st.markdown(md if md else json.dumps(informe, ensure_ascii=False, indent=2))
+
+# ═══════════════════════ TABS profundo ═══════════════════════
 tab_tend, tab_aud, tab_ia = st.tabs(
-    ["📈 Tendencia Temporal", "🔬 Auditoría Anti-Sesgo (Encuestadoras)", "💬 Consultor IA (Chat)"]
+    ["📈 Tendencia", "🔬 Auditoría", "💬 Chat"]
 )
 
-# ── Tab: Tendencia ──
 with tab_tend:
     df = dataframe_evolucion(datos)
     partidos_disp = (
@@ -723,9 +770,10 @@ with tab_tend:
         "Partidos",
         options=partidos_disp,
         default=[p for p in PARTIDOS_KPI if p in partidos_disp] or partidos_disp[:5],
+        width="stretch",
     )
     if df.empty or not seleccion_t:
-        st.info("Sin series temporales.")
+        st.info("Sin series.")
     else:
         df_sel = df[df["partido"].isin(seleccion_t)]
         tend = suavizar(df_sel, seleccion_t)
@@ -739,7 +787,7 @@ with tab_tend:
                     y=sub["valor"],
                     mode="markers",
                     name=p,
-                    marker=dict(color=color, size=6, opacity=0.35),
+                    marker=dict(color=color, size=5, opacity=0.3),
                     legendgroup=p,
                     showlegend=False,
                     hovertemplate=f"{p}: %{{y:.1f}}%<extra></extra>",
@@ -753,25 +801,30 @@ with tab_tend:
                         y=tsub["tendencia"],
                         mode="lines",
                         name=p,
-                        line=dict(color=color, width=3),
+                        line=dict(color=color, width=2.5),
                         legendgroup=p,
-                        hovertemplate=f"{p} tendencia: %{{y:.1f}}%<extra></extra>",
+                        hovertemplate=f"{p}: %{{y:.1f}}%<extra></extra>",
                     )
                 )
         fig.update_layout(
-            height=460,
-            margin=dict(l=10, r=10, t=10, b=10),
-            yaxis_title="% intención de voto",
+            autosize=True,
+            height=420,
+            margin=dict(l=10, r=10, t=30, b=10),
+            yaxis_title="% intención",
             legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
             hovermode="x unified",
             plot_bgcolor="rgba(0,0,0,0)",
             paper_bgcolor="rgba(0,0,0,0)",
-            yaxis=dict(gridcolor="#21262D"),
-            font=dict(color="#E6EDF3"),
+            yaxis=dict(gridcolor="#1E293B"),
+            font=dict(color="#E8EEF7"),
         )
-        st.plotly_chart(fig, use_container_width=True, theme=None)
+        st.plotly_chart(
+            fig,
+            width="stretch",
+            theme=None,
+            config={"displayModeBar": False, "responsive": True},
+        )
 
-# ── Tab: Auditoría ──
 with tab_aud:
     he = datos.get("house_effects") or []
     if he:
@@ -780,86 +833,53 @@ with tab_aud:
                 "Encuestadora": h["encuestadora"],
                 "n": h["n_encuestas"],
                 "Partido": h["desviacion_max"]["partido"],
-                "Desv. (pp)": h["desviacion_max"]["pp"],
+                "Desv.": h["desviacion_max"]["pp"],
             }
             for h in he
         ]
-        st.caption("Desviación máxima frente al consenso (ventana 45 días, sin CIS).")
-        st.dataframe(pd.DataFrame(filas), use_container_width=True, hide_index=True)
+        st.dataframe(pd.DataFrame(filas), width="stretch", hide_index=True)
     else:
-        st.info("Sin house effects calculados todavía.")
+        st.info("Sin house effects.")
 
-    f = datos.get("filtros", {})
-    st.markdown("**Filtros de calidad aplicados**")
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Incluidas", f.get("total_incluidas", "—"))
-    c2.metric("CIS excluidas", f.get("excluidas_cis", "—"))
-    c3.metric("n < 800", f.get("excluidas_muestra", "—"))
-    c4.metric("Sin fecha / otra", (f.get("excluidas_fecha", 0) or 0) + (f.get("excluidas_otra", 0) or 0))
+    f = datos.get("filtros", {}) or {}
+    m1, m2, m3, m4 = st.columns(4)
+    m1.metric("Incluidas", f.get("total_incluidas", "—"), border=True)
+    m2.metric("CIS", f.get("excluidas_cis", "—"), border=True)
+    m3.metric("n<800", f.get("excluidas_muestra", "—"), border=True)
+    m4.metric(
+        "Otras",
+        (f.get("excluidas_fecha", 0) or 0) + (f.get("excluidas_otra", 0) or 0),
+        border=True,
+    )
 
     excl = datos.get("excluidas") or []
     if excl:
-        with st.expander(f"Detalle de {len(excl)} encuestas excluidas"):
-            st.dataframe(pd.DataFrame(excl), use_container_width=True, hide_index=True, height=300)
+        with st.expander(f"Excluidas ({len(excl)})"):
+            st.dataframe(pd.DataFrame(excl), width="stretch", hide_index=True)
 
-# ── Tab: Consultor IA ──
 with tab_ia:
-    informe = cargar_informe()
-    if informe is None:
-        st.info("Sin informe. Ejecuta `python analizador_ia.py` o actualiza desde la barra lateral.")
-    else:
-        resumen = informe.get("resumen_ejecutivo", "")
-        if resumen:
-            st.info(resumen)
+    if "chat" not in st.session_state:
+        st.session_state.chat = []
+    for msg in st.session_state.chat:
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+    pregunta = st.chat_input("Pregunta breve…")
+    if pregunta:
+        st.session_state.chat.append({"role": "user", "content": pregunta})
+        with st.chat_message("user"):
+            st.markdown(pregunta)
+        with st.chat_message("assistant"):
+            with st.spinner("…"):
+                try:
+                    from analizador_ia import cargar_encuestas as _load
+                    from analizador_ia import preguntar as _preguntar
 
-        sub1, sub2 = st.columns(2)
-        with sub1:
-            st.markdown("**Puntos de inflexión**")
-            for it in (informe.get("puntos_inflexion") or [])[:6]:
-                mag = it.get("magnitud_pp")
-                titulo = f"{it.get('partido', '—')} · {it.get('semana_o_fecha', '')}"
-                if isinstance(mag, (int, float)):
-                    titulo += f" · {mag:+.1f} pp"
-                with st.expander(titulo):
-                    st.write(it.get("descripcion", ""))
-        with sub2:
-            aud = informe.get("auditoria_dispersion") or {}
-            if aud.get("encuestadora_mas_desviada"):
-                st.warning(
-                    f"Mayor desviación del consenso: **{aud['encuestadora_mas_desviada']}**"
-                )
-            for a in (aud.get("alertas") or [])[:5]:
-                st.error(f"🚨 {a}")
-            if aud.get("nota_metodologica"):
-                st.caption(aud["nota_metodologica"])
-
-        with st.expander("📄 Informe completo (Markdown)"):
-            md = informe.get("markdown")
-            st.markdown(md if md else json.dumps(informe, ensure_ascii=False, indent=2))
-
-        st.markdown("---")
-        st.markdown("**Chat con el Consultor**")
-        if "chat" not in st.session_state:
-            st.session_state.chat = []
-        for msg in st.session_state.chat:
-            with st.chat_message(msg["role"]):
-                st.markdown(msg["content"])
-        pregunta = st.chat_input("Pregunta sobre encuestas, pactos o tendencias…")
-        if pregunta:
-            st.session_state.chat.append({"role": "user", "content": pregunta})
-            with st.chat_message("user"):
-                st.markdown(pregunta)
-            with st.chat_message("assistant"):
-                with st.spinner("Analizando…"):
-                    try:
-                        from analizador_ia import cargar_encuestas as _load, preguntar as _preguntar
-
-                        respuesta = _preguntar(
-                            pregunta,
-                            historial=st.session_state.chat[:-1],
-                            datos=_load(),
-                        )
-                    except Exception as exc:  # noqa: BLE001
-                        respuesta = f"No se pudo consultar Gemini: {exc}"
-                st.markdown(respuesta)
-            st.session_state.chat.append({"role": "assistant", "content": respuesta})
+                    respuesta = _preguntar(
+                        pregunta,
+                        historial=st.session_state.chat[:-1],
+                        datos=_load(),
+                    )
+                except Exception as exc:  # noqa: BLE001
+                    respuesta = f"Error IA: {exc}"
+            st.markdown(respuesta)
+        st.session_state.chat.append({"role": "assistant", "content": respuesta})
