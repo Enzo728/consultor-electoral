@@ -101,7 +101,12 @@ def norm_partido(nombre: str) -> str:
     equivalencias = {
         "vox": "VOX",
         "pp": "PP",
+        "ppc": "PP",
         "psoe": "PSOE",
+        "pse": "PSE",
+        "pse-ee": "PSE",
+        "pse ee": "PSE",
+        "psc": "PSC",
         "fa": "FA",
         "frente amplio": "FA",
         "sumar": "SUMAR",
@@ -113,8 +118,11 @@ def norm_partido(nombre: str) -> str:
         "izquierda": None,
         "erc": "ERC",
         "junts": "JUNTS",
+        "junts": "JUNTS",
         "eh bildu": "EH Bildu",
         "ehbildu": "EH Bildu",
+        "eaj-pnv": "PNV",
+        "eaj pnv": "PNV",
         "pnv": "PNV",
         "bng": "BNG",
         "cca": "CCa",
@@ -127,11 +135,42 @@ def norm_partido(nombre: str) -> str:
         "c-fv": "C-FV",
         "compromís-front valencià": "C-FV",
         "compromis-front valencia": "C-FV",
+        "pora": "POR A",
+        "por a": "POR A",
+        "por andalucía": "POR A",
+        "por andalucia": "POR A",
+        "cs": "Cs",
+        "ciudadanos": "Cs",
+        "más madrid": "Más Madrid",
+        "mas madrid": "Más Madrid",
+        "compromís": "Compromís",
+        "compromis": "Compromís",
+        "cha": "CHA",
+        "par": "PAR",
+        "upe": "UpE",
+        "jxe": "JxE",
+        "hal dugu": "Ahal Dugu",
+        "ahal dugu": "Ahal Dugu",
+        "elkarrekin": "PODEMOS",
+        "smr": "OTROS",
+        "otros": "OTROS",
+        "ns/nr": None,
+        "diferencia": None,
+        "ventaja": None,
+        "dif.": None,
+        "dif": None,
+        "part.": None,
+        "participación": None,
+        "participacion": None,
     }
-    key = n.lower()
+    key = n.lower().strip()
     if key in equivalencias:
         mapped = equivalencias[key]
         return mapped if mapped is not None else n
+    # quitar prefijo de candidato: "Moreno PP" → "PP"
+    m = re.search(r"\b(PP|PSOE|VOX|PODEMOS|SALF|ERC|JUNTS|PNV|BNG|CCa|AA|UPN|Cs|PSC|PSE)\b", n, re.I)
+    if m:
+        return m.group(1).upper() if m.group(1).upper() in ("PP", "PSOE", "VOX", "PODEMOS", "SALF", "ERC", "JUNTS", "PNV", "BNG", "UPN", "CS", "PSC", "PSE") else m.group(1)
     return n.upper() if len(n) <= 5 else n
 
 
@@ -278,36 +317,71 @@ def parse_fecha_campo(txt: str, anio_defecto: int) -> tuple[date | None, date | 
 
 
 def header_partidos(table) -> list[str] | None:
-    """Devuelve lista de nombres de partido (columnas entre '% Voto' y 'Ventaja')."""
+    """Devuelve lista de nombres de partido (columnas de votos).
+
+    Compatible con dos formatos:
+    - Generales: Encuestadora | Trabajo de campo | Muestra | % Voto | partidos… | Ventaja
+    - Autonómicas: Encuestadora | Fecha | Muestra | partidos… | Diferencia/Ventaja
+    """
     row = table.find("tr")
     if not row:
         return None
     ths = row.find_all("th")
+    if not ths:
+        # algunas tablas usan td en la primera fila
+        ths = row.find_all("td")
     texts = [clean_text(th) for th in ths]
-    if not any("Encuestadora" in t for t in texts):
-        return None
-    if not any(t.startswith("%") or "Voto" in t for t in texts):
-        return None
-    if not any("Trabajo de campo" in t or "Fecha de muestra" in t for t in texts):
+    joined = " ".join(texts).lower()
+    if "encuestadora" not in joined and "encuestadora/medio" not in joined:
         return None
 
-    partidos: list[str] = []
-    dentro = False
-    for th, txt in zip(ths, texts):
-        if "% Voto" in txt or txt == "% Voto":
-            dentro = True
-            continue
-        if txt == "Ventaja":
+    # Columnas de metadatos (las 3 primeras típicamente)
+    # Buscar inicio de partidos: tras Muestra/Fecha
+    inicio = None
+    for i, t in enumerate(texts):
+        tl = t.lower()
+        if tl in ("muestra", "n", "sample") or "muestra" in tl:
+            inicio = i + 1
             break
-        if not dentro:
+    if inicio is None:
+        # fallback: tras la 3ª columna
+        inicio = 3
+
+    # Fin: columna de ventaja/diferencia
+    fin = len(texts)
+    for i in range(inicio, len(texts)):
+        tl = texts[i].lower()
+        if tl in ("ventaja", "vent.", "diferencia", "dif.", "dif", "mayoría", "mayoria"):
+            fin = i
+            break
+
+    partidos: list[str] = []
+    for th, txt in zip(ths[inicio:fin], texts[inicio:fin]):
+        # saltar % Voto si aparece intercalado
+        if txt.startswith("%") or txt in ("Voto", "% Voto", "Part.", "Participación", ""):
+            # intentar nombre desde img/a
+            nombre = _nombre_partido_th(th, txt)
+            if nombre and nombre not in ("", "???") and not nombre.startswith("%"):
+                # solo si parece partido (no metadato)
+                if nombre.lower() not in ("part.", "participación", "voto"):
+                    partidos.append(nombre)
             continue
         nombre = _nombre_partido_th(th, txt)
         partidos.append(nombre)
+
     if not partidos:
         return None
-    # Tablas de agregados por bloque (Derecha/Izquierda) — no sirven para series por partido
     norms = {norm_partido(p) for p in partidos}
-    if norms <= {"Derecha", "Izquierda"} or ("PP" not in norms and "PSOE" not in norms):
+    # Tablas de agregados por bloque (Derecha/Izquierda) — no sirven
+    if norms <= {"Derecha", "Izquierda"}:
+        return None
+    # Debe haber al menos un partido conocido o varios nombres plausibles
+    conocidos = {"PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF", "ERC", "JUNTS",
+                 "PNV", "BNG", "CCa", "AA", "UPN", "PSC", "PSE", "EAJ-PNV", "EH Bildu"}
+    if not (norms & conocidos) and len(partidos) < 3:
+        return None
+    # Rechazar si solo hay metadatos residual
+    if all(p.lower() in ("diferencia", "ventaja", "dif.", "dif", "otros", "ns/nr") for p in partidos):
         return None
     return partidos
 
@@ -353,14 +427,32 @@ def parse_tabla(table, anio_defecto: int) -> list[dict]:
         if all(c.name == "th" for c in celdas):
             continue
 
-        idx = 0
         nombre_raw = clean_text(celdas[0])
         if not nombre_raw or "Encuestadora" in nombre_raw:
             continue
+        # Fila de resultados electorales (sin encuestadora real)
+        if nombre_raw.lower().startswith(("resultados", "elecciones", "sondeo anterior")):
+            continue
+
         fecha_raw = clean_text(celdas[1]) if len(celdas) > 1 else ""
         muestra_raw = clean_text(celdas[2]) if len(celdas) > 2 else ""
-        # celdas[3] es '% Voto' (porcentaje de participación / censo) — se ignora
-        votos_celdas = celdas[4:]
+
+        # Detectar si hay columna '% Voto' (formato general) o no (autonómico)
+        # General: [enc, fecha, muestra, %voto, ...partidos]
+        # Autonómico: [enc, fecha, muestra, ...partidos]
+        tiene_pct_voto = False
+        if len(celdas) > 3:
+            c3 = clean_text(celdas[3])
+            if c3.startswith("%") or c3 in ("Voto", "% Voto"):
+                tiene_pct_voto = True
+            # también si la 4ª celda parece no-numérica y partidos empiezan en 4
+            # (autonómico: PP/PSOE en celdas[3])
+            elif c3 and not re.match(r"^[\d.,?\-–—\s%/]*$", c3) and not c3.startswith("?"):
+                # podría ser nombre de partido → autonómico
+                if norm_partido(c3) and len(c3) <= 30:
+                    tiene_pct_voto = False
+
+        votos_celdas = celdas[4:] if tiene_pct_voto else celdas[3:]
 
         votos: dict[str, float | None] = {}
         cursor = 0
@@ -389,6 +481,12 @@ def parse_tabla(table, anio_defecto: int) -> list[dict]:
             enc, com = [x.strip() for x in nombre_raw.split("/", 1)]
         else:
             enc, com = nombre_raw.strip(), ""
+
+        # Rechazar filas sin fecha válida o sin votos
+        if not f_fin:
+            continue
+        if all(v is None for v in votos.values()):
+            continue
 
         filas.append(
             {
