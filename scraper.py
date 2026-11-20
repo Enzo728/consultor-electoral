@@ -112,7 +112,7 @@ MUESTRA_MINIMA_AUT = 600
 # Vida media de la ponderación temporal: 7 días
 LAMBDA_DIAS = math.log(2) / 7.0
 
-PARTIDOS_PRINCIPALES = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
+PARTIDOS_PRINCIPALES = ["PP", "PSOE", "VOX", "FA", "PODEMOS", "SALF"]
 
 COLORES = {
     "PP": "#1E4B8F",
@@ -151,7 +151,9 @@ def norm_partido(nombre: str) -> str:
         "psc": "PSC",
         "fa": "FA",
         "frente amplio": "FA",
-        "sumar": "SUMAR",
+        "frente amplio (sumar)": "FA",
+        "sumar": "FA",  # 29-N: papeleta como Frente Amplio (FA); Sumar no va separado
+        "movimiento sumar": "FA",
         "podemos": "PODEMOS",
         "salf": "SALF",
         "se acabó la fiesta": "SALF",
@@ -528,7 +530,7 @@ def header_partidos(table) -> list[str] | None:
     if norms <= {"Derecha", "Izquierda"}:
         return None
     # Debe haber al menos un partido conocido o varios nombres plausibles
-    conocidos = {"PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF", "ERC", "JUNTS",
+    conocidos = {"PP", "PSOE", "VOX", "FA", "PODEMOS", "SALF", "ERC", "JUNTS",
                  "PNV", "BNG", "CCa", "AA", "UPN", "PSC", "PSE", "EAJ-PNV", "EH Bildu",
                  "Más Madrid", "Cs", "Compromís", "POR A", "CHA", "PAR", "UPL"}
     if not (norms & conocidos) and len(partidos) < 3:
@@ -561,7 +563,7 @@ def _partido_desde_fichero(href: str) -> str | None:
         (r"unidas podemos|podemos", "PODEMOS"),
         (r"m[áa]s madrid", "Más Madrid"),
         (r"ciudadanos|\bcs\b", "Cs"),
-        (r"sumar|comuns", "SUMAR"),
+        (r"sumar|comuns|frente amplio", "FA"),
         (r"vox", "VOX"),
         (r"bng", "BNG"),
         (r"pnv|eaj", "PNV"),
@@ -1335,8 +1337,11 @@ def medias_ponderadas(encuestas: list[dict], ref: date,
             if not (lo < dias <= hi):
                 continue
         w = peso_encuesta(e, ref)
-        for p, v in e["votos"].items():
+        for p_raw, v in e["votos"].items():
             if v is None:
+                continue
+            p = norm_partido(str(p_raw))
+            if not p:
                 continue
             num[p] = num.get(p, 0.0) + w * v
             den[p] = den.get(p, 0.0) + w
@@ -1346,8 +1351,11 @@ def medias_ponderadas(encuestas: list[dict], ref: date,
 def construir_evolucion(encuestas: list[dict]) -> list[dict]:
     puntos = []
     for e in encuestas:
-        for p, v in e["votos"].items():
+        for p_raw, v in e["votos"].items():
             if v is None:
+                continue
+            p = norm_partido(str(p_raw))
+            if not p:
                 continue
             puntos.append(
                 {

@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T13:39:32",
+  "actualizado": "2026-11-20T14:01:55",
   "filtros": {
     "excluir_cis": true,
     "muestra_minima": 600,
@@ -39,7 +39,7 @@
       "PP": 34.05,
       "PSOE": 28.58,
       "VOX": 18.97,
-      "SUMAR": 14.9,
+      "FA": 14.9,
       "PODEMOS": 3.3,
       "SALF": 2.7
     },
@@ -47,14 +47,14 @@
       "PP": 40.85,
       "PSOE": 27.34,
       "VOX": 9.68,
-      "SUMAR": 4.77,
+      "FA": 4.77,
       "BNG": 14.21
     },
     "paisvasco": {
       "PP": 12.6,
       "PSOE": 24.7,
       "VOX": 4.8,
-      "SUMAR": 4.0,
+      "FA": 4.0,
       "PODEMOS": 1.5,
       "PNV": 21.9
     },
@@ -70,7 +70,7 @@
       "PP": 34.5,
       "PSOE": 29.7,
       "VOX": 17.5,
-      "SUMAR": 5.4
+      "FA": 5.4
     },
     "extremadura": {}
   },
@@ -550,7 +550,7 @@
           "PP": 11.0,
           "PSOE": 29.0,
           "VOX": 12.8,
-          "SUMAR": 8.0,
+          "FA": 8.0,
           "PODEMOS": 3.5,
           "ERC": 17.7,
           "JUNTS": 10.8
@@ -574,7 +574,7 @@
           "PP": 13.1,
           "PSOE": 29.6,
           "VOX": 12.2,
-          "SUMAR": 6.0,
+          "FA": 6.0,
           "PODEMOS": 2.5,
           "ERC": 19.0,
           "JUNTS": 10.3
@@ -1982,7 +1982,7 @@
           "PP": 35.3,
           "PSOE": 25.7,
           "VOX": 22.4,
-          "SUMAR": 8.2,
+          "FA": 8.2,
           "PODEMOS": 3.3,
           "SALF": 2.7
         },
@@ -2005,7 +2005,7 @@
           "PP": 33.7,
           "PSOE": 29.4,
           "VOX": 18.0,
-          "SUMAR": 16.8
+          "FA": 16.8
         },
         "origen": "mapaelectoral",
         "ambito": "COMUNITAT VALENCIANA",
@@ -2028,7 +2028,7 @@
           "PP": 40.3,
           "PSOE": 26.7,
           "VOX": 8.5,
-          "SUMAR": 6.4,
+          "FA": 6.4,
           "BNG": 14.0
         },
         "origen": "mapaelectoral",
@@ -2050,7 +2050,7 @@
           "PP": 39.6,
           "PSOE": 27.8,
           "VOX": 10.5,
-          "SUMAR": 4.4,
+          "FA": 4.4,
           "BNG": 14.4
         },
         "origen": "mapaelectoral",
@@ -2072,7 +2072,7 @@
           "PP": 40.4,
           "PSOE": 27.1,
           "VOX": 10.3,
-          "SUMAR": 5.1,
+          "FA": 5.1,
           "BNG": 14.0
         },
         "origen": "mapaelectoral",
@@ -2918,7 +2918,7 @@
           "PP": 12.6,
           "PSOE": 24.7,
           "VOX": 4.8,
-          "SUMAR": 4.0,
+          "FA": 4.0,
           "PODEMOS": 1.5,
           "EH Bildu": 29.1,
           "PNV": 21.9
@@ -3597,7 +3597,7 @@
           "OTROS": 4.2,
           "PAR": null,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3622,7 +3622,7 @@
           "OTROS": 3.9,
           "PAR": null,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3647,7 +3647,7 @@
           "OTROS": 3.3,
           "PAR": 2.4,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 2.4
         },
         "origen": "wikipedia",
@@ -3672,7 +3672,7 @@
           "OTROS": 3.8,
           "PAR": 1.5,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 1.8
         },
         "origen": "wikipedia",
@@ -3697,7 +3697,7 @@
           "OTROS": 4.5,
           "PAR": 1.9,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 2.7
         },
         "origen": "wikipedia",
@@ -3722,7 +3722,7 @@
           "OTROS": 4.3,
           "PAR": 1.4,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 0.8
         },
         "origen": "wikipedia",
@@ -3747,7 +3747,7 @@
           "OTROS": 4.3,
           "PAR": 1.4,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 2.3
         },
         "origen": "wikipedia",
@@ -3772,7 +3772,7 @@
           "OTROS": 3.6,
           "PAR": 1.2,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3797,7 +3797,7 @@
           "OTROS": 4.5,
           "PAR": 1.2,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3822,7 +3822,7 @@
           "OTROS": 4.2,
           "PAR": 1.2,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 1.2
         },
         "origen": "wikipedia",
@@ -3847,7 +3847,7 @@
           "OTROS": 3.6,
           "PAR": 1.5,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3872,7 +3872,7 @@
           "OTROS": 4.5,
           "PAR": 1.8,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3897,7 +3897,7 @@
           "OTROS": 3.8,
           "PAR": 1.3,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3922,7 +3922,7 @@
           "OTROS": 4.2,
           "PAR": null,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3947,7 +3947,7 @@
           "OTROS": 3.3,
           "PAR": 1.5,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 3.2
         },
         "origen": "wikipedia",
@@ -3972,7 +3972,7 @@
           "OTROS": 3.1,
           "PAR": 1.7,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -3997,7 +3997,7 @@
           "OTROS": 3.4,
           "PAR": 2.0,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 1.6
         },
         "origen": "wikipedia",
@@ -4022,7 +4022,7 @@
           "OTROS": 3.5,
           "PAR": null,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4047,7 +4047,7 @@
           "OTROS": 4.5,
           "PAR": 1.5,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": 0.8
         },
         "origen": "wikipedia",
@@ -4072,7 +4072,7 @@
           "OTROS": 3.7,
           "PAR": 1.5,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4097,7 +4097,7 @@
           "OTROS": 3.6,
           "PAR": 1.7,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4122,7 +4122,7 @@
           "OTROS": 3.6,
           "PAR": 1.5,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4147,7 +4147,7 @@
           "OTROS": 2.2,
           "PAR": 1.7,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4172,7 +4172,7 @@
           "OTROS": null,
           "PAR": 1.5,
           "PODEMOS": 6.1,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4197,7 +4197,7 @@
           "OTROS": 3.7,
           "PAR": 1.5,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4222,7 +4222,7 @@
           "OTROS": 3.8,
           "PAR": 0.9,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4247,7 +4247,7 @@
           "OTROS": 5.3,
           "PAR": 1.7,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4272,7 +4272,7 @@
           "OTROS": 4.3,
           "PAR": 1.9,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4297,7 +4297,7 @@
           "OTROS": 4.2,
           "PAR": 1.1,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4322,7 +4322,7 @@
           "OTROS": 2.4,
           "PAR": 1.0,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4347,7 +4347,7 @@
           "OTROS": 2.5,
           "PAR": 1.4,
           "PODEMOS": null,
-          "SUMAR": 2.7,
+          "FA": 2.7,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4372,7 +4372,7 @@
           "OTROS": 3.6,
           "PAR": 1.4,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4397,7 +4397,7 @@
           "OTROS": 1.1,
           "PAR": 2.4,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4422,7 +4422,7 @@
           "OTROS": null,
           "PAR": null,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4447,7 +4447,7 @@
           "OTROS": 1.6,
           "PAR": 1.0,
           "PODEMOS": null,
-          "SUMAR": null,
+          "FA": null,
           "SALF": null
         },
         "origen": "wikipedia",
@@ -4466,7 +4466,7 @@
           "PP": 34.5,
           "PSOE": 29.7,
           "VOX": 17.5,
-          "SUMAR": 5.4
+          "FA": 5.4
         },
         "origen": "mapaelectoral",
         "ambito": "ARAGÓN",
@@ -4492,7 +4492,7 @@
           "UpE": 7.9,
           "JxE": 3.2,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.1
@@ -4513,7 +4513,7 @@
           "UpE": 9.5,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.53
@@ -4534,7 +4534,7 @@
           "UpE": 10.2,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.1
@@ -4555,7 +4555,7 @@
           "UpE": 7.8,
           "JxE": 2.9,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.5
@@ -4576,7 +4576,7 @@
           "UpE": 9.3,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.29
@@ -4597,7 +4597,7 @@
           "UpE": 8.7,
           "JxE": 1.5,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.1
@@ -4618,7 +4618,7 @@
           "UpE": 8.3,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.46
@@ -4639,7 +4639,7 @@
           "UpE": 10.0,
           "JxE": 3.0,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.98
@@ -4660,7 +4660,7 @@
           "UpE": 9.4,
           "JxE": 3.0,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.46
@@ -4681,7 +4681,7 @@
           "UpE": 8.0,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.69
@@ -4702,7 +4702,7 @@
           "UpE": 6.8,
           "JxE": 1.5,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.36
@@ -4723,7 +4723,7 @@
           "UpE": 7.9,
           "JxE": 3.9,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.95
@@ -4744,7 +4744,7 @@
           "UpE": 6.3,
           "JxE": 1.7,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.36
@@ -4765,7 +4765,7 @@
           "UpE": 7.9,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.97
@@ -4786,7 +4786,7 @@
           "UpE": 6.2,
           "JxE": 1.6,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.7
@@ -4807,7 +4807,7 @@
           "UpE": 6.5,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.57
@@ -4828,7 +4828,7 @@
           "UpE": 6.2,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.32
@@ -4849,7 +4849,7 @@
           "UpE": 6.0,
           "JxE": null,
           "Cs": 0.2,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.46
@@ -4870,7 +4870,7 @@
           "UpE": 1.4,
           "JxE": null,
           "Cs": 0.3,
-          "SUMAR": 4.5
+          "FA": 4.5
         },
         "origen": "wikipedia",
         "moe_pp": 2.72
@@ -4891,7 +4891,7 @@
           "UpE": 2.0,
           "JxE": null,
           "Cs": 0.3,
-          "SUMAR": 3.2
+          "FA": 3.2
         },
         "origen": "wikipedia",
         "moe_pp": 2.72
@@ -4912,7 +4912,7 @@
           "UpE": 6.6,
           "JxE": 3.1,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.06
@@ -4933,7 +4933,7 @@
           "UpE": 2.4,
           "JxE": null,
           "Cs": null,
-          "SUMAR": 2.9
+          "FA": 2.9
         },
         "origen": "wikipedia",
         "moe_pp": 3.1
@@ -4954,7 +4954,7 @@
           "UpE": 0.9,
           "JxE": 2.0,
           "Cs": 1.0,
-          "SUMAR": 5.0
+          "FA": 5.0
         },
         "origen": "wikipedia",
         "moe_pp": 2.72
@@ -4975,7 +4975,7 @@
           "UpE": 5.2,
           "JxE": 2.7,
           "Cs": 0.9,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 3.1
@@ -4996,7 +4996,7 @@
           "UpE": 4.6,
           "JxE": null,
           "Cs": null,
-          "SUMAR": null
+          "FA": null
         },
         "origen": "wikipedia",
         "moe_pp": 2.53

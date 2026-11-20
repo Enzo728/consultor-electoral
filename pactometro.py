@@ -55,12 +55,12 @@ ORDEN_HEMICICLO = [
 REGIONALISTAS = [
     "ERC", "JUNTS", "EH Bildu", "PNV", "BNG", "CCa", "UPN", "AA", "C-FV", "AC",
 ]
-NACIONALES = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
+NACIONALES = ["PP", "PSOE", "VOX", "FA", "PODEMOS", "SALF"]
 
 BLOQUES: dict[str, list[str]] = {
     "Bloque Derecha (PP+VOX+UPN)": ["PP", "VOX", "UPN"],
     "Investidura Progresista/Plurinacional": [
-        "PSOE", "FA", "SUMAR", "PODEMOS",
+        "PSOE", "FA", "PODEMOS",
         "ERC", "JUNTS", "EH Bildu", "PNV", "BNG", "CCa", "AA", "C-FV",
     ],
     "Gran Coalición (PP+PSOE)": ["PP", "PSOE"],
@@ -69,7 +69,7 @@ BLOQUES: dict[str, list[str]] = {
     "PP + VOX + C-FV": ["PP", "VOX", "C-FV"],
     "PP + PSOE + UPN": ["PP", "PSOE", "UPN"],
     "Izquierda sin regionalistas (PSOE+FA+PODEMOS)": [
-        "PSOE", "FA", "SUMAR", "PODEMOS",
+        "PSOE", "FA", "PODEMOS",
     ],
     "Derecha + Junts + PNV": ["PP", "VOX", "JUNTS", "PNV", "UPN"],
 }

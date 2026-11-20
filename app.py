@@ -23,7 +23,7 @@ INFORME_PATH = BASE_DIR / "data" / "informe_ia.json"
 HIST_PATH = BASE_DIR / "data" / "historico_diario.json"
 ENC_AUT_PATH = BASE_DIR / "data" / "encuestas_autonomicas.json"
 
-PARTIDOS_KPI = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
+PARTIDOS_KPI = ["PP", "PSOE", "VOX", "FA", "PODEMOS", "SALF"]
 
 # Mapa de momentum → etiqueta ultra-corta (máx. 2 palabras)
 ESTADO_CORTO = {

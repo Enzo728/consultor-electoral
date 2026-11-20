@@ -18,7 +18,7 @@ ENCUESTAS_PATH = DATA_DIR / "encuestas_limpias.json"
 INFORME_PATH = DATA_DIR / "informe_ia.json"
 
 MODELO = "gemini-3.5-flash"  # gemini-2.5-flash retirado para cuentas nuevas
-PARTIDOS_CLAVE = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
+PARTIDOS_CLAVE = ["PP", "PSOE", "VOX", "FA", "PODEMOS", "SALF"]
 
 
 def get_client() -> genai.Client:
@@ -124,7 +124,7 @@ def construir_prompt(resumen: dict) -> str:
     "situacion": "estado actual de la campaña en 4-6 frases",
     "tendencia_bloques": {
       "derecha_PP_VOX": "tendencia del bloque derecha",
-      "izquierda_PSOE_FA_SUMAR_PODEMOS": "tendencia del bloque izquierda",
+      "izquierda_PSOE_FA_PODEMOS": "tendencia del bloque izquierda",
       "otras_fuerzas": "regionalistas, SALF y demás"
     },
     "momento_clave": "si la campaña está en recta final, meseta, volatilización..."

@@ -51,7 +51,7 @@ COLORES = {
 
 # Orden L→R (mismo criterio que el hemiciclo del Congreso)
 ORDEN = [
-    "PODEMOS", "FA", "SUMAR", "PSOE",
+    "PODEMOS", "FA", "PSOE",
     "ERC", "JUNTS", "EH Bildu", "PNV", "BNG", "CCa", "AA", "C-FV", "UPN",
     "PP", "VOX", "SALF",
 ]
@@ -73,11 +73,11 @@ assert sum(DESIGNACION_BASE.values()) == N_DESIGNADOS
 
 BLOQUES_SENADO: dict[str, list[str]] = {
     "PP + VOX + UPN": ["PP", "VOX", "UPN"],
-    "PSOE + regionalistas": ["PSOE", "FA", "SUMAR", "PODEMOS", "ERC", "JUNTS", "EH Bildu", "PNV", "BNG", "CCa", "AA", "C-FV"],
+    "PSOE + regionalistas": ["PSOE", "FA", "PODEMOS", "ERC", "JUNTS", "EH Bildu", "PNV", "BNG", "CCa", "AA", "C-FV"],
     "Gran Coalición": ["PP", "PSOE"],
     "PP + VOX + Junts": ["PP", "VOX", "JUNTS"],
     "PP + VOX + PNV": ["PP", "VOX", "PNV"],
-    "Izquierda": ["PSOE", "FA", "SUMAR", "PODEMOS"],
+    "Izquierda": ["PSOE", "FA", "PODEMOS"],
 }
 
 

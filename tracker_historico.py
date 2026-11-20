@@ -24,7 +24,7 @@ HIST_PATH = DATA_DIR / "historico_diario.json"
 ENCUESTAS_PATH = DATA_DIR / "encuestas_limpias.json"
 ENC_AUT_PATH = DATA_DIR / "encuestas_autonomicas.json"
 
-PARTIDOS_MOMENTUM = ["PP", "PSOE", "VOX", "FA", "SUMAR", "PODEMOS", "SALF"]
+PARTIDOS_MOMENTUM = ["PP", "PSOE", "VOX", "FA", "PODEMOS", "SALF"]
 
 # Umbrales de clasificación de momentum (pp, media 7d vs 14d previas)
 UMBRAL_FUERTE = 1.0
