@@ -80,13 +80,29 @@ def resumen_para_ia(datos: dict) -> dict:
                 "fecha_fin": e.get("fecha_fin"),
                 "trabajo_campo": e.get("trabajo_campo"),
                 "muestra": e.get("muestra"),
+                "moe_pp": e.get("moe_pp"),
+                "origen": e.get("origen"),
                 "votos": votos,
+            }
+        )
+
+    fuentes_meta = []
+    for f in datos.get("fuentes") or []:
+        st = f.get("stats") or {}
+        fuentes_meta.append(
+            {
+                "id": f.get("id"),
+                "nombre": f.get("nombre"),
+                "encuestas": st.get("encuestas_incluidas", st.get("encuestas")),
+                "error": st.get("error"),
             }
         )
 
     return {
         "actualizado": datos.get("actualizado"),
         "filtros": datos.get("filtros"),
+        "fuentes": fuentes_meta,
+        "auditoria_fuentes": datos.get("auditoria_fuentes"),
         "medias_global": medias,
         "medias_actual_14d": act,
         "medias_sem_anterior": ant,
@@ -127,14 +143,24 @@ def construir_prompt(resumen: dict) -> str:
       {"encuestadora": "...", "partido": "...", "desviacion_pp": 0.0, "lectura": "posible house effect / alineación ideológica / muestra"}
     ],
     "alertas": ["encuesta atípica, outlier, cambio brusco sin respaldo..."],
-    "nota_metodologica": "1-2 frases sobre calidad de la muestra y exclusiones (CIS fuera, n>=800)"
+    "nota_metodologica": "1-2 frases sobre calidad de la muestra y exclusiones (CIS fuera, n>=800)",
+    "verificacion_aproximacion": {
+      "coherencia_entre_fuentes": "OK | alerta — ¿las fuentes coinciden en las últimas encuestas?",
+      "moe_y_dispersion": "¿la media 14d es consistente con moe_pp y la dispersión (desv_estandar) de los datos?",
+      "fuentes_con_error_o_hueco": ["id de fuente con error o sin encuestas"],
+      "pares_cross_source_revisados": "si hay pares con max_dif_pp alto, señalarlo; si max_dif_pp bajo, dar por buena la deduplicación",
+      "confianza": "alta | media | baja",
+      "justificacion_confianza": "1-2 frases basadas SOLO en los números de auditoria_fuentes y moe_pp"
+    }
   },
-  "markdown": "Informe completo en Markdown con encabezados ## Progreso de campaña, ## Puntos de inflexión, ## Auditoría de dispersión, ## Conclusión"
+  "markdown": "Informe completo en Markdown con encabezados ## Progreso de campaña, ## Puntos de inflexión, ## Auditoría de dispersión, ## Verificación de aproximación, ## Conclusión"
 }
 """
     cabecera = (
         'Eres "Consultor Electoral España", un analista senior de encuestas. '
         "Analiza ÚNICAMENTE los datos proporcionados (no inventes cifras). "
+        "En auditoria_fuentes.verificacion_aproximacion usa solo moe_pp, "
+        "dispersion_14d_top, pares_cross_source y los errores de fuentes del JSON. "
         "Devuelve SOLO un objeto JSON válido con esta estructura exacta:\n"
     )
     return cabecera + esquema + "\nDATOS:\n" + json.dumps(resumen, ensure_ascii=False, indent=1)
@@ -188,6 +214,14 @@ def generar_informe(client: genai.Client | None = None, datos: dict | None = Non
         "medias_actual_14d": resumen.get("medias_actual_14d"),
         "deltas_semana": resumen.get("deltas_semana"),
         "n_encuestas": resumen.get("n_encuestas_incluidas"),
+        "fuentes": resumen.get("fuentes"),
+        "auditoria_fuentes": {
+            k: resumen.get("auditoria_fuentes", {}).get(k)
+            for k in (
+                "por_fuente", "moe_medio_pp", "n_pares_cross_source",
+                "cross_source_max_dif_pp", "house_effect_medio_pp",
+            )
+        },
     }
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)

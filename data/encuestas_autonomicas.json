@@ -1,11 +1,29 @@
 {
-  "actualizado": "2026-11-20T13:02:25",
+  "actualizado": "2026-11-20T13:39:32",
   "filtros": {
     "excluir_cis": true,
     "muestra_minima": 600,
     "lambda_ponderacion": 0.09902,
     "meses_vida": 6
   },
+  "fuentes": [
+    {
+      "id": "wikipedia",
+      "nombre": "Wikipedia ES"
+    },
+    {
+      "id": "mapaelectoral",
+      "nombre": "MapaElectoral",
+      "stats": {
+        "fuente": "https://mapaelectoral.es/previsiones/datos/encuestas/encuestas_limpias.csv",
+        "filas": 1265,
+        "encuestas": 132,
+        "error": null,
+        "nacional": 119,
+        "autonomicas": 13
+      }
+    }
+  ],
   "medias": {
     "madrid": {},
     "cataluna": {
@@ -17,9 +35,29 @@
       "FA": 5.9
     },
     "andalucia": {},
-    "cvalenciana": {},
-    "galicia": {},
-    "paisvasco": {},
+    "cvalenciana": {
+      "PP": 34.05,
+      "PSOE": 28.58,
+      "VOX": 18.97,
+      "SUMAR": 14.9,
+      "PODEMOS": 3.3,
+      "SALF": 2.7
+    },
+    "galicia": {
+      "PP": 40.85,
+      "PSOE": 27.34,
+      "VOX": 9.68,
+      "SUMAR": 4.77,
+      "BNG": 14.21
+    },
+    "paisvasco": {
+      "PP": 12.6,
+      "PSOE": 24.7,
+      "VOX": 4.8,
+      "SUMAR": 4.0,
+      "PODEMOS": 1.5,
+      "PNV": 21.9
+    },
     "cyl": {
       "PP": 37.8,
       "PSOE": 29.6,
@@ -28,7 +66,12 @@
       "UPL": 5.0
     },
     "clm": {},
-    "aragon": {},
+    "aragon": {
+      "PP": 34.5,
+      "PSOE": 29.7,
+      "VOX": 17.5,
+      "SUMAR": 5.4
+    },
     "extremadura": {}
   },
   "encuestas": {
@@ -53,7 +96,9 @@
           "OTROS": 16.7,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.07
       },
       {
         "encuestadora": "GESOP",
@@ -74,7 +119,9 @@
           "OTROS": 16.8,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "GESOP",
@@ -95,7 +142,9 @@
           "OTROS": 15.1,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "Sigma Dos",
@@ -116,7 +165,9 @@
           "OTROS": 13.8,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.43
       },
       {
         "encuestadora": "EM-Analytics",
@@ -137,7 +188,9 @@
           "OTROS": 14.3,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "YouGov",
@@ -158,7 +211,9 @@
           "OTROS": 20.0,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.66
       },
       {
         "encuestadora": "EM-Analytics",
@@ -179,7 +234,9 @@
           "OTROS": 12.4,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "Opinòmetre",
@@ -200,7 +257,9 @@
           "OTROS": 12.4,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "Ipsos",
@@ -221,7 +280,9 @@
           "OTROS": 11.9,
           "PODEMOS": 1.1,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "Sigma Dos",
@@ -242,7 +303,9 @@
           "OTROS": 9.8,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.54
       },
       {
         "encuestadora": "Vox",
@@ -263,7 +326,9 @@
           "OTROS": 6.0,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Opinòmetre",
@@ -284,7 +349,9 @@
           "OTROS": 7.6,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "The Objective",
@@ -305,7 +372,9 @@
           "OTROS": 6.3,
           "PODEMOS": null,
           "SALF": 1.1
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Opinòmetre",
@@ -326,7 +395,9 @@
           "OTROS": 6.2,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "GESOP",
@@ -347,7 +418,9 @@
           "OTROS": 5.7,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "NC Report",
@@ -368,7 +441,9 @@
           "OTROS": 4.0,
           "PODEMOS": 2.2,
           "SALF": 2.1
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Hamalgama Métrica",
@@ -389,7 +464,9 @@
           "OTROS": 3.9,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Demoscopia y Servicios",
@@ -410,7 +487,9 @@
           "OTROS": 4.0,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "EM-Analytics",
@@ -431,7 +510,9 @@
           "OTROS": 4.5,
           "PODEMOS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.89
       },
       {
         "encuestadora": "NC Report",
@@ -452,7 +533,57 @@
           "OTROS": 4.1,
           "PODEMOS": null,
           "SALF": 2.4
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
+      },
+      {
+        "encuestadora": "Ceo",
+        "comisionista": "n/a",
+        "fuente_nombre": "Ceo/n/a",
+        "trabajo_campo": "2026-05-21 → 2026-06-25",
+        "fecha_inicio": "2026-05-21",
+        "fecha_fin": "2026-06-25",
+        "muestra": 2000,
+        "muestra_raw": "2000",
+        "votos": {
+          "PP": 11.0,
+          "PSOE": 29.0,
+          "VOX": 12.8,
+          "SUMAR": 8.0,
+          "PODEMOS": 3.5,
+          "ERC": 17.7,
+          "JUNTS": 10.8
+        },
+        "origen": "mapaelectoral",
+        "ambito": "CATALUÑA",
+        "ccaa_id": "cataluna",
+        "url_fuente": "https://www.electografica.com/2026/07/cataluna-generales-encuesta-ceo-260709.html",
+        "moe_pp": 2.19
+      },
+      {
+        "encuestadora": "Ceo",
+        "comisionista": "n/a",
+        "fuente_nombre": "Ceo/n/a",
+        "trabajo_campo": "2026-09-01 → 2026-10-05",
+        "fecha_inicio": "2026-09-01",
+        "fecha_fin": "2026-10-05",
+        "muestra": 2000,
+        "muestra_raw": "2000",
+        "votos": {
+          "PP": 13.1,
+          "PSOE": 29.6,
+          "VOX": 12.2,
+          "SUMAR": 6.0,
+          "PODEMOS": 2.5,
+          "ERC": 19.0,
+          "JUNTS": 10.3
+        },
+        "origen": "mapaelectoral",
+        "ambito": "CATALUÑA",
+        "ccaa_id": "cataluna",
+        "url_fuente": "https://www.electografica.com/2026/10/cataluna-generales-encuesta-ceo-261014.html",
+        "moe_pp": 2.19
       }
     ],
     "andalucia": [
@@ -475,7 +606,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "Sigma Dos",
@@ -496,7 +629,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.03
       },
       {
         "encuestadora": "Data10",
@@ -517,7 +652,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "SocioMétrica",
@@ -538,7 +675,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 3.0
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "Target Point",
@@ -559,7 +698,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.84
       },
       {
         "encuestadora": "Sigma Dos",
@@ -580,7 +721,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.16
       },
       {
         "encuestadora": "IMOP",
@@ -601,7 +744,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.0
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.52
       },
       {
         "encuestadora": "NC Report",
@@ -622,7 +767,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "GAD3",
@@ -643,7 +790,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.9
       },
       {
         "encuestadora": "40dB",
@@ -664,7 +813,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.9
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "Hamalgama Métrica",
@@ -685,7 +836,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "GESOP",
@@ -706,7 +859,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "EM-Analytics",
@@ -727,7 +882,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.8
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.51
       },
       {
         "encuestadora": "SocioMétrica",
@@ -748,7 +905,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.9
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "Commentia",
@@ -769,7 +928,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.0
       },
       {
         "encuestadora": "EM-Analytics",
@@ -790,7 +951,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.22
       },
       {
         "encuestadora": "Target Point",
@@ -811,7 +974,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.09
       },
       {
         "encuestadora": "Sigma Dos",
@@ -832,7 +997,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.2
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.44
       },
       {
         "encuestadora": "GAD3",
@@ -853,7 +1020,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "CENTRA",
@@ -874,7 +1043,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.1
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "EM-Analytics",
@@ -895,7 +1066,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.46
       },
       {
         "encuestadora": "IMOP",
@@ -916,7 +1089,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.6
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.02
       },
       {
         "encuestadora": "Sigma Dos",
@@ -937,7 +1112,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.2
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.45
       },
       {
         "encuestadora": "EM-Analytics",
@@ -958,7 +1135,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.04
       },
       {
         "encuestadora": "Target Point",
@@ -979,7 +1158,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.09
       },
       {
         "encuestadora": "SocioMétrica",
@@ -1000,7 +1181,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.0
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "GAD3",
@@ -1021,7 +1204,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "NC Report",
@@ -1042,7 +1227,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Data10",
@@ -1063,7 +1250,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "EM-Analytics",
@@ -1084,7 +1273,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.81
       },
       {
         "encuestadora": "GESOP",
@@ -1105,7 +1296,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.8
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "Sigma Dos",
@@ -1126,7 +1319,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 1.2
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.63
       },
       {
         "encuestadora": "Social Data",
@@ -1147,7 +1342,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.0
       },
       {
         "encuestadora": "CENTRA",
@@ -1168,7 +1365,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "SocioMétrica",
@@ -1189,7 +1388,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "NC Report",
@@ -1210,7 +1411,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "CENTRA",
@@ -1231,7 +1434,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1252,7 +1457,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "GAD3",
@@ -1273,7 +1480,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "EM-Analytics",
@@ -1294,7 +1503,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.45
       },
       {
         "encuestadora": "CENTRA",
@@ -1315,7 +1526,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "SocioMétrica",
@@ -1336,7 +1549,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "Sigma Dos",
@@ -1357,7 +1572,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.5
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.56
       },
       {
         "encuestadora": "NC Report",
@@ -1378,7 +1595,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.8
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Sigma Dos",
@@ -1399,7 +1618,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.62
       },
       {
         "encuestadora": "CENTRA",
@@ -1420,7 +1641,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 3.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "Social Data",
@@ -1441,7 +1664,9 @@
           "PODEMOS": 1.9,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.0
       },
       {
         "encuestadora": "Data10",
@@ -1462,7 +1687,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "CENTRA",
@@ -1483,7 +1710,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1504,7 +1733,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": 2.4
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1525,7 +1756,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1546,7 +1779,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1567,7 +1802,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1588,7 +1825,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1609,7 +1848,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "EM-Analytics",
@@ -1630,7 +1871,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.35
       },
       {
         "encuestadora": "CENTRA",
@@ -1651,7 +1894,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1672,7 +1917,9 @@
           "PODEMOS": null,
           "OTROS": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.63
       },
       {
         "encuestadora": "CENTRA",
@@ -1693,7 +1940,9 @@
           "Adrián Yacar López (aún no redactado)": null,
           "OTROS": 2.6,
           "NS/NR": 5.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.1
       },
       {
         "encuestadora": "SocioMétrica",
@@ -1714,11 +1963,188 @@
           "Adrián Yacar López (aún no redactado)": null,
           "OTROS": 2.7,
           "NS/NR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.95
       }
     ],
-    "cvalenciana": [],
-    "galicia": [],
+    "cvalenciana": [
+      {
+        "encuestadora": "SocioMétrica",
+        "comisionista": "El Español",
+        "fuente_nombre": "SocioMétrica/El Español",
+        "trabajo_campo": "2026-10-01 → 2026-10-07",
+        "fecha_inicio": "2026-10-01",
+        "fecha_fin": "2026-10-07",
+        "muestra": 1100,
+        "muestra_raw": "1100",
+        "votos": {
+          "PP": 35.3,
+          "PSOE": 25.7,
+          "VOX": 22.4,
+          "SUMAR": 8.2,
+          "PODEMOS": 3.3,
+          "SALF": 2.7
+        },
+        "origen": "mapaelectoral",
+        "ambito": "COMUNITAT VALENCIANA",
+        "ccaa_id": "cvalenciana",
+        "url_fuente": "https://www.electografica.com/2026/10/comunitat-valenciana-generales-encuesta-sociometrica-261008.html",
+        "moe_pp": 2.95
+      },
+      {
+        "encuestadora": "SyM Consulting",
+        "comisionista": "El Periódico de Aquí",
+        "fuente_nombre": "SyM Consulting/El Periódico de Aquí",
+        "trabajo_campo": "2026-10-06 → 2026-10-16",
+        "fecha_inicio": "2026-10-06",
+        "fecha_fin": "2026-10-16",
+        "muestra": 2298,
+        "muestra_raw": "2298",
+        "votos": {
+          "PP": 33.7,
+          "PSOE": 29.4,
+          "VOX": 18.0,
+          "SUMAR": 16.8
+        },
+        "origen": "mapaelectoral",
+        "ambito": "COMUNITAT VALENCIANA",
+        "ccaa_id": "cvalenciana",
+        "url_fuente": "https://www.electografica.com/2026/10/comunitat-valenciana-generales-encuesta-sym-consulting-261030.html",
+        "moe_pp": 2.04
+      }
+    ],
+    "galicia": [
+      {
+        "encuestadora": "Sondaxe",
+        "comisionista": "La Voz de Galicia",
+        "fuente_nombre": "Sondaxe/La Voz de Galicia",
+        "trabajo_campo": "2026-09-09 → 2026-09-24",
+        "fecha_inicio": "2026-09-09",
+        "fecha_fin": "2026-09-24",
+        "muestra": 1223,
+        "muestra_raw": "1223",
+        "votos": {
+          "PP": 40.3,
+          "PSOE": 26.7,
+          "VOX": 8.5,
+          "SUMAR": 6.4,
+          "BNG": 14.0
+        },
+        "origen": "mapaelectoral",
+        "ambito": "GALICIA",
+        "ccaa_id": "galicia",
+        "url_fuente": "https://www.electografica.com/2026/09/galicia-generales-encuesta-sondaxe-260927.html",
+        "moe_pp": 2.8
+      },
+      {
+        "encuestadora": "Sondaxe",
+        "comisionista": "La Voz de Galicia",
+        "fuente_nombre": "Sondaxe/La Voz de Galicia",
+        "trabajo_campo": "2026-11-09 → 2026-11-13",
+        "fecha_inicio": "2026-11-09",
+        "fecha_fin": "2026-11-13",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 39.6,
+          "PSOE": 27.8,
+          "VOX": 10.5,
+          "SUMAR": 4.4,
+          "BNG": 14.4
+        },
+        "origen": "mapaelectoral",
+        "ambito": "GALICIA",
+        "ccaa_id": "galicia",
+        "url_fuente": "https://www.electografica.com/2026/11/galicia-generales-encuesta-sondaxe-261115.html",
+        "moe_pp": 2.83
+      },
+      {
+        "encuestadora": "Sondaxe",
+        "comisionista": "La Voz de Galicia",
+        "fuente_nombre": "Sondaxe/La Voz de Galicia",
+        "trabajo_campo": "2026-11-10 → 2026-11-14",
+        "fecha_inicio": "2026-11-10",
+        "fecha_fin": "2026-11-14",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 40.4,
+          "PSOE": 27.1,
+          "VOX": 10.3,
+          "SUMAR": 5.1,
+          "BNG": 14.0
+        },
+        "origen": "mapaelectoral",
+        "ambito": "GALICIA",
+        "ccaa_id": "galicia",
+        "url_fuente": "https://www.electografica.com/2026/11/galicia-generales-encuesta-sondaxe-261116.html",
+        "moe_pp": 2.83
+      },
+      {
+        "encuestadora": "Sondaxe",
+        "comisionista": "La Voz de Galicia",
+        "fuente_nombre": "Sondaxe/La Voz de Galicia",
+        "trabajo_campo": "2026-11-11 → 2026-11-15",
+        "fecha_inicio": "2026-11-11",
+        "fecha_fin": "2026-11-15",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 41.1,
+          "PSOE": 27.9,
+          "VOX": 9.5,
+          "BNG": 13.7
+        },
+        "origen": "mapaelectoral",
+        "ambito": "GALICIA",
+        "ccaa_id": "galicia",
+        "url_fuente": "https://www.electografica.com/2026/11/galicia-generales-encuesta-sondaxe-261117.html",
+        "moe_pp": 2.83
+      },
+      {
+        "encuestadora": "Sondaxe",
+        "comisionista": "La Voz de Galicia",
+        "fuente_nombre": "Sondaxe/La Voz de Galicia",
+        "trabajo_campo": "2026-11-12 → 2026-11-16",
+        "fecha_inicio": "2026-11-12",
+        "fecha_fin": "2026-11-16",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 41.2,
+          "PSOE": 27.5,
+          "VOX": 9.8,
+          "BNG": 13.5
+        },
+        "origen": "mapaelectoral",
+        "ambito": "GALICIA",
+        "ccaa_id": "galicia",
+        "url_fuente": "https://www.electografica.com/2026/11/galicia-generales-encuesta-sondaxe-261118.html",
+        "moe_pp": 2.83
+      },
+      {
+        "encuestadora": "Sondaxe",
+        "comisionista": "La Voz de Galicia",
+        "fuente_nombre": "Sondaxe/La Voz de Galicia",
+        "trabajo_campo": "2026-11-13 → 2026-11-17",
+        "fecha_inicio": "2026-11-13",
+        "fecha_fin": "2026-11-17",
+        "muestra": 1200,
+        "muestra_raw": "1200",
+        "votos": {
+          "PP": 41.5,
+          "PSOE": 26.6,
+          "VOX": 8.7,
+          "BNG": 15.3
+        },
+        "origen": "mapaelectoral",
+        "ambito": "GALICIA",
+        "ccaa_id": "galicia",
+        "url_fuente": "https://www.electografica.com/2026/11/galicia-generales-encuesta-sondaxe-261119.html",
+        "moe_pp": 2.83
+      }
+    ],
     "paisvasco": [
       {
         "encuestadora": "Data10",
@@ -1739,7 +2165,9 @@
           "VOX": 8.4,
           "Cs": 2.3,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "ElectoPanel",
@@ -1760,7 +2188,9 @@
           "VOX": 9.1,
           "Cs": 2.0,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.63
       },
       {
         "encuestadora": "Sociométrica",
@@ -1781,7 +2211,9 @@
           "VOX": 8.1,
           "Cs": 2.0,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "DYM",
@@ -1802,7 +2234,9 @@
           "VOX": 9.6,
           "Cs": null,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.8
       },
       {
         "encuestadora": "Sigma Dos",
@@ -1823,7 +2257,9 @@
           "VOX": 8.5,
           "Cs": 2.4,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.54
       },
       {
         "encuestadora": "Hamalgama",
@@ -1844,7 +2280,9 @@
           "VOX": 8.3,
           "Cs": 2.3,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "GAD3",
@@ -1865,7 +2303,9 @@
           "VOX": 7.5,
           "Cs": 2.2,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "40db",
@@ -1886,7 +2326,9 @@
           "VOX": 8.2,
           "Cs": 1.9,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "Target Point",
@@ -1907,7 +2349,9 @@
           "VOX": 8.3,
           "Cs": 1.7,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Gizaker",
@@ -1928,7 +2372,9 @@
           "VOX": 7.7,
           "Cs": 1.5,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.31
       },
       {
         "encuestadora": "Simple Lógica",
@@ -1949,7 +2395,9 @@
           "VOX": 7.8,
           "Cs": 2.0,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.19
       },
       {
         "encuestadora": "GAD3",
@@ -1970,7 +2418,9 @@
           "VOX": 7.8,
           "Cs": 0.0,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "Data10",
@@ -1991,7 +2441,9 @@
           "VOX": 8.7,
           "Cs": 2.2,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "NC Report",
@@ -2012,7 +2464,9 @@
           "VOX": 8.6,
           "Cs": 1.7,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Sigma Dos",
@@ -2033,7 +2487,9 @@
           "VOX": 9.8,
           "Cs": 2.1,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.14
       },
       {
         "encuestadora": "Aztiker",
@@ -2054,7 +2510,9 @@
           "VOX": 8.5,
           "Cs": 2.2,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.31
       },
       {
         "encuestadora": "Em-analytics",
@@ -2075,7 +2533,9 @@
           "VOX": 8.6,
           "Cs": 2.3,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.63
       },
       {
         "encuestadora": "Sigma Dos",
@@ -2096,7 +2556,9 @@
           "VOX": 10.0,
           "Cs": 1.8,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.31
       },
       {
         "encuestadora": "Sociómetro",
@@ -2117,7 +2579,9 @@
           "VOX": 7.5,
           "Cs": 1.9,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.78
       },
       {
         "encuestadora": "40dB",
@@ -2138,7 +2602,9 @@
           "VOX": 8.1,
           "Cs": 2.1,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "EITB",
@@ -2159,7 +2625,9 @@
           "VOX": 8.3,
           "Cs": 1.4,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.31
       },
       {
         "encuestadora": "Electomanía",
@@ -2180,7 +2648,9 @@
           "VOX": 9.0,
           "Cs": 2.5,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.72
       },
       {
         "encuestadora": "Electomanía",
@@ -2201,7 +2671,9 @@
           "VOX": 8.9,
           "Cs": 2.6,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.73
       },
       {
         "encuestadora": "Ikerfel",
@@ -2222,7 +2694,9 @@
           "VOX": 7.7,
           "Cs": 2.5,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.78
       },
       {
         "encuestadora": "Ikerfel",
@@ -2243,7 +2717,9 @@
           "VOX": 7.2,
           "Cs": 1.6,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.0
       },
       {
         "encuestadora": "Gizaker",
@@ -2264,7 +2740,9 @@
           "VOX": 7.3,
           "Cs": 1.6,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.31
       },
       {
         "encuestadora": "SigmaDos",
@@ -2285,7 +2763,9 @@
           "VOX": 8.3,
           "Cs": 1.3,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "ElectoPanel",
@@ -2306,7 +2786,9 @@
           "VOX": 9.6,
           "Cs": 2.5,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.56
       },
       {
         "encuestadora": "Hamalgama Métrica",
@@ -2327,7 +2809,9 @@
           "VOX": null,
           "Cs": 2.89,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Sociómetro",
@@ -2348,7 +2832,9 @@
           "VOX": null,
           "Cs": 2.7,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.7
       },
       {
         "encuestadora": "Sociómetro",
@@ -2369,7 +2855,9 @@
           "VOX": null,
           "Cs": 2.2,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.7
       },
       {
         "encuestadora": "Sociómetro",
@@ -2390,7 +2878,9 @@
           "VOX": 6.9,
           "Cs": 1.9,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.7
       },
       {
         "encuestadora": "Sociómetro",
@@ -2411,7 +2901,33 @@
           "VOX": 7.7,
           "Cs": 1.7,
           "Elkarrekin-Sumar": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.7
+      },
+      {
+        "encuestadora": "Ikerfel",
+        "comisionista": "n/a",
+        "fuente_nombre": "Ikerfel/n/a",
+        "trabajo_campo": "2026-10-20 → 2026-10-23",
+        "fecha_inicio": "2026-10-20",
+        "fecha_fin": "2026-10-23",
+        "muestra": 3485,
+        "muestra_raw": "3485",
+        "votos": {
+          "PP": 12.6,
+          "PSOE": 24.7,
+          "VOX": 4.8,
+          "SUMAR": 4.0,
+          "PODEMOS": 1.5,
+          "EH Bildu": 29.1,
+          "PNV": 21.9
+        },
+        "origen": "mapaelectoral",
+        "ambito": "PAÍS VASCO",
+        "ccaa_id": "paisvasco",
+        "url_fuente": "https://www.electografica.com/2026/10/pais-vasco-generales-encuesta-ikerfel-261030.html",
+        "moe_pp": 1.66
       }
     ],
     "cyl": [
@@ -2434,7 +2950,9 @@
           "UPL": 5.5,
           "Soria Ya": 1.2,
           "SALF": 2.4
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Celeste-Tel",
@@ -2455,7 +2973,9 @@
           "UPL": 5.3,
           "Soria Ya": 1.0,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.95
       },
       {
         "encuestadora": "Data10",
@@ -2476,7 +2996,9 @@
           "UPL": 5.4,
           "Soria Ya": 1.1,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "SocioMétrica",
@@ -2497,7 +3019,9 @@
           "UPL": 4.8,
           "Soria Ya": 1.1,
           "SALF": 2.5
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "EM-Analytics",
@@ -2518,7 +3042,9 @@
           "UPL": 5.0,
           "Soria Ya": 0.9,
           "SALF": 2.1
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.52
       },
       {
         "encuestadora": "Target Point",
@@ -2539,7 +3065,9 @@
           "UPL": 5.6,
           "Soria Ya": 1.5,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.92
       },
       {
         "encuestadora": "NC Report",
@@ -2560,7 +3088,9 @@
           "UPL": 5.0,
           "Soria Ya": 1.1,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Sigma Dos",
@@ -2581,7 +3111,9 @@
           "UPL": 4.6,
           "Soria Ya": 0.9,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.02
       },
       {
         "encuestadora": "Hamalgama Métrica",
@@ -2602,7 +3134,9 @@
           "UPL": 5.1,
           "Soria Ya": 0.9,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "GAD3",
@@ -2623,7 +3157,9 @@
           "UPL": 5.4,
           "Soria Ya": 1.1,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "40dB",
@@ -2644,7 +3180,9 @@
           "UPL": 5.7,
           "Soria Ya": 1.4,
           "SALF": 2.3
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "GESOP",
@@ -2665,7 +3203,9 @@
           "UPL": 4.5,
           "Soria Ya": 1.0,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "EM-Analytics",
@@ -2686,7 +3226,9 @@
           "UPL": 4.8,
           "Soria Ya": 0.9,
           "SALF": 2.2
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.84
       },
       {
         "encuestadora": "NC Report",
@@ -2707,7 +3249,9 @@
           "UPL": 4.9,
           "Soria Ya": 1.4,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "EM-Analytics",
@@ -2728,7 +3272,9 @@
           "UPL": 4.9,
           "Soria Ya": 0.9,
           "SALF": 2.1
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.64
       },
       {
         "encuestadora": "El Español",
@@ -2749,7 +3295,9 @@
           "UPL": 6.3,
           "Soria Ya": 0.9,
           "SALF": 2.0
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "Sigma Dos",
@@ -2770,7 +3318,9 @@
           "UPL": 4.8,
           "Soria Ya": 1.2,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.22
       },
       {
         "encuestadora": "EM-Analytics",
@@ -2791,7 +3341,9 @@
           "UPL": 4.8,
           "Soria Ya": 0.9,
           "SALF": 2.0
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.78
       },
       {
         "encuestadora": "EM-Analytics",
@@ -2812,28 +3364,9 @@
           "UPL": 4.5,
           "Soria Ya": 1.0,
           "SALF": null
-        }
-      },
-      {
-        "encuestadora": "SyM Consulting",
-        "comisionista": "La Nueva Crónica",
-        "fuente_nombre": "SyM Consulting/La Nueva Crónica",
-        "trabajo_campo": "25 Nov–1 Dic 2025",
-        "fecha_inicio": "2026-11-25",
-        "fecha_fin": "2026-12-01",
-        "muestra": 7510,
-        "muestra_raw": "7,510",
-        "votos": {
-          "PP": 32.1,
-          "PSOE": 28.1,
-          "VOX": 20.5,
-          "PODEMOS": 4.1,
-          "OTROS": 4.5,
-          "Cs": 3.3,
-          "UPL": 4.3,
-          "Soria Ya": 1.7,
-          "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.8
       },
       {
         "encuestadora": "SocioMétrica",
@@ -2854,7 +3387,9 @@
           "UPL": 3.9,
           "Soria Ya": 1.0,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "NC Report",
@@ -2875,7 +3410,9 @@
           "UPL": 5.0,
           "Soria Ya": 1.1,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "ElectoPanel",
@@ -2896,7 +3433,9 @@
           "UPL": 2.7,
           "Soria Ya": 0.9,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.64
       },
       {
         "encuestadora": "Sigma Dos",
@@ -2917,7 +3456,9 @@
           "UPL": 4.9,
           "Soria Ya": 0.9,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.89
       },
       {
         "encuestadora": "Sigma Dos",
@@ -2938,7 +3479,9 @@
           "UPL": 3.7,
           "Soria Ya": 1.0,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.8
       },
       {
         "encuestadora": "NC Report",
@@ -2959,7 +3502,9 @@
           "UPL": 4.6,
           "Soria Ya": 1.4,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Data10",
@@ -2980,7 +3525,9 @@
           "UPL": 4.4,
           "Soria Ya": 1.2,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "ElectoPanel",
@@ -3001,7 +3548,9 @@
           "UPL": 2.7,
           "Soria Ya": 1.1,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.64
       },
       {
         "encuestadora": "ElectoPanel",
@@ -3022,7 +3571,9 @@
           "UPL": 3.6,
           "Soria Ya": 1.2,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.6
       }
     ],
     "clm": [],
@@ -3048,7 +3599,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 1.53
       },
       {
         "encuestadora": "Data10",
@@ -3071,7 +3624,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "SocioMétrica",
@@ -3094,7 +3649,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 2.4
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "EM-Analytics",
@@ -3117,7 +3674,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 1.8
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.45
       },
       {
         "encuestadora": "Target Point",
@@ -3140,7 +3699,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 2.7
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.09
       },
       {
         "encuestadora": "Sigma Dos",
@@ -3163,7 +3724,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 0.8
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.67
       },
       {
         "encuestadora": "A+M",
@@ -3186,7 +3749,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 2.3
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "GAD3",
@@ -3209,7 +3774,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "40dB",
@@ -3232,7 +3799,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "GESOP",
@@ -3255,7 +3824,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 1.2
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "EM-Analytics",
@@ -3278,7 +3849,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.42
       },
       {
         "encuestadora": "Celeste-Tel",
@@ -3301,7 +3874,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.95
       },
       {
         "encuestadora": "40dB",
@@ -3324,7 +3899,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "GAD3",
@@ -3347,7 +3924,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.82
       },
       {
         "encuestadora": "A+M",
@@ -3370,7 +3949,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 3.2
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.19
       },
       {
         "encuestadora": "EM-Analytics",
@@ -3393,7 +3974,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.08
       },
       {
         "encuestadora": "SocioMétrica",
@@ -3416,7 +3999,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 1.6
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "NC Report",
@@ -3439,7 +4024,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Sigma Dos",
@@ -3462,7 +4049,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": 0.8
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.37
       },
       {
         "encuestadora": "Hamalgama Métrica",
@@ -3485,7 +4074,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "EM-Analytics",
@@ -3508,7 +4099,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.33
       },
       {
         "encuestadora": "EM-Analytics",
@@ -3531,7 +4124,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.8
       },
       {
         "encuestadora": "SyM Consulting",
@@ -3554,7 +4149,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.09
       },
       {
         "encuestadora": "A+M",
@@ -3577,7 +4174,9 @@
           "PODEMOS": 6.1,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.31
       },
       {
         "encuestadora": "EM-Analytics",
@@ -3600,7 +4199,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "SocioMétrica",
@@ -3623,7 +4224,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "Sigma Dos",
@@ -3646,7 +4249,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.72
       },
       {
         "encuestadora": "Sigma Dos",
@@ -3669,7 +4274,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.04
       },
       {
         "encuestadora": "SocioMétrica",
@@ -3692,7 +4299,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.83
       },
       {
         "encuestadora": "A+M",
@@ -3715,7 +4324,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.0
       },
       {
         "encuestadora": "SocioMétrica",
@@ -3738,7 +4349,9 @@
           "PODEMOS": null,
           "SUMAR": 2.7,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "NC Report",
@@ -3761,7 +4374,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "A+M",
@@ -3784,7 +4399,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.45
       },
       {
         "encuestadora": "Data10",
@@ -3807,7 +4424,9 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "A+M",
@@ -3830,7 +4449,30 @@
           "PODEMOS": null,
           "SUMAR": null,
           "SALF": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.0
+      },
+      {
+        "encuestadora": "A+M",
+        "comisionista": "Heraldo de Aragón",
+        "fuente_nombre": "A+M/Heraldo de Aragón",
+        "trabajo_campo": "2026-10-01 → 2026-10-06",
+        "fecha_inicio": "2026-10-01",
+        "fecha_fin": "2026-10-06",
+        "muestra": 2200,
+        "muestra_raw": "2200",
+        "votos": {
+          "PP": 34.5,
+          "PSOE": 29.7,
+          "VOX": 17.5,
+          "SUMAR": 5.4
+        },
+        "origen": "mapaelectoral",
+        "ambito": "ARAGÓN",
+        "ccaa_id": "aragon",
+        "url_fuente": "https://www.electografica.com/2026/10/aragon-generales-encuesta-am-261012.html",
+        "moe_pp": 2.09
       }
     ],
     "extremadura": [
@@ -3851,7 +4493,9 @@
           "JxE": 3.2,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Data10",
@@ -3870,7 +4514,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       },
       {
         "encuestadora": "Target Point",
@@ -3889,7 +4535,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "EM-Analytics",
@@ -3908,7 +4556,9 @@
           "JxE": 2.9,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.5
       },
       {
         "encuestadora": "Sigma Dos",
@@ -3927,7 +4577,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.29
       },
       {
         "encuestadora": "Celeste-Tel",
@@ -3946,7 +4598,9 @@
           "JxE": 1.5,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "40dB",
@@ -3965,7 +4619,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "GAD3",
@@ -3984,7 +4640,9 @@
           "JxE": 3.0,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.98
       },
       {
         "encuestadora": "GESOP",
@@ -4003,7 +4661,9 @@
           "JxE": 3.0,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "DYM",
@@ -4022,7 +4682,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.69
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4041,7 +4703,9 @@
           "JxE": 1.5,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.36
       },
       {
         "encuestadora": "SocioMétrica",
@@ -4060,7 +4724,9 @@
           "JxE": 3.9,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.95
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4079,7 +4745,9 @@
           "JxE": 1.7,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.36
       },
       {
         "encuestadora": "Sigma Dos",
@@ -4098,7 +4766,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.97
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4117,7 +4787,9 @@
           "JxE": 1.6,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.7
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4136,7 +4808,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.57
       },
       {
         "encuestadora": "Sigma Dos",
@@ -4155,7 +4829,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.32
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4174,7 +4850,9 @@
           "JxE": null,
           "Cs": 0.2,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.46
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4193,7 +4871,9 @@
           "JxE": null,
           "Cs": 0.3,
           "SUMAR": 4.5
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.72
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4212,7 +4892,9 @@
           "JxE": null,
           "Cs": 0.3,
           "SUMAR": 3.2
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.72
       },
       {
         "encuestadora": "El Mundo",
@@ -4231,7 +4913,9 @@
           "JxE": 3.1,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.06
       },
       {
         "encuestadora": "NC Report",
@@ -4250,7 +4934,9 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": 2.9
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4269,7 +4955,9 @@
           "JxE": 2.0,
           "Cs": 1.0,
           "SUMAR": 5.0
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.72
       },
       {
         "encuestadora": "EM-Analytics",
@@ -4288,7 +4976,9 @@
           "JxE": 2.7,
           "Cs": 0.9,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 3.1
       },
       {
         "encuestadora": "Data10",
@@ -4307,13 +4997,17 @@
           "JxE": null,
           "Cs": null,
           "SUMAR": null
-        }
+        },
+        "origen": "wikipedia",
+        "moe_pp": 2.53
       }
     ]
   },
   "stats": {
     "madrid": {
       "incluidas": 0,
+      "desde_wikipedia": 0,
+      "desde_mapaelectoral": 0,
       "excluidas_cis": 0,
       "excluidas_muestra": 0,
       "excluidas_otra": 5,
@@ -4323,7 +5017,9 @@
       "aviso": "Sin encuestas recientes fiables"
     },
     "cataluna": {
-      "incluidas": 20,
+      "incluidas": 22,
+      "desde_wikipedia": 20,
+      "desde_mapaelectoral": 2,
       "excluidas_cis": 0,
       "excluidas_muestra": 1,
       "excluidas_otra": 0,
@@ -4334,6 +5030,8 @@
     },
     "andalucia": {
       "incluidas": 60,
+      "desde_wikipedia": 60,
+      "desde_mapaelectoral": 0,
       "excluidas_cis": 3,
       "excluidas_muestra": 1,
       "excluidas_otra": 3,
@@ -4343,40 +5041,48 @@
       "aviso": "Sin encuestas recientes fiables"
     },
     "cvalenciana": {
-      "incluidas": 0,
+      "incluidas": 2,
+      "desde_wikipedia": 0,
+      "desde_mapaelectoral": 2,
       "excluidas_cis": 0,
       "excluidas_muestra": 0,
       "excluidas_otra": 0,
       "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_las_Cortes_Valencianas_de_2023",
-      "ultima_encuesta": null,
-      "reciente": false,
-      "aviso": "Sin encuestas recientes fiables"
+      "ultima_encuesta": "2026-10-16",
+      "reciente": true,
+      "aviso": null
     },
     "galicia": {
-      "incluidas": 0,
+      "incluidas": 6,
+      "desde_wikipedia": 0,
+      "desde_mapaelectoral": 6,
       "excluidas_cis": 0,
       "excluidas_muestra": 0,
       "excluidas_otra": 0,
       "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_de_Galicia_de_2024",
-      "ultima_encuesta": null,
-      "reciente": false,
-      "aviso": "Sin encuestas recientes fiables"
+      "ultima_encuesta": "2026-11-17",
+      "reciente": true,
+      "aviso": null
     },
     "paisvasco": {
-      "incluidas": 33,
+      "incluidas": 34,
+      "desde_wikipedia": 33,
+      "desde_mapaelectoral": 1,
       "excluidas_cis": 2,
       "excluidas_muestra": 0,
       "excluidas_otra": 14,
       "fuente": "https://es.wikipedia.org/wiki/Elecciones_al_Parlamento_Vasco_de_2024",
-      "ultima_encuesta": "2024-04-21",
-      "reciente": false,
-      "aviso": "Sin encuestas recientes fiables"
+      "ultima_encuesta": "2026-10-23",
+      "reciente": true,
+      "aviso": null
     },
     "cyl": {
-      "incluidas": 29,
+      "incluidas": 28,
+      "desde_wikipedia": 28,
+      "desde_mapaelectoral": 0,
       "excluidas_cis": 1,
       "excluidas_muestra": 1,
-      "excluidas_otra": 4,
+      "excluidas_otra": 5,
       "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_las_Cortes_de_Castilla_y_Le%C3%B3n_de_2026",
       "ultima_encuesta": "2026-12-01",
       "reciente": true,
@@ -4384,6 +5090,8 @@
     },
     "clm": {
       "incluidas": 0,
+      "desde_wikipedia": 0,
+      "desde_mapaelectoral": 0,
       "excluidas_cis": 1,
       "excluidas_muestra": 0,
       "excluidas_otra": 12,
@@ -4393,17 +5101,21 @@
       "aviso": "Sin encuestas recientes fiables"
     },
     "aragon": {
-      "incluidas": 35,
+      "incluidas": 36,
+      "desde_wikipedia": 35,
+      "desde_mapaelectoral": 1,
       "excluidas_cis": 3,
       "excluidas_muestra": 1,
       "excluidas_otra": 0,
       "fuente": "https://es.wikipedia.org/wiki/Elecciones_a_las_Cortes_de_Arag%C3%B3n_de_2026",
-      "ultima_encuesta": "2026-02-08",
-      "reciente": false,
-      "aviso": "Sin encuestas recientes fiables"
+      "ultima_encuesta": "2026-10-06",
+      "reciente": true,
+      "aviso": null
     },
     "extremadura": {
       "incluidas": 25,
+      "desde_wikipedia": 25,
+      "desde_mapaelectoral": 0,
       "excluidas_cis": 3,
       "excluidas_muestra": 1,
       "excluidas_otra": 5,

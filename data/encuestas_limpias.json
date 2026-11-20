@@ -1,11 +1,16 @@
 {
-  "actualizado": "2026-11-20T13:02:13",
+  "actualizado": "2026-11-20T13:39:19",
   "fuente": "https://es.wikipedia.org/wiki/Encuestas_de_opini%C3%B3n_para_las_elecciones_generales_de_Espa%C3%B1a_de_2026",
   "fuentes": [
     {
       "id": "wikipedia",
       "nombre": "Wikipedia ES",
-      "url": "https://es.wikipedia.org/wiki/Encuestas_de_opini%C3%B3n_para_las_elecciones_generales_de_Espa%C3%B1a_de_2026"
+      "url": "https://es.wikipedia.org/wiki/Encuestas_de_opini%C3%B3n_para_las_elecciones_generales_de_Espa%C3%B1a_de_2026",
+      "stats": {
+        "filas": 384,
+        "encuestas": 281,
+        "error": null
+      }
     },
     {
       "id": "electorallab",
@@ -15,7 +20,58 @@
         "fuente": "https://electorallab.com/data/encuestas.csv",
         "filas": 6083,
         "encuestas": 101,
-        "error": null
+        "error": null,
+        "encuestas_incluidas": 30
+      }
+    },
+    {
+      "id": "votomunicipal",
+      "nombre": "Votomunicipal",
+      "url": "https://votomunicipal.es/datos/encuestas.json",
+      "stats": {
+        "fuente": "https://votomunicipal.es/datos/encuestas.json",
+        "filas": 383,
+        "encuestas": 126,
+        "error": null,
+        "encuestas_incluidas": 21
+      }
+    },
+    {
+      "id": "democrata",
+      "nombre": "Demócrata.es",
+      "url": "https://www.democrata.es/elecciones-generales-espana/herramientas/api/elecciones/datos/sondeos.csv",
+      "stats": {
+        "fuente": "https://www.democrata.es/elecciones-generales-espana/herramientas/api/elecciones/datos/sondeos.csv",
+        "filas": 7340,
+        "encuestas": 112,
+        "error": null,
+        "encuestas_incluidas": 2
+      }
+    },
+    {
+      "id": "eleccionesespana",
+      "nombre": "EleccionesEspeña",
+      "url": "https://xn--eleccionesespaa-crb.com/data/general.json",
+      "stats": {
+        "fuente": "https://xn--eleccionesespaa-crb.com/data/general.json",
+        "filas": 429,
+        "encuestas": 127,
+        "error": null,
+        "encuestas_incluidas": 2
+      }
+    },
+    {
+      "id": "mapaelectoral",
+      "nombre": "MapaElectoral",
+      "url": "https://mapaelectoral.es/previsiones/datos/encuestas/encuestas_limpias.csv",
+      "stats": {
+        "fuente": "https://mapaelectoral.es/previsiones/datos/encuestas/encuestas_limpias.csv",
+        "filas": 1265,
+        "encuestas": 112,
+        "error": null,
+        "nacional": 100,
+        "autonomicas": 12,
+        "encuestas_incluidas": 25
       }
     }
   ],
@@ -24,15 +80,19 @@
     "muestra_minima": 800,
     "lambda_ponderacion": 0.09902,
     "notas": "Media ponderada = exp(-lambda*dias) * sqrt(muestra). Se excluyen CIS y muestras < 800. moe_pp = margen de error IC 95% (p=0.5).",
-    "total": 485,
+    "total": 950,
     "excluidas_cis": 49,
     "excluidas_muestra": 0,
     "excluidas_fecha": 0,
     "excluidas_otra": 21,
     "total_excluidas": 70,
-    "total_incluidas": 311,
-    "desde_wikipedia": 281,
-    "desde_electorallab": 30
+    "total_incluidas": 361,
+    "desde_democrata": 2,
+    "desde_eleccionesespana": 2,
+    "desde_electorallab": 30,
+    "desde_mapaelectoral": 25,
+    "desde_votomunicipal": 21,
+    "desde_wikipedia": 281
   },
   "partidos": [
     "PP",
@@ -50,6 +110,7 @@
     "CCa",
     "EH Bildu",
     "ERC",
+    "FV",
     "JUNTS",
     "PNV",
     "UPN"
@@ -70,6 +131,7 @@
     "CCa": "#F59E0B",
     "EH Bildu": "#EF4444",
     "ERC": "#FFB32E",
+    "FV": "#F97316",
     "JUNTS": "#20C0C2",
     "PNV": "#008000",
     "UPN": "#0055A5"
@@ -8737,6 +8799,1224 @@
       "origen": "electorallab",
       "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-19/la-encuesta-antes-del-debate-ligera-ventaja-del-pp-y-muy-clara-del-bloque-derechista.html",
       "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "14–18 Nov",
+      "fecha_inicio": "2026-11-18",
+      "fecha_fin": "2026-11-18",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 32.4,
+        "PSOE": 30.4,
+        "VOX": 17.2,
+        "PODEMOS": 1.2,
+        "SALF": 1.7
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-19/90-minutos-cara-a-cara-sanchez-busca-remontar-los-dos-puntos-que-le-separan-del-pp-y-feijoo-repetir-el-exito-de-2023.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "13–17 Nov",
+      "fecha_inicio": "2026-11-17",
+      "fecha_fin": "2026-11-17",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 32.2,
+        "PSOE": 30.7,
+        "VOX": 17.0,
+        "PODEMOS": 1.2,
+        "SALF": 1.7
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-18/el-pp-consolida-su-posicion-frente-a-vox.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "Sondaxe",
+      "comisionista": "La Voz de Galicia",
+      "fuente_nombre": "Sondaxe/La Voz de Galicia",
+      "trabajo_campo": "12–16 Nov",
+      "fecha_inicio": "2026-11-16",
+      "fecha_fin": "2026-11-16",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 29.0,
+        "PSOE": 27.0,
+        "VOX": 19.4,
+        "ERC": 2.4,
+        "JUNTS": 1.0,
+        "EH Bildu": 2.1,
+        "PNV": 0.7,
+        "BNG": 1.0,
+        "CCa": 0.3,
+        "AA": 1.1,
+        "PODEMOS": 1.2,
+        "SALF": 3.1
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://www.lavozdegalicia.es/noticia/espana/2026/11/17/pp-psoe-lanzan-llamada-voto-util-diferencia-estrecha/00031794944189590370512.htm",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "12–16 Nov",
+      "fecha_inicio": "2026-11-16",
+      "fecha_fin": "2026-11-16",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 31.8,
+        "PSOE": 30.6,
+        "VOX": 17.5,
+        "PODEMOS": 1.1,
+        "SALF": 1.6
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-17/vox-se-frena-y-cede-terreno-al-pp.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "SW Demoscopia",
+      "comisionista": "La Séptima",
+      "fuente_nombre": "SW Demoscopia/La Séptima",
+      "trabajo_campo": "26 Oct–16 Nov",
+      "fecha_inicio": "2026-11-16",
+      "fecha_fin": "2026-11-16",
+      "muestra": 9500,
+      "muestra_raw": "9500",
+      "votos": {
+        "PP": 29.1,
+        "PSOE": 31.9,
+        "VOX": 16.5,
+        "ERC": 2.8,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.3,
+        "PNV": 0.8,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.6,
+        "PODEMOS": 1.7,
+        "SALF": 2.0
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://laseptima.com/wp-content/uploads/2026/11/barometro-n13-16nov2026.pdf",
+      "moe_pp": 1.01
+    },
+    {
+      "encuestadora": "Sondaxe",
+      "comisionista": "La Voz de Galicia",
+      "fuente_nombre": "Sondaxe/La Voz de Galicia",
+      "trabajo_campo": "11–15 Nov",
+      "fecha_inicio": "2026-11-15",
+      "fecha_fin": "2026-11-15",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 29.7,
+        "PSOE": 26.7,
+        "VOX": 18.0,
+        "ERC": 2.3,
+        "JUNTS": 1.0,
+        "EH Bildu": 2.1,
+        "PNV": 0.9,
+        "BNG": 0.9,
+        "CCa": 0.4,
+        "AA": 1.6,
+        "PODEMOS": 2.1,
+        "SALF": 3.0
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://www.lavozdegalicia.es/noticia/espana/2026/11/16/bloque-derecha-mantiene-distancia-sobre-absoluta-pese-subida-psoe/00031794858982187381508.htm",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "10–15 Nov",
+      "fecha_inicio": "2026-11-15",
+      "fecha_fin": "2026-11-15",
+      "muestra": 2500,
+      "muestra_raw": "2500",
+      "votos": {
+        "PP": 31.5,
+        "PSOE": 30.3,
+        "VOX": 18.0,
+        "PODEMOS": 1.1,
+        "SALF": 1.7
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-16/el-psoe-remonta-pero-no-altera-la-mayoria-de-la-derecha.html",
+      "moe_pp": 1.96
+    },
+    {
+      "encuestadora": "SW Demoscopia",
+      "comisionista": "La Séptima",
+      "fuente_nombre": "SW Demoscopia/La Séptima",
+      "trabajo_campo": "26 Oct–15 Nov",
+      "fecha_inicio": "2026-11-15",
+      "fecha_fin": "2026-11-15",
+      "muestra": 9000,
+      "muestra_raw": "9000",
+      "votos": {
+        "PP": 28.8,
+        "PSOE": 31.8,
+        "VOX": 16.8,
+        "ERC": 2.8,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.3,
+        "PNV": 0.8,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.5,
+        "PODEMOS": 1.7,
+        "SALF": 2.0
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://laseptima.com/wp-content/uploads/2026/11/barometro-n12-15nov2026.pdf",
+      "moe_pp": 1.03
+    },
+    {
+      "encuestadora": "Sondaxe",
+      "comisionista": "La Voz de Galicia",
+      "fuente_nombre": "Sondaxe/La Voz de Galicia",
+      "trabajo_campo": "10–14 Nov",
+      "fecha_inicio": "2026-11-14",
+      "fecha_fin": "2026-11-14",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 30.2,
+        "PSOE": 26.7,
+        "VOX": 17.6,
+        "ERC": 2.7,
+        "JUNTS": 1.4,
+        "EH Bildu": 1.8,
+        "PNV": 1.0,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.8,
+        "PODEMOS": 2.2
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://www.lavozdegalicia.es/noticia/galicia/2026/11/16/psoe-recorta-tres-escanos-pp-sigue-primera-fuerza/0003_202611G16P5991.htm",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "10–14 Nov",
+      "fecha_inicio": "2026-11-14",
+      "fecha_fin": "2026-11-14",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 31.4,
+        "PSOE": 29.9,
+        "VOX": 18.3,
+        "PODEMOS": 1.3,
+        "SALF": 1.8
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-15/el-psoe-gana-por-la-izquierda-lo-que-pierde-por-la-derecha-segun-el-tercer-tracking-de-la-campana.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "SW Demoscopia",
+      "comisionista": "La Séptima",
+      "fuente_nombre": "SW Demoscopia/La Séptima",
+      "trabajo_campo": "26 Oct–14 Nov",
+      "fecha_inicio": "2026-11-14",
+      "fecha_fin": "2026-11-14",
+      "muestra": 8500,
+      "muestra_raw": "8500",
+      "votos": {
+        "PP": 28.6,
+        "PSOE": 31.7,
+        "VOX": 16.9,
+        "ERC": 2.8,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.4,
+        "PNV": 0.8,
+        "BNG": 1.1,
+        "CCa": 0.4,
+        "AA": 1.5,
+        "PODEMOS": 1.7,
+        "SALF": 2.0
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://laseptima.com/wp-content/uploads/2026/11/barometro-n11-14nov2026.pdf",
+      "moe_pp": 1.06
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "10–13 Nov",
+      "fecha_inicio": "2026-11-13",
+      "fecha_fin": "2026-11-13",
+      "muestra": 1500,
+      "muestra_raw": "1500",
+      "votos": {
+        "PP": 31.1,
+        "PSOE": 29.8,
+        "VOX": 18.5,
+        "PODEMOS": 1.3,
+        "SALF": 1.6
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-14/la-diferencia-entre-pp-y-psoe-se-estrecha-segun-el-tracking-diario-de-40db.html",
+      "moe_pp": 2.53
+    },
+    {
+      "encuestadora": "Sondaxe",
+      "comisionista": "La Voz de Galicia",
+      "fuente_nombre": "Sondaxe/La Voz de Galicia",
+      "trabajo_campo": "9–13 Nov",
+      "fecha_inicio": "2026-11-13",
+      "fecha_fin": "2026-11-13",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 30.8,
+        "PSOE": 26.4,
+        "VOX": 18.2,
+        "ERC": 2.5,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.9,
+        "PNV": 1.0,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.6,
+        "PODEMOS": 2.2
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://www.lavozdegalicia.es/noticia/espana/2026/11/14/suma-pp-vox-superaria-absoluta-195-escanos-frente-106-psoe/00031794683613056404784.htm",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "SW Demoscopia",
+      "comisionista": "La Séptima",
+      "fuente_nombre": "SW Demoscopia/La Séptima",
+      "trabajo_campo": "26 Oct–13 Nov",
+      "fecha_inicio": "2026-11-13",
+      "fecha_fin": "2026-11-13",
+      "muestra": 8000,
+      "muestra_raw": "8000",
+      "votos": {
+        "PP": 28.5,
+        "PSOE": 31.7,
+        "VOX": 17.1,
+        "ERC": 2.8,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.4,
+        "PNV": 0.8,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.5,
+        "PODEMOS": 1.7,
+        "SALF": 2.0
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://laseptima.com/wp-content/uploads/2026/11/barometro-n10-13nov2026.pdf",
+      "moe_pp": 1.1
+    },
+    {
+      "encuestadora": "Target Point",
+      "comisionista": "El Debate",
+      "fuente_nombre": "Target Point/El Debate",
+      "trabajo_campo": "12 Nov",
+      "fecha_inicio": "2026-11-12",
+      "fecha_fin": "2026-11-12",
+      "muestra": 1013,
+      "muestra_raw": "1013",
+      "votos": {
+        "PP": 30.6,
+        "PSOE": 27.0,
+        "VOX": 18.7,
+        "PODEMOS": 1.6,
+        "SALF": 2.1
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://www.eldebate.com/espana/20261116/psoe-activa-medio-millon-votantes-recorta-no-pone-riesgo-mayoria-absoluta-pp-vox_480764.html",
+      "moe_pp": 3.08
+    },
+    {
+      "encuestadora": "40dB",
+      "comisionista": "Prisa",
+      "fuente_nombre": "40dB/Prisa",
+      "trabajo_campo": "10–12 Nov",
+      "fecha_inicio": "2026-11-12",
+      "fecha_fin": "2026-11-12",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 31.5,
+        "PSOE": 29.4,
+        "VOX": 18.8,
+        "PODEMOS": 1.3,
+        "SALF": 1.7
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://elpais.com/espana/elecciones-generales/2026-11-13/la-campana-arranca-con-la-derecha-en-el-horizonte-de-los-190-escanos.html",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "NC Report",
+      "comisionista": "La Razón",
+      "fuente_nombre": "NC Report/La Razón",
+      "trabajo_campo": "6–12 Nov",
+      "fecha_inicio": "2026-11-12",
+      "fecha_fin": "2026-11-12",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 32.5,
+        "PSOE": 26.1,
+        "VOX": 19.0,
+        "ERC": 1.9,
+        "JUNTS": 1.6,
+        "EH Bildu": 1.4,
+        "PNV": 0.8,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.8,
+        "PODEMOS": 1.5
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://www.larazon.es/espana/mayoria-vox-resiste-arranque-campana-205-diputados_202611166afa6889ea8d89799786d4d1.html",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "SW Demoscopia",
+      "comisionista": "La Séptima",
+      "fuente_nombre": "SW Demoscopia/La Séptima",
+      "trabajo_campo": "26 Oct–12 Nov",
+      "fecha_inicio": "2026-11-12",
+      "fecha_fin": "2026-11-12",
+      "muestra": 7500,
+      "muestra_raw": "7500",
+      "votos": {
+        "PP": 28.7,
+        "PSOE": 31.6,
+        "VOX": 17.1,
+        "ERC": 2.7,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.4,
+        "PNV": 0.8,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.4,
+        "PODEMOS": 1.7,
+        "SALF": 2.1
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://laseptima.com/wp-content/uploads/2026/11/barometro-n09-12nov2026.pdf",
+      "moe_pp": 1.13
+    },
+    {
+      "encuestadora": "SW Demoscopia",
+      "comisionista": "La Séptima",
+      "fuente_nombre": "SW Demoscopia/La Séptima",
+      "trabajo_campo": "26 Oct–11 Nov",
+      "fecha_inicio": "2026-11-11",
+      "fecha_fin": "2026-11-11",
+      "muestra": 7000,
+      "muestra_raw": "7000",
+      "votos": {
+        "PP": 28.6,
+        "PSOE": 31.5,
+        "VOX": 17.2,
+        "ERC": 2.7,
+        "JUNTS": 1.3,
+        "EH Bildu": 1.4,
+        "PNV": 0.8,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.4,
+        "PODEMOS": 1.7,
+        "SALF": 2.0
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://laseptima.com/wp-content/uploads/2026/11/barometro-n08-11nov2026.pdf",
+      "moe_pp": 1.17
+    },
+    {
+      "encuestadora": "SW Demoscopia",
+      "comisionista": "La Séptima",
+      "fuente_nombre": "SW Demoscopia/La Séptima",
+      "trabajo_campo": "26 Oct–10 Nov",
+      "fecha_inicio": "2026-11-10",
+      "fecha_fin": "2026-11-10",
+      "muestra": 6500,
+      "muestra_raw": "6500",
+      "votos": {
+        "PP": 28.3,
+        "PSOE": 31.4,
+        "VOX": 17.5,
+        "ERC": 2.7,
+        "JUNTS": 1.2,
+        "EH Bildu": 1.4,
+        "PNV": 0.8,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.4,
+        "PODEMOS": 1.7,
+        "SALF": 2.0
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://laseptima.com/wp-content/uploads/2026/11/barometro-n07-10nov2026.pdf",
+      "moe_pp": 1.22
+    },
+    {
+      "encuestadora": "Vox",
+      "comisionista": "The Objective",
+      "fuente_nombre": "Vox/The Objective",
+      "trabajo_campo": "27 Oct",
+      "fecha_inicio": "2026-10-27",
+      "fecha_fin": "2026-10-27",
+      "muestra": 1500,
+      "muestra_raw": "1500",
+      "votos": {
+        "PP": 28.1,
+        "PSOE": 29.6,
+        "VOX": 20.2,
+        "PODEMOS": 1.9,
+        "SALF": 1.1
+      },
+      "origen": "votomunicipal",
+      "url_fuente": "https://theobjective.com/espana/2026-11-01/sondeo-vox-71-escanos/",
+      "moe_pp": 2.53
+    },
+    {
+      "encuestadora": "Data10",
+      "comisionista": "Okdiario",
+      "fuente_nombre": "Data10/Okdiario",
+      "trabajo_campo": "2026-11-16 → 2026-11-19",
+      "fecha_inicio": "2026-11-16",
+      "fecha_fin": "2026-11-19",
+      "muestra": 2600,
+      "muestra_raw": "2600",
+      "votos": {
+        "PP": 31.5,
+        "PSOE": 26.9,
+        "VOX": 19.4,
+        "SUMAR": 6.5
+      },
+      "origen": "democrata",
+      "url_fuente": "https://okdiario.com/espana/feijoo-llega-debate-46-puntos-ventaja-sobre-sanchez-historica-mayoria-absoluta-vox-21189868",
+      "moe_pp": 1.92
+    },
+    {
+      "encuestadora": "Sondaxe",
+      "comisionista": "La Voz de Galicia",
+      "fuente_nombre": "Sondaxe/La Voz de Galicia",
+      "trabajo_campo": "2026-11-14 → 2026-11-18",
+      "fecha_inicio": "2026-11-14",
+      "fecha_fin": "2026-11-18",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 29.3,
+        "PSOE": 27.8,
+        "VOX": 19.7,
+        "SUMAR": 5.1
+      },
+      "origen": "democrata",
+      "url_fuente": "https://www.lavozdegalicia.es/noticia/espana/2026/11/19/feijoo-repunta-primera-vez-campana-debate-sanchez/00031795116567415444664.htm",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "GAD3",
+      "comisionista": "ABC",
+      "fuente_nombre": "GAD3/ABC",
+      "trabajo_campo": "2026-11-03 → 2026-11-05",
+      "fecha_inicio": "2026-11-03",
+      "fecha_fin": "2026-11-05",
+      "muestra": 1502,
+      "muestra_raw": "1502",
+      "votos": {
+        "PP": 31.9,
+        "PSOE": 25.9,
+        "VOX": 18.6,
+        "FA": 6.0,
+        "FV": 1.5,
+        "ERC": 2.7,
+        "JUNTS": 1.4,
+        "EH Bildu": 1.5,
+        "PNV": 0.9,
+        "BNG": 0.9,
+        "CCa": 0.4,
+        "AA": 1.6,
+        "PODEMOS": 1.4,
+        "SALF": 1.3
+      },
+      "origen": "eleccionesespana",
+      "url_fuente": "https://www.abc.es/espana/accidente-urda-apenas-altera-bloques-29n-derecha-20261108023004-nt.html",
+      "moe_pp": 2.53
+    },
+    {
+      "encuestadora": "GAD3",
+      "comisionista": "ABC",
+      "fuente_nombre": "GAD3/ABC",
+      "trabajo_campo": "2026-10-06 → 2026-10-08",
+      "fecha_inicio": "2026-10-06",
+      "fecha_fin": "2026-10-08",
+      "muestra": 1077,
+      "muestra_raw": "1077",
+      "votos": {
+        "PP": 31.4,
+        "PSOE": 26.4,
+        "VOX": 18.2,
+        "SUMAR": 7.4,
+        "ERC": 2.6,
+        "JUNTS": 1.5,
+        "EH Bildu": 1.5,
+        "PNV": 1.0,
+        "BNG": 0.9,
+        "CCa": 0.4,
+        "UPN": 0.1,
+        "AA": 1.0,
+        "PODEMOS": 2.3,
+        "SALF": 1.8
+      },
+      "origen": "eleccionesespana",
+      "url_fuente": "https://www.abc.es/espana/derecha-mantiene-mayoria-absoluta-pese-agitacion-callejera-20261012015025-nt.html",
+      "moe_pp": 2.99
+    },
+    {
+      "encuestadora": "More in Common",
+      "comisionista": "n/a",
+      "fuente_nombre": "More in Common/n/a",
+      "trabajo_campo": "2026-08-24 → 2026-08-28",
+      "fecha_inicio": "2026-08-24",
+      "fecha_fin": "2026-08-28",
+      "muestra": 2144,
+      "muestra_raw": "2144",
+      "votos": {
+        "PP": 28.7,
+        "PSOE": 27.0,
+        "VOX": 20.3,
+        "SUMAR": 6.6,
+        "PODEMOS": 3.6,
+        "SALF": 2.3
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/09/encuesta-more-in-common-260903.html",
+      "moe_pp": 2.12
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-08-31 → 2026-09-02",
+      "fecha_inicio": "2026-08-31",
+      "fecha_fin": "2026-09-02",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 32.4,
+        "PSOE": 27.6,
+        "VOX": 17.8,
+        "SUMAR": 5.7,
+        "PODEMOS": 2.8,
+        "SALF": 2.2
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/09/encuesta-40db-260907.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "InvyMark",
+      "comisionista": "laSexta",
+      "fuente_nombre": "InvyMark/laSexta",
+      "trabajo_campo": "2026-09-07 → 2026-09-07",
+      "fecha_inicio": "2026-09-07",
+      "fecha_fin": "2026-09-07",
+      "muestra": 1200,
+      "muestra_raw": "1200",
+      "votos": {
+        "PP": 33.7,
+        "PSOE": 26.8,
+        "VOX": 18.6,
+        "SUMAR": 6.1,
+        "PODEMOS": 3.3,
+        "SALF": 1.9
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/09/encuesta-invymark-260913.html",
+      "moe_pp": 2.83
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "",
+      "fuente_nombre": "DYM",
+      "trabajo_campo": "2026-09-16 → 2026-09-21",
+      "fecha_inicio": "2026-09-16",
+      "fecha_fin": "2026-09-21",
+      "muestra": 1017,
+      "muestra_raw": "1017",
+      "votos": {
+        "PP": 34.7,
+        "PSOE": 26.3,
+        "VOX": 17.3,
+        "SUMAR": 4.5,
+        "PODEMOS": 3.7,
+        "SALF": 1.0
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/09/encuesta-dym-260924.html",
+      "moe_pp": 3.07
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-09-25 → 2026-09-28",
+      "fecha_inicio": "2026-09-25",
+      "fecha_fin": "2026-09-28",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 31.6,
+        "PSOE": 27.4,
+        "VOX": 18.4,
+        "SUMAR": 5.6,
+        "PODEMOS": 2.7,
+        "SALF": 2.0
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/10/encuesta-40db-261005.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-10-07 → 2026-10-08",
+      "fecha_inicio": "2026-10-07",
+      "fecha_fin": "2026-10-08",
+      "muestra": 800,
+      "muestra_raw": "800",
+      "votos": {
+        "PP": 31.9,
+        "PSOE": 28.1,
+        "VOX": 18.9,
+        "SUMAR": 5.3,
+        "PODEMOS": 2.3,
+        "SALF": 1.8
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/10/encuesta-40db-261009.html",
+      "moe_pp": 3.46
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "",
+      "fuente_nombre": "DYM",
+      "trabajo_campo": "2026-10-05 → 2026-10-07",
+      "fecha_inicio": "2026-10-05",
+      "fecha_fin": "2026-10-07",
+      "muestra": 1011,
+      "muestra_raw": "1011",
+      "votos": {
+        "PP": 34.0,
+        "PSOE": 28.2,
+        "VOX": 18.2,
+        "SUMAR": 3.6,
+        "PODEMOS": 2.6,
+        "SALF": 0.5
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/10/encuesta-dym-261009.html",
+      "moe_pp": 3.08
+    },
+    {
+      "encuestadora": "IMOP Insights",
+      "comisionista": "El Confidencial",
+      "fuente_nombre": "IMOP Insights/El Confidencial",
+      "trabajo_campo": "2026-10-05 → 2026-10-07",
+      "fecha_inicio": "2026-10-05",
+      "fecha_fin": "2026-10-07",
+      "muestra": 900,
+      "muestra_raw": "900",
+      "votos": {
+        "PP": 30.4,
+        "PSOE": 26.5,
+        "VOX": 19.0,
+        "SUMAR": 7.6,
+        "PODEMOS": 2.3,
+        "SALF": 1.9,
+        "ERC": 2.2,
+        "JUNTS": 1.1,
+        "EH Bildu": 1.3,
+        "PNV": 0.9,
+        "BNG": 1.1,
+        "CCa": 0.6,
+        "UPN": 0.2,
+        "AA": 1.0
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/10/encuesta-imop-insights-261009.html",
+      "moe_pp": 3.27
+    },
+    {
+      "encuestadora": "IMOP Insights",
+      "comisionista": "El Confidencial",
+      "fuente_nombre": "IMOP Insights/El Confidencial",
+      "trabajo_campo": "2026-10-13 → 2026-10-16",
+      "fecha_inicio": "2026-10-13",
+      "fecha_fin": "2026-10-16",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 28.5,
+        "PSOE": 27.1,
+        "VOX": 20.0,
+        "SUMAR": 8.9,
+        "PODEMOS": 1.9,
+        "SALF": 1.2,
+        "ERC": 2.2,
+        "JUNTS": 1.2,
+        "EH Bildu": 1.3,
+        "PNV": 1.0,
+        "BNG": 1.1,
+        "CCa": 0.6
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/10/encuesta-imop-insights-261023.html",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "More in Common",
+      "comisionista": "n/a",
+      "fuente_nombre": "More in Common/n/a",
+      "trabajo_campo": "2026-10-21 → 2026-10-25",
+      "fecha_inicio": "2026-10-21",
+      "fecha_fin": "2026-10-25",
+      "muestra": 2210,
+      "muestra_raw": "2210",
+      "votos": {
+        "PP": 28.3,
+        "PSOE": 27.6,
+        "VOX": 20.8,
+        "SUMAR": 7.8,
+        "PODEMOS": 2.6,
+        "SALF": 2.4
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-more-in-common-261103.html",
+      "moe_pp": 2.08
+    },
+    {
+      "encuestadora": "IMOP Insights",
+      "comisionista": "El Confidencial",
+      "fuente_nombre": "IMOP Insights/El Confidencial",
+      "trabajo_campo": "2026-11-02 → 2026-11-06",
+      "fecha_inicio": "2026-11-02",
+      "fecha_fin": "2026-11-06",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 29.8,
+        "PSOE": 25.9,
+        "VOX": 19.9,
+        "SUMAR": 8.1,
+        "PODEMOS": 1.2,
+        "SALF": 1.7,
+        "ERC": 2.6,
+        "JUNTS": 1.2,
+        "EH Bildu": 1.6,
+        "PNV": 0.7,
+        "BNG": 1.3,
+        "CCa": 0.5,
+        "AA": 1.8
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-imop-insights-261108.html",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-02 → 2026-11-04",
+      "fecha_inicio": "2026-11-02",
+      "fecha_fin": "2026-11-04",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 31.9,
+        "PSOE": 29.9,
+        "VOX": 18.0,
+        "SUMAR": 5.0,
+        "PODEMOS": 1.2,
+        "SALF": 2.0
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261109.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "DYM",
+      "comisionista": "",
+      "fuente_nombre": "DYM",
+      "trabajo_campo": "2026-11-04 → 2026-11-06",
+      "fecha_inicio": "2026-11-04",
+      "fecha_fin": "2026-11-06",
+      "muestra": 1025,
+      "muestra_raw": "1025",
+      "votos": {
+        "PP": 33.1,
+        "PSOE": 27.3,
+        "VOX": 18.6,
+        "SUMAR": 5.6,
+        "PODEMOS": 1.9,
+        "SALF": 0.4
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-dym-261110.html",
+      "moe_pp": 3.06
+    },
+    {
+      "encuestadora": "Sigma Dos",
+      "comisionista": "El Mundo",
+      "fuente_nombre": "Sigma Dos/El Mundo",
+      "trabajo_campo": "2026-11-03 → 2026-11-11",
+      "fecha_inicio": "2026-11-03",
+      "fecha_fin": "2026-11-11",
+      "muestra": 3120,
+      "muestra_raw": "3120",
+      "votos": {
+        "PP": 30.8,
+        "PSOE": 25.3,
+        "VOX": 19.6,
+        "SUMAR": 7.3,
+        "PODEMOS": 1.4,
+        "ERC": 2.7,
+        "JUNTS": 1.4,
+        "EH Bildu": 1.4,
+        "PNV": 0.8,
+        "BNG": 1.1,
+        "CCa": 0.3,
+        "AA": 2.0
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-sigmados-261113.html",
+      "moe_pp": 1.75
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-10 → 2026-11-12",
+      "fecha_inicio": "2026-11-10",
+      "fecha_fin": "2026-11-12",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 31.5,
+        "PSOE": 29.4,
+        "VOX": 18.8,
+        "SUMAR": 5.1,
+        "PODEMOS": 1.3,
+        "SALF": 1.7
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261113.html",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-10 → 2026-11-13",
+      "fecha_inicio": "2026-11-10",
+      "fecha_fin": "2026-11-13",
+      "muestra": 1500,
+      "muestra_raw": "1500",
+      "votos": {
+        "PP": 31.1,
+        "PSOE": 29.8,
+        "VOX": 18.5,
+        "SUMAR": 5.2,
+        "PODEMOS": 1.3,
+        "SALF": 1.6
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261114.html",
+      "moe_pp": 2.53
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-10 → 2026-11-14",
+      "fecha_inicio": "2026-11-10",
+      "fecha_fin": "2026-11-14",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 31.4,
+        "PSOE": 29.9,
+        "VOX": 18.3,
+        "SUMAR": 5.4,
+        "PODEMOS": 1.3,
+        "SALF": 1.8
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261115.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-10 → 2026-11-15",
+      "fecha_inicio": "2026-11-10",
+      "fecha_fin": "2026-11-15",
+      "muestra": 2500,
+      "muestra_raw": "2500",
+      "votos": {
+        "PP": 31.5,
+        "PSOE": 30.3,
+        "VOX": 18.0,
+        "SUMAR": 5.4,
+        "PODEMOS": 1.1,
+        "SALF": 1.7
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261116.html",
+      "moe_pp": 1.96
+    },
+    {
+      "encuestadora": "IMOP Insights",
+      "comisionista": "El Confidencial",
+      "fuente_nombre": "IMOP Insights/El Confidencial",
+      "trabajo_campo": "2026-11-10 → 2026-11-13",
+      "fecha_inicio": "2026-11-10",
+      "fecha_fin": "2026-11-13",
+      "muestra": 1000,
+      "muestra_raw": "1000",
+      "votos": {
+        "PP": 31.5,
+        "PSOE": 26.9,
+        "VOX": 19.0,
+        "SUMAR": 6.9,
+        "PODEMOS": 0.9,
+        "SALF": 1.6,
+        "ERC": 2.9,
+        "JUNTS": 1.1,
+        "EH Bildu": 1.7,
+        "PNV": 0.9,
+        "BNG": 1.3,
+        "CCa": 0.5,
+        "AA": 2.2
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-imop-insights-261116.html",
+      "moe_pp": 3.1
+    },
+    {
+      "encuestadora": "Sigma Dos",
+      "comisionista": "El Mundo",
+      "fuente_nombre": "Sigma Dos/El Mundo",
+      "trabajo_campo": "2026-11-11 → 2026-11-15",
+      "fecha_inicio": "2026-11-11",
+      "fecha_fin": "2026-11-15",
+      "muestra": 3002,
+      "muestra_raw": "3002",
+      "votos": {
+        "PP": 30.8,
+        "PSOE": 26.1,
+        "VOX": 19.8,
+        "SUMAR": 8.3,
+        "PODEMOS": 1.4,
+        "ERC": 2.5,
+        "JUNTS": 1.2,
+        "EH Bildu": 1.5,
+        "PNV": 0.9,
+        "BNG": 1.0,
+        "CCa": 0.4,
+        "AA": 1.8
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-sigmados-261116.html",
+      "moe_pp": 1.79
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-12 → 2026-11-16",
+      "fecha_inicio": "2026-11-12",
+      "fecha_fin": "2026-11-16",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 31.8,
+        "PSOE": 30.6,
+        "VOX": 17.5,
+        "SUMAR": 5.4,
+        "PODEMOS": 1.1,
+        "SALF": 1.6
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261117.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-13 → 2026-11-17",
+      "fecha_inicio": "2026-11-13",
+      "fecha_fin": "2026-11-17",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 32.2,
+        "PSOE": 30.7,
+        "VOX": 17.0,
+        "SUMAR": 5.2,
+        "PODEMOS": 1.2,
+        "SALF": 1.7
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261118.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-14 → 2026-11-18",
+      "fecha_inicio": "2026-11-14",
+      "fecha_fin": "2026-11-18",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 32.4,
+        "PSOE": 30.4,
+        "VOX": 17.2,
+        "SUMAR": 5.4,
+        "PODEMOS": 1.2,
+        "SALF": 1.7
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-261119.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "40dB.",
+      "comisionista": "",
+      "fuente_nombre": "40dB.",
+      "trabajo_campo": "2026-11-15 → 2026-11-19",
+      "fecha_inicio": "2026-11-15",
+      "fecha_fin": "2026-11-19",
+      "muestra": 2000,
+      "muestra_raw": "2000",
+      "votos": {
+        "PP": 32.2,
+        "PSOE": 30.2,
+        "VOX": 17.6,
+        "SUMAR": 5.3,
+        "PODEMOS": 1.1,
+        "SALF": 1.7
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-40db-2611192.html",
+      "moe_pp": 2.19
+    },
+    {
+      "encuestadora": "PF Global",
+      "comisionista": "POLITICO",
+      "fuente_nombre": "PF Global/POLITICO",
+      "trabajo_campo": "2026-11-15 → 2026-11-17",
+      "fecha_inicio": "2026-11-15",
+      "fecha_fin": "2026-11-17",
+      "muestra": 1375,
+      "muestra_raw": "1375",
+      "votos": {
+        "PP": 29.5,
+        "PSOE": 27.2,
+        "VOX": 19.6,
+        "SUMAR": 5.9,
+        "PODEMOS": 2.2,
+        "SALF": 2.0,
+        "ERC": 2.9,
+        "JUNTS": 1.0,
+        "EH Bildu": 1.3,
+        "PNV": 0.9,
+        "BNG": 0.9,
+        "AA": 1.8
+      },
+      "origen": "mapaelectoral",
+      "ambito": "ESPAÑA",
+      "ccaa_id": null,
+      "url_fuente": "https://www.electografica.com/2026/11/encuesta-public-first-261119.html",
+      "moe_pp": 2.64
     }
   ],
   "excluidas": [
@@ -9162,294 +10442,914 @@
     }
   ],
   "medias": {
-    "PP": 30.67,
-    "PSOE": 27.49,
-    "VOX": 18.84,
-    "FA": 6.71,
-    "ERC": 2.5,
+    "PP": 30.6,
+    "PSOE": 28.49,
+    "VOX": 18.41,
+    "FA": 6.69,
+    "ERC": 2.56,
     "JUNTS": 1.27,
-    "EH Bildu": 1.45,
+    "EH Bildu": 1.46,
     "PNV": 0.83,
-    "BNG": 0.98,
-    "CCa": 0.38,
-    "AA": 1.43,
-    "PODEMOS": 1.44,
-    "SALF": 2.07,
+    "BNG": 0.99,
+    "CCa": 0.39,
+    "AA": 1.53,
+    "PODEMOS": 1.46,
+    "SALF": 1.97,
     "C-FV": 1.12,
-    "SUMAR": 7.1,
+    "SUMAR": 6.73,
     "UPN": 0.19,
     "AC": 1.01,
-    "ADELANTE": 1.64
+    "ADELANTE": 1.64,
+    "FV": 1.5
   },
   "medias_actual_14d": {
-    "PP": 30.62,
-    "PSOE": 27.52,
-    "VOX": 18.84,
+    "PP": 30.56,
+    "PSOE": 28.6,
+    "VOX": 18.37,
     "FA": 6.94,
-    "ERC": 2.5,
+    "ERC": 2.57,
     "JUNTS": 1.26,
     "EH Bildu": 1.47,
     "PNV": 0.82,
-    "BNG": 0.99,
+    "BNG": 1.0,
     "CCa": 0.38,
-    "AA": 1.47,
-    "PODEMOS": 1.36,
-    "SALF": 2.1,
+    "AA": 1.56,
+    "PODEMOS": 1.41,
+    "SALF": 1.98,
     "C-FV": 1.13,
     "ADELANTE": 1.64,
-    "SUMAR": 7.08
+    "SUMAR": 6.72
   },
   "medias_sem_anterior_14_28d": {
-    "PP": 30.93,
-    "PSOE": 27.37,
-    "VOX": 18.81,
-    "FA": 6.45,
+    "PP": 30.92,
+    "PSOE": 27.48,
+    "VOX": 18.82,
+    "FA": 6.43,
     "C-FV": 1.13,
-    "ERC": 2.47,
+    "ERC": 2.48,
     "JUNTS": 1.38,
-    "EH Bildu": 1.37,
-    "PNV": 0.83,
+    "EH Bildu": 1.38,
+    "PNV": 0.84,
     "BNG": 0.9,
     "CCa": 0.4,
-    "AA": 1.42,
-    "PODEMOS": 1.8,
-    "SALF": 1.9,
+    "AA": 1.44,
+    "PODEMOS": 1.76,
+    "SALF": 1.86,
     "ADELANTE": 1.35,
-    "SUMAR": 8.29
+    "SUMAR": 7.08,
+    "FV": 1.5
   },
   "house_effects": [
     {
-      "encuestadora": "DYM",
-      "n_encuestas": 2,
-      "desviaciones_pp": {
-        "PP": 2.47,
-        "FA": -1.11,
-        "PODEMOS": 0.55,
-        "SALF": -1.67,
-        "SUMAR": 11.5,
-        "ERC": 1.1
-      },
-      "desviacion_max": {
-        "partido": "SUMAR",
-        "pp": 11.5
-      }
-    },
-    {
       "encuestadora": "SW Demoscopia",
-      "n_encuestas": 7,
+      "n_encuestas": 14,
       "desviaciones_pp": {
-        "PP": -1.78,
-        "PSOE": 3.89,
-        "VOX": -1.91,
-        "FA": 0.88
+        "PP": -1.82,
+        "PSOE": 3.08,
+        "VOX": -1.47,
+        "FA": 0.9,
+        "SUMAR": 0.57
       },
       "desviacion_max": {
         "partido": "PSOE",
-        "pp": 3.89
+        "pp": 3.08
       }
     },
     {
       "encuestadora": "40dB",
-      "n_encuestas": 3,
+      "n_encuestas": 10,
       "desviaciones_pp": {
-        "PP": 1.47,
-        "PSOE": 2.64,
-        "VOX": -1.16,
-        "FA": -2.81,
-        "PODEMOS": -0.3,
-        "SALF": -0.31,
-        "SUMAR": -1.8
+        "PP": 1.28,
+        "PSOE": 1.74,
+        "VOX": -0.68,
+        "FA": -2.79,
+        "SUMAR": -1.43
       },
       "desviacion_max": {
         "partido": "FA",
-        "pp": -2.81
+        "pp": -2.79
+      }
+    },
+    {
+      "encuestadora": "GAD3",
+      "n_encuestas": 4,
+      "desviaciones_pp": {
+        "PP": 1.28,
+        "PSOE": -2.57,
+        "FA": -0.69,
+        "C-FV": 0.38,
+        "SALF": -0.64,
+        "SUMAR": 0.67
+      },
+      "desviacion_max": {
+        "partido": "PSOE",
+        "pp": -2.57
+      }
+    },
+    {
+      "encuestadora": "DYM",
+      "n_encuestas": 4,
+      "desviaciones_pp": {
+        "PP": 2.55,
+        "PSOE": -1.16,
+        "FA": -1.09,
+        "PODEMOS": 0.51,
+        "SALF": -1.57,
+        "SUMAR": -0.62,
+        "ERC": 1.04
+      },
+      "desviacion_max": {
+        "partido": "PP",
+        "pp": 2.55
       }
     },
     {
       "encuestadora": "NC Report",
-      "n_encuestas": 5,
+      "n_encuestas": 6,
       "desviaciones_pp": {
         "PP": 2.07,
-        "PSOE": -1.6,
-        "ERC": -0.56,
-        "JUNTS": 0.43,
-        "PODEMOS": 0.49,
-        "SUMAR": 0.45
+        "PSOE": -2.54,
+        "VOX": 0.65,
+        "ERC": -0.63,
+        "JUNTS": 0.4,
+        "PODEMOS": 0.34,
+        "SUMAR": 0.82
       },
       "desviacion_max": {
-        "partido": "PP",
-        "pp": 2.07
+        "partido": "PSOE",
+        "pp": -2.54
       }
     },
     {
-      "encuestadora": "Sondaxe",
-      "n_encuestas": 3,
+      "encuestadora": "Vox",
+      "n_encuestas": 2,
       "desviaciones_pp": {
-        "PP": -1.85,
-        "VOX": 0.51,
-        "FA": 0.42,
-        "EH Bildu": 0.31,
-        "AA": 0.76,
-        "SALF": 0.37,
-        "ADELANTE": -0.34
+        "PP": -2.49,
+        "PSOE": 1.1,
+        "VOX": 1.79,
+        "FA": -0.49,
+        "PODEMOS": 0.45,
+        "SALF": -0.87
       },
       "desviacion_max": {
         "partido": "PP",
-        "pp": -1.85
+        "pp": -2.49
+      }
+    },
+    {
+      "encuestadora": "Sigma Dos",
+      "n_encuestas": 14,
+      "desviaciones_pp": {
+        "PSOE": -2.42,
+        "VOX": 1.24,
+        "FA": 0.42,
+        "SUMAR": 0.44
+      },
+      "desviacion_max": {
+        "partido": "PSOE",
+        "pp": -2.42
+      }
+    },
+    {
+      "encuestadora": "More in Common",
+      "n_encuestas": 2,
+      "desviaciones_pp": {
+        "PP": -2.29,
+        "PSOE": -0.9,
+        "VOX": 2.39,
+        "FA": 1.11,
+        "PODEMOS": 1.15,
+        "SALF": 0.43,
+        "SUMAR": 1.07
+      },
+      "desviacion_max": {
+        "partido": "VOX",
+        "pp": 2.39
       }
     },
     {
       "encuestadora": "Hamalgama Métrica",
       "n_encuestas": 2,
       "desviaciones_pp": {
-        "PP": 1.85,
-        "PSOE": -1.22,
-        "VOX": 1.02,
-        "FA": -1.31,
-        "ERC": -0.6,
+        "PP": 1.93,
+        "PSOE": -2.23,
+        "VOX": 1.45,
+        "FA": -1.29,
+        "ERC": -0.66,
         "JUNTS": 0.43,
-        "AA": -0.34,
-        "PODEMOS": 0.9,
-        "SUMAR": -1.7
-      },
-      "desviacion_max": {
-        "partido": "PP",
-        "pp": 1.85
-      }
-    },
-    {
-      "encuestadora": "SocioMétrica",
-      "n_encuestas": 5,
-      "desviaciones_pp": {
-        "PP": 1.58,
-        "FA": -1.63,
-        "SUMAR": -1.1
-      },
-      "desviacion_max": {
-        "partido": "FA",
-        "pp": -1.63
-      }
-    },
-    {
-      "encuestadora": "GAD3",
-      "n_encuestas": 2,
-      "desviaciones_pp": {
-        "PP": 1.2,
-        "PSOE": -1.56,
-        "FA": -0.71,
-        "C-FV": 0.38,
-        "SALF": -0.74,
-        "SUMAR": 0.3
+        "AA": -0.44,
+        "PODEMOS": 0.88,
+        "SUMAR": -1.33
       },
       "desviacion_max": {
         "partido": "PSOE",
-        "pp": -1.56
-      }
-    },
-    {
-      "encuestadora": "IMOP",
-      "n_encuestas": 4,
-      "desviaciones_pp": {
-        "PSOE": -0.9,
-        "VOX": 0.48,
-        "FA": 1.48,
-        "BNG": 0.31,
-        "AA": 0.32,
-        "PODEMOS": -0.37,
-        "SALF": -0.45,
-        "ADELANTE": 0.56
-      },
-      "desviacion_max": {
-        "partido": "FA",
-        "pp": 1.48
+        "pp": -2.23
       }
     },
     {
       "encuestadora": "Data10",
-      "n_encuestas": 3,
+      "n_encuestas": 4,
       "desviaciones_pp": {
-        "PP": 1.13,
-        "PSOE": -1.47,
-        "VOX": 0.88,
-        "PODEMOS": 0.96,
-        "SALF": -0.57,
-        "SUMAR": -0.4
+        "PP": 1.08,
+        "PSOE": -2.11,
+        "VOX": 1.18,
+        "PODEMOS": 0.94,
+        "SALF": -0.47
       },
       "desviacion_max": {
         "partido": "PSOE",
-        "pp": -1.47
-      }
-    },
-    {
-      "encuestadora": "Sigma Dos",
-      "n_encuestas": 12,
-      "desviaciones_pp": {
-        "PSOE": -1.35,
-        "VOX": 0.8,
-        "FA": 0.4
-      },
-      "desviacion_max": {
-        "partido": "PSOE",
-        "pp": -1.35
+        "pp": -2.11
       }
     },
     {
       "encuestadora": "Winston",
       "n_encuestas": 2,
       "desviaciones_pp": {
-        "PSOE": -0.98,
-        "FA": -1.11,
-        "EH Bildu": -0.35,
-        "CCa": -0.38,
-        "SALF": 0.43,
-        "SUMAR": 1.3
-      },
-      "desviacion_max": {
-        "partido": "SUMAR",
-        "pp": 1.3
-      }
-    },
-    {
-      "encuestadora": "Ateneo del Dato",
-      "n_encuestas": 2,
-      "desviaciones_pp": {
-        "PP": 0.75,
-        "PSOE": 0.91,
-        "FA": -0.47,
-        "PODEMOS": 0.31
+        "PSOE": -1.99,
+        "VOX": 0.37,
+        "FA": -1.09,
+        "EH Bildu": -0.36,
+        "CCa": -0.39,
+        "SALF": 0.53,
+        "SUMAR": 1.67
       },
       "desviacion_max": {
         "partido": "PSOE",
-        "pp": 0.91
+        "pp": -1.99
       }
     },
     {
-      "encuestadora": "Target Point",
-      "n_encuestas": 3,
+      "encuestadora": "IMOP",
+      "n_encuestas": 4,
       "desviaciones_pp": {
-        "PSOE": -0.79,
-        "PODEMOS": 0.36
+        "PSOE": -1.91,
+        "VOX": 0.91,
+        "FA": 1.5,
+        "BNG": 0.3,
+        "PODEMOS": -0.39,
+        "SALF": -0.35,
+        "ADELANTE": 0.56
       },
       "desviacion_max": {
         "partido": "PSOE",
-        "pp": -0.79
+        "pp": -1.91
+      }
+    },
+    {
+      "encuestadora": "IMOP Insights",
+      "n_encuestas": 4,
+      "desviaciones_pp": {
+        "PSOE": -1.91,
+        "VOX": 0.91,
+        "SUMAR": 0.64,
+        "PODEMOS": -0.39,
+        "SALF": -0.35,
+        "BNG": 0.3,
+        "AA": 0.51
+      },
+      "desviacion_max": {
+        "partido": "PSOE",
+        "pp": -1.91
+      }
+    },
+    {
+      "encuestadora": "40dB.",
+      "n_encuestas": 10,
+      "desviaciones_pp": {
+        "PP": 1.28,
+        "PSOE": 1.74,
+        "VOX": -0.68,
+        "SUMAR": -1.42
+      },
+      "desviacion_max": {
+        "partido": "PSOE",
+        "pp": 1.74
       }
     },
     {
       "encuestadora": "EM-Analytics",
       "n_encuestas": 15,
       "desviaciones_pp": {
-        "PSOE": -0.71,
-        "FA": -0.75,
-        "AA": -0.41,
-        "SUMAR": 0.53
+        "PSOE": -1.72,
+        "VOX": 0.49,
+        "FA": -0.73,
+        "AA": -0.51,
+        "SUMAR": 0.9
       },
       "desviacion_max": {
-        "partido": "FA",
-        "pp": -0.75
+        "partido": "PSOE",
+        "pp": -1.72
+      }
+    },
+    {
+      "encuestadora": "Target Point",
+      "n_encuestas": 4,
+      "desviaciones_pp": {
+        "PSOE": -1.68,
+        "VOX": 0.42,
+        "SUMAR": 0.56
+      },
+      "desviacion_max": {
+        "partido": "PSOE",
+        "pp": -1.68
+      }
+    },
+    {
+      "encuestadora": "SocioMétrica",
+      "n_encuestas": 5,
+      "desviaciones_pp": {
+        "PP": 1.66,
+        "PSOE": -0.93,
+        "VOX": 0.61,
+        "FA": -1.61,
+        "SUMAR": -0.73
+      },
+      "desviacion_max": {
+        "partido": "PP",
+        "pp": 1.66
+      }
+    },
+    {
+      "encuestadora": "Sondaxe",
+      "n_encuestas": 8,
+      "desviaciones_pp": {
+        "PP": -1.11,
+        "PSOE": -1.34,
+        "VOX": 0.46,
+        "FA": 0.44,
+        "EH Bildu": 0.46,
+        "SALF": 0.8,
+        "ADELANTE": -0.34,
+        "SUMAR": -0.68
+      },
+      "desviacion_max": {
+        "partido": "PSOE",
+        "pp": -1.34
+      }
+    },
+    {
+      "encuestadora": "Ateneo del Dato",
+      "n_encuestas": 2,
+      "desviaciones_pp": {
+        "PP": 0.83,
+        "VOX": 0.43,
+        "FA": -0.45
+      },
+      "desviacion_max": {
+        "partido": "PP",
+        "pp": 0.83
       }
     }
   ],
+  "auditoria_fuentes": {
+    "por_fuente": {
+      "wikipedia": 281,
+      "electorallab": 30,
+      "votomunicipal": 21,
+      "democrata": 2,
+      "eleccionesespana": 2,
+      "mapaelectoral": 25
+    },
+    "n_fuentes_activas": 6,
+    "moe_medio_pp": 2.53,
+    "moe_min_pp": 0.98,
+    "moe_max_pp": 3.46,
+    "n_encuestas_14d": 72,
+    "dispersion_14d_top": [
+      {
+        "partido": "PSOE",
+        "desv_estandar_pp": 2.18,
+        "n": 72
+      },
+      {
+        "partido": "PP",
+        "desv_estandar_pp": 1.26,
+        "n": 72
+      },
+      {
+        "partido": "FA",
+        "desv_estandar_pp": 1.08,
+        "n": 9
+      },
+      {
+        "partido": "VOX",
+        "desv_estandar_pp": 1.01,
+        "n": 72
+      },
+      {
+        "partido": "SUMAR",
+        "desv_estandar_pp": 1.01,
+        "n": 43
+      },
+      {
+        "partido": "SALF",
+        "desv_estandar_pp": 0.44,
+        "n": 54
+      },
+      {
+        "partido": "PODEMOS",
+        "desv_estandar_pp": 0.34,
+        "n": 69
+      },
+      {
+        "partido": "C-FV",
+        "desv_estandar_pp": 0.3,
+        "n": 3
+      },
+      {
+        "partido": "ADELANTE",
+        "desv_estandar_pp": 0.28,
+        "n": 24
+      },
+      {
+        "partido": "AA",
+        "desv_estandar_pp": 0.26,
+        "n": 25
+      }
+    ],
+    "pares_cross_source": [
+      {
+        "encuestadora": "dym/henneo",
+        "fecha_fin": "2026-10-07",
+        "muestra": 1011,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 15.0,
+        "diferencias": {
+          "SUMAR": 15.0,
+          "PODEMOS": 1.0
+        }
+      },
+      {
+        "encuestadora": "sondaxe/la voz de galicia",
+        "fecha_fin": "2026-11-17",
+        "muestra": 1000,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.8,
+        "diferencias": {
+          "SUMAR": 1.8
+        }
+      },
+      {
+        "encuestadora": "sigma dos/el mundo",
+        "fecha_fin": "2026-11-17",
+        "muestra": 4511,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.8,
+        "diferencias": {
+          "SUMAR": 1.8
+        }
+      },
+      {
+        "encuestadora": "sigma dos/el mundo",
+        "fecha_fin": "2026-11-18",
+        "muestra": 4491,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.8,
+        "diferencias": {
+          "SUMAR": 1.8
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-11",
+        "muestra": 1475,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-12",
+        "muestra": 1901,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-13",
+        "muestra": 2348,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-14",
+        "muestra": 2617,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-15",
+        "muestra": 3294,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-16",
+        "muestra": 4446,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-17",
+        "muestra": 4927,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-18",
+        "muestra": 5704,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.6,
+        "diferencias": {
+          "SUMAR": 1.6
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-04",
+        "muestra": 1422,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.5,
+        "diferencias": {
+          "SUMAR": 1.5
+        }
+      },
+      {
+        "encuestadora": "em-analytics/electomanía",
+        "fecha_fin": "2026-11-08",
+        "muestra": 2531,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.5,
+        "diferencias": {
+          "SUMAR": 1.5
+        }
+      },
+      {
+        "encuestadora": "sigma dos/el mundo",
+        "fecha_fin": "2026-11-12",
+        "muestra": 4620,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.5,
+        "diferencias": {
+          "SUMAR": 1.5
+        }
+      },
+      {
+        "encuestadora": "sigma dos/el mundo",
+        "fecha_fin": "2026-11-16",
+        "muestra": 3759,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.4,
+        "diferencias": {
+          "SUMAR": 1.4
+        }
+      },
+      {
+        "encuestadora": "celeste-tel/onda cero",
+        "fecha_fin": "2026-09-21",
+        "muestra": 1100,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 1.3,
+        "diferencias": {
+          "SUMAR": 1.3
+        }
+      },
+      {
+        "encuestadora": "sigma dos/el mundo",
+        "fecha_fin": "2026-11-14",
+        "muestra": 3002,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.2,
+        "diferencias": {
+          "SUMAR": 1.2
+        }
+      },
+      {
+        "encuestadora": "40db/prisa",
+        "fecha_fin": "2026-11-19",
+        "muestra": 2000,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.2,
+        "diferencias": {
+          "SUMAR": 1.2
+        }
+      },
+      {
+        "encuestadora": "sigma dos/el mundo",
+        "fecha_fin": "2026-11-11",
+        "muestra": 3870,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.1,
+        "diferencias": {
+          "SUMAR": 1.1
+        }
+      },
+      {
+        "encuestadora": "sigma dos/el mundo",
+        "fecha_fin": "2026-11-13",
+        "muestra": 5370,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 1.1,
+        "diferencias": {
+          "SUMAR": 1.1
+        }
+      },
+      {
+        "encuestadora": "sociométrica/el español",
+        "fecha_fin": "2026-10-11",
+        "muestra": 1000,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 0.9,
+        "diferencias": {
+          "SUMAR": 0.9
+        }
+      },
+      {
+        "encuestadora": "sociométrica/el español",
+        "fecha_fin": "2026-11-15",
+        "muestra": 5923,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 0.9,
+        "diferencias": {
+          "SUMAR": 0.9,
+          "PP": 0.5
+        }
+      },
+      {
+        "encuestadora": "sociométrica/el español",
+        "fecha_fin": "2026-11-01",
+        "muestra": 4893,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 0.5,
+        "diferencias": {
+          "PP": 0.5
+        }
+      },
+      {
+        "encuestadora": "nc report/la razón",
+        "fecha_fin": "2026-11-05",
+        "muestra": 1000,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 0.4,
+        "diferencias": {
+          "PP": 0.4
+        }
+      },
+      {
+        "encuestadora": "celeste-tel/onda cero",
+        "fecha_fin": "2026-11-03",
+        "muestra": 1100,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 0.4,
+        "diferencias": {
+          "PP": 0.4
+        }
+      },
+      {
+        "encuestadora": "nc report/la razón",
+        "fecha_fin": "2026-10-29",
+        "muestra": 1000,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 0.4,
+        "diferencias": {
+          "PP": 0.4
+        }
+      },
+      {
+        "encuestadora": "hamalgama métrica/vozpópuli",
+        "fecha_fin": "2026-10-28",
+        "muestra": 1000,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 0.4,
+        "diferencias": {
+          "PP": 0.4
+        }
+      },
+      {
+        "encuestadora": "sociométrica/el español",
+        "fecha_fin": "2026-10-25",
+        "muestra": 3223,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "electorallab",
+          "mapaelectoral",
+          "votomunicipal",
+          "wikipedia"
+        ],
+        "max_dif_pp": 0.4,
+        "diferencias": {
+          "PP": 0.4
+        }
+      },
+      {
+        "encuestadora": "nc report/la razón",
+        "fecha_fin": "2026-11-12",
+        "muestra": 1000,
+        "origenes": [
+          "democrata",
+          "eleccionesespana",
+          "mapaelectoral",
+          "votomunicipal"
+        ],
+        "max_dif_pp": 0.4,
+        "diferencias": {
+          "PP": 0.4
+        }
+      }
+    ],
+    "n_pares_cross_source": 30,
+    "cross_source_max_dif_pp": 15.0,
+    "house_effect_medio_pp": 2.1,
+    "nota": "moe_pp = IC 95% por encuesta (p=0.5). dispersion = desv. estándar de voto en 14d. pares_cross_source = misma encuesta en ≥2 agregadores (control de calidad)."
+  },
   "evolucion": [
     {
       "fecha": "2025-01-11",
@@ -28789,6 +30689,14 @@
     },
     {
       "fecha": "2026-08-28",
+      "partido": "PODEMOS",
+      "valor": 3.6,
+      "muestra": 2144,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.12
+    },
+    {
+      "fecha": "2026-08-28",
       "partido": "PP",
       "valor": 28.7,
       "muestra": 2144,
@@ -28802,6 +30710,14 @@
       "muestra": 1197,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.83
+    },
+    {
+      "fecha": "2026-08-28",
+      "partido": "PP",
+      "valor": 28.7,
+      "muestra": 2144,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.12
     },
     {
       "fecha": "2026-08-28",
@@ -28821,6 +30737,14 @@
     },
     {
       "fecha": "2026-08-28",
+      "partido": "PSOE",
+      "valor": 27.0,
+      "muestra": 2144,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.12
+    },
+    {
+      "fecha": "2026-08-28",
       "partido": "SALF",
       "valor": 2.3,
       "muestra": 2144,
@@ -28837,6 +30761,14 @@
     },
     {
       "fecha": "2026-08-28",
+      "partido": "SALF",
+      "valor": 2.3,
+      "muestra": 2144,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.12
+    },
+    {
+      "fecha": "2026-08-28",
       "partido": "SUMAR",
       "valor": 6.6,
       "muestra": 2144,
@@ -28850,6 +30782,14 @@
       "muestra": 1197,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.83
+    },
+    {
+      "fecha": "2026-08-28",
+      "partido": "SUMAR",
+      "valor": 6.6,
+      "muestra": 2144,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.12
     },
     {
       "fecha": "2026-08-28",
@@ -28876,11 +30816,27 @@
       "moe_pp": 2.83
     },
     {
+      "fecha": "2026-08-28",
+      "partido": "VOX",
+      "valor": 20.3,
+      "muestra": 2144,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.12
+    },
+    {
       "fecha": "2026-09-02",
       "partido": "PODEMOS",
       "valor": 2.8,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-02",
+      "partido": "PODEMOS",
+      "valor": 2.8,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -28893,10 +30849,26 @@
     },
     {
       "fecha": "2026-09-02",
+      "partido": "PP",
+      "valor": 32.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-02",
       "partido": "PSOE",
       "valor": 27.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-02",
+      "partido": "PSOE",
+      "valor": 27.6,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -28909,8 +30881,32 @@
     },
     {
       "fecha": "2026-09-02",
+      "partido": "SALF",
+      "valor": 2.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-02",
       "partido": "SUMAR",
       "valor": 5.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-02",
+      "partido": "SUMAR",
+      "valor": 5.7,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-02",
+      "partido": "VOX",
+      "valor": 17.8,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
       "moe_pp": 2.19
@@ -28920,7 +30916,7 @@
       "partido": "VOX",
       "valor": 17.8,
       "muestra": 2000,
-      "encuestadora": "40dB/Prisa",
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -29242,6 +31238,54 @@
       "muestra": 1284,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.73
+    },
+    {
+      "fecha": "2026-09-07",
+      "partido": "PODEMOS",
+      "valor": 3.3,
+      "muestra": 1200,
+      "encuestadora": "InvyMark/laSexta",
+      "moe_pp": 2.83
+    },
+    {
+      "fecha": "2026-09-07",
+      "partido": "PP",
+      "valor": 33.7,
+      "muestra": 1200,
+      "encuestadora": "InvyMark/laSexta",
+      "moe_pp": 2.83
+    },
+    {
+      "fecha": "2026-09-07",
+      "partido": "PSOE",
+      "valor": 26.8,
+      "muestra": 1200,
+      "encuestadora": "InvyMark/laSexta",
+      "moe_pp": 2.83
+    },
+    {
+      "fecha": "2026-09-07",
+      "partido": "SALF",
+      "valor": 1.9,
+      "muestra": 1200,
+      "encuestadora": "InvyMark/laSexta",
+      "moe_pp": 2.83
+    },
+    {
+      "fecha": "2026-09-07",
+      "partido": "SUMAR",
+      "valor": 6.1,
+      "muestra": 1200,
+      "encuestadora": "InvyMark/laSexta",
+      "moe_pp": 2.83
+    },
+    {
+      "fecha": "2026-09-07",
+      "partido": "VOX",
+      "valor": 18.6,
+      "muestra": 1200,
+      "encuestadora": "InvyMark/laSexta",
+      "moe_pp": 2.83
     },
     {
       "fecha": "2026-09-08",
@@ -29733,6 +31777,14 @@
     },
     {
       "fecha": "2026-09-21",
+      "partido": "PODEMOS",
+      "valor": 3.7,
+      "muestra": 1017,
+      "encuestadora": "DYM",
+      "moe_pp": 3.07
+    },
+    {
+      "fecha": "2026-09-21",
       "partido": "PP",
       "valor": 33.9,
       "muestra": 1100,
@@ -29745,6 +31797,14 @@
       "valor": 34.7,
       "muestra": 1017,
       "encuestadora": "DYM/Henneo",
+      "moe_pp": 3.07
+    },
+    {
+      "fecha": "2026-09-21",
+      "partido": "PP",
+      "valor": 34.7,
+      "muestra": 1017,
+      "encuestadora": "DYM",
       "moe_pp": 3.07
     },
     {
@@ -29765,6 +31825,14 @@
     },
     {
       "fecha": "2026-09-21",
+      "partido": "PSOE",
+      "valor": 26.3,
+      "muestra": 1017,
+      "encuestadora": "DYM",
+      "moe_pp": 3.07
+    },
+    {
+      "fecha": "2026-09-21",
       "partido": "SALF",
       "valor": 1.7,
       "muestra": 1100,
@@ -29781,6 +31849,14 @@
     },
     {
       "fecha": "2026-09-21",
+      "partido": "SALF",
+      "valor": 1.0,
+      "muestra": 1017,
+      "encuestadora": "DYM",
+      "moe_pp": 3.07
+    },
+    {
+      "fecha": "2026-09-21",
       "partido": "SUMAR",
       "valor": 6.4,
       "muestra": 1100,
@@ -29793,6 +31869,14 @@
       "valor": 4.5,
       "muestra": 1017,
       "encuestadora": "DYM/Henneo",
+      "moe_pp": 3.07
+    },
+    {
+      "fecha": "2026-09-21",
+      "partido": "SUMAR",
+      "valor": 4.5,
+      "muestra": 1017,
+      "encuestadora": "DYM",
       "moe_pp": 3.07
     },
     {
@@ -29817,6 +31901,14 @@
       "valor": 17.3,
       "muestra": 1017,
       "encuestadora": "DYM/Henneo",
+      "moe_pp": 3.07
+    },
+    {
+      "fecha": "2026-09-21",
+      "partido": "VOX",
+      "valor": 17.3,
+      "muestra": 1017,
+      "encuestadora": "DYM",
       "moe_pp": 3.07
     },
     {
@@ -30053,10 +32145,26 @@
     },
     {
       "fecha": "2026-09-28",
+      "partido": "PODEMOS",
+      "valor": 2.7,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-28",
       "partido": "PP",
       "valor": 31.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-28",
+      "partido": "PP",
+      "valor": 31.6,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -30069,10 +32177,26 @@
     },
     {
       "fecha": "2026-09-28",
+      "partido": "PSOE",
+      "valor": 27.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-28",
       "partido": "SALF",
       "valor": 2.0,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-28",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -30085,10 +32209,26 @@
     },
     {
       "fecha": "2026-09-28",
+      "partido": "SUMAR",
+      "valor": 5.6,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-28",
       "partido": "VOX",
       "valor": 18.4,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-09-28",
+      "partido": "VOX",
+      "valor": 18.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -30717,10 +32857,26 @@
     },
     {
       "fecha": "2026-10-07",
+      "partido": "AA",
+      "valor": 1.0,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
       "partido": "BNG",
       "valor": 1.1,
       "muestra": 900,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "BNG",
+      "valor": 1.1,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.27
     },
     {
@@ -30733,10 +32889,26 @@
     },
     {
       "fecha": "2026-10-07",
+      "partido": "CCa",
+      "valor": 0.6,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
       "partido": "EH Bildu",
       "valor": 1.3,
       "muestra": 900,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "EH Bildu",
+      "valor": 1.3,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.27
     },
     {
@@ -30757,8 +32929,32 @@
     },
     {
       "fecha": "2026-10-07",
+      "partido": "ERC",
+      "valor": 2.2,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
       "partido": "JUNTS",
       "valor": 1.1,
+      "muestra": 900,
+      "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "JUNTS",
+      "valor": 1.1,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "PNV",
+      "valor": 0.9,
       "muestra": 900,
       "encuestadora": "IMOP/El Confidencial",
       "moe_pp": 3.27
@@ -30768,7 +32964,7 @@
       "partido": "PNV",
       "valor": 0.9,
       "muestra": 900,
-      "encuestadora": "IMOP/El Confidencial",
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.27
     },
     {
@@ -30789,6 +32985,22 @@
     },
     {
       "fecha": "2026-10-07",
+      "partido": "PODEMOS",
+      "valor": 2.6,
+      "muestra": 1011,
+      "encuestadora": "DYM",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "PODEMOS",
+      "valor": 2.3,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
       "partido": "PP",
       "valor": 30.4,
       "muestra": 900,
@@ -30802,6 +33014,22 @@
       "muestra": 1011,
       "encuestadora": "DYM/Henneo",
       "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "PP",
+      "valor": 34.0,
+      "muestra": 1011,
+      "encuestadora": "DYM",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "PP",
+      "valor": 30.4,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
     },
     {
       "fecha": "2026-10-07",
@@ -30821,6 +33049,22 @@
     },
     {
       "fecha": "2026-10-07",
+      "partido": "PSOE",
+      "valor": 28.2,
+      "muestra": 1011,
+      "encuestadora": "DYM",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "PSOE",
+      "valor": 26.5,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
       "partido": "SALF",
       "valor": 1.9,
       "muestra": 900,
@@ -30834,6 +33078,22 @@
       "muestra": 1011,
       "encuestadora": "DYM/Henneo",
       "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "SALF",
+      "valor": 0.5,
+      "muestra": 1011,
+      "encuestadora": "DYM",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "SALF",
+      "valor": 1.9,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
     },
     {
       "fecha": "2026-10-07",
@@ -30853,10 +33113,34 @@
     },
     {
       "fecha": "2026-10-07",
+      "partido": "SUMAR",
+      "valor": 3.6,
+      "muestra": 1011,
+      "encuestadora": "DYM",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "SUMAR",
+      "valor": 7.6,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
       "partido": "UPN",
       "valor": 0.2,
       "muestra": 900,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "UPN",
+      "valor": 0.2,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.27
     },
     {
@@ -30876,11 +33160,35 @@
       "moe_pp": 3.08
     },
     {
+      "fecha": "2026-10-07",
+      "partido": "VOX",
+      "valor": 18.2,
+      "muestra": 1011,
+      "encuestadora": "DYM",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-10-07",
+      "partido": "VOX",
+      "valor": 19.0,
+      "muestra": 900,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.27
+    },
+    {
       "fecha": "2026-10-08",
       "partido": "AA",
       "valor": 1.0,
       "muestra": 1077,
       "encuestadora": "GAD3/Vocento",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "AA",
+      "valor": 1.0,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
       "moe_pp": 2.99
     },
     {
@@ -30917,6 +33225,14 @@
     },
     {
       "fecha": "2026-10-08",
+      "partido": "BNG",
+      "valor": 0.9,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
       "partido": "CCa",
       "valor": 0.4,
       "muestra": 1077,
@@ -30941,6 +33257,14 @@
     },
     {
       "fecha": "2026-10-08",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
       "partido": "EH Bildu",
       "valor": 1.5,
       "muestra": 1077,
@@ -30962,6 +33286,14 @@
       "muestra": 2017,
       "encuestadora": "Sigma Dos/El Mundo",
       "moe_pp": 2.18
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "EH Bildu",
+      "valor": 1.5,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
     },
     {
       "fecha": "2026-10-08",
@@ -30997,6 +33329,14 @@
     },
     {
       "fecha": "2026-10-08",
+      "partido": "ERC",
+      "valor": 2.6,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
       "partido": "JUNTS",
       "valor": 1.9,
       "muestra": 1000,
@@ -31029,6 +33369,14 @@
     },
     {
       "fecha": "2026-10-08",
+      "partido": "JUNTS",
+      "valor": 1.5,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
       "partido": "PNV",
       "valor": 1.0,
       "muestra": 1077,
@@ -31050,6 +33398,14 @@
       "muestra": 2017,
       "encuestadora": "Sigma Dos/El Mundo",
       "moe_pp": 2.18
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "PNV",
+      "valor": 1.0,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
     },
     {
       "fecha": "2026-10-08",
@@ -31093,6 +33449,22 @@
     },
     {
       "fecha": "2026-10-08",
+      "partido": "PODEMOS",
+      "valor": 2.3,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "PODEMOS",
+      "valor": 2.3,
+      "muestra": 800,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.46
+    },
+    {
+      "fecha": "2026-10-08",
       "partido": "PP",
       "valor": 31.9,
       "muestra": 800,
@@ -31130,6 +33502,22 @@
       "muestra": 2017,
       "encuestadora": "Sigma Dos/El Mundo",
       "moe_pp": 2.18
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "PP",
+      "valor": 31.4,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "PP",
+      "valor": 31.9,
+      "muestra": 800,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.46
     },
     {
       "fecha": "2026-10-08",
@@ -31173,6 +33561,22 @@
     },
     {
       "fecha": "2026-10-08",
+      "partido": "PSOE",
+      "valor": 26.4,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "PSOE",
+      "valor": 28.1,
+      "muestra": 800,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.46
+    },
+    {
+      "fecha": "2026-10-08",
       "partido": "SALF",
       "valor": 1.8,
       "muestra": 800,
@@ -31202,6 +33606,22 @@
       "muestra": 1000,
       "encuestadora": "Hamalgama Métrica/Vozpópuli",
       "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "SALF",
+      "valor": 1.8,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "SALF",
+      "valor": 1.8,
+      "muestra": 800,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.46
     },
     {
       "fecha": "2026-10-08",
@@ -31245,6 +33665,22 @@
     },
     {
       "fecha": "2026-10-08",
+      "partido": "SUMAR",
+      "valor": 7.4,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "SUMAR",
+      "valor": 5.3,
+      "muestra": 800,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.46
+    },
+    {
+      "fecha": "2026-10-08",
       "partido": "UPN",
       "valor": 0.1,
       "muestra": 1077,
@@ -31266,6 +33702,14 @@
       "muestra": 2017,
       "encuestadora": "Sigma Dos/El Mundo",
       "moe_pp": 2.18
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "UPN",
+      "valor": 0.1,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
     },
     {
       "fecha": "2026-10-08",
@@ -31306,6 +33750,22 @@
       "muestra": 2017,
       "encuestadora": "Sigma Dos/El Mundo",
       "moe_pp": 2.18
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "VOX",
+      "valor": 18.2,
+      "muestra": 1077,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.99
+    },
+    {
+      "fecha": "2026-10-08",
+      "partido": "VOX",
+      "valor": 18.9,
+      "muestra": 800,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.46
     },
     {
       "fecha": "2026-10-09",
@@ -31693,10 +34153,26 @@
     },
     {
       "fecha": "2026-10-16",
+      "partido": "BNG",
+      "valor": 1.1,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
       "partido": "CCa",
       "valor": 0.6,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
+      "partido": "CCa",
+      "valor": 0.6,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -31709,10 +34185,26 @@
     },
     {
       "fecha": "2026-10-16",
+      "partido": "EH Bildu",
+      "valor": 1.3,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
       "partido": "ERC",
       "valor": 2.2,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
+      "partido": "ERC",
+      "valor": 2.2,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -31733,10 +34225,26 @@
     },
     {
       "fecha": "2026-10-16",
+      "partido": "JUNTS",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
       "partido": "PNV",
       "valor": 1.1,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
+      "partido": "PNV",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -31749,10 +34257,26 @@
     },
     {
       "fecha": "2026-10-16",
+      "partido": "PODEMOS",
+      "valor": 1.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
       "partido": "PP",
       "valor": 28.5,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
+      "partido": "PP",
+      "valor": 28.5,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -31765,8 +34289,40 @@
     },
     {
       "fecha": "2026-10-16",
+      "partido": "PSOE",
+      "valor": 27.1,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
       "partido": "SALF",
       "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
+      "partido": "SALF",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
+      "partido": "SUMAR",
+      "valor": 8.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-10-16",
+      "partido": "VOX",
+      "valor": 20.0,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
       "moe_pp": 3.1
@@ -31776,7 +34332,7 @@
       "partido": "VOX",
       "valor": 20.0,
       "muestra": 1000,
-      "encuestadora": "IMOP/El Confidencial",
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -32373,6 +34929,14 @@
     },
     {
       "fecha": "2026-10-25",
+      "partido": "PODEMOS",
+      "valor": 2.6,
+      "muestra": 2210,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.08
+    },
+    {
+      "fecha": "2026-10-25",
       "partido": "PP",
       "valor": 28.3,
       "muestra": 2210,
@@ -32386,6 +34950,14 @@
       "muestra": 3223,
       "encuestadora": "SocioMétrica/El Español",
       "moe_pp": 1.73
+    },
+    {
+      "fecha": "2026-10-25",
+      "partido": "PP",
+      "valor": 28.3,
+      "muestra": 2210,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.08
     },
     {
       "fecha": "2026-10-25",
@@ -32405,6 +34977,14 @@
     },
     {
       "fecha": "2026-10-25",
+      "partido": "PSOE",
+      "valor": 27.6,
+      "muestra": 2210,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.08
+    },
+    {
+      "fecha": "2026-10-25",
       "partido": "SALF",
       "valor": 2.4,
       "muestra": 2210,
@@ -32418,6 +34998,22 @@
       "muestra": 3223,
       "encuestadora": "SocioMétrica/El Español",
       "moe_pp": 1.73
+    },
+    {
+      "fecha": "2026-10-25",
+      "partido": "SALF",
+      "valor": 2.4,
+      "muestra": 2210,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.08
+    },
+    {
+      "fecha": "2026-10-25",
+      "partido": "SUMAR",
+      "valor": 7.8,
+      "muestra": 2210,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.08
     },
     {
       "fecha": "2026-10-25",
@@ -32434,6 +35030,14 @@
       "muestra": 3223,
       "encuestadora": "SocioMétrica/El Español",
       "moe_pp": 1.73
+    },
+    {
+      "fecha": "2026-10-25",
+      "partido": "VOX",
+      "valor": 20.8,
+      "muestra": 2210,
+      "encuestadora": "More in Common/n/a",
+      "moe_pp": 2.08
     },
     {
       "fecha": "2026-10-27",
@@ -32453,10 +35057,26 @@
     },
     {
       "fecha": "2026-10-27",
+      "partido": "PODEMOS",
+      "valor": 1.9,
+      "muestra": 1500,
+      "encuestadora": "Vox/The Objective",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-10-27",
       "partido": "PP",
       "valor": 28.1,
       "muestra": 1500,
       "encuestadora": "Vox",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-10-27",
+      "partido": "PP",
+      "valor": 28.1,
+      "muestra": 1500,
+      "encuestadora": "Vox/The Objective",
       "moe_pp": 2.53
     },
     {
@@ -32469,8 +35089,32 @@
     },
     {
       "fecha": "2026-10-27",
+      "partido": "PSOE",
+      "valor": 29.6,
+      "muestra": 1500,
+      "encuestadora": "Vox/The Objective",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-10-27",
       "partido": "SALF",
       "valor": 1.1,
+      "muestra": 1500,
+      "encuestadora": "Vox",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-10-27",
+      "partido": "SALF",
+      "valor": 1.1,
+      "muestra": 1500,
+      "encuestadora": "Vox/The Objective",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-10-27",
+      "partido": "VOX",
+      "valor": 20.2,
       "muestra": 1500,
       "encuestadora": "Vox",
       "moe_pp": 2.53
@@ -32480,7 +35124,7 @@
       "partido": "VOX",
       "valor": 20.2,
       "muestra": 1500,
-      "encuestadora": "Vox",
+      "encuestadora": "Vox/The Objective",
       "moe_pp": 2.53
     },
     {
@@ -33685,6 +36329,14 @@
     },
     {
       "fecha": "2026-11-04",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-04",
       "partido": "PP",
       "valor": 31.9,
       "muestra": 2000,
@@ -33714,6 +36366,14 @@
       "muestra": 1422,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.6
+    },
+    {
+      "fecha": "2026-11-04",
+      "partido": "PP",
+      "valor": 31.9,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-04",
@@ -33749,6 +36409,14 @@
     },
     {
       "fecha": "2026-11-04",
+      "partido": "PSOE",
+      "valor": 29.9,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-04",
       "partido": "SALF",
       "valor": 2.0,
       "muestra": 2000,
@@ -33781,11 +36449,27 @@
     },
     {
       "fecha": "2026-11-04",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-04",
       "partido": "SUMAR",
       "valor": 7.6,
       "muestra": 1422,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.6
+    },
+    {
+      "fecha": "2026-11-04",
+      "partido": "SUMAR",
+      "valor": 5.0,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-04",
@@ -33820,6 +36504,14 @@
       "moe_pp": 2.6
     },
     {
+      "fecha": "2026-11-04",
+      "partido": "VOX",
+      "valor": 18.0,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
       "fecha": "2026-11-05",
       "partido": "AA",
       "valor": 1.6,
@@ -33845,6 +36537,14 @@
     },
     {
       "fecha": "2026-11-05",
+      "partido": "AA",
+      "valor": 1.6,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
       "partido": "BNG",
       "valor": 0.9,
       "muestra": 1502,
@@ -33866,6 +36566,14 @@
       "muestra": 4000,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.55
+    },
+    {
+      "fecha": "2026-11-05",
+      "partido": "BNG",
+      "valor": 0.9,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
     },
     {
       "fecha": "2026-11-05",
@@ -33901,6 +36609,14 @@
     },
     {
       "fecha": "2026-11-05",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
       "partido": "EH Bildu",
       "valor": 1.5,
       "muestra": 1502,
@@ -33925,6 +36641,14 @@
     },
     {
       "fecha": "2026-11-05",
+      "partido": "EH Bildu",
+      "valor": 1.5,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
       "partido": "ERC",
       "valor": 2.7,
       "muestra": 1502,
@@ -33946,6 +36670,14 @@
       "muestra": 4000,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.55
+    },
+    {
+      "fecha": "2026-11-05",
+      "partido": "ERC",
+      "valor": 2.7,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
     },
     {
       "fecha": "2026-11-05",
@@ -33981,6 +36713,22 @@
     },
     {
       "fecha": "2026-11-05",
+      "partido": "FA",
+      "valor": 6.0,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
+      "partido": "FV",
+      "valor": 1.5,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
       "partido": "JUNTS",
       "valor": 1.4,
       "muestra": 1502,
@@ -34005,6 +36753,14 @@
     },
     {
       "fecha": "2026-11-05",
+      "partido": "JUNTS",
+      "valor": 1.4,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
       "partido": "PNV",
       "valor": 0.9,
       "muestra": 1502,
@@ -34026,6 +36782,14 @@
       "muestra": 4000,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.55
+    },
+    {
+      "fecha": "2026-11-05",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
     },
     {
       "fecha": "2026-11-05",
@@ -34061,6 +36825,14 @@
     },
     {
       "fecha": "2026-11-05",
+      "partido": "PODEMOS",
+      "valor": 1.4,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
       "partido": "PP",
       "valor": 31.9,
       "muestra": 1502,
@@ -34090,6 +36862,14 @@
       "muestra": 4000,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.55
+    },
+    {
+      "fecha": "2026-11-05",
+      "partido": "PP",
+      "valor": 31.9,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
     },
     {
       "fecha": "2026-11-05",
@@ -34125,6 +36905,14 @@
     },
     {
       "fecha": "2026-11-05",
+      "partido": "PSOE",
+      "valor": 25.9,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-05",
       "partido": "SALF",
       "valor": 1.3,
       "muestra": 1502,
@@ -34138,6 +36926,14 @@
       "muestra": 4000,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.55
+    },
+    {
+      "fecha": "2026-11-05",
+      "partido": "SALF",
+      "valor": 1.3,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
     },
     {
       "fecha": "2026-11-05",
@@ -34170,6 +36966,14 @@
       "muestra": 4000,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.55
+    },
+    {
+      "fecha": "2026-11-05",
+      "partido": "VOX",
+      "valor": 18.6,
+      "muestra": 1502,
+      "encuestadora": "GAD3/ABC",
+      "moe_pp": 2.53
     },
     {
       "fecha": "2026-11-06",
@@ -34205,6 +37009,14 @@
     },
     {
       "fecha": "2026-11-06",
+      "partido": "AA",
+      "valor": 1.8,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
       "partido": "BNG",
       "valor": 1.3,
       "muestra": 1000,
@@ -34234,6 +37046,14 @@
       "muestra": 4500,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.46
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "BNG",
+      "valor": 1.3,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
     },
     {
       "fecha": "2026-11-06",
@@ -34285,6 +37105,14 @@
     },
     {
       "fecha": "2026-11-06",
+      "partido": "CCa",
+      "valor": 0.5,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
       "partido": "EH Bildu",
       "valor": 1.6,
       "muestra": 1000,
@@ -34317,6 +37145,14 @@
     },
     {
       "fecha": "2026-11-06",
+      "partido": "EH Bildu",
+      "valor": 1.6,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
       "partido": "ERC",
       "valor": 2.6,
       "muestra": 1000,
@@ -34346,6 +37182,14 @@
       "muestra": 4500,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.46
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "ERC",
+      "valor": 2.6,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
     },
     {
       "fecha": "2026-11-06",
@@ -34421,6 +37265,14 @@
     },
     {
       "fecha": "2026-11-06",
+      "partido": "JUNTS",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
       "partido": "PNV",
       "valor": 0.7,
       "muestra": 1000,
@@ -34450,6 +37302,14 @@
       "muestra": 4500,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.46
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "PNV",
+      "valor": 0.7,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
     },
     {
       "fecha": "2026-11-06",
@@ -34493,6 +37353,22 @@
     },
     {
       "fecha": "2026-11-06",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "PODEMOS",
+      "valor": 1.9,
+      "muestra": 1025,
+      "encuestadora": "DYM",
+      "moe_pp": 3.06
+    },
+    {
+      "fecha": "2026-11-06",
       "partido": "PP",
       "valor": 33.1,
       "muestra": 1025,
@@ -34530,6 +37406,22 @@
       "muestra": 4500,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.46
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "PP",
+      "valor": 29.8,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "PP",
+      "valor": 33.1,
+      "muestra": 1025,
+      "encuestadora": "DYM",
+      "moe_pp": 3.06
     },
     {
       "fecha": "2026-11-06",
@@ -34573,6 +37465,22 @@
     },
     {
       "fecha": "2026-11-06",
+      "partido": "PSOE",
+      "valor": 25.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "PSOE",
+      "valor": 27.3,
+      "muestra": 1025,
+      "encuestadora": "DYM",
+      "moe_pp": 3.06
+    },
+    {
+      "fecha": "2026-11-06",
       "partido": "SALF",
       "valor": 0.4,
       "muestra": 1025,
@@ -34602,6 +37510,38 @@
       "muestra": 4500,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.46
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "SALF",
+      "valor": 0.4,
+      "muestra": 1025,
+      "encuestadora": "DYM",
+      "moe_pp": 3.06
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "SUMAR",
+      "valor": 8.1,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "SUMAR",
+      "valor": 5.6,
+      "muestra": 1025,
+      "encuestadora": "DYM",
+      "moe_pp": 3.06
     },
     {
       "fecha": "2026-11-06",
@@ -34642,6 +37582,22 @@
       "muestra": 4500,
       "encuestadora": "SW Demoscopia/La Séptima",
       "moe_pp": 1.46
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "VOX",
+      "valor": 19.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-06",
+      "partido": "VOX",
+      "valor": 18.6,
+      "muestra": 1025,
+      "encuestadora": "DYM",
+      "moe_pp": 3.06
     },
     {
       "fecha": "2026-11-07",
@@ -35276,6 +38232,118 @@
       "moe_pp": 1.27
     },
     {
+      "fecha": "2026-11-10",
+      "partido": "AA",
+      "valor": 1.4,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "ERC",
+      "valor": 2.7,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "JUNTS",
+      "valor": 1.2,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "PP",
+      "valor": 28.3,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "PSOE",
+      "valor": 31.4,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-10",
+      "partido": "VOX",
+      "valor": 17.5,
+      "muestra": 6500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.22
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "AA",
+      "valor": 1.4,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "AA",
+      "valor": 2.0,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
       "fecha": "2026-11-11",
       "partido": "ADELANTE",
       "valor": 2.0,
@@ -35309,6 +38377,22 @@
     },
     {
       "fecha": "2026-11-11",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "BNG",
+      "valor": 1.1,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-11",
       "partido": "CCa",
       "valor": 0.3,
       "muestra": 3870,
@@ -35325,6 +38409,22 @@
     },
     {
       "fecha": "2026-11-11",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "CCa",
+      "valor": 0.3,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-11",
       "partido": "EH Bildu",
       "valor": 1.4,
       "muestra": 3870,
@@ -35338,6 +38438,22 @@
       "muestra": 1475,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.55
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
     },
     {
       "fecha": "2026-11-11",
@@ -35357,6 +38473,22 @@
     },
     {
       "fecha": "2026-11-11",
+      "partido": "ERC",
+      "valor": 2.7,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "ERC",
+      "valor": 2.7,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-11",
       "partido": "JUNTS",
       "valor": 1.4,
       "muestra": 3870,
@@ -35373,6 +38505,22 @@
     },
     {
       "fecha": "2026-11-11",
+      "partido": "JUNTS",
+      "valor": 1.3,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "JUNTS",
+      "valor": 1.4,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-11",
       "partido": "PNV",
       "valor": 0.8,
       "muestra": 3870,
@@ -35386,6 +38534,22 @@
       "muestra": 1475,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.55
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
     },
     {
       "fecha": "2026-11-11",
@@ -35405,6 +38569,22 @@
     },
     {
       "fecha": "2026-11-11",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "PODEMOS",
+      "valor": 1.4,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-11",
       "partido": "PP",
       "valor": 30.8,
       "muestra": 3870,
@@ -35418,6 +38598,22 @@
       "muestra": 1475,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.55
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "PP",
+      "valor": 28.6,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "PP",
+      "valor": 30.8,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
     },
     {
       "fecha": "2026-11-11",
@@ -35437,11 +38633,35 @@
     },
     {
       "fecha": "2026-11-11",
+      "partido": "PSOE",
+      "valor": 31.5,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "PSOE",
+      "valor": 25.3,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-11",
       "partido": "SALF",
       "valor": 2.1,
       "muestra": 1475,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.55
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
     },
     {
       "fecha": "2026-11-11",
@@ -35461,6 +38681,14 @@
     },
     {
       "fecha": "2026-11-11",
+      "partido": "SUMAR",
+      "valor": 7.3,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-11",
       "partido": "VOX",
       "valor": 19.6,
       "muestra": 3870,
@@ -35474,6 +38702,38 @@
       "muestra": 1475,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.55
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "VOX",
+      "valor": 17.2,
+      "muestra": 7000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.17
+    },
+    {
+      "fecha": "2026-11-11",
+      "partido": "VOX",
+      "valor": 19.6,
+      "muestra": 3120,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.75
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "AA",
+      "valor": 1.8,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "AA",
+      "valor": 1.4,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
     },
     {
       "fecha": "2026-11-12",
@@ -35525,6 +38785,22 @@
     },
     {
       "fecha": "2026-11-12",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
       "partido": "CCa",
       "valor": 0.4,
       "muestra": 1901,
@@ -35546,6 +38822,22 @@
       "muestra": 1500,
       "encuestadora": "Data10/Okdiario",
       "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
     },
     {
       "fecha": "2026-11-12",
@@ -35573,6 +38865,22 @@
     },
     {
       "fecha": "2026-11-12",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
       "partido": "ERC",
       "valor": 2.4,
       "muestra": 1901,
@@ -35594,6 +38902,22 @@
       "muestra": 1500,
       "encuestadora": "Data10/Okdiario",
       "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "ERC",
+      "valor": 1.9,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "ERC",
+      "valor": 2.7,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
     },
     {
       "fecha": "2026-11-12",
@@ -35621,6 +38945,22 @@
     },
     {
       "fecha": "2026-11-12",
+      "partido": "JUNTS",
+      "valor": 1.6,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "JUNTS",
+      "valor": 1.3,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
       "partido": "PNV",
       "valor": 0.8,
       "muestra": 1901,
@@ -35642,6 +38982,22 @@
       "muestra": 1500,
       "encuestadora": "Data10/Okdiario",
       "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
     },
     {
       "fecha": "2026-11-12",
@@ -35669,6 +39025,46 @@
     },
     {
       "fecha": "2026-11-12",
+      "partido": "PODEMOS",
+      "valor": 1.6,
+      "muestra": 1013,
+      "encuestadora": "Target Point/El Debate",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PODEMOS",
+      "valor": 1.3,
+      "muestra": 1000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PODEMOS",
+      "valor": 1.5,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PODEMOS",
+      "valor": 1.3,
+      "muestra": 1000,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
       "partido": "PP",
       "valor": 30.4,
       "muestra": 1901,
@@ -35690,6 +39086,46 @@
       "muestra": 1500,
       "encuestadora": "Data10/Okdiario",
       "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PP",
+      "valor": 30.6,
+      "muestra": 1013,
+      "encuestadora": "Target Point/El Debate",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PP",
+      "valor": 31.5,
+      "muestra": 1000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PP",
+      "valor": 32.5,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PP",
+      "valor": 28.7,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PP",
+      "valor": 31.5,
+      "muestra": 1000,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.1
     },
     {
       "fecha": "2026-11-12",
@@ -35717,11 +39153,83 @@
     },
     {
       "fecha": "2026-11-12",
+      "partido": "PSOE",
+      "valor": 27.0,
+      "muestra": 1013,
+      "encuestadora": "Target Point/El Debate",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PSOE",
+      "valor": 29.4,
+      "muestra": 1000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PSOE",
+      "valor": 26.1,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PSOE",
+      "valor": 31.6,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "PSOE",
+      "valor": 29.4,
+      "muestra": 1000,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
       "partido": "SALF",
       "valor": 2.3,
       "muestra": 1901,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 2.25
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "SALF",
+      "valor": 2.1,
+      "muestra": 1013,
+      "encuestadora": "Target Point/El Debate",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 1000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "SALF",
+      "valor": 2.1,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 1000,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.1
     },
     {
       "fecha": "2026-11-12",
@@ -35749,6 +39257,14 @@
     },
     {
       "fecha": "2026-11-12",
+      "partido": "SUMAR",
+      "valor": 5.1,
+      "muestra": 1000,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
       "partido": "VOX",
       "valor": 19.0,
       "muestra": 1901,
@@ -35770,6 +39286,70 @@
       "muestra": 1500,
       "encuestadora": "Data10/Okdiario",
       "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "VOX",
+      "valor": 18.7,
+      "muestra": 1013,
+      "encuestadora": "Target Point/El Debate",
+      "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "VOX",
+      "valor": 18.8,
+      "muestra": 1000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "VOX",
+      "valor": 19.0,
+      "muestra": 1000,
+      "encuestadora": "NC Report/La Razón",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "VOX",
+      "valor": 17.1,
+      "muestra": 7500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.13
+    },
+    {
+      "fecha": "2026-11-12",
+      "partido": "VOX",
+      "valor": 18.8,
+      "muestra": 1000,
+      "encuestadora": "40dB.",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "AA",
+      "valor": 1.6,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "AA",
+      "valor": 1.5,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "AA",
+      "valor": 2.2,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
     },
     {
       "fecha": "2026-11-13",
@@ -35817,6 +39397,30 @@
       "valor": 1.3,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "BNG",
+      "valor": 1.3,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -35845,6 +39449,30 @@
     },
     {
       "fecha": "2026-11-13",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "CCa",
+      "valor": 0.5,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
       "partido": "EH Bildu",
       "valor": 1.5,
       "muestra": 2348,
@@ -35865,6 +39493,30 @@
       "valor": 1.7,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "EH Bildu",
+      "valor": 1.9,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "EH Bildu",
+      "valor": 1.7,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -35893,6 +39545,30 @@
     },
     {
       "fecha": "2026-11-13",
+      "partido": "ERC",
+      "valor": 2.5,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "ERC",
+      "valor": 2.8,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "ERC",
+      "valor": 2.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
       "partido": "JUNTS",
       "valor": 1.2,
       "muestra": 2348,
@@ -35917,6 +39593,30 @@
     },
     {
       "fecha": "2026-11-13",
+      "partido": "JUNTS",
+      "valor": 1.3,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "JUNTS",
+      "valor": 1.3,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "JUNTS",
+      "valor": 1.1,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
       "partido": "PNV",
       "valor": 0.8,
       "muestra": 2348,
@@ -35941,6 +39641,30 @@
     },
     {
       "fecha": "2026-11-13",
+      "partido": "PNV",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
       "partido": "PODEMOS",
       "valor": 1.4,
       "muestra": 2348,
@@ -35961,6 +39685,46 @@
       "valor": 0.9,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PODEMOS",
+      "valor": 1.3,
+      "muestra": 1500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PODEMOS",
+      "valor": 2.2,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PODEMOS",
+      "valor": 1.3,
+      "muestra": 1500,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PODEMOS",
+      "valor": 0.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -35989,6 +39753,46 @@
     },
     {
       "fecha": "2026-11-13",
+      "partido": "PP",
+      "valor": 31.1,
+      "muestra": 1500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PP",
+      "valor": 30.8,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PP",
+      "valor": 28.5,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PP",
+      "valor": 31.1,
+      "muestra": 1500,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PP",
+      "valor": 31.5,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
       "partido": "PSOE",
       "valor": 26.5,
       "muestra": 2348,
@@ -36013,6 +39817,46 @@
     },
     {
       "fecha": "2026-11-13",
+      "partido": "PSOE",
+      "valor": 29.8,
+      "muestra": 1500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PSOE",
+      "valor": 26.4,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PSOE",
+      "valor": 31.7,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PSOE",
+      "valor": 29.8,
+      "muestra": 1500,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "PSOE",
+      "valor": 26.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
       "partido": "SALF",
       "valor": 2.2,
       "muestra": 2348,
@@ -36025,6 +39869,38 @@
       "valor": 1.6,
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "SALF",
+      "valor": 1.6,
+      "muestra": 1500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "SALF",
+      "valor": 1.6,
+      "muestra": 1500,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "SALF",
+      "valor": 1.6,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
       "moe_pp": 3.1
     },
     {
@@ -36053,6 +39929,22 @@
     },
     {
       "fecha": "2026-11-13",
+      "partido": "SUMAR",
+      "valor": 5.2,
+      "muestra": 1500,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "SUMAR",
+      "valor": 6.9,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
       "partido": "VOX",
       "valor": 18.8,
       "muestra": 2348,
@@ -36074,6 +39966,62 @@
       "muestra": 1000,
       "encuestadora": "IMOP/El Confidencial",
       "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "VOX",
+      "valor": 18.5,
+      "muestra": 1500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "VOX",
+      "valor": 18.2,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "VOX",
+      "valor": 17.1,
+      "muestra": 8000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.1
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "VOX",
+      "valor": 18.5,
+      "muestra": 1500,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.53
+    },
+    {
+      "fecha": "2026-11-13",
+      "partido": "VOX",
+      "valor": 19.0,
+      "muestra": 1000,
+      "encuestadora": "IMOP Insights/El Confidencial",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "AA",
+      "valor": 1.8,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "AA",
+      "valor": 1.5,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
     },
     {
       "fecha": "2026-11-14",
@@ -36125,6 +40073,22 @@
     },
     {
       "fecha": "2026-11-14",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "BNG",
+      "valor": 1.1,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
       "partido": "CCa",
       "valor": 0.4,
       "muestra": 2617,
@@ -36146,6 +40110,22 @@
       "muestra": 1000,
       "encuestadora": "NC Report/La Razón",
       "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
     },
     {
       "fecha": "2026-11-14",
@@ -36170,6 +40150,22 @@
       "muestra": 1000,
       "encuestadora": "NC Report/La Razón",
       "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "EH Bildu",
+      "valor": 1.8,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "EH Bildu",
+      "valor": 1.4,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
     },
     {
       "fecha": "2026-11-14",
@@ -36197,6 +40193,22 @@
     },
     {
       "fecha": "2026-11-14",
+      "partido": "ERC",
+      "valor": 2.7,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "ERC",
+      "valor": 2.8,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
       "partido": "JUNTS",
       "valor": 1.2,
       "muestra": 2617,
@@ -36221,6 +40233,22 @@
     },
     {
       "fecha": "2026-11-14",
+      "partido": "JUNTS",
+      "valor": 1.4,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "JUNTS",
+      "valor": 1.3,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
       "partido": "PNV",
       "valor": 0.8,
       "muestra": 2617,
@@ -36242,6 +40270,22 @@
       "muestra": 1000,
       "encuestadora": "NC Report/La Razón",
       "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PNV",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
     },
     {
       "fecha": "2026-11-14",
@@ -36274,6 +40318,38 @@
       "muestra": 1000,
       "encuestadora": "NC Report/La Razón",
       "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PODEMOS",
+      "valor": 2.2,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PODEMOS",
+      "valor": 1.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PODEMOS",
+      "valor": 1.3,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-14",
@@ -36309,6 +40385,38 @@
     },
     {
       "fecha": "2026-11-14",
+      "partido": "PP",
+      "valor": 30.2,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PP",
+      "valor": 31.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PP",
+      "valor": 28.6,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PP",
+      "valor": 31.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
       "partido": "PSOE",
       "valor": 26.7,
       "muestra": 2617,
@@ -36341,6 +40449,38 @@
     },
     {
       "fecha": "2026-11-14",
+      "partido": "PSOE",
+      "valor": 26.7,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PSOE",
+      "valor": 29.9,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PSOE",
+      "valor": 31.7,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "PSOE",
+      "valor": 29.9,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
       "partido": "SALF",
       "valor": 2.1,
       "muestra": 2617,
@@ -36354,6 +40494,30 @@
       "muestra": 1013,
       "encuestadora": "Target Point/El Debate",
       "moe_pp": 3.08
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "SALF",
+      "valor": 1.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "SALF",
+      "valor": 1.8,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-14",
@@ -36389,6 +40553,14 @@
     },
     {
       "fecha": "2026-11-14",
+      "partido": "SUMAR",
+      "valor": 5.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
       "partido": "VOX",
       "valor": 19.0,
       "muestra": 2617,
@@ -36418,6 +40590,62 @@
       "muestra": 1000,
       "encuestadora": "NC Report/La Razón",
       "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "VOX",
+      "valor": 17.6,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "VOX",
+      "valor": 18.3,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "VOX",
+      "valor": 16.9,
+      "muestra": 8500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.06
+    },
+    {
+      "fecha": "2026-11-14",
+      "partido": "VOX",
+      "valor": 18.3,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "AA",
+      "valor": 1.6,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "AA",
+      "valor": 1.5,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "AA",
+      "valor": 1.8,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
     },
     {
       "fecha": "2026-11-15",
@@ -36453,6 +40681,30 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "BNG",
+      "valor": 0.9,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "CCa",
       "valor": 0.4,
       "muestra": 5923,
@@ -36469,6 +40721,30 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "EH Bildu",
       "valor": 1.5,
       "muestra": 5923,
@@ -36482,6 +40758,30 @@
       "muestra": 3294,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.71
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "EH Bildu",
+      "valor": 2.1,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "EH Bildu",
+      "valor": 1.3,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "EH Bildu",
+      "valor": 1.5,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
     },
     {
       "fecha": "2026-11-15",
@@ -36501,6 +40801,30 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "ERC",
+      "valor": 2.3,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "ERC",
+      "valor": 2.8,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "ERC",
+      "valor": 2.5,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "JUNTS",
       "valor": 1.3,
       "muestra": 5923,
@@ -36517,6 +40841,30 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "JUNTS",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "JUNTS",
+      "valor": 1.3,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "JUNTS",
+      "valor": 1.2,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "PNV",
       "valor": 0.8,
       "muestra": 5923,
@@ -36533,6 +40881,30 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "PODEMOS",
       "valor": 1.2,
       "muestra": 5923,
@@ -36546,6 +40918,46 @@
       "muestra": 3294,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.71
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PODEMOS",
+      "valor": 2.1,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PODEMOS",
+      "valor": 1.1,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PODEMOS",
+      "valor": 1.1,
+      "muestra": 2500,
+      "encuestadora": "40dB.",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PODEMOS",
+      "valor": 1.4,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
     },
     {
       "fecha": "2026-11-15",
@@ -36565,6 +40977,46 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "PP",
+      "valor": 29.7,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PP",
+      "valor": 31.5,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PP",
+      "valor": 28.8,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PP",
+      "valor": 31.5,
+      "muestra": 2500,
+      "encuestadora": "40dB.",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PP",
+      "valor": 30.8,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "PSOE",
       "valor": 27.8,
       "muestra": 5923,
@@ -36581,6 +41033,46 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "PSOE",
+      "valor": 26.7,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PSOE",
+      "valor": 30.3,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PSOE",
+      "valor": 31.8,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PSOE",
+      "valor": 30.3,
+      "muestra": 2500,
+      "encuestadora": "40dB.",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "PSOE",
+      "valor": 26.1,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "SALF",
       "valor": 2.2,
       "muestra": 5923,
@@ -36594,6 +41086,38 @@
       "muestra": 3294,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.71
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "SALF",
+      "valor": 3.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 2500,
+      "encuestadora": "40dB.",
+      "moe_pp": 1.96
     },
     {
       "fecha": "2026-11-15",
@@ -36613,6 +41137,22 @@
     },
     {
       "fecha": "2026-11-15",
+      "partido": "SUMAR",
+      "valor": 5.4,
+      "muestra": 2500,
+      "encuestadora": "40dB.",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "SUMAR",
+      "valor": 8.3,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-15",
       "partido": "VOX",
       "valor": 19.1,
       "muestra": 5923,
@@ -36626,6 +41166,62 @@
       "muestra": 3294,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.71
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "VOX",
+      "valor": 18.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "VOX",
+      "valor": 18.0,
+      "muestra": 2500,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "VOX",
+      "valor": 16.8,
+      "muestra": 9000,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.03
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "VOX",
+      "valor": 18.0,
+      "muestra": 2500,
+      "encuestadora": "40dB.",
+      "moe_pp": 1.96
+    },
+    {
+      "fecha": "2026-11-15",
+      "partido": "VOX",
+      "valor": 19.8,
+      "muestra": 3002,
+      "encuestadora": "Sigma Dos/El Mundo",
+      "moe_pp": 1.79
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "AA",
+      "valor": 1.1,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "AA",
+      "valor": 1.6,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
     },
     {
       "fecha": "2026-11-16",
@@ -36661,6 +41257,22 @@
     },
     {
       "fecha": "2026-11-16",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "BNG",
+      "valor": 1.0,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
       "partido": "CCa",
       "valor": 0.3,
       "muestra": 3759,
@@ -36677,6 +41289,22 @@
     },
     {
       "fecha": "2026-11-16",
+      "partido": "CCa",
+      "valor": 0.3,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "CCa",
+      "valor": 0.4,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
       "partido": "EH Bildu",
       "valor": 1.5,
       "muestra": 3759,
@@ -36693,6 +41321,22 @@
     },
     {
       "fecha": "2026-11-16",
+      "partido": "EH Bildu",
+      "valor": 2.1,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "EH Bildu",
+      "valor": 1.3,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
       "partido": "ERC",
       "valor": 2.4,
       "muestra": 3759,
@@ -36706,6 +41350,22 @@
       "muestra": 4446,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.47
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "ERC",
+      "valor": 2.4,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "ERC",
+      "valor": 2.8,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
     },
     {
       "fecha": "2026-11-16",
@@ -36722,6 +41382,22 @@
       "muestra": 4446,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.47
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "JUNTS",
+      "valor": 1.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "JUNTS",
+      "valor": 1.3,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
     },
     {
       "fecha": "2026-11-16",
@@ -36741,6 +41417,22 @@
     },
     {
       "fecha": "2026-11-16",
+      "partido": "PNV",
+      "valor": 0.7,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PNV",
+      "valor": 0.8,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
       "partido": "PODEMOS",
       "valor": 1.2,
       "muestra": 3759,
@@ -36754,6 +41446,38 @@
       "muestra": 4446,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.47
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PODEMOS",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PODEMOS",
+      "valor": 1.7,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PODEMOS",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-16",
@@ -36773,6 +41497,38 @@
     },
     {
       "fecha": "2026-11-16",
+      "partido": "PP",
+      "valor": 29.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PP",
+      "valor": 31.8,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PP",
+      "valor": 29.1,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PP",
+      "valor": 31.8,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
       "partido": "PSOE",
       "valor": 26.4,
       "muestra": 3759,
@@ -36789,11 +41545,75 @@
     },
     {
       "fecha": "2026-11-16",
+      "partido": "PSOE",
+      "valor": 27.0,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PSOE",
+      "valor": 30.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PSOE",
+      "valor": 31.9,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "PSOE",
+      "valor": 30.6,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
       "partido": "SALF",
       "valor": 2.2,
       "muestra": 4446,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.47
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "SALF",
+      "valor": 3.1,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "SALF",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "SALF",
+      "valor": 1.6,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-16",
@@ -36813,6 +41633,14 @@
     },
     {
       "fecha": "2026-11-16",
+      "partido": "SUMAR",
+      "valor": 5.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
       "partido": "VOX",
       "valor": 19.8,
       "muestra": 3759,
@@ -36826,6 +41654,46 @@
       "muestra": 4446,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.47
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "VOX",
+      "valor": 19.4,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "VOX",
+      "valor": 17.5,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "VOX",
+      "valor": 16.5,
+      "muestra": 9500,
+      "encuestadora": "SW Demoscopia/La Séptima",
+      "moe_pp": 1.01
+    },
+    {
+      "fecha": "2026-11-16",
+      "partido": "VOX",
+      "valor": 17.5,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "AA",
+      "valor": 1.8,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
     },
     {
       "fecha": "2026-11-17",
@@ -36906,6 +41774,14 @@
       "muestra": 2454,
       "encuestadora": "Public First/Politico",
       "moe_pp": 1.98
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "BNG",
+      "valor": 0.9,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
     },
     {
       "fecha": "2026-11-17",
@@ -36981,6 +41857,14 @@
     },
     {
       "fecha": "2026-11-17",
+      "partido": "EH Bildu",
+      "valor": 1.3,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
+    },
+    {
+      "fecha": "2026-11-17",
       "partido": "ERC",
       "valor": 2.7,
       "muestra": 1000,
@@ -37018,6 +41902,14 @@
       "muestra": 2454,
       "encuestadora": "Public First/Politico",
       "moe_pp": 1.98
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "ERC",
+      "valor": 2.9,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
     },
     {
       "fecha": "2026-11-17",
@@ -37061,6 +41953,14 @@
     },
     {
       "fecha": "2026-11-17",
+      "partido": "JUNTS",
+      "valor": 1.0,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
+    },
+    {
+      "fecha": "2026-11-17",
       "partido": "PNV",
       "valor": 0.5,
       "muestra": 1000,
@@ -37098,6 +41998,14 @@
       "muestra": 2454,
       "encuestadora": "Public First/Politico",
       "moe_pp": 1.98
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PNV",
+      "valor": 0.9,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
     },
     {
       "fecha": "2026-11-17",
@@ -37141,6 +42049,30 @@
     },
     {
       "fecha": "2026-11-17",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PODEMOS",
+      "valor": 2.2,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
+    },
+    {
+      "fecha": "2026-11-17",
       "partido": "PP",
       "valor": 28.5,
       "muestra": 1000,
@@ -37178,6 +42110,30 @@
       "muestra": 2454,
       "encuestadora": "Public First/Politico",
       "moe_pp": 1.98
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PP",
+      "valor": 32.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PP",
+      "valor": 32.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PP",
+      "valor": 29.5,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
     },
     {
       "fecha": "2026-11-17",
@@ -37221,6 +42177,30 @@
     },
     {
       "fecha": "2026-11-17",
+      "partido": "PSOE",
+      "valor": 30.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PSOE",
+      "valor": 30.7,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "PSOE",
+      "valor": 27.2,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
+    },
+    {
+      "fecha": "2026-11-17",
       "partido": "SALF",
       "valor": 2.7,
       "muestra": 1000,
@@ -37250,6 +42230,30 @@
       "muestra": 2454,
       "encuestadora": "Public First/Politico",
       "moe_pp": 1.98
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "SALF",
+      "valor": 2.0,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
     },
     {
       "fecha": "2026-11-17",
@@ -37293,6 +42297,22 @@
     },
     {
       "fecha": "2026-11-17",
+      "partido": "SUMAR",
+      "valor": 5.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "SUMAR",
+      "valor": 5.9,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
+    },
+    {
+      "fecha": "2026-11-17",
       "partido": "VOX",
       "valor": 19.6,
       "muestra": 1000,
@@ -37330,6 +42350,30 @@
       "muestra": 2454,
       "encuestadora": "Public First/Politico",
       "moe_pp": 1.98
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "VOX",
+      "valor": 17.0,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "VOX",
+      "valor": 17.0,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-17",
+      "partido": "VOX",
+      "valor": 19.6,
+      "muestra": 1375,
+      "encuestadora": "PF Global/POLITICO",
+      "moe_pp": 2.64
     },
     {
       "fecha": "2026-11-18",
@@ -37461,6 +42505,22 @@
     },
     {
       "fecha": "2026-11-18",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "PODEMOS",
+      "valor": 1.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
       "partido": "PP",
       "valor": 31.6,
       "muestra": 2300,
@@ -37482,6 +42542,30 @@
       "muestra": 5704,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.3
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "PP",
+      "valor": 32.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "PP",
+      "valor": 29.3,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "PP",
+      "valor": 32.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-18",
@@ -37509,11 +42593,51 @@
     },
     {
       "fecha": "2026-11-18",
+      "partido": "PSOE",
+      "valor": 30.4,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "PSOE",
+      "valor": 27.8,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "PSOE",
+      "valor": 30.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
       "partido": "SALF",
       "valor": 2.4,
       "muestra": 5704,
       "encuestadora": "EM-Analytics/Electomanía",
       "moe_pp": 1.3
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
     },
     {
       "fecha": "2026-11-18",
@@ -37541,6 +42665,22 @@
     },
     {
       "fecha": "2026-11-18",
+      "partido": "SUMAR",
+      "valor": 5.1,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "SUMAR",
+      "valor": 5.4,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
       "partido": "VOX",
       "valor": 19.4,
       "muestra": 2300,
@@ -37564,11 +42704,43 @@
       "moe_pp": 1.3
     },
     {
+      "fecha": "2026-11-18",
+      "partido": "VOX",
+      "valor": 17.2,
+      "muestra": 2000,
+      "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "VOX",
+      "valor": 19.7,
+      "muestra": 1000,
+      "encuestadora": "Sondaxe/La Voz de Galicia",
+      "moe_pp": 3.1
+    },
+    {
+      "fecha": "2026-11-18",
+      "partido": "VOX",
+      "valor": 17.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
       "fecha": "2026-11-19",
       "partido": "PODEMOS",
       "valor": 1.1,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-19",
+      "partido": "PODEMOS",
+      "valor": 1.1,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -37581,10 +42753,42 @@
     },
     {
       "fecha": "2026-11-19",
+      "partido": "PP",
+      "valor": 31.5,
+      "muestra": 2600,
+      "encuestadora": "Data10/Okdiario",
+      "moe_pp": 1.92
+    },
+    {
+      "fecha": "2026-11-19",
+      "partido": "PP",
+      "valor": 32.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-19",
       "partido": "PSOE",
       "valor": 30.2,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-19",
+      "partido": "PSOE",
+      "valor": 26.9,
+      "muestra": 2600,
+      "encuestadora": "Data10/Okdiario",
+      "moe_pp": 1.92
+    },
+    {
+      "fecha": "2026-11-19",
+      "partido": "PSOE",
+      "valor": 30.2,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     },
     {
@@ -37597,6 +42801,14 @@
     },
     {
       "fecha": "2026-11-19",
+      "partido": "SALF",
+      "valor": 1.7,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-19",
       "partido": "SUMAR",
       "valor": 5.3,
       "muestra": 2000,
@@ -37605,10 +42817,42 @@
     },
     {
       "fecha": "2026-11-19",
+      "partido": "SUMAR",
+      "valor": 6.5,
+      "muestra": 2600,
+      "encuestadora": "Data10/Okdiario",
+      "moe_pp": 1.92
+    },
+    {
+      "fecha": "2026-11-19",
+      "partido": "SUMAR",
+      "valor": 5.3,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-19",
       "partido": "VOX",
       "valor": 17.6,
       "muestra": 2000,
       "encuestadora": "40dB/Prisa",
+      "moe_pp": 2.19
+    },
+    {
+      "fecha": "2026-11-19",
+      "partido": "VOX",
+      "valor": 19.4,
+      "muestra": 2600,
+      "encuestadora": "Data10/Okdiario",
+      "moe_pp": 1.92
+    },
+    {
+      "fecha": "2026-11-19",
+      "partido": "VOX",
+      "valor": 17.6,
+      "muestra": 2000,
+      "encuestadora": "40dB.",
       "moe_pp": 2.19
     }
   ]

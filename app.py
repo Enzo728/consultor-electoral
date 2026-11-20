@@ -596,19 +596,33 @@ with st.sidebar:
     st.caption(act_txt)
     fuentes = datos.get("fuentes") or []
     if fuentes:
-        nombres = " + ".join(x.get("nombre", x.get("id", "?")) for x in fuentes)
+        # Solo fuentes con encuestas incluidas > 0 en el caption principal
+        con_datos = [
+            x for x in fuentes
+            if (x.get("stats") or {}).get("encuestas_incluidas",
+                                          (x.get("stats") or {}).get("encuestas", 0)) or x.get("id") == "wikipedia"
+        ]
+        nombres = " + ".join(x.get("nombre", x.get("id", "?")) for x in (con_datos or fuentes))
         st.caption(f"Fuentes: {nombres} · {datos.get('actualizado', '—')}")
     else:
         st.caption(f"Fuente: Wikipedia · {datos.get('actualizado', '—')}")
-    st.caption(
-        f"Incluidas {f.get('total_incluidas', '?')} · "
-        f"excluidas {f.get('total_excluidas', '?')}"
-        + (
-            f" · wiki {f.get('desde_wikipedia', '?')} + EL {f.get('desde_electorallab', '?')}"
-            if f.get("desde_wikipedia") is not None
-            else ""
+    partes = [f"Incluidas {f.get('total_incluidas', '?')}"]
+    if f.get("total_excluidas") is not None:
+        partes.append(f"excluidas {f.get('total_excluidas')}")
+    for k, v in sorted(f.items()):
+        if k.startswith("desde_") and v:
+            partes.append(f"{k[6:]} {v}")
+    st.caption(" · ".join(partes))
+    aud = datos.get("auditoria_fuentes") or {}
+    if aud.get("moe_medio_pp") is not None:
+        st.caption(
+            f"±MOE medio {aud['moe_medio_pp']} pp · "
+            f"dispersión 14d top: "
+            + ", ".join(
+                f"{d['partido']} {d['desv_estandar_pp']}"
+                for d in (aud.get("dispersion_14d_top") or [])[:3]
+            )
         )
-    )
     info = cargar_informe()
     if info:
         st.caption(f"IA: {info.get('generado_en', '—')}")
@@ -1079,6 +1093,32 @@ with tab_tend:
         )
 
 with tab_aud:
+    aud = datos.get("auditoria_fuentes") or {}
+    if aud:
+        st.caption("Auditoría multi-fuente · desviaciones y coherencia del agregado.")
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("Fuentes activas", aud.get("n_fuentes_activas", "—"), border=True)
+        c2.metric("±MOE medio (pp)", aud.get("moe_medio_pp", "—"), border=True)
+        c3.metric("Pares cross-source", aud.get("n_pares_cross_source", "—"), border=True)
+        c4.metric("Max dif. cross (pp)", aud.get("cross_source_max_dif_pp", "—"), border=True)
+        if aud.get("dispersion_14d_top"):
+            st.caption("Dispersión 14d (desv. estándar del voto por partido):")
+            st.dataframe(pd.DataFrame(aud["dispersion_14d_top"]), width="stretch", hide_index=True)
+        pares = aud.get("pares_cross_source") or []
+        if pares:
+            with st.expander(f"Pares cross-source ({len(pares)}) — misma encuesta en ≥2 agregadores"):
+                filas_p = [
+                    {
+                        "Encuestadora": p.get("encuestadora"),
+                        "Fin": p.get("fecha_fin"),
+                        "n": p.get("muestra"),
+                        "Orígenes": " + ".join(p.get("origenes") or []),
+                        "Max dif (pp)": p.get("max_dif_pp"),
+                    }
+                    for p in pares[:20]
+                ]
+                st.dataframe(pd.DataFrame(filas_p), width="stretch", hide_index=True)
+
     st.caption("House effects: desviación de cada casa frente al consenso (45 días).")
     he = datos.get("house_effects") or []
     if he:
@@ -1138,12 +1178,18 @@ with tab_aud:
     if fuentes:
         with st.expander("Fuentes de datos"):
             for fu in fuentes:
+                st_raw = fu.get("stats") or {}
+                inc = st_raw.get("encuestas_incluidas", st_raw.get("encuestas"))
+                err = st_raw.get("error")
+                badge = f" · {inc} incluidas" if inc is not None else ""
+                if err:
+                    badge += f" · ⚠ {err}"
                 st.markdown(
-                    f"- **{fu.get('nombre', fu.get('id'))}** — `{fu.get('url', '')}`"
+                    f"- **{fu.get('nombre', fu.get('id'))}**{badge} — `{fu.get('url', '')}`"
                 )
             st.caption(
                 "Electomanía no se scrapea directamente (sus condiciones lo prohíben); "
-                "sus encuestas llegan vía ElectoralLab/Wikipedia con enlace a la fuente original."
+                "sus encuestas llegan vía ElectoralLab/Wikipedia/votomunicipal con enlace a la fuente original."
             )
 
     excl = datos.get("excluidas") or []

@@ -22,7 +22,49 @@ URL_WIKI = (
 # ElectoralLab: CSV abierto CC BY 4.0 (incluye Electomanía y otras casas con enlace a la fuente).
 # No se scrapea electomania.es (sus condiciones prohíben la extracción automatizada).
 URL_ELECTORALLAB = "https://electorallab.com/data/encuestas.csv"
-FUENTES = ["wikipedia", "electorallab"]
+URL_VOTOMUNICIPAL = "https://votomunicipal.es/datos/encuestas.json"
+URL_DEMOCRATA = (
+    "https://www.democrata.es/elecciones-generales-espana/"
+    "herramientas/api/elecciones/datos/sondeos.csv"
+)
+# eleccionesespana.com vía punycode (DNS normal falla)
+URL_ELECCIONESPANA = "https://xn--eleccionesespaa-crb.com/data/general.json"
+URL_MAPAELECTORAL = (
+    "https://mapaelectoral.es/previsiones/datos/encuestas/encuestas_limpias.csv"
+)
+
+# Catálogo de fuentes generales (orden = prioridad en dedup al empate)
+CATALOGO_FUENTES = [
+    {"id": "wikipedia", "nombre": "Wikipedia ES", "url": URL_WIKI},
+    {"id": "electorallab", "nombre": "ElectoralLab (CC BY 4.0)", "url": URL_ELECTORALLAB},
+    {"id": "votomunicipal", "nombre": "Votomunicipal", "url": URL_VOTOMUNICIPAL},
+    {"id": "democrata", "nombre": "Demócrata.es", "url": URL_DEMOCRATA},
+    {"id": "eleccionesespana", "nombre": "EleccionesEspeña", "url": URL_ELECCIONESPANA},
+    {"id": "mapaelectoral", "nombre": "MapaElectoral", "url": URL_MAPAELECTORAL},
+]
+FUENTES = [f["id"] for f in CATALOGO_FUENTES]
+
+# Mapeo ambito MapaElectoral → id de CCAA del scraper
+AMBITO_A_CCAA = {
+    "españa": None,  # nacional → generales
+    "cataluña": "cataluna",
+    "galicia": "galicia",
+    "país vasco": "paisvasco",
+    "castilla y león": "cyl",
+    "andalucía": "andalucia",
+    "comunitat valenciana": "cvalenciana",
+    "comunidad de madrid": "madrid",
+    "extremadura": "extremadura",
+    "aragón": "aragon",
+    "castilla-la mancha": "clm",
+    "navarra": "navarra",
+    "región de murcia": "murcia",
+    "illes balears": "baleares",
+    "canarias": "canarias",
+    "asturias": "asturias",
+    "cantabria": "cantabria",
+    "la rioja": "larioja",
+}
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 OUT_PATH = DATA_DIR / "encuestas_limpias.json"
@@ -235,6 +277,25 @@ def norm_partido(nombre: str) -> str:
         "c-fv": "C-FV",
         "compromís-front valencià": "C-FV",
         "compromis-front valencia": "C-FV",
+        # Demócrata / MapaElectoral (minúsculas y códigos de columna)
+        "v": "VOX",
+        "sumar/fa": "FA",
+        "bildu": "EH Bildu",
+        "bldu": "EH Bildu",
+        "cc": "CCa",
+        "coalición canaria": "CCa",
+        "coalicion canaria": "CCa",
+        "adelante andalucía": "AA",
+        "adelante andalucia": "AA",
+        "up": "PODEMOS",
+        "cs": "Cs",
+        "c's": "Cs",
+        "junts per catalunya": "JUNTS",
+        "eh bildu": "EH Bildu",
+        "ehbildu": "EH Bildu",
+        "a": None,  # columna residual MapaElectoral
+        "otros": "OTROS",
+        "ns/nr": None,
     }
     key = n.lower().strip()
     if key in equivalencias:
@@ -821,6 +882,438 @@ def cargar_electorallab(dias: int = 120) -> tuple[list[dict], dict]:
     return encuestas, stats
 
 
+def _http_get(url: str, timeout: int = 45) -> requests.Response:
+    resp = requests.get(
+        url,
+        headers={"User-Agent": "ConsultorElectoralEspana/1.0 (proyecto educativo local)"},
+        timeout=timeout,
+    )
+    resp.raise_for_status()
+    return resp
+
+
+def _parse_pct(v) -> float | None:
+    if v is None or v == "":
+        return None
+    try:
+        pct = float(str(v).replace(",", "."))
+    except ValueError:
+        return None
+    if not 0 <= pct <= 100:
+        return None
+    return pct
+
+
+def _partes_nombre(full: str) -> tuple[str, str]:
+    partes = (full or "").split("/", 1)
+    enc = partes[0].strip()
+    com = partes[1].strip() if len(partes) > 1 else ""
+    return enc, com
+
+
+def cargar_votomunicipal(dias: int = 120) -> tuple[list[dict], dict]:
+    """JSON de votomunicipal.es (CC BY-SA vía Wikipedia): est/esc por encuesta."""
+    stats = {"fuente": URL_VOTOMUNICIPAL, "filas": 0, "encuestas": 0, "error": None}
+    try:
+        resp = _http_get(URL_VOTOMUNICIPAL)
+        data = resp.json()
+    except (requests.RequestException, ValueError) as exc:
+        stats["error"] = str(exc)[:120]
+        return [], stats
+
+    items = data.get("encuestas") or []
+    stats["filas"] = len(items)
+    limite = (date.today() - timedelta(days=dias)).isoformat()
+    encuestas: list[dict] = []
+    for it in items:
+        fecha_fin = (it.get("fin") or "").strip()
+        if not fecha_fin or fecha_fin < limite or fecha_fin > date.today().isoformat():
+            continue
+        empresa = (it.get("empresa") or "").strip()
+        medio = (it.get("medio") or "").strip()
+        if not empresa or es_cis(empresa) or es_cis(medio):
+            continue
+        muestra = it.get("muestra")
+        if muestra is None:
+            try:
+                muestra = parse_muestra(str(it.get("muestra") or ""))
+            except Exception:  # noqa: BLE001
+                muestra = None
+        if isinstance(muestra, (int, float)):
+            muestra = int(muestra)
+        if muestra is None or muestra < MUESTRA_MINIMA:
+            continue
+        est = it.get("est") or {}
+        votos: dict[str, float] = {}
+        for k, v in est.items():
+            p = norm_partido(str(k))
+            pct = _parse_pct(v)
+            if not p or pct is None:
+                continue
+            if p.upper() in {"NS/NR", "OTROS", "OTRO"}:
+                continue
+            prev = votos.get(p)
+            votos[p] = pct if prev is None else max(prev, pct)
+        if not votos:
+            continue
+        fuente_nombre = f"{empresa}/{medio}" if medio else empresa
+        enc, com = _partes_nombre(fuente_nombre)
+        campo = (it.get("campo") or "").strip()
+        encuestas.append(
+            {
+                "encuestadora": enc,
+                "comisionista": com,
+                "fuente_nombre": fuente_nombre,
+                "trabajo_campo": campo or fecha_fin,
+                "fecha_inicio": (it.get("inicio") or "").strip() or fecha_fin,
+                "fecha_fin": fecha_fin,
+                "muestra": muestra,
+                "muestra_raw": str(muestra),
+                "votos": votos,
+                "origen": "votomunicipal",
+                "url_fuente": (it.get("fuente") or "").strip() or None,
+            }
+        )
+    stats["encuestas"] = len(encuestas)
+    return encuestas, stats
+
+
+def cargar_democrata(dias: int = 120) -> tuple[list[dict], dict]:
+    """CSV long de democrata.es (estimaciones reales; sin CIS ni agregados)."""
+    stats = {"fuente": URL_DEMOCRATA, "filas": 0, "encuestas": 0, "error": None}
+    try:
+        resp = _http_get(URL_DEMOCRATA)
+        text = resp.content.decode("utf-8-sig", errors="replace")
+    except requests.RequestException as exc:
+        stats["error"] = str(exc)[:120]
+        return [], stats
+
+    rows = list(csv.DictReader(io.StringIO(text)))
+    stats["filas"] = len(rows)
+    if not rows:
+        stats["error"] = "csv_vacio"
+        return [], stats
+
+    limite = (date.today() - timedelta(days=dias)).isoformat()
+    hoy = date.today().isoformat()
+    # Tipos válidos: estimaciones de campo real (no CIS, no agregado/interna)
+    tipos_ok = {"estimacion", "panel", "reestimacion"}
+    grupos: dict[str, dict] = {}
+    for r in rows:
+        tipo = (r.get("tipo") or "").strip().lower()
+        if tipo not in tipos_ok:
+            continue
+        fecha_fin = (r.get("campo_fin") or "").strip()
+        if not fecha_fin or fecha_fin < limite or fecha_fin > hoy:
+            continue
+        instituto = (r.get("instituto") or "").strip()
+        if not instituto or es_cis(instituto) or es_cis(r.get("encargo") or ""):
+            continue
+        muestra = parse_muestra((r.get("muestra") or "").strip()) if (r.get("muestra") or "").strip() else None
+        if muestra is None or muestra < MUESTRA_MINIMA:
+            continue
+        id_est = (r.get("id") or "").strip() or f"{instituto}-{fecha_fin}-{muestra}"
+        g = grupos.get(id_est)
+        if g is None:
+            inicio = (r.get("campo_inicio") or "").strip() or fecha_fin
+            encargo = (r.get("encargo") or "").strip()
+            fuente_nombre = f"{instituto}/{encargo}" if encargo else instituto
+            enc, com = _partes_nombre(fuente_nombre)
+            g = {
+                "encuestadora": enc,
+                "comisionista": com,
+                "fuente_nombre": fuente_nombre,
+                "trabajo_campo": f"{inicio} → {fecha_fin}",
+                "fecha_inicio": inicio,
+                "fecha_fin": fecha_fin,
+                "muestra": muestra,
+                "muestra_raw": str(muestra),
+                "votos": {},
+                "origen": "democrata",
+                "url_fuente": (r.get("fuente") or "").strip() or None,
+            }
+            grupos[id_est] = g
+        p = norm_partido((r.get("partido") or "").strip())
+        pct = _parse_pct(r.get("voto_pct"))
+        if not p or pct is None or p.upper() in {"NS/NR", "OTROS", "OTRO"}:
+            continue
+        prev = g["votos"].get(p)
+        g["votos"][p] = pct if prev is None else max(prev, pct)
+
+    encuestas = [g for g in grupos.values() if g["votos"]]
+    stats["encuestas"] = len(encuestas)
+    return encuestas, stats
+
+
+def cargar_eleccionesespana(dias: int = 120) -> tuple[list[dict], dict]:
+    """JSON eleccionesespana.com (vía punycode): polls con r partido→{v}."""
+    stats = {"fuente": URL_ELECCIONESPANA, "filas": 0, "encuestas": 0, "error": None}
+    try:
+        resp = _http_get(URL_ELECCIONESPANA)
+        data = resp.json()
+    except (requests.RequestException, ValueError) as exc:
+        stats["error"] = str(exc)[:120]
+        return [], stats
+
+    polls = data.get("polls") or []
+    stats["filas"] = len(polls)
+    limite = (date.today() - timedelta(days=dias)).isoformat()
+    hoy = date.today().isoformat()
+    encuestas: list[dict] = []
+    for it in polls:
+        fecha_fin = (it.get("end") or "").strip()
+        if not fecha_fin or fecha_fin < limite or fecha_fin > hoy:
+            continue
+        firma = (it.get("firm") or it.get("pollster") or "").strip()
+        media = (it.get("media") or "").strip()
+        if not firma or es_cis(firma) or es_cis(media):
+            continue
+        muestra = it.get("sample")
+        if muestra is None:
+            muestra = parse_muestra(str(it.get("sample") or "")) if it.get("sample") else None
+        if isinstance(muestra, (int, float)):
+            muestra = int(muestra)
+        if muestra is None or muestra < MUESTRA_MINIMA:
+            continue
+        r = it.get("r") or {}
+        votos: dict[str, float] = {}
+        for k, v in r.items():
+            p = norm_partido(str(k))
+            if isinstance(v, dict):
+                pct = _parse_pct(v.get("v"))
+            else:
+                pct = _parse_pct(v)
+            if not p or pct is None or p.upper() in {"NS/NR", "OTROS", "OTRO"}:
+                continue
+            prev = votos.get(p)
+            votos[p] = pct if prev is None else max(prev, pct)
+        if not votos:
+            continue
+        inicio = (it.get("start") or "").strip() or fecha_fin
+        fuente_nombre = f"{firma}/{media}" if media else firma
+        enc, com = _partes_nombre(fuente_nombre)
+        encuestas.append(
+            {
+                "encuestadora": enc,
+                "comisionista": com,
+                "fuente_nombre": fuente_nombre,
+                "trabajo_campo": f"{inicio} → {fecha_fin}",
+                "fecha_inicio": inicio,
+                "fecha_fin": fecha_fin,
+                "muestra": muestra,
+                "muestra_raw": str(muestra),
+                "votos": votos,
+                "origen": "eleccionesespana",
+                "url_fuente": (it.get("src") or "").strip() or None,
+            }
+        )
+    stats["encuestas"] = len(encuestas)
+    return encuestas, stats
+
+
+def cargar_mapaelectoral(dias: int = 120) -> tuple[list[dict], dict]:
+    """CSV ancho de mapaelectoral.es. Nacional (ESPAÑA) → generales;
+    resto de ámbitos se etiqueta con ambito para autonómicas."""
+    stats = {"fuente": URL_MAPAELECTORAL, "filas": 0, "encuestas": 0, "error": None}
+    try:
+        resp = _http_get(URL_MAPAELECTORAL)
+        text = resp.content.decode("utf-8", errors="replace")
+    except requests.RequestException as exc:
+        stats["error"] = str(exc)[:120]
+        return [], stats
+
+    rows = list(csv.DictReader(io.StringIO(text)))
+    stats["filas"] = len(rows)
+    if not rows:
+        stats["error"] = "csv_vacio"
+        return [], stats
+
+    limite = (date.today() - timedelta(days=dias)).isoformat()
+    hoy = date.today().isoformat()
+    columnas_partido = [
+        c for c in (rows[0].keys() if rows else [])
+        if c and c.upper() not in {
+            "AMBITO", "PUBLICADO", "ENCUESTADORA", "CLIENTE", "CAMPO_INICIO",
+            "CAMPO_FIN", "MUESTRA", "METODO", "FUENTE_ORIGINAL", "URL_AGGREGADOR",
+        }
+    ]
+    encuestas: list[dict] = []
+    for r in rows:
+        ambito = (r.get("ambito") or "").strip()
+        ambito_l = ambito.lower()
+        if ambito_l not in AMBITO_A_CCAA:
+            continue
+        fecha_fin = (r.get("campo_fin") or r.get("publicado") or "").strip()
+        if not fecha_fin or fecha_fin < limite or fecha_fin > hoy:
+            continue
+        encuestadora = (r.get("encuestadora") or "").strip()
+        if not encuestadora or es_cis(encuestadora):
+            continue
+        muestra = parse_muestra((r.get("muestra") or "").strip()) if (r.get("muestra") or "").strip() else None
+        # Nacional usa umbral generales; CCAA umbral autonómico
+        umbral = MUESTRA_MINIMA if ambito_l == "españa" else MUESTRA_MINIMA_AUT
+        if muestra is None or muestra < umbral:
+            continue
+        votos: dict[str, float] = {}
+        for c in columnas_partido:
+            pct = _parse_pct(r.get(c))
+            if pct is None:
+                continue
+            p = norm_partido(c)
+            if not p or p.upper() in {"NS/NR", "OTROS", "OTRO"}:
+                continue
+            prev = votos.get(p)
+            votos[p] = pct if prev is None else max(prev, pct)
+        if not votos:
+            continue
+        inicio = (r.get("campo_inicio") or "").strip() or fecha_fin
+        cliente = (r.get("cliente") or "").strip()
+        fuente_nombre = f"{encuestadora}/{cliente}" if cliente else encuestadora
+        enc, com = _partes_nombre(fuente_nombre)
+        url = (r.get("url_agregador") or r.get("fuente_original") or "").strip() or None
+        encuestas.append(
+            {
+                "encuestadora": enc,
+                "comisionista": com,
+                "fuente_nombre": fuente_nombre,
+                "trabajo_campo": f"{inicio} → {fecha_fin}",
+                "fecha_inicio": inicio,
+                "fecha_fin": fecha_fin,
+                "muestra": muestra,
+                "muestra_raw": str(muestra),
+                "votos": votos,
+                "origen": "mapaelectoral",
+                "ambito": ambito,
+                "ccaa_id": AMBITO_A_CCAA[ambito_l],
+                "url_fuente": url,
+            }
+        )
+    stats["encuestas"] = len(encuestas)
+    stats["nacional"] = sum(1 for e in encuestas if e.get("ccaa_id") is None)
+    stats["autonomicas"] = sum(1 for e in encuestas if e.get("ccaa_id"))
+    return encuestas, stats
+
+
+def _descargar_fuente(id_fuente: str, loader) -> tuple[list[dict], dict]:
+    """Ejecuta un loader aislado; nunca propaga excepción al main."""
+    try:
+        encs, st = loader()
+        print(f"[scraper] {id_fuente}: {st}")
+        return encs, st
+    except Exception as exc:  # noqa: BLE001
+        st = {"error": str(exc)[:120], "encuestas": 0, "filas": 0}
+        print(f"[scraper] {id_fuente} omitido: {exc}", file=sys.stderr)
+        return [], st
+
+
+def construir_auditoria_fuentes(encuestas: list[dict], ref: date,
+                                house: list[dict] | None = None,
+                                candidatas: list[dict] | None = None) -> dict:
+    """Desviaciones multi-fuente: conteos, MOE, dispersión 14d y pares cross-source.
+
+    `encuestas` = lista final ya deduplicada (conteos/MOE).
+    `candidatas` = lista pre-dedup (para detectar pares en ≥2 orígenes);
+                   por defecto se usa `encuestas`.
+    """
+    base_pares = candidatas if candidatas is not None else encuestas
+    por_fuente: dict[str, int] = {}
+    moes: list[float] = []
+    for e in encuestas:
+        o = e.get("origen") or "desconocido"
+        por_fuente[o] = por_fuente.get(o, 0) + 1
+        m = e.get("moe_pp")
+        if m is not None:
+            moes.append(float(m))
+
+    # Dispersión (desv. estándar) por partido en ventana 14d
+    ventana = [
+        e for e in encuestas
+        if (ref - date.fromisoformat(e["fecha_fin"])).days <= 14
+    ]
+    vals: dict[str, list[float]] = {}
+    for e in ventana:
+        for p, v in e.get("votos", {}).items():
+            if v is None:
+                continue
+            vals.setdefault(p, []).append(float(v))
+    dispersion: dict[str, float] = {}
+    for p, xs in vals.items():
+        if len(xs) < 2:
+            continue
+        media = sum(xs) / len(xs)
+        var = sum((x - media) ** 2 for x in xs) / (len(xs) - 1)
+        dispersion[p] = round(math.sqrt(var), 2)
+    top_disp = sorted(
+        (
+            {"partido": p, "desv_estandar_pp": d, "n": len(vals[p])}
+            for p, d in dispersion.items()
+        ),
+        key=lambda x: -x["desv_estandar_pp"],
+    )[:10]
+
+    # Pares cross-source: misma encuestadora + fecha_fin + muestra en ≥2 orígenes
+    por_clave: dict[tuple, list[dict]] = {}
+    for e in base_pares:
+        clave = _clave_dedup(e)
+        por_clave.setdefault(clave, []).append(e)
+    pares: list[dict] = []
+    for clave, grupo in por_clave.items():
+        origenes = sorted({g.get("origen") or "?" for g in grupo})
+        if len(origenes) < 2:
+            continue
+        max_dif = 0.0
+        partidos_diff: dict[str, float] = {}
+        base = grupo[0].get("votos") or {}
+        for g in grupo[1:]:
+            votos = g.get("votos") or {}
+            for p in set(base) & set(votos):
+                if base[p] is None or votos[p] is None:
+                    continue
+                dif = abs(float(base[p]) - float(votos[p]))
+                if dif > max_dif:
+                    max_dif = dif
+                if dif >= 0.1:
+                    partidos_diff[p] = round(max(partidos_diff.get(p, 0.0), dif), 2)
+        pares.append(
+            {
+                "encuestadora": clave[0],
+                "fecha_fin": clave[1],
+                "muestra": clave[2],
+                "origenes": origenes,
+                "max_dif_pp": round(max_dif, 2),
+                "diferencias": partidos_diff,
+            }
+        )
+    pares.sort(key=lambda x: -x["max_dif_pp"])
+    pares = pares[:30]
+
+    moe_medio = round(sum(moes) / len(moes), 2) if moes else None
+    he_magnitudes = [
+        abs(h.get("desviacion_max", {}).get("pp") or 0)
+        for h in (house or [])
+    ]
+    he_medio = round(sum(he_magnitudes) / len(he_magnitudes), 2) if he_magnitudes else None
+
+    return {
+        "por_fuente": por_fuente,
+        "n_fuentes_activas": len(por_fuente),
+        "moe_medio_pp": moe_medio,
+        "moe_min_pp": round(min(moes), 2) if moes else None,
+        "moe_max_pp": round(max(moes), 2) if moes else None,
+        "n_encuestas_14d": len(ventana),
+        "dispersion_14d_top": top_disp,
+        "pares_cross_source": pares,
+        "n_pares_cross_source": len(pares),
+        "cross_source_max_dif_pp": pares[0]["max_dif_pp"] if pares else None,
+        "house_effect_medio_pp": he_medio,
+        "nota": (
+            "moe_pp = IC 95% por encuesta (p=0.5). "
+            "dispersion = desv. estándar de voto en 14d. "
+            "pares_cross_source = misma encuesta en ≥2 agregadores (control de calidad)."
+        ),
+    }
+
+
 def peso_encuesta(e: dict, ref: date) -> float:
     """Peso exponencial por recencia * raíz cuadrada de la muestra."""
     f = date.fromisoformat(e["fecha_fin"])
@@ -923,7 +1416,8 @@ def _ultima_fecha(encuestas: list[dict]) -> str | None:
 
 
 def scrappear_autonomicas() -> dict:
-    """Descarga tablas de encuestas de las páginas autonómicas configuradas.
+    """Descarga tablas de encuestas de las páginas autonómicas configuradas
+    + fusiona encuestas autonómicas de MapaElectoral (ambito ≠ España).
 
     Devuelve:
     {
@@ -939,6 +1433,21 @@ def scrappear_autonomicas() -> dict:
     medias_out: dict[str, dict[str, float]] = {}
     enc_out: dict[str, list[dict]] = {}
     stats_out: dict[str, dict] = {}
+
+    # MapaElectoral CCAA (mejor esfuerzo)
+    mapa_por_ccaa: dict[str, list[dict]] = {}
+    mapa_stats: dict = {"error": None, "encuestas": 0}
+    try:
+        mapa_all, mapa_stats = cargar_mapaelectoral(dias=MESES_VIDA * 30)
+        for e in mapa_all:
+            cid = e.get("ccaa_id")
+            if cid and cid in PAGINAS_AUTONOMICAS:
+                e.setdefault("origen", "mapaelectoral")
+                mapa_por_ccaa.setdefault(cid, []).append(e)
+        print(f"[scraper-aut] MapaElectoral CCAA: {mapa_stats} -> {sorted(mapa_por_ccaa)}")
+    except Exception as exc:  # noqa: BLE001
+        mapa_stats = {"error": str(exc)[:120], "encuestas": 0}
+        print(f"[scraper-aut] MapaElectoral omitido: {exc}", file=sys.stderr)
 
     for cid, titulos in PAGINAS_AUTONOMICAS.items():
         html = None
@@ -961,6 +1470,8 @@ def scrappear_autonomicas() -> dict:
             continue
         try:
             crudas = extraer_encuestas(html)
+            for e in crudas:
+                e.setdefault("origen", "wikipedia")
         except Exception as exc:  # noqa: BLE001
             stats_out[cid] = {
                 "incluidas": 0, "excluidas": 0, "fuente": fuente,
@@ -969,6 +1480,9 @@ def scrappear_autonomicas() -> dict:
             medias_out[cid] = {}
             enc_out[cid] = []
             continue
+
+        # Fusionar MapaElectoral de esta CCAA
+        crudas.extend(mapa_por_ccaa.get(cid, []))
 
         # Filtro autonómico: sin CIS, n≥600
         incluidas: list[dict] = []
@@ -990,9 +1504,13 @@ def scrappear_autonomicas() -> dict:
             if not e.get("fecha_fin"):
                 n_otra += 1
                 continue
+            if e.get("fecha_fin", "") > hoy.isoformat():
+                n_otra += 1
+                continue
             incluidas.append(e)
 
-        # Dedup
+        # Dedup (prioridad wikipedia > mapaelectoral)
+        incluidas.sort(key=_orden_fuente)
         vistos = set()
         unicas = []
         for e in incluidas:
@@ -1002,6 +1520,7 @@ def scrappear_autonomicas() -> dict:
             vistos.add(clave)
             unicas.append(e)
         incluidas = unicas
+        anadir_margenes(incluidas)
 
         # Última encuesta: de TODAS las filas con fecha (crudas, pre-filtro)
         ultima = _ultima_fecha(con_fecha)
@@ -1036,10 +1555,14 @@ def scrappear_autonomicas() -> dict:
             # Sin encuestas recientes fiables → NUNCA inventar datos
             meds = {}
 
+        n_wiki = sum(1 for e in incluidas if e.get("origen") == "wikipedia")
+        n_mapa = sum(1 for e in incluidas if e.get("origen") == "mapaelectoral")
         medias_out[cid] = meds
         enc_out[cid] = incluidas
         stats_out[cid] = {
             "incluidas": len(incluidas),
+            "desde_wikipedia": n_wiki,
+            "desde_mapaelectoral": n_mapa,
             "excluidas_cis": n_cis,
             "excluidas_muestra": n_muestra,
             "excluidas_otra": n_otra,
@@ -1048,7 +1571,8 @@ def scrappear_autonomicas() -> dict:
             "reciente": reciente,
             "aviso": None if reciente else SIN_ENCUESTAS,
         }
-        print(f"[scraper-aut] {cid}: {len(incluidas)} encuestas · {len(meds)} partidos"
+        print(f"[scraper-aut] {cid}: {len(incluidas)} encuestas . {len(meds)} partidos"
+              + (f" (wiki={n_wiki}+mapa={n_mapa})" if n_mapa else "")
               + ("" if reciente else f" · {SIN_ENCUESTAS}"))
 
     payload = {
@@ -1059,6 +1583,10 @@ def scrappear_autonomicas() -> dict:
             "lambda_ponderacion": round(LAMBDA_DIAS, 5),
             "meses_vida": MESES_VIDA,
         },
+        "fuentes": [
+            {"id": "wikipedia", "nombre": "Wikipedia ES"},
+            {"id": "mapaelectoral", "nombre": "MapaElectoral", "stats": mapa_stats},
+        ],
         "medias": medias_out,
         "encuestas": enc_out,
         "stats": stats_out,
@@ -1078,29 +1606,49 @@ def _clave_dedup(e: dict) -> tuple:
     return (nombre, fecha, muestra)
 
 
+def _orden_fuente(e: dict) -> int:
+    """Prioridad en dedup: fuente del catálogo primero (wikipedia = 0)."""
+    ids = [f["id"] for f in CATALOGO_FUENTES]
+    o = e.get("origen") or ""
+    try:
+        return ids.index(o)
+    except ValueError:
+        return len(ids)
+
+
 def main() -> int:
     print(f"[scraper] Descargando {URL_WIKI} ...")
     html = fetch_html(URL_WIKI)
     crudas = extraer_encuestas(html)
     print(f"[scraper] Filas Wikipedia: {len(crudas)}")
-
-    # 2ª fuente: ElectoralLab (mejor esfuerzo; no bloquea si falla)
-    elab_stats: dict = {"error": None, "encuestas": 0}
-    try:
-        elab, elab_stats = cargar_electorallab()
-        print(f"[scraper] ElectoralLab: {elab_stats}")
-    except Exception as exc:  # noqa: BLE001
-        elab = []
-        elab_stats = {"error": str(exc)[:120], "encuestas": 0}
-        print(f"[scraper] ElectoralLab omitido: {exc}", file=sys.stderr)
-
-    # Marcar origen Wikipedia + margenes
     for e in crudas:
         e.setdefault("origen", "wikipedia")
-    crudas.extend(elab)
 
-    incluidas, excluidas, stats = aplicar_filtros(crudas)
-    # Deduplicar multi-fuente
+    # Fuentes secundarias (mejor esfuerzo; cada una no bloquea el resto)
+    fuentes_stats: dict[str, dict] = {}
+    todos: list[dict] = list(crudas)
+
+    loaders = [
+        ("electorallab", cargar_electorallab),
+        ("votomunicipal", cargar_votomunicipal),
+        ("democrata", cargar_democrata),
+        ("eleccionesespana", cargar_eleccionesespana),
+        ("mapaelectoral", cargar_mapaelectoral),
+    ]
+    for fid, loader in loaders:
+        encs, st = _descargar_fuente(fid, loader)
+        # Solo generales (ccaa_id None o ausente) entran al pool nacional
+        if fid == "mapaelectoral":
+            encs = [e for e in encs if e.get("ccaa_id") is None]
+        fuentes_stats[fid] = st
+        todos.extend(encs)
+
+    incluidas, excluidas, stats = aplicar_filtros(todos)
+    # Lista pre-dedup para pares cross-source (mismo estudio en varias fuentes)
+    pre_dedup = list(incluidas)
+
+    # Deduplicar multi-fuente (prioridad del catálogo ante empate)
+    incluidas.sort(key=_orden_fuente)
     vistos = set()
     unicas = []
     for e in incluidas:
@@ -1111,11 +1659,14 @@ def main() -> int:
         unicas.append(e)
     incluidas = unicas
     anadir_margenes(incluidas)
-    n_wiki = sum(1 for e in incluidas if e.get("origen") == "wikipedia")
-    n_elab = sum(1 for e in incluidas if e.get("origen") == "electorallab")
+
+    conteo = {}
+    for e in incluidas:
+        o = e.get("origen") or "desconocido"
+        conteo[o] = conteo.get(o, 0) + 1
+    detalle = ", ".join(f"{k}={v}" for k, v in sorted(conteo.items()))
     print(
-        f"[scraper] Incluidas: {len(incluidas)} "
-        f"(wiki={n_wiki}, electorallab={n_elab}) | "
+        f"[scraper] Incluidas: {len(incluidas)} ({detalle}) | "
         f"Excluidas: {len(excluidas)} ({stats})"
     )
 
@@ -1125,6 +1676,7 @@ def main() -> int:
     medias_sem_ant = medias_ponderadas(incluidas, hoy, filtro_ventana=(14, 28))
     evolucion = construir_evolucion(incluidas)
     he = house_effects(incluidas, hoy)
+    auditoria = construir_auditoria_fuentes(incluidas, hoy, house=he, candidatas=pre_dedup)
 
     partidos_ord = sorted(
         {p for e in incluidas for p, v in e["votos"].items() if v is not None},
@@ -1132,18 +1684,28 @@ def main() -> int:
                        if p in PARTIDOS_PRINCIPALES else 99, p),
     )
 
+    fuentes_payload = []
+    for meta in CATALOGO_FUENTES:
+        fid = meta["id"]
+        if fid == "wikipedia":
+            fuentes_payload.append({
+                **meta,
+                "stats": {
+                    "filas": len(crudas),
+                    "encuestas": len(crudas),
+                    "encuestas_incluidas": conteo.get("wikipedia", 0),
+                    "error": None,
+                },
+            })
+        else:
+            st = dict(fuentes_stats.get(fid) or {"error": "no_ejecutado", "encuestas": 0})
+            st["encuestas_incluidas"] = conteo.get(fid, 0)
+            fuentes_payload.append({**meta, "stats": st})
+
     payload = {
         "actualizado": datetime.now().isoformat(timespec="seconds"),
         "fuente": URL_WIKI,
-        "fuentes": [
-            {"id": "wikipedia", "nombre": "Wikipedia ES", "url": URL_WIKI},
-            {
-                "id": "electorallab",
-                "nombre": "ElectoralLab (CC BY 4.0)",
-                "url": URL_ELECTORALLAB,
-                "stats": elab_stats,
-            },
-        ],
+        "fuentes": fuentes_payload,
         "filtros": {
             "excluir_cis": True,
             "muestra_minima": MUESTRA_MINIMA,
@@ -1156,8 +1718,7 @@ def main() -> int:
             **stats,
             "total_excluidas": len(excluidas),
             "total_incluidas": len(incluidas),
-            "desde_wikipedia": n_wiki,
-            "desde_electorallab": n_elab,
+            **{f"desde_{k}": v for k, v in sorted(conteo.items())},
         },
         "partidos": partidos_ord,
         "colores": {p: color_partido(p) for p in partidos_ord},
@@ -1167,6 +1728,7 @@ def main() -> int:
         "medias_actual_14d": medias_actual,
         "medias_sem_anterior_14_28d": medias_sem_ant,
         "house_effects": he,
+        "auditoria_fuentes": auditoria,
         "evolucion": evolucion,
     }
 
@@ -1175,8 +1737,13 @@ def main() -> int:
     print(f"[scraper] Guardado en {OUT_PATH}")
     top = sorted(medias_actual.items(), key=lambda x: -x[1])[:6]
     print(f"[scraper] Medias (14d): {top}")
+    print(
+        f"[scraper] Auditoría: moe_medio={auditoria.get('moe_medio_pp')} · "
+        f"cross_pairs={auditoria.get('n_pares_cross_source')} · "
+        f"max_dif={auditoria.get('cross_source_max_dif_pp')}"
+    )
 
-    # Autonómicas (mejor esfuerzo; no bloquea si fallan todas)
+    # Autonómicas (mejor esfuerzo; Wikipedia + MapaElectoral)
     try:
         scrappear_autonomicas()
     except Exception as exc:  # noqa: BLE001
