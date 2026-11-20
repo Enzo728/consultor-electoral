@@ -1,7 +1,10 @@
-"""Scraper de encuestas electorales (Wikipedia ES) con filtros anti-sesgo y medias ponderadas."""
+"""Scraper de encuestas electorales (Wikipedia ES + ElectoralLab) con filtros anti-sesgo,
+medias ponderadas y margen de error muestral."""
 
 from __future__ import annotations
 
+import csv
+import io
 import json
 import math
 import re
@@ -16,6 +19,11 @@ URL_WIKI = (
     "https://es.wikipedia.org/wiki/"
     "Encuestas_de_opini%C3%B3n_para_las_elecciones_generales_de_Espa%C3%B1a_de_2026"
 )
+# ElectoralLab: CSV abierto CC BY 4.0 (incluye Electomanía y otras casas con enlace a la fuente).
+# No se scrapea electomania.es (sus condiciones prohíben la extracción automatizada).
+URL_ELECTORALLAB = "https://electorallab.com/data/encuestas.csv"
+FUENTES = ["wikipedia", "electorallab"]
+
 DATA_DIR = Path(__file__).resolve().parent / "data"
 OUT_PATH = DATA_DIR / "encuestas_limpias.json"
 OUT_AUT_PATH = DATA_DIR / "encuestas_autonomicas.json"
@@ -217,6 +225,16 @@ def norm_partido(nombre: str) -> str:
         "avila punto cero": "OTROS",
         "c's": "Cs",
         "ciudadanos - partido de la ciudadanía": "Cs",
+        # Códigos de ElectoralLab / electomania
+        "bildu": "EH Bildu",
+        "ehbildu": "EH Bildu",
+        "eh bildu": "EH Bildu",
+        "alianca": "OTROS",
+        "aliança": "OTROS",
+        "adelante andalucía": "AA",
+        "c-fv": "C-FV",
+        "compromís-front valencià": "C-FV",
+        "compromis-front valencia": "C-FV",
     }
     key = n.lower().strip()
     if key in equivalencias:
@@ -688,6 +706,10 @@ def aplicar_filtros(encuestas: list[dict]) -> tuple[list[dict], list[dict], dict
         elif not e.get("fecha_fin"):
             motivo = "sin_fecha"
             stats["excluidas_fecha"] += 1
+        elif e["fecha_fin"] > date.today().isoformat():
+            # Parseo de año en tablas Wikipedia (p.ej. '29 Dic–5 Ene' → año+1)
+            motivo = "fecha_futura"
+            stats["excluidas_otra"] += 1
 
         if motivo:
             excluidas.append(
@@ -702,6 +724,101 @@ def aplicar_filtros(encuestas: list[dict]) -> tuple[list[dict], list[dict], dict
             incluidas.append(e)
 
     return incluidas, excluidas, stats
+
+
+def margen_error_pp(muestra: int | None, p: float = 0.5) -> float | None:
+    """Margen de error muestral al 95% (IC normal) en puntos porcentuales.
+
+    fórmula: 1.96 * sqrt(p*(1-p)/n) * 100. Por defecto p=0.5 (caso más conservador).
+    """
+    if not muestra or muestra <= 0:
+        return None
+    return round(1.96 * math.sqrt(p * (1 - p) / muestra) * 100, 2)
+
+
+def anadir_margenes(encuestas: list[dict]) -> list[dict]:
+    """Añade 'moe_pp' (margen ±) a cada encuesta con muestra conocida."""
+    for e in encuestas:
+        if "moe_pp" not in e:
+            e["moe_pp"] = margen_error_pp(e.get("muestra"))
+    return encuestas
+
+
+def cargar_electorallab(dias: int = 120) -> tuple[list[dict], dict]:
+    """Descarga el CSV de ElectoralLab (CC BY 4.0) y lo convierte en encuestas.
+
+    Devuelve (encuestas, stats). Mejor esfuerzo: si falla la red, devuelve lista vacía.
+    """
+    stats = {"fuente": URL_ELECTORALLAB, "filas": 0, "encuestas": 0, "error": None}
+    try:
+        resp = requests.get(
+            URL_ELECTORALLAB,
+            headers={"User-Agent": "ConsultorElectoralEspana/1.0 (proyecto educativo local)"},
+            timeout=45,
+        )
+        resp.raise_for_status()
+        text = resp.content.decode("utf-8", errors="replace")
+    except requests.RequestException as exc:
+        stats["error"] = str(exc)[:120]
+        return [], stats
+
+    rows = list(csv.DictReader(io.StringIO(text)))
+    stats["filas"] = len(rows)
+    if not rows:
+        stats["error"] = "csv_vacio"
+        return [], stats
+
+    limite = (date.today() - timedelta(days=dias)).isoformat()
+    grupos: dict[tuple, dict] = {}
+    for r in rows:
+        fecha_fin = (r.get("fecha") or "").strip()
+        if not fecha_fin or fecha_fin < limite:
+            continue
+        nombre = (r.get("encuestadora") or "").strip()
+        if not nombre or es_cis(nombre):
+            continue
+        muestra_s = (r.get("muestra") or "").strip()
+        muestra = parse_muestra(muestra_s) if muestra_s else None
+        if muestra is None or muestra < MUESTRA_MINIMA:
+            continue
+        inicio = (r.get("inicio") or "").strip() or fecha_fin
+        url = (r.get("fuentes") or "").strip()
+        clave = (nombre, inicio, fecha_fin, muestra)
+        g = grupos.get(clave)
+        if g is None:
+            partes = nombre.split("/", 1)
+            encuestadora = partes[0].strip()
+            comisionista = partes[1].strip() if len(partes) > 1 else ""
+            g = {
+                "encuestadora": encuestadora,
+                "comisionista": comisionista,
+                "fuente_nombre": nombre,
+                "trabajo_campo": f"{inicio} → {fecha_fin}",
+                "fecha_inicio": inicio,
+                "fecha_fin": fecha_fin,
+                "muestra": muestra,
+                "muestra_raw": muestra_s,
+                "votos": {},
+                "origen": "electorallab",
+                "url_fuente": url or None,
+            }
+            grupos[clave] = g
+        partido = norm_partido((r.get("partido") or "").strip())
+        if not partido or partido.upper() in {"NS/NR", "OTROS", "OTRO"}:
+            continue
+        try:
+            pct = float((r.get("voto_pct") or "").replace(",", "."))
+        except ValueError:
+            continue
+        if not 0 <= pct <= 100:
+            continue
+        # Colisión de claves: conservar el máximo (p.ej. suma de coaliciones)
+        prev = g["votos"].get(partido)
+        g["votos"][partido] = pct if prev is None else max(prev, pct)
+
+    encuestas = [g for g in grupos.values() if g["votos"]]
+    stats["encuestas"] = len(encuestas)
+    return encuestas, stats
 
 
 def peso_encuesta(e: dict, ref: date) -> float:
@@ -746,6 +863,7 @@ def construir_evolucion(encuestas: list[dict]) -> list[dict]:
                     "valor": v,
                     "muestra": e["muestra"],
                     "encuestadora": e.get("fuente_nombre", ""),
+                    "moe_pp": e.get("moe_pp"),
                 }
             )
     puntos.sort(key=lambda x: (x["fecha"], x["partido"]))
@@ -951,24 +1069,55 @@ def scrappear_autonomicas() -> dict:
     return payload
 
 
+def _clave_dedup(e: dict) -> tuple:
+    """Clave de deduplicación multi-fuente (normaliza nombre y fechas)."""
+    nombre = (e.get("fuente_nombre") or e.get("encuestadora") or "").strip().lower()
+    fecha = e.get("fecha_fin") or ""
+    muestra = e.get("muestra")
+    # tolerar separadores distintos de fecha
+    return (nombre, fecha, muestra)
+
+
 def main() -> int:
     print(f"[scraper] Descargando {URL_WIKI} ...")
     html = fetch_html(URL_WIKI)
     crudas = extraer_encuestas(html)
-    print(f"[scraper] Filas extraídas: {len(crudas)}")
+    print(f"[scraper] Filas Wikipedia: {len(crudas)}")
+
+    # 2ª fuente: ElectoralLab (mejor esfuerzo; no bloquea si falla)
+    elab_stats: dict = {"error": None, "encuestas": 0}
+    try:
+        elab, elab_stats = cargar_electorallab()
+        print(f"[scraper] ElectoralLab: {elab_stats}")
+    except Exception as exc:  # noqa: BLE001
+        elab = []
+        elab_stats = {"error": str(exc)[:120], "encuestas": 0}
+        print(f"[scraper] ElectoralLab omitido: {exc}", file=sys.stderr)
+
+    # Marcar origen Wikipedia + margenes
+    for e in crudas:
+        e.setdefault("origen", "wikipedia")
+    crudas.extend(elab)
 
     incluidas, excluidas, stats = aplicar_filtros(crudas)
-    # Deduplicar por (fuente_nombre, trabajo_campo, muestra)
+    # Deduplicar multi-fuente
     vistos = set()
     unicas = []
     for e in incluidas:
-        clave = (e["fuente_nombre"], e["trabajo_campo"], e["muestra"], e["fecha_fin"])
+        clave = _clave_dedup(e)
         if clave in vistos:
             continue
         vistos.add(clave)
         unicas.append(e)
     incluidas = unicas
-    print(f"[scraper] Incluidas: {len(incluidas)} | Excluidas: {len(excluidas)} ({stats})")
+    anadir_margenes(incluidas)
+    n_wiki = sum(1 for e in incluidas if e.get("origen") == "wikipedia")
+    n_elab = sum(1 for e in incluidas if e.get("origen") == "electorallab")
+    print(
+        f"[scraper] Incluidas: {len(incluidas)} "
+        f"(wiki={n_wiki}, electorallab={n_elab}) | "
+        f"Excluidas: {len(excluidas)} ({stats})"
+    )
 
     hoy = date.today()
     medias_global = medias_ponderadas(incluidas, hoy)
@@ -986,17 +1135,29 @@ def main() -> int:
     payload = {
         "actualizado": datetime.now().isoformat(timespec="seconds"),
         "fuente": URL_WIKI,
+        "fuentes": [
+            {"id": "wikipedia", "nombre": "Wikipedia ES", "url": URL_WIKI},
+            {
+                "id": "electorallab",
+                "nombre": "ElectoralLab (CC BY 4.0)",
+                "url": URL_ELECTORALLAB,
+                "stats": elab_stats,
+            },
+        ],
         "filtros": {
             "excluir_cis": True,
             "muestra_minima": MUESTRA_MINIMA,
             "lambda_ponderacion": round(LAMBDA_DIAS, 5),
             "notas": (
                 "Media ponderada = exp(-lambda*dias) * sqrt(muestra). "
-                "Se excluyen CIS y muestras < 800."
+                "Se excluyen CIS y muestras < 800. "
+                "moe_pp = margen de error IC 95% (p=0.5)."
             ),
             **stats,
             "total_excluidas": len(excluidas),
             "total_incluidas": len(incluidas),
+            "desde_wikipedia": n_wiki,
+            "desde_electorallab": n_elab,
         },
         "partidos": partidos_ord,
         "colores": {p: color_partido(p) for p in partidos_ord},

@@ -594,15 +594,25 @@ with st.sidebar:
     else:
         act_txt = f"Actualizado: {act_iso}"
     st.caption(act_txt)
-    st.caption(f"Fuente: Wikipedia · {datos.get('actualizado', '—')}")
+    fuentes = datos.get("fuentes") or []
+    if fuentes:
+        nombres = " + ".join(x.get("nombre", x.get("id", "?")) for x in fuentes)
+        st.caption(f"Fuentes: {nombres} · {datos.get('actualizado', '—')}")
+    else:
+        st.caption(f"Fuente: Wikipedia · {datos.get('actualizado', '—')}")
     st.caption(
         f"Incluidas {f.get('total_incluidas', '?')} · "
         f"excluidas {f.get('total_excluidas', '?')}"
+        + (
+            f" · wiki {f.get('desde_wikipedia', '?')} + EL {f.get('desde_electorallab', '?')}"
+            if f.get("desde_wikipedia") is not None
+            else ""
+        )
     )
     info = cargar_informe()
     if info:
         st.caption(f"IA: {info.get('generado_en', '—')}")
-    st.caption("Media ponderada · sin CIS · n≥800 · D'Hondt 350")
+    st.caption("Media ponderada · sin CIS · n≥800 · ±margen 95% · D'Hondt 350")
 
 # ═══════════════════════ MÁQUINA DEL TIEMPO ═══════════════════════
 opciones_fecha = list(dias_hist) + ["Hoy"]
@@ -1069,6 +1079,7 @@ with tab_tend:
         )
 
 with tab_aud:
+    st.caption("House effects: desviación de cada casa frente al consenso (45 días).")
     he = datos.get("house_effects") or []
     if he:
         filas = [
@@ -1076,13 +1087,41 @@ with tab_aud:
                 "Encuestadora": h["encuestadora"],
                 "n": h["n_encuestas"],
                 "Partido": h["desviacion_max"]["partido"],
-                "Desv.": h["desviacion_max"]["pp"],
+                "Desv. (pp)": h["desviacion_max"]["pp"],
             }
             for h in he
         ]
         st.dataframe(pd.DataFrame(filas), width="stretch", hide_index=True)
     else:
         st.info("Sin house effects.")
+
+    # Últimas encuestas con margen de error muestral (IC 95%, p=0.5)
+    st.caption("Últimas encuestas · margen de error ± IC 95% (peor caso p=50%).")
+    encs = sorted(
+        (datos.get("encuestas") or []),
+        key=lambda e: e.get("fecha_fin") or "",
+        reverse=True,
+    )[:25]
+    if encs:
+        filas_m = []
+        for e in encs:
+            votos = e.get("votos") or {}
+            filas_m.append(
+                {
+                    "Fecha": e.get("fecha_fin", ""),
+                    "Encuestadora": e.get("fuente_nombre", ""),
+                    "n": e.get("muestra"),
+                    "Origen": e.get("origen", "wikipedia"),
+                    "± MOE": e.get("moe_pp"),
+                    "PP": votos.get("PP"),
+                    "PSOE": votos.get("PSOE"),
+                    "VOX": votos.get("VOX"),
+                    "FA": votos.get("FA") if votos.get("FA") is not None else votos.get("SUMAR"),
+                }
+            )
+        st.dataframe(pd.DataFrame(filas_m), width="stretch", hide_index=True)
+    else:
+        st.info("Sin encuestas para mostrar.")
 
     f = datos.get("filtros", {}) or {}
     m1, m2, m3, m4 = st.columns(4)
@@ -1094,6 +1133,18 @@ with tab_aud:
         (f.get("excluidas_fecha", 0) or 0) + (f.get("excluidas_otra", 0) or 0),
         border=True,
     )
+
+    fuentes = datos.get("fuentes") or []
+    if fuentes:
+        with st.expander("Fuentes de datos"):
+            for fu in fuentes:
+                st.markdown(
+                    f"- **{fu.get('nombre', fu.get('id'))}** — `{fu.get('url', '')}`"
+                )
+            st.caption(
+                "Electomanía no se scrapea directamente (sus condiciones lo prohíben); "
+                "sus encuestas llegan vía ElectoralLab/Wikipedia con enlace a la fuente original."
+            )
 
     excl = datos.get("excluidas") or []
     if excl:

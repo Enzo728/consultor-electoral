@@ -1,112 +1,113 @@
 {
-  "fecha_informe": "2026-11-14",
-  "resumen_ejecutivo": "El escenario electoral muestra un estrechamiento del margen entre las dos principales fuerzas, impulsado por un crecimiento del PSOE (+2,19 pp en el delta semanal) que sitúa su media a 14 días en el 28,67%. El Partido Popular retrocede moderadamente (-0,67 pp semanal) pero mantiene el liderazgo con un 30,31% a 14 días, mientras VOX cae -1,26 pp hasta el 18,22%. En el espacio a la izquierda del PSOE, la consolidación de FA (6,75%) absorbe la mayor parte del espacio previamente atribuido a Sumar, en detrimento de Podemos (1,64%). La suma del bloque de centro-derecha (PP + VOX) alcanza el 48,53%, conservando la ventaja global sobre la izquierda.",
+  "fecha_informe": "2026-11-16",
+  "resumen_ejecutivo": "El análisis cuantitativo sobre 314 encuestas ponderadas refleja un escenario dominado por el Partido Popular con una media global del 30.67%, seguido por el PSOE con un 28.03% y VOX con un 18.51%. La dinámica reciente muestra un estrechamiento de la ventaja del PP sobre el PSOE a 1.43 puntos en los últimos 14 días (30.20% frente a 28.77%), impulsado por una recuperación semanal socialista del +2.29 pp. El espacio a la izquierda se reconfigura con la consolidación de FA (6.71% global) y la fragmentación entre SUMAR (5.56%) y PODEMOS (2.10%). Se registran notables efectos de casa (house effects) que polarizan la demoscopia entre firmas favorables al bloque gubernamental y de la oposición.",
   "progreso_campana": {
-    "situacion": "La campaña atraviesa una fase de reajuste dinámico marcada por el recorte de distancias entre PP y PSOE. El PP conserva la primera posición con un 30,31% en los últimos 14 días, aunque experimenta una pérdida de impulso respecto a semanas anteriores. El PSOE protagoniza la mayor subida semanal con +2,19 pp, impulsado por encuestas recientes con fuerte volumen muestral. VOX muestra un retroceso semanal hasta el 18,22%, tras haberse mantenido cerca del 19,5% en semanas previas. La reconfiguración de la izquierda alternativa se asienta sobre FA (6,75%), mientras Podemos se repliega al 1,64% y SALF permanece estable en torno al 1,91%.",
+    "situacion": "La campaña se encuentra en un punto de alta competencia con el PP en primera posición (30.67% global), aunque experimentando un retroceso en el promedio de los últimos 14 días hasta el 30.20%. El PSOE experimenta una aceleración semanal con un incremento de +2.29 pp, alcanzando un 28.77% en la media reciente a 14 días. VOX consolida una tercera plaza sólida con el 18.51% global (18.18% a 14 días), sufriendo una corrección semanal de -1.25 pp. La irrupción de FA (6.71% global, 6.82% a 14 días) altera la estructura de la izquierda no PSOE, restando espacio a PODEMOS (1.64% a 14 días). SALF mantiene un suelo estable en el 1.90% global (1.88% a 14 días).",
     "tendencia_bloques": {
-      "derecha_PP_VOX": "Tendencia bajista a corto plazo con un acumulado del 48,53% a 14 días, perdiendo 1,93 pp entre PP (-0,67 pp) y VOX (-1,26 pp).",
-      "izquierda_PSOE_FA_SUMAR_PODEMOS": "Tendencia al alza por el impulso del PSOE (28,67% a 14 días) y la estabilización de FA (6,75%), superando conjuntamente el 37% sin contar fuerzas regionalistas.",
-      "otras_fuerzas": "Estabilidad en el bloque nacionalista/regionalista (ERC 2,53%, Junts 1,31%, Bildu 1,41%, PNV 0,81%, BNG 0,95%), mientras SALF registra un 1,91%."
+      "derecha_PP_VOX": "El bloque de derecha (PP + VOX) suma una media global del 49.18% (48.38% a 14 días), mostrando una tendencia al alza moderada en el histórico pero con síntomas de erosión en la última semana debido a caídas simultáneas de PP (-1.05 pp) y VOX (-1.25 pp).",
+      "izquierda_PSOE_FA_SUMAR_PODEMOS": "El bloque de izquierda (PSOE + FA + SUMAR + PODEMOS) acumula un 42.40% global y refleja un repunte reciente empujado por la subida del PSOE (+2.29 pp semanal) y la estabilidad de FA (6.82% a 14 días).",
+      "otras_fuerzas": "Las fuerzas nacionalistas y regionalistas mantienen estabilidad en sus horquillas habituales (ERC 2.45%, JUNTS 1.34%, EH Bildu 1.40%, BNG 0.95%, PNV 0.85%), mientras que SALF cotiza en el 1.88% reciente tras un retroceso semanal de -0.24 pp."
     },
-    "momento_clave": "Fase de volatilidad y reactivación del voto del PSOE, que quiebra la meseta previa del bloque de la derecha."
+    "momento_clave": "Fase de volatilidad y reajuste en la recta reciente con estrechamiento del margen entre PP y PSOE y reagrupamiento del voto útil."
   },
   "puntos_inflexion": [
     {
       "semana_o_fecha": "2026-W46",
       "partido": "PSOE",
-      "descripcion": "Repunte de +2,19 pp en la estimación semanal del PSOE alcanzando el 31,2% en datos de SW Demoscopia, acortando la brecha con el PP.",
-      "magnitud_pp": 2.19
+      "descripcion": "Repunte del PSOE que escala al 31.2% semanal impulsado por los muestreos de SW Demoscopia, generando el delta positivo semanal más elevado del periodo.",
+      "magnitud_pp": 2.29
     },
     {
       "semana_o_fecha": "2026-W46",
-      "partido": "VOX",
-      "descripcion": "Caída semanal de -1,26 pp retrocediendo al 17,5% tras semanas rozando el 19,5%.",
-      "magnitud_pp": -1.26
+      "partido": "PP",
+      "descripcion": "Caída del PP al 28.5% en la serie semanal W46 frente al 30.75% de W45 (-2.25 pp intersemanal).",
+      "magnitud_pp": -1.05
     },
     {
       "semana_o_fecha": "2026-W42",
       "partido": "FA",
-      "descripcion": "Irrupción formal de Frente Amplio (FA) con un 7,00%, reestructurando el espacio a la izquierda del PSOE.",
+      "descripcion": "Irrupción cuantificada de FA en la serie semanal alcanzando el 7.0%, absorbiendo voto de SUMAR y PODEMOS.",
       "magnitud_pp": 7.0
     }
   ],
   "auditoria_dispersion": {
-    "encuestadora_mas_desviada": "SW Demoscopia",
+    "encuestadora_mas_desviada": "SW Demoscopia (desviación de +2.99 pp en PSOE) y DYM (desviación atípica de +13.06 pp en SUMAR)",
     "house_effects": [
       {
-        "encuestadora": "SW Demoscopia",
-        "partido": "PSOE",
-        "desviacion_pp": 2.97,
-        "lectura": "Alineación ideológica / sesgo pro-PSOE persistente en sus 6 entregas."
+        "encuestadora": "DYM",
+        "partido": "SUMAR",
+        "desviacion_pp": 13.06,
+        "lectura": "Anomalía metodológica severa en la captación/ponderación de SUMAR."
       },
       {
         "encuestadora": "SW Demoscopia",
-        "partido": "PP",
-        "desviacion_pp": -2.02,
-        "lectura": "Subestimación sistemática del voto al PP en relación a la media agregada."
+        "partido": "PSOE",
+        "desviacion_pp": 2.99,
+        "lectura": "Sesgo favorable al PSOE y desviación negativa del PP (-2.05 pp)."
       },
       {
         "encuestadora": "Data10",
         "partido": "PSOE",
-        "desviacion_pp": -3.31,
-        "lectura": "Fuerte infraponderación del PSOE respecto a la media ponderada global."
+        "desviacion_pp": -3.29,
+        "lectura": "Infraponderación acusada del PSOE y sesgo pro-PP (+1.79 pp)."
+      },
+      {
+        "encuestadora": "Sigma Dos",
+        "partido": "PSOE",
+        "desviacion_pp": -2.87,
+        "lectura": "Sesgo a la baja respecto a la media para el PSOE."
       },
       {
         "encuestadora": "NC Report",
         "partido": "PP",
-        "desviacion_pp": 2.42,
-        "lectura": "House effect favorable al PP registrado en 4 encuestas."
-      },
-      {
-        "encuestadora": "40dB",
-        "partido": "FA",
-        "desviacion_pp": -2.81,
-        "lectura": "Subestimación del espacio de Frente Amplio."
+        "desviacion_pp": 2.39,
+        "lectura": "Sobreestimación del PP e infravaloración del PSOE (-2.42 pp)."
       }
     ],
     "alertas": [
-      "SW Demoscopia sitúa al PSOE en el 31,2% en W46, marcando un outlier respecto a institutos como Sigma Dos (25,2%) o GAD3 (25,9%).",
-      "DYM presenta un desajuste precomputado en la etiqueta SUMAR (+13,01 pp) motivado por reclasificación de marcas partidarias."
+      "Secuencia atípica de SW Demoscopia en W46 concediendo la victoria al PSOE con 31.2% frente a 28.5% del PP.",
+      "Divergencia metodológica en DYM con estimación totalmente dislocada para SUMAR (+13.06 pp sobre la media).",
+      "Polarización sistemática entre firmas pro-Gobierno (SW Demoscopia, 40dB) y pro-Oposición (NC Report, Data10, SocioMétrica)."
     ],
-    "nota_metodologica": "El modelo procesa 281 encuestas válidas tras aplicar un filtro de exclusión de 73 estudios (48 por ser del CIS y 25 por tamaño muestral N<800 o fecha), aplicando ponderación exponencial temporal con lambda = 0,09902."
+    "nota_metodologica": "Media ponderada calculada sobre 314 encuestas (exp(-lambda*dias)*sqrt(n)). Se han excluido 49 encuestas del CIS por sesgo metodológico y 19 por deficiencias muestrales o imprecisión en trabajo de campo."
   },
-  "markdown": "## Progreso de campaña\n\nEl análisis de la serie electoral actualizada a 14 de noviembre de 2026 muestra un estrechamiento de la contienda electoral. El **Partido Popular** se mantiene en cabeza con una media agregada a 14 días del **30,31%** (30,64% en la media global), aunque refleja un descenso de **-0,67 pp** en el delta semanal.\n\nPor su parte, el **PSOE** experimenta una recuperación destacada, registrando un aumento semanal de **+2,19 pp** que eleva su media a 14 días hasta el **28,67%**. Esta subida se ve impulsada por los sondeos de gran muestra publicados en la primera semana de noviembre.\n\nEn la tercera posición, **VOX** registra un retroceso de **-1,26 pp**, situándose en el **18,22%** a 14 días (18,50% global). La suma del bloque de centro-derecha (PP + VOX) alcanza el **48,53%**, conservando una ventaja de casi 10 puntos sobre la suma directa del PSOE y FA.\n\nEn la izquierda alternativa, **Frente Amplio (FA)** se consolida como referente con un **6,75%** a 14 días, mientras que **Podemos** cae al **1,64%** (-0,50 pp en la última semana). **Se Acabó La Fiesta (SALF)** mantiene su electorado con un **1,91%**.\n\n---\n\n## Puntos de inflexión\n\n1. **Semana 2026-W46 (Repunte del PSOE):** El PSOE sube +2,19 pp en la estimación agregada, motivado por las entregas con amplias muestras de SW Demoscopia que le otorgan hasta un 31,2%.\n2. **Semana 2026-W46 (Ajuste en VOX):** VOX cede -1,26 pp descendiendo al 17,5% en la serie semanal, deteniendo su trayectoria ascendente previa.\n3. **Semana 2026-W42 (Consolidación de FA):** La aparición y medición sistemática de FA en torno al 7,00% reordena el espacio a la izquierda del PSOE, reduciendo la presencia de Sumar y Podemos.\n\n---\n\n## Auditoría de dispersión\n\nExiste una notable dispersión metodológica entre encuestadoras:\n\n* **SW Demoscopia** muestra el sesgo más elevado hacia el PSOE (**+2,97 pp**) y en contra del PP (**-2,02 pp**), situando al PSOE en primera posición con más del 30,8%-31,2%.\n* **Data10** y **NC Report** exhiben el patrón opuesto: Data10 infrapondera al PSOE en **-3,31 pp** mientras NC Report sobrepondera al PP en **+2,42 pp**.\n* **Sigma Dos** y **GAD3** muestran estimaciones más congruentes con la media ponderada del modelo, ubicando al PP en la franja del 31,0%-31,9% y al PSOE en el 25,2%-25,9%.\n\n---\n\n## Conclusión\n\nLa contienda se adentra en un escenario de volatilidad. Aunque el **PP conservaría la capacidad de liderar la formación de gobierno con el apoyo de VOX**, el diferencial entre los dos grandes partidos se ha reducido a **1,64 puntos** en la media reciente a 14 días. La evolución de la izquierda dependerá de si la transferencia de voto hacia el PSOE se consolida o si responde a un efecto coyuntural derivado de sesgos de casa específicos.",
-  "generado_en": "2026-11-14T12:44:23",
+  "markdown": "## Progreso de campaña\n\nEl escenario electoral muestra una pugna ajustada entre el **PP** (30.67% media global) y el **PSOE** (28.03% media global). La ventaja del PP se ha reducido en el promedio a 14 días (30.20% frente a 28.77%) debido al impulso reciente del PSOE (+2.29 pp semanales). **VOX** ocupa la tercera posición con un 18.51% global (18.18% a 14 días), mientras que la izquierda no PSOE vive una recomposición profunda tras la irrupción de **FA** (6.71% global) frente a **SUMAR** (5.56%) y **PODEMOS** (2.10%). El espacio de protestas a la derecha mantiene a **SALF** en un 1.90% global.\n\nEl bloque de la derecha (PP + VOX) acumula un 49.18% global frente al 42.40% de la izquierda (PSOE + FA + SUMAR + PODEMOS).\n\n## Puntos de inflexión\n\n- **2026-W42**: Entrada formal de **FA** en el agregador registrando un 7.0%, redistribuyendo apoyos en el bloque de la izquierda.\n- **2026-W46**: Sorpasso puntual en la serie semanal con el **PSOE** alcanzando el 31.2% (+2.29 pp) y el **PP** descendiendo al 28.5% (-1.05 pp de delta semanal ponderado).\n\n## Auditoría de dispersión\n\nEl análisis de *house effects* confirma una importante disparidad metodológica entre institutos de opinión:\n\n1. **SW Demoscopia**: Presenta la mayor sobreestimación del PSOE (+2.99 pp sobre el promedio del mercado) y una penalización del PP (-2.05 pp).\n2. **Data10 y NC Report**: Encabezan el sesgo pro-PP (+1.79 pp y +2.39 pp respectivamente), penalizando al PSOE (-3.29 pp y -2.42 pp).\n3. **DYM**: Muestra un outlier extremo en SUMAR (+13.06 pp de desviación respecto a la media nacional).\n\n## Conclusión\n\nA pesar de la ventaja global del PP (30.67%), los datos a 14 días y la aceleración semanal del PSOE comprimen la contienda. La suma de PP y VOX roza la mayoría de votos (49.18%), pero la fragmentación a la izquierda y los fuertes efectos de casa exigen cautela al interpretar los picos semanales.",
+  "generado_en": "2026-11-16T13:36:02",
   "modelo": "gemini-3.5-flash",
   "datos_referencia": {
-    "actualizado": "2026-11-14T12:44:00",
+    "actualizado": "2026-11-16T13:35:02",
     "medias_actual_14d": {
-      "PP": 30.31,
-      "PSOE": 28.67,
-      "VOX": 18.22,
-      "FA": 6.75,
+      "PP": 30.2,
+      "PSOE": 28.77,
+      "VOX": 18.18,
+      "FA": 6.82,
       "ERC": 2.53,
-      "JUNTS": 1.31,
+      "JUNTS": 1.3,
       "EH Bildu": 1.41,
       "PNV": 0.81,
       "BNG": 0.95,
       "CCa": 0.42,
       "AA": 1.48,
       "PODEMOS": 1.64,
-      "SALF": 1.91,
-      "C-FV": 1.14
+      "SALF": 1.88,
+      "C-FV": 1.18
     },
     "deltas_semana": {
-      "PNV": -0.09,
-      "C-FV": 0.07,
-      "AA": 0.23,
-      "BNG": 0.03,
-      "VOX": -1.26,
-      "FA": 0.26,
-      "PP": -0.67,
-      "SALF": -0.07,
-      "PSOE": 2.19,
-      "ERC": 0.15,
-      "CCa": 0.06,
-      "JUNTS": -0.09,
-      "PODEMOS": -0.5,
-      "EH Bildu": 0.06
+      "FA": 0.5,
+      "C-FV": 0.18,
+      "PNV": -0.07,
+      "BNG": 0.04,
+      "PODEMOS": -0.42,
+      "CCa": 0.02,
+      "SALF": -0.24,
+      "AA": 0.19,
+      "JUNTS": -0.11,
+      "PSOE": 2.29,
+      "ERC": 0.11,
+      "EH Bildu": 0.05,
+      "VOX": -1.25,
+      "PP": -1.05
     },
-    "n_encuestas": 281
+    "n_encuestas": 314
   }
 }

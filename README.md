@@ -1,6 +1,6 @@
 # Consultor Electoral España
 
-Streamlit + scraper de Wikipedia + Gemini: **Congreso (350)**, **Senado (266)** y **Autonomías (10 CCAA)** — proyección D'Hondt, pactómetro, histórico diario y momentum.
+Streamlit + scraper multi-fuente (Wikipedia ES + ElectoralLab) + Gemini: **Congreso (350)**, **Senado (266)** y **Autonomías (10 CCAA)** — proyección D'Hondt, pactómetro, histórico diario, momentum, house effects y margen de error muestral (± IC 95%).
 
 ## Arranque rápido
 
@@ -37,7 +37,7 @@ Selector en la cabecera: **Congreso · Senado · Autonomías** (+ combo de CCAA)
 | Archivo | Función |
 |---------|---------|
 | `app.py` | Interfaz Streamlit (minimal, responsive, selector de cámaras) |
-| `scraper.py` | Extrae/filtra encuestas generales (sin CIS, n≥800) y autonómicas (n≥600) |
+| `scraper.py` | Encuestas generales: Wikipedia ES + ElectoralLab (CC BY 4.0); filtros sin CIS, n≥800; autonómicas n≥600; `moe_pp` ± IC 95% |
 | `analizador_ia.py` | Informe + chat con Gemini |
 | `pactometro.py` | D'Hondt 350 escaños, bloques, hemiciclo Congreso |
 | `senado.py` | D'Hondt/mayoritario 266 escaños, diseño 134, designación 58 |
@@ -47,10 +47,21 @@ Selector en la cabecera: **Congreso · Senado · Autonomías** (+ combo de CCAA)
 
 ## Datos
 
-- `data/encuestas_limpias.json` — encuestas generales filtradas
+- `data/encuestas_limpias.json` — encuestas generales filtradas (Wikipedia + ElectoralLab, con `moe_pp`)
 - `data/encuestas_autonomicas.json` — medias por CCAA
 - `data/historico_diario.json` — histórico diario (3 cámaras)
 - `data/informe_ia.json` — informe del consultor
+
+## Fuentes
+
+| Fuente | Uso | Licencia / notas |
+|--------|-----|------------------|
+| Wikipedia ES | Tablas de encuestas generales y autonómicas | CC BY-SA |
+| ElectoralLab (`electorallab.com/data/encuestas.csv`) | 2ª fuente generales (incluye Electomanía y otras casas) | CC BY 4.0, cita a la fuente original |
+| Electomanía | **No se scrapea** (condiciones lo prohíben); llega vía Wikipedia/ElectoralLab | — |
+| CIS | Excluido por diseño anti-sesgo | — |
+
+`moe_pp` = margen de error al 95% con p=0.5: `1.96·√(0.25/n)·100`.
 
 ## CI
 
